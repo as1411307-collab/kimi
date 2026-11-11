@@ -1,0 +1,22 @@
+{
+  "repository": "ComposioHQ/helm-charts",
+  "commit": "c6ea94c82fc0fd6eca73cab7b9ce5c0ef04f7a8c",
+  "source_url": "https://github.com/ComposioHQ/helm-charts/tree/c6ea94c82fc0fd6eca73cab7b9ce5c0ef04f7a8c",
+  "recovery_method": "git fetch --depth 1 COMMIT followed by git archive FETCH_HEAD over SSH",
+  "commit_verified_against_github_api": true,
+  "recovery_type": "RECONSTRUCTED_UPSTREAM_WORKTREE_NOT_ORIGINAL_LOCAL_DIRECTORY",
+  "includes_git_directory": false,
+  "archive_file_name": "ComposioHQ__helm-charts.c6ea94c82fc0.worktree.tar.gz",
+  "archive_bytes": 1981407,
+  "archive_sha256": "99921908f04b0e7e090804c409291340efe9660f3c0cc936613164675e97dc41",
+  "archive_entries": 472,
+  "gzip_test": "PASS",
+  "files": [
+    {
+      "path": "evidence/source-archives/ComposioHQ__helm-charts/ComposioHQ__helm-charts.c6ea94c82fc0.worktree.tar.gz",
+      "bytes": 1981407,
+      "sha256": "99921908f04b0e7e090804c409291340efe9660f3c0cc936613164675e97dc41"
+    }
+  ],
+  "recovered_at": "2026-11-11T11:56:44.868343+00:00"
+}
