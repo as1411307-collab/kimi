@@ -1,0 +1,22 @@
+{
+  "repository": "ComposioHQ/trustclaw",
+  "commit": "9a60c563711ee17687d0a60d34901417162ad531",
+  "source_url": "https://github.com/ComposioHQ/trustclaw/tree/9a60c563711ee17687d0a60d34901417162ad531",
+  "recovery_method": "git fetch --depth 1 COMMIT followed by git archive FETCH_HEAD over SSH",
+  "commit_verified_against_github_api": true,
+  "recovery_type": "RECONSTRUCTED_UPSTREAM_WORKTREE_NOT_ORIGINAL_LOCAL_DIRECTORY",
+  "includes_git_directory": false,
+  "archive_file_name": "ComposioHQ__trustclaw.9a60c563711e.worktree.tar.gz",
+  "archive_bytes": 15444508,
+  "archive_sha256": "24fb14cc4220ea930cf45e2164c107dffd94090955d244c13544da175e7184f8",
+  "archive_entries": 308,
+  "gzip_test": "PASS",
+  "files": [
+    {
+      "path": "evidence/source-archives/ComposioHQ__trustclaw/ComposioHQ__trustclaw.9a60c563711e.worktree.tar.gz",
+      "bytes": 15444508,
+      "sha256": "24fb14cc4220ea930cf45e2164c107dffd94090955d244c13544da175e7184f8"
+    }
+  ],
+  "recovered_at": "2026-11-11T11:56:24.689614+00:00"
+}
