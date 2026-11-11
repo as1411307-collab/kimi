@@ -150,6 +150,33 @@
       ]
     },
     {
+      "repository": "NousResearch/hermes-agent",
+      "commit": "b7db40d82568ea68ce321ac1ead3bfea354c7f56",
+      "source_url": "https://github.com/NousResearch/hermes-agent/tree/b7db40d82568ea68ce321ac1ead3bfea354c7f56",
+      "recovery_type": "RECONSTRUCTED_UPSTREAM_WORKTREE_NOT_ORIGINAL_LOCAL_DIRECTORY",
+      "includes_git_directory": false,
+      "archive_bytes": 91457030,
+      "archive_sha256": "317e50601f80e98899c73c4800953fda652d4eea4eeb18adef0aa9bdb6f9ddce",
+      "archive_entries": 23613,
+      "files": [
+        {
+          "path": "evidence/source-archives/NousResearch__hermes-agent/NousResearch__hermes-agent.b7db40d82568.worktree.tar.gz.part000",
+          "bytes": 41943040,
+          "sha256": "21be4d12d8ceb8b3914392f2e3ba06d77e69ab7ed08634ec70e88bf5c096cbea"
+        },
+        {
+          "path": "evidence/source-archives/NousResearch__hermes-agent/NousResearch__hermes-agent.b7db40d82568.worktree.tar.gz.part001",
+          "bytes": 41943040,
+          "sha256": "989ac3c1f414cb1200596d880154b1d7d9842a1193ab4733b56e0c54a6809e66"
+        },
+        {
+          "path": "evidence/source-archives/NousResearch__hermes-agent/NousResearch__hermes-agent.b7db40d82568.worktree.tar.gz.part002",
+          "bytes": 7570950,
+          "sha256": "f6cd05c2584c5b5b9590c16a68e776d389eb32479b3a2386f11326b4a26a2021"
+        }
+      ]
+    },
+    {
       "repository": "NousResearch/hermes-agent-self-evolution",
       "commit": "0a929e3aa20e15cf04dc7c28492a7d41a5139125",
       "source_url": "https://github.com/NousResearch/hermes-agent-self-evolution/tree/0a929e3aa20e15cf04dc7c28492a7d41a5139125",
