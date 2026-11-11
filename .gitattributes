@@ -1,0 +1,27 @@
+# Evidence binaries — never line-convert
+*.pack -text
+*.pack.part* -text
+*.idx -text
+*.tar.gz -text
+*.tgz -text
+*.zip -text
+*.gz -text
+*.png -text
+*.jpg -text
+*.jpeg -text
+*.gif -text
+*.webp -text
+*.mp4 -text
+*.webm -text
+*.pdf -text
+*.bin -text
+*.so -text
+*.dylib -text
+*.exe -text
+*.dll -text
+*.pyc -text
+*.woff -text
+*.woff2 -text
+*.ttf -text
+*.otf -text
+*.ico -text
