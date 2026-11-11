@@ -20,6 +20,33 @@
       ]
     },
     {
+      "repository": "ComposioHQ/composio",
+      "commit": "e7c4aac1e3b1fd05019d17a6e1010891c0917e6e",
+      "source_url": "https://github.com/ComposioHQ/composio/tree/e7c4aac1e3b1fd05019d17a6e1010891c0917e6e",
+      "recovery_type": "RECONSTRUCTED_UPSTREAM_WORKTREE_NOT_ORIGINAL_LOCAL_DIRECTORY",
+      "includes_git_directory": false,
+      "archive_bytes": 85552678,
+      "archive_sha256": "865cab258a7e9d67e3a24ea1fcba7eef440e07e41a5d46ab3a498ad2d596545c",
+      "archive_entries": 4001,
+      "files": [
+        {
+          "path": "evidence/source-archives/ComposioHQ__composio/ComposioHQ__composio.e7c4aac1e3b1.worktree.tar.gz.part000",
+          "bytes": 41943040,
+          "sha256": "9d466bfebb064227f86308f10fddf61918db5a1b4d9270f2c1354013afd19174"
+        },
+        {
+          "path": "evidence/source-archives/ComposioHQ__composio/ComposioHQ__composio.e7c4aac1e3b1.worktree.tar.gz.part001",
+          "bytes": 41943040,
+          "sha256": "2173abe128926c1a702158898dab8559e13607abed266a0b1e1fb35a27f802db"
+        },
+        {
+          "path": "evidence/source-archives/ComposioHQ__composio/ComposioHQ__composio.e7c4aac1e3b1.worktree.tar.gz.part002",
+          "bytes": 1666598,
+          "sha256": "67b7941216ca64f878107266f0dae0a0dd5f74f1de18c33a3114a9b39071bd89"
+        }
+      ]
+    },
+    {
       "repository": "ComposioHQ/helm-charts",
       "commit": "c6ea94c82fc0fd6eca73cab7b9ce5c0ef04f7a8c",
       "source_url": "https://github.com/ComposioHQ/helm-charts/tree/c6ea94c82fc0fd6eca73cab7b9ce5c0ef04f7a8c",
