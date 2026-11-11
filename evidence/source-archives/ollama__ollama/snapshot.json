@@ -1,0 +1,22 @@
+{
+  "repository": "ollama/ollama",
+  "commit": "1f23c7232e8e35b21d81bb03569a8afde2a6b0f9",
+  "source_url": "https://github.com/ollama/ollama/tree/1f23c7232e8e35b21d81bb03569a8afde2a6b0f9",
+  "recovery_method": "git fetch --depth 1 COMMIT followed by git archive FETCH_HEAD over SSH",
+  "commit_verified_against_github_api": true,
+  "recovery_type": "RECONSTRUCTED_UPSTREAM_WORKTREE_NOT_ORIGINAL_LOCAL_DIRECTORY",
+  "includes_git_directory": false,
+  "archive_file_name": "ollama__ollama.1f23c7232e8e.worktree.tar.gz",
+  "archive_bytes": 27112089,
+  "archive_sha256": "d7e0e2ff60e4970a7e0802bd9b919266c226f45696fde0505f856c85147a1922",
+  "archive_entries": 1632,
+  "gzip_test": "PASS",
+  "files": [
+    {
+      "path": "evidence/source-archives/ollama__ollama/ollama__ollama.1f23c7232e8e.worktree.tar.gz",
+      "bytes": 27112089,
+      "sha256": "d7e0e2ff60e4970a7e0802bd9b919266c226f45696fde0505f856c85147a1922"
+    }
+  ],
+  "recovered_at": "2026-11-11T11:44:10.248973+00:00"
+}
