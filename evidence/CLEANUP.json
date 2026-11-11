@@ -1,0 +1,65 @@
+{
+  "date": "2026-11-11T18:07:39.712834+00:00",
+  "removed_paths": [
+    "evidence/deliverables/smoke_shims/__pycache__",
+    "evidence/deliverables/ملخص_التشغيل_والجمع/preview",
+    "evidence/deliverables/ملخص_جرد_المستودعات/preview",
+    "evidence/deliverables/ملخص_إثراء_الجمع/preview",
+    "evidence/deliverables/ملخص_التشغيل_والجمع/preview_final",
+    "evidence/deliverables/ملخص_جرد_المستودعات/preview_final",
+    "evidence/deliverables/ملخص_التشغيل_والجمع/preview_final2",
+    "evidence/workspaces/repo_inventory_work/ollama.branches.raw.txt",
+    "evidence/workspaces/repo_inventory_work/langflow/docs/docs/versioned_docs",
+    "evidence/deliverables/حزمة-إثراء-الجمع.txt",
+    "evidence/deliverables/ملخص_جرد_المستودعات/preview_rtl"
+  ],
+  "changed_archives": [
+    {
+      "repository": "Shubhamsaboo/awesome-llm-apps",
+      "removed_members": 18,
+      "registry_entries_removed": 0,
+      "rules": [
+        "advanced_ai_agents/autonomous_game_playing_agent_apps/",
+        "advanced_ai_agents/multi_agent_apps/agent_teams/ai_game_design_agent_team/"
+      ]
+    },
+    {
+      "repository": "langflow-ai/langflow",
+      "removed_members": 2982,
+      "registry_entries_removed": 0,
+      "rules": [
+        "docs/versioned_docs/"
+      ]
+    },
+    {
+      "repository": "nexu-io/open-design",
+      "removed_members": 43,
+      "registry_entries_removed": 9,
+      "rules": [
+        "image-templates/game-screenshot-",
+        "image-templates/game-ui-",
+        "video-templates/cyberpunk-game-trailer-script",
+        "video-templates/video-seedance-three-kingdoms-",
+        "assets/prompt-templates/image/game-",
+        "assets/prompt-templates/image/zelda-style-forbidden-city-game-screenshot",
+        "prompt-templates/image/game-",
+        "prompt-templates/image/zelda-style-forbidden-city-game-screenshot",
+        "prompt-templates/video/cyberpunk-game-trailer-script",
+        "prompt-templates/video/video-seedance-three-kingdoms-"
+      ]
+    }
+  ],
+  "backup_remote": "https://github.com/yjtjcfc5cm-boop/kimi",
+  "backup_local": "/mnt/agents/output/نسخة-احتياطية-kimi-قبل-التنظيف",
+  "added_paths": [
+    "README.md",
+    "docs/APP-GUIDE.md",
+    "evidence/CLEANUP.md",
+    "reference/ahmed-v01/PROVENANCE.md",
+    "reference/ahmed-v01/apps/core",
+    "reference/ahmed-v01/packages/contract",
+    "reference/ahmed-v01/docs/BUILD_PROMPT.md",
+    "reference/ahmed-v01/docs/VISION.md",
+    "evidence/research/RESEARCH.md"
+  ]
+}

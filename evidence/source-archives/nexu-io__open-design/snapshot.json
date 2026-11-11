@@ -7,36 +7,55 @@
   "recovery_type": "RECONSTRUCTED_UPSTREAM_WORKTREE_NOT_ORIGINAL_LOCAL_DIRECTORY",
   "includes_git_directory": false,
   "archive_file_name": "nexu-io__open-design.07a86b104153.worktree.tar.gz",
-  "archive_bytes": 202996545,
-  "archive_sha256": "942fb15ec56083e125f59de3370f6ee027e3c5a27562257bbf644655c51b0ad0",
-  "archive_entries": 14266,
+  "archive_bytes": 200462954,
+  "archive_sha256": "924645cfde73084285c6a7884b3f2c275c724c11dc7c627ecf17c6c618174524",
+  "archive_entries": 14232,
   "gzip_test": "PASS",
   "files": [
     {
       "path": "evidence/source-archives/nexu-io__open-design/nexu-io__open-design.07a86b104153.worktree.tar.gz.part000",
       "bytes": 41943040,
-      "sha256": "677d4d55475c84f8298e2878e7d9c1e81c0196b6a96e686de2391244fe4c061e"
+      "sha256": "b4bb32da9ef8e8d0a3b5b2e9e77fc91b0840fec1e1c130aa4b3fb70d3a8e4ce6"
     },
     {
       "path": "evidence/source-archives/nexu-io__open-design/nexu-io__open-design.07a86b104153.worktree.tar.gz.part001",
       "bytes": 41943040,
-      "sha256": "2eccfda12b5be377960da3b759bad51bf35dd246dc7388c8f8386f807533fdba"
+      "sha256": "4bafd95848f18fc9412a3a487678477235fb0c20f0881c9386716e6fd9b7bf4b"
     },
     {
       "path": "evidence/source-archives/nexu-io__open-design/nexu-io__open-design.07a86b104153.worktree.tar.gz.part002",
       "bytes": 41943040,
-      "sha256": "e3a54bfea4cb8c14679b77f388a6f956083ce3ad53352f7a5427bbdac4c168a1"
+      "sha256": "9eecf30c9c459b20372e60735eeeac476ef971d193c8c4e2d7f72bef77fe6a3c"
     },
     {
       "path": "evidence/source-archives/nexu-io__open-design/nexu-io__open-design.07a86b104153.worktree.tar.gz.part003",
       "bytes": 41943040,
-      "sha256": "03e93933e94c409e5e98767706e82d6dba7a2a2f8956fd6d05280f1f98a3d42a"
+      "sha256": "da58501a4f186380fac525a8cad5938ee1a2aa6bacaf2a364726b3d7f7bc8dd7"
     },
     {
       "path": "evidence/source-archives/nexu-io__open-design/nexu-io__open-design.07a86b104153.worktree.tar.gz.part004",
-      "bytes": 35224385,
-      "sha256": "6778b2cf7bb683e33dcad1299cf77cd62df31a860b0f00b18aadadc731fa49d0"
+      "bytes": 32690794,
+      "sha256": "f19b889516d6f4c51badf3f7199b3925c6da23d053bc1ba2eb83c7adb1da9a72"
     }
   ],
-  "recovered_at": "2026-11-11T11:51:15.974671+00:00"
+  "recovered_at": "2026-11-11T11:51:15.974671+00:00",
+  "regular_files": 14232,
+  "symlinks_or_hardlinks": 0,
+  "directories": 2492,
+  "submodule_declaration_files": 0,
+  "cleanup_applied": [
+    "image-templates/game-screenshot-",
+    "image-templates/game-ui-",
+    "video-templates/cyberpunk-game-trailer-script",
+    "video-templates/video-seedance-three-kingdoms-",
+    "assets/prompt-templates/image/game-",
+    "assets/prompt-templates/image/zelda-style-forbidden-city-game-screenshot",
+    "prompt-templates/image/game-",
+    "prompt-templates/image/zelda-style-forbidden-city-game-screenshot",
+    "prompt-templates/video/cyberpunk-game-trailer-script",
+    "prompt-templates/video/video-seedance-three-kingdoms-"
+  ],
+  "cleanup_removed_members": 43,
+  "cleanup_at": "2026-11-11T18:07:39.712834+00:00",
+  "original_archive_sha256": "942fb15ec56083e125f59de3370f6ee027e3c5a27562257bbf644655c51b0ad0"
 }

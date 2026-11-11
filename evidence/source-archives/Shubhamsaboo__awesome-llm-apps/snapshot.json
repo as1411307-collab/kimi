@@ -7,21 +7,32 @@
   "recovery_type": "RECONSTRUCTED_UPSTREAM_WORKTREE_NOT_ORIGINAL_LOCAL_DIRECTORY",
   "includes_git_directory": false,
   "archive_file_name": "Shubhamsaboo__awesome-llm-apps.c46144eb61c1.worktree.tar.gz",
-  "archive_bytes": 71576269,
-  "archive_sha256": "20418505efefd902b2e1f6ab3573df7154e00b96046ee3ab523417e8cd1d4bd3",
-  "archive_entries": 1989,
+  "archive_bytes": 71584553,
+  "archive_sha256": "d21d06fe5191d89803f8c474e45b58971ff835ad81362e391fd6a5bad8cd7c94",
+  "archive_entries": 1974,
   "gzip_test": "PASS",
   "files": [
     {
       "path": "evidence/source-archives/Shubhamsaboo__awesome-llm-apps/Shubhamsaboo__awesome-llm-apps.c46144eb61c1.worktree.tar.gz.part000",
       "bytes": 41943040,
-      "sha256": "78b45c1c6d42ca80c3190954120893e8082e2348b3f36bd59a81101f97890885"
+      "sha256": "2d71898572eaa286142f669d4a8ee614c29820b18666514373b0b68ba74e101c"
     },
     {
       "path": "evidence/source-archives/Shubhamsaboo__awesome-llm-apps/Shubhamsaboo__awesome-llm-apps.c46144eb61c1.worktree.tar.gz.part001",
-      "bytes": 29633229,
-      "sha256": "e99795e5868406f9ac20f0c1937b0ea49398afea4c643dbe0da514c117869d60"
+      "bytes": 29641513,
+      "sha256": "28d966e94ba65b821983cc0624d45e1fb2b603e690688d1e9a0478de90d77e2b"
     }
   ],
-  "recovered_at": "2026-11-11T11:43:01.712094+00:00"
+  "recovered_at": "2026-11-11T11:43:01.712094+00:00",
+  "regular_files": 1974,
+  "symlinks_or_hardlinks": 0,
+  "directories": 556,
+  "submodule_declaration_files": 0,
+  "cleanup_applied": [
+    "advanced_ai_agents/autonomous_game_playing_agent_apps/",
+    "advanced_ai_agents/multi_agent_apps/agent_teams/ai_game_design_agent_team/"
+  ],
+  "cleanup_removed_members": 18,
+  "cleanup_at": "2026-11-11T18:07:39.712834+00:00",
+  "original_archive_sha256": "20418505efefd902b2e1f6ab3573df7154e00b96046ee3ab523417e8cd1d4bd3"
 }

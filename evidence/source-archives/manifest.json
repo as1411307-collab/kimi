@@ -86,31 +86,35 @@
       "source_url": "https://github.com/langflow-ai/langflow/tree/60999cc9a7350e44dde3ef641baae864e10861f0",
       "recovery_type": "RECONSTRUCTED_UPSTREAM_WORKTREE_NOT_ORIGINAL_LOCAL_DIRECTORY",
       "includes_git_directory": false,
-      "archive_bytes": 141138173,
-      "archive_sha256": "45178e1aba461ac96fc59cf7ff9e550c797684828c90c42e1d2358a300bbf462",
-      "archive_entries": 11878,
+      "archive_bytes": 138878732,
+      "archive_sha256": "e01f3607473d5311d6c6763e60e7bc0e80e0baa484886ff53d66f5edc04ecd5a",
+      "archive_entries": 9141,
       "files": [
         {
           "path": "evidence/source-archives/langflow-ai__langflow/langflow-ai__langflow.60999cc9a735.worktree.tar.gz.part000",
           "bytes": 41943040,
-          "sha256": "38987a1c1347f100c69d1455e86b05be39217cca72f28839e0ed07669ee98bb8"
+          "sha256": "ad97147d8d448a1f1578780d57b69a34ba004f235e34107647511069bc01b68a"
         },
         {
           "path": "evidence/source-archives/langflow-ai__langflow/langflow-ai__langflow.60999cc9a735.worktree.tar.gz.part001",
           "bytes": 41943040,
-          "sha256": "62a0029be015738ac84224b7072df4665bf11a9a3ec7441dce1f91ed525888de"
+          "sha256": "76c1a5099884fd8532780906d44d7d2d6ff8cd2fa9912ea048d1384e6fd9fa43"
         },
         {
           "path": "evidence/source-archives/langflow-ai__langflow/langflow-ai__langflow.60999cc9a735.worktree.tar.gz.part002",
           "bytes": 41943040,
-          "sha256": "b72746908086dc5eb967a0145fa90d76b34f78cc338c4fdca0db45f3815452d3"
+          "sha256": "c75c027b5b6a334b2fb97a701892324de8c1398cefead307d99ab674e213a990"
         },
         {
           "path": "evidence/source-archives/langflow-ai__langflow/langflow-ai__langflow.60999cc9a735.worktree.tar.gz.part003",
-          "bytes": 15309053,
-          "sha256": "09483b726684f71523753e9bb8b251d0f15dce459d83ab8bae57e427b12969ed"
+          "bytes": 13049612,
+          "sha256": "73a04c601d0f46a0c8213c9a2109f0a7775eb6ce018feb237b4c51ff230f8e0d"
         }
-      ]
+      ],
+      "cleanup_applied": [
+        "docs/versioned_docs/"
+      ],
+      "original_archive_sha256": "45178e1aba461ac96fc59cf7ff9e550c797684828c90c42e1d2358a300bbf462"
     },
     {
       "repository": "nexu-io/open-design",
@@ -118,36 +122,49 @@
       "source_url": "https://github.com/nexu-io/open-design/tree/07a86b1041531bfa0bec1006d9c0993985fee560",
       "recovery_type": "RECONSTRUCTED_UPSTREAM_WORKTREE_NOT_ORIGINAL_LOCAL_DIRECTORY",
       "includes_git_directory": false,
-      "archive_bytes": 202996545,
-      "archive_sha256": "942fb15ec56083e125f59de3370f6ee027e3c5a27562257bbf644655c51b0ad0",
-      "archive_entries": 14266,
+      "archive_bytes": 200462954,
+      "archive_sha256": "924645cfde73084285c6a7884b3f2c275c724c11dc7c627ecf17c6c618174524",
+      "archive_entries": 14232,
       "files": [
         {
           "path": "evidence/source-archives/nexu-io__open-design/nexu-io__open-design.07a86b104153.worktree.tar.gz.part000",
           "bytes": 41943040,
-          "sha256": "677d4d55475c84f8298e2878e7d9c1e81c0196b6a96e686de2391244fe4c061e"
+          "sha256": "b4bb32da9ef8e8d0a3b5b2e9e77fc91b0840fec1e1c130aa4b3fb70d3a8e4ce6"
         },
         {
           "path": "evidence/source-archives/nexu-io__open-design/nexu-io__open-design.07a86b104153.worktree.tar.gz.part001",
           "bytes": 41943040,
-          "sha256": "2eccfda12b5be377960da3b759bad51bf35dd246dc7388c8f8386f807533fdba"
+          "sha256": "4bafd95848f18fc9412a3a487678477235fb0c20f0881c9386716e6fd9b7bf4b"
         },
         {
           "path": "evidence/source-archives/nexu-io__open-design/nexu-io__open-design.07a86b104153.worktree.tar.gz.part002",
           "bytes": 41943040,
-          "sha256": "e3a54bfea4cb8c14679b77f388a6f956083ce3ad53352f7a5427bbdac4c168a1"
+          "sha256": "9eecf30c9c459b20372e60735eeeac476ef971d193c8c4e2d7f72bef77fe6a3c"
         },
         {
           "path": "evidence/source-archives/nexu-io__open-design/nexu-io__open-design.07a86b104153.worktree.tar.gz.part003",
           "bytes": 41943040,
-          "sha256": "03e93933e94c409e5e98767706e82d6dba7a2a2f8956fd6d05280f1f98a3d42a"
+          "sha256": "da58501a4f186380fac525a8cad5938ee1a2aa6bacaf2a364726b3d7f7bc8dd7"
         },
         {
           "path": "evidence/source-archives/nexu-io__open-design/nexu-io__open-design.07a86b104153.worktree.tar.gz.part004",
-          "bytes": 35224385,
-          "sha256": "6778b2cf7bb683e33dcad1299cf77cd62df31a860b0f00b18aadadc731fa49d0"
+          "bytes": 32690794,
+          "sha256": "f19b889516d6f4c51badf3f7199b3925c6da23d053bc1ba2eb83c7adb1da9a72"
         }
-      ]
+      ],
+      "cleanup_applied": [
+        "image-templates/game-screenshot-",
+        "image-templates/game-ui-",
+        "video-templates/cyberpunk-game-trailer-script",
+        "video-templates/video-seedance-three-kingdoms-",
+        "assets/prompt-templates/image/game-",
+        "assets/prompt-templates/image/zelda-style-forbidden-city-game-screenshot",
+        "prompt-templates/image/game-",
+        "prompt-templates/image/zelda-style-forbidden-city-game-screenshot",
+        "prompt-templates/video/cyberpunk-game-trailer-script",
+        "prompt-templates/video/video-seedance-three-kingdoms-"
+      ],
+      "original_archive_sha256": "942fb15ec56083e125f59de3370f6ee027e3c5a27562257bbf644655c51b0ad0"
     },
     {
       "repository": "NousResearch/hermes-agent",
@@ -216,21 +233,28 @@
       "source_url": "https://github.com/Shubhamsaboo/awesome-llm-apps/tree/c46144eb61c18cd1a495445c79ec47145722053e",
       "recovery_type": "RECONSTRUCTED_UPSTREAM_WORKTREE_NOT_ORIGINAL_LOCAL_DIRECTORY",
       "includes_git_directory": false,
-      "archive_bytes": 71576269,
-      "archive_sha256": "20418505efefd902b2e1f6ab3573df7154e00b96046ee3ab523417e8cd1d4bd3",
-      "archive_entries": 1989,
+      "archive_bytes": 71584553,
+      "archive_sha256": "d21d06fe5191d89803f8c474e45b58971ff835ad81362e391fd6a5bad8cd7c94",
+      "archive_entries": 1974,
       "files": [
         {
           "path": "evidence/source-archives/Shubhamsaboo__awesome-llm-apps/Shubhamsaboo__awesome-llm-apps.c46144eb61c1.worktree.tar.gz.part000",
           "bytes": 41943040,
-          "sha256": "78b45c1c6d42ca80c3190954120893e8082e2348b3f36bd59a81101f97890885"
+          "sha256": "2d71898572eaa286142f669d4a8ee614c29820b18666514373b0b68ba74e101c"
         },
         {
           "path": "evidence/source-archives/Shubhamsaboo__awesome-llm-apps/Shubhamsaboo__awesome-llm-apps.c46144eb61c1.worktree.tar.gz.part001",
-          "bytes": 29633229,
-          "sha256": "e99795e5868406f9ac20f0c1937b0ea49398afea4c643dbe0da514c117869d60"
+          "bytes": 29641513,
+          "sha256": "28d966e94ba65b821983cc0624d45e1fb2b603e690688d1e9a0478de90d77e2b"
         }
-      ]
+      ],
+      "cleanup_applied": [
+        "advanced_ai_agents/autonomous_game_playing_agent_apps/",
+        "advanced_ai_agents/multi_agent_apps/agent_teams/ai_game_design_agent_team/"
+      ],
+      "original_archive_sha256": "20418505efefd902b2e1f6ab3573df7154e00b96046ee3ab523417e8cd1d4bd3"
     }
-  ]
+  ],
+  "cleanup_applied_at": "2026-11-11T18:07:39.712834+00:00",
+  "cleanup_removed_members": 3043
 }

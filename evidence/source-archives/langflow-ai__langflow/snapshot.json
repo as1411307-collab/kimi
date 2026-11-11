@@ -7,31 +7,41 @@
   "recovery_type": "RECONSTRUCTED_UPSTREAM_WORKTREE_NOT_ORIGINAL_LOCAL_DIRECTORY",
   "includes_git_directory": false,
   "archive_file_name": "langflow-ai__langflow.60999cc9a735.worktree.tar.gz",
-  "archive_bytes": 141138173,
-  "archive_sha256": "45178e1aba461ac96fc59cf7ff9e550c797684828c90c42e1d2358a300bbf462",
-  "archive_entries": 11878,
+  "archive_bytes": 138878732,
+  "archive_sha256": "e01f3607473d5311d6c6763e60e7bc0e80e0baa484886ff53d66f5edc04ecd5a",
+  "archive_entries": 9141,
   "gzip_test": "PASS",
   "files": [
     {
       "path": "evidence/source-archives/langflow-ai__langflow/langflow-ai__langflow.60999cc9a735.worktree.tar.gz.part000",
       "bytes": 41943040,
-      "sha256": "38987a1c1347f100c69d1455e86b05be39217cca72f28839e0ed07669ee98bb8"
+      "sha256": "ad97147d8d448a1f1578780d57b69a34ba004f235e34107647511069bc01b68a"
     },
     {
       "path": "evidence/source-archives/langflow-ai__langflow/langflow-ai__langflow.60999cc9a735.worktree.tar.gz.part001",
       "bytes": 41943040,
-      "sha256": "62a0029be015738ac84224b7072df4665bf11a9a3ec7441dce1f91ed525888de"
+      "sha256": "76c1a5099884fd8532780906d44d7d2d6ff8cd2fa9912ea048d1384e6fd9fa43"
     },
     {
       "path": "evidence/source-archives/langflow-ai__langflow/langflow-ai__langflow.60999cc9a735.worktree.tar.gz.part002",
       "bytes": 41943040,
-      "sha256": "b72746908086dc5eb967a0145fa90d76b34f78cc338c4fdca0db45f3815452d3"
+      "sha256": "c75c027b5b6a334b2fb97a701892324de8c1398cefead307d99ab674e213a990"
     },
     {
       "path": "evidence/source-archives/langflow-ai__langflow/langflow-ai__langflow.60999cc9a735.worktree.tar.gz.part003",
-      "bytes": 15309053,
-      "sha256": "09483b726684f71523753e9bb8b251d0f15dce459d83ab8bae57e427b12969ed"
+      "bytes": 13049612,
+      "sha256": "73a04c601d0f46a0c8213c9a2109f0a7775eb6ce018feb237b4c51ff230f8e0d"
     }
   ],
-  "recovered_at": "2026-11-11T11:47:13.441990+00:00"
+  "recovered_at": "2026-11-11T11:47:13.441990+00:00",
+  "regular_files": 9141,
+  "symlinks_or_hardlinks": 0,
+  "directories": 2112,
+  "submodule_declaration_files": 0,
+  "cleanup_applied": [
+    "docs/versioned_docs/"
+  ],
+  "cleanup_removed_members": 2982,
+  "cleanup_at": "2026-11-11T18:07:39.712834+00:00",
+  "original_archive_sha256": "45178e1aba461ac96fc59cf7ff9e550c797684828c90c42e1d2358a300bbf462"
 }
