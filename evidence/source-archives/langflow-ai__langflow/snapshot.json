@@ -1,0 +1,37 @@
+{
+  "repository": "langflow-ai/langflow",
+  "commit": "60999cc9a7350e44dde3ef641baae864e10861f0",
+  "source_url": "https://github.com/langflow-ai/langflow/tree/60999cc9a7350e44dde3ef641baae864e10861f0",
+  "recovery_method": "git fetch --depth 1 COMMIT followed by git archive FETCH_HEAD over SSH",
+  "commit_verified_against_github_api": true,
+  "recovery_type": "RECONSTRUCTED_UPSTREAM_WORKTREE_NOT_ORIGINAL_LOCAL_DIRECTORY",
+  "includes_git_directory": false,
+  "archive_file_name": "langflow-ai__langflow.60999cc9a735.worktree.tar.gz",
+  "archive_bytes": 141138173,
+  "archive_sha256": "45178e1aba461ac96fc59cf7ff9e550c797684828c90c42e1d2358a300bbf462",
+  "archive_entries": 11878,
+  "gzip_test": "PASS",
+  "files": [
+    {
+      "path": "evidence/source-archives/langflow-ai__langflow/langflow-ai__langflow.60999cc9a735.worktree.tar.gz.part000",
+      "bytes": 41943040,
+      "sha256": "38987a1c1347f100c69d1455e86b05be39217cca72f28839e0ed07669ee98bb8"
+    },
+    {
+      "path": "evidence/source-archives/langflow-ai__langflow/langflow-ai__langflow.60999cc9a735.worktree.tar.gz.part001",
+      "bytes": 41943040,
+      "sha256": "62a0029be015738ac84224b7072df4665bf11a9a3ec7441dce1f91ed525888de"
+    },
+    {
+      "path": "evidence/source-archives/langflow-ai__langflow/langflow-ai__langflow.60999cc9a735.worktree.tar.gz.part002",
+      "bytes": 41943040,
+      "sha256": "b72746908086dc5eb967a0145fa90d76b34f78cc338c4fdca0db45f3815452d3"
+    },
+    {
+      "path": "evidence/source-archives/langflow-ai__langflow/langflow-ai__langflow.60999cc9a735.worktree.tar.gz.part003",
+      "bytes": 15309053,
+      "sha256": "09483b726684f71523753e9bb8b251d0f15dce459d83ab8bae57e427b12969ed"
+    }
+  ],
+  "recovered_at": "2026-11-11T11:47:13.441990+00:00"
+}
