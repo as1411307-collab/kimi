@@ -1,0 +1,22 @@
+{
+  "repository": "ComposioHQ/awesome-claude-skills",
+  "commit": "be2a406907dbc61b73e6827ded415c96139d13a2",
+  "source_url": "https://github.com/ComposioHQ/awesome-claude-skills/tree/be2a406907dbc61b73e6827ded415c96139d13a2",
+  "recovery_method": "git fetch --depth 1 COMMIT followed by git archive FETCH_HEAD over SSH",
+  "commit_verified_against_github_api": true,
+  "recovery_type": "RECONSTRUCTED_UPSTREAM_WORKTREE_NOT_ORIGINAL_LOCAL_DIRECTORY",
+  "includes_git_directory": false,
+  "archive_file_name": "ComposioHQ__awesome-claude-skills.be2a406907db.worktree.tar.gz",
+  "archive_bytes": 3596120,
+  "archive_sha256": "523b5e49cb6c7da56f0833f5de938c778fc933578844a040a5e0b47c6f4639a1",
+  "archive_entries": 1142,
+  "gzip_test": "PASS",
+  "files": [
+    {
+      "path": "evidence/source-archives/ComposioHQ__awesome-claude-skills/ComposioHQ__awesome-claude-skills.be2a406907db.worktree.tar.gz",
+      "bytes": 3596120,
+      "sha256": "523b5e49cb6c7da56f0833f5de938c778fc933578844a040a5e0b47c6f4639a1"
+    }
+  ],
+  "recovered_at": "2026-11-11T11:59:15.631323+00:00"
+}
