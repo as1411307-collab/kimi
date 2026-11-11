@@ -1,0 +1,27 @@
+{
+  "repository": "Shubhamsaboo/awesome-llm-apps",
+  "commit": "c46144eb61c18cd1a495445c79ec47145722053e",
+  "source_url": "https://github.com/Shubhamsaboo/awesome-llm-apps/tree/c46144eb61c18cd1a495445c79ec47145722053e",
+  "recovery_method": "git fetch --depth 1 COMMIT followed by git archive FETCH_HEAD over SSH",
+  "commit_verified_against_github_api": true,
+  "recovery_type": "RECONSTRUCTED_UPSTREAM_WORKTREE_NOT_ORIGINAL_LOCAL_DIRECTORY",
+  "includes_git_directory": false,
+  "archive_file_name": "Shubhamsaboo__awesome-llm-apps.c46144eb61c1.worktree.tar.gz",
+  "archive_bytes": 71576269,
+  "archive_sha256": "20418505efefd902b2e1f6ab3573df7154e00b96046ee3ab523417e8cd1d4bd3",
+  "archive_entries": 1989,
+  "gzip_test": "PASS",
+  "files": [
+    {
+      "path": "evidence/source-archives/Shubhamsaboo__awesome-llm-apps/Shubhamsaboo__awesome-llm-apps.c46144eb61c1.worktree.tar.gz.part000",
+      "bytes": 41943040,
+      "sha256": "78b45c1c6d42ca80c3190954120893e8082e2348b3f36bd59a81101f97890885"
+    },
+    {
+      "path": "evidence/source-archives/Shubhamsaboo__awesome-llm-apps/Shubhamsaboo__awesome-llm-apps.c46144eb61c1.worktree.tar.gz.part001",
+      "bytes": 29633229,
+      "sha256": "e99795e5868406f9ac20f0c1937b0ea49398afea4c643dbe0da514c117869d60"
+    }
+  ],
+  "recovered_at": "2026-11-11T11:43:01.712094+00:00"
+}
