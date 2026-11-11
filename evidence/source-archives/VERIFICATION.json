@@ -1,0 +1,222 @@
+{
+  "schema_version": 1,
+  "verified_at": "2026-11-11T12:25:49.269319+00:00",
+  "remote_clone_head": "fdd99f5cd8af8541d34af840e995388fdfb8f0bd",
+  "verification_source": "fresh full clone from git@github.com:as1411307-collab/kimi.git",
+  "snapshot_count": 10,
+  "chunk_count": 22,
+  "archive_entries": 59331,
+  "regular_files": 59329,
+  "symlinks_or_hardlinks": 2,
+  "archive_bytes": 640917616,
+  "status": "PASS",
+  "failures": [],
+  "limitations": [
+    "These are reconstructed upstream worktree snapshots, not the unavailable original local working directories.",
+    "Git history and .git directories are not included in these worktree archives.",
+    "Original runtime_validation_work and expansion_work content and unpublished test logs were not available and were not regenerated.",
+    "Submodule declarations are preserved, but submodule contents are not included."
+  ],
+  "results": [
+    {
+      "repository": "ComposioHQ/awesome-claude-skills",
+      "commit": "be2a406907dbc61b73e6827ded415c96139d13a2",
+      "recovery_type": "RECONSTRUCTED_UPSTREAM_WORKTREE_NOT_ORIGINAL_LOCAL_DIRECTORY",
+      "archive_bytes": 3596120,
+      "archive_sha256": "523b5e49cb6c7da56f0833f5de938c778fc933578844a040a5e0b47c6f4639a1",
+      "archive_entries": 1142,
+      "regular_files": 1142,
+      "symlinks_or_hardlinks": 0,
+      "directories": 907,
+      "submodule_declaration_files": 0,
+      "checks": {
+        "archive_bytes_match": true,
+        "archive_sha256_match": true,
+        "archive_entries_match": true,
+        "gzip_test": true,
+        "all_chunks_match": true
+      },
+      "status": "PASS"
+    },
+    {
+      "repository": "ComposioHQ/composio",
+      "commit": "e7c4aac1e3b1fd05019d17a6e1010891c0917e6e",
+      "recovery_type": "RECONSTRUCTED_UPSTREAM_WORKTREE_NOT_ORIGINAL_LOCAL_DIRECTORY",
+      "archive_bytes": 85552678,
+      "archive_sha256": "865cab258a7e9d67e3a24ea1fcba7eef440e07e41a5d46ab3a498ad2d596545c",
+      "archive_entries": 4001,
+      "regular_files": 3999,
+      "symlinks_or_hardlinks": 2,
+      "directories": 911,
+      "submodule_declaration_files": 2,
+      "checks": {
+        "archive_bytes_match": true,
+        "archive_sha256_match": true,
+        "archive_entries_match": true,
+        "gzip_test": true,
+        "all_chunks_match": true
+      },
+      "status": "PASS"
+    },
+    {
+      "repository": "ComposioHQ/helm-charts",
+      "commit": "c6ea94c82fc0fd6eca73cab7b9ce5c0ef04f7a8c",
+      "recovery_type": "RECONSTRUCTED_UPSTREAM_WORKTREE_NOT_ORIGINAL_LOCAL_DIRECTORY",
+      "archive_bytes": 1981407,
+      "archive_sha256": "99921908f04b0e7e090804c409291340efe9660f3c0cc936613164675e97dc41",
+      "archive_entries": 472,
+      "regular_files": 472,
+      "symlinks_or_hardlinks": 0,
+      "directories": 94,
+      "submodule_declaration_files": 0,
+      "checks": {
+        "archive_bytes_match": true,
+        "archive_sha256_match": true,
+        "archive_entries_match": true,
+        "gzip_test": true,
+        "all_chunks_match": true
+      },
+      "status": "PASS"
+    },
+    {
+      "repository": "ComposioHQ/trustclaw",
+      "commit": "9a60c563711ee17687d0a60d34901417162ad531",
+      "recovery_type": "RECONSTRUCTED_UPSTREAM_WORKTREE_NOT_ORIGINAL_LOCAL_DIRECTORY",
+      "archive_bytes": 15444508,
+      "archive_sha256": "24fb14cc4220ea930cf45e2164c107dffd94090955d244c13544da175e7184f8",
+      "archive_entries": 308,
+      "regular_files": 308,
+      "symlinks_or_hardlinks": 0,
+      "directories": 63,
+      "submodule_declaration_files": 0,
+      "checks": {
+        "archive_bytes_match": true,
+        "archive_sha256_match": true,
+        "archive_entries_match": true,
+        "gzip_test": true,
+        "all_chunks_match": true
+      },
+      "status": "PASS"
+    },
+    {
+      "repository": "langflow-ai/langflow",
+      "commit": "60999cc9a7350e44dde3ef641baae864e10861f0",
+      "recovery_type": "RECONSTRUCTED_UPSTREAM_WORKTREE_NOT_ORIGINAL_LOCAL_DIRECTORY",
+      "archive_bytes": 141138173,
+      "archive_sha256": "45178e1aba461ac96fc59cf7ff9e550c797684828c90c42e1d2358a300bbf462",
+      "archive_entries": 11878,
+      "regular_files": 11878,
+      "symlinks_or_hardlinks": 0,
+      "directories": 2357,
+      "submodule_declaration_files": 0,
+      "checks": {
+        "archive_bytes_match": true,
+        "archive_sha256_match": true,
+        "archive_entries_match": true,
+        "gzip_test": true,
+        "all_chunks_match": true
+      },
+      "status": "PASS"
+    },
+    {
+      "repository": "nexu-io/open-design",
+      "commit": "07a86b1041531bfa0bec1006d9c0993985fee560",
+      "recovery_type": "RECONSTRUCTED_UPSTREAM_WORKTREE_NOT_ORIGINAL_LOCAL_DIRECTORY",
+      "archive_bytes": 202996545,
+      "archive_sha256": "942fb15ec56083e125f59de3370f6ee027e3c5a27562257bbf644655c51b0ad0",
+      "archive_entries": 14266,
+      "regular_files": 14266,
+      "symlinks_or_hardlinks": 0,
+      "directories": 2501,
+      "submodule_declaration_files": 0,
+      "checks": {
+        "archive_bytes_match": true,
+        "archive_sha256_match": true,
+        "archive_entries_match": true,
+        "gzip_test": true,
+        "all_chunks_match": true
+      },
+      "status": "PASS"
+    },
+    {
+      "repository": "NousResearch/hermes-agent",
+      "commit": "b7db40d82568ea68ce321ac1ead3bfea354c7f56",
+      "recovery_type": "RECONSTRUCTED_UPSTREAM_WORKTREE_NOT_ORIGINAL_LOCAL_DIRECTORY",
+      "archive_bytes": 91457030,
+      "archive_sha256": "317e50601f80e98899c73c4800953fda652d4eea4eeb18adef0aa9bdb6f9ddce",
+      "archive_entries": 23613,
+      "regular_files": 23613,
+      "symlinks_or_hardlinks": 0,
+      "directories": 1215,
+      "submodule_declaration_files": 0,
+      "checks": {
+        "archive_bytes_match": true,
+        "archive_sha256_match": true,
+        "archive_entries_match": true,
+        "gzip_test": true,
+        "all_chunks_match": true
+      },
+      "status": "PASS"
+    },
+    {
+      "repository": "NousResearch/hermes-agent-self-evolution",
+      "commit": "0a929e3aa20e15cf04dc7c28492a7d41a5139125",
+      "recovery_type": "RECONSTRUCTED_UPSTREAM_WORKTREE_NOT_ORIGINAL_LOCAL_DIRECTORY",
+      "archive_bytes": 62797,
+      "archive_sha256": "020f8e632d8c6a1d7635fdeca1d2102277efc076d1c31e87f51adc56534c0263",
+      "archive_entries": 30,
+      "regular_files": 30,
+      "symlinks_or_hardlinks": 0,
+      "directories": 15,
+      "submodule_declaration_files": 0,
+      "checks": {
+        "archive_bytes_match": true,
+        "archive_sha256_match": true,
+        "archive_entries_match": true,
+        "gzip_test": true,
+        "all_chunks_match": true
+      },
+      "status": "PASS"
+    },
+    {
+      "repository": "ollama/ollama",
+      "commit": "1f23c7232e8e35b21d81bb03569a8afde2a6b0f9",
+      "recovery_type": "RECONSTRUCTED_UPSTREAM_WORKTREE_NOT_ORIGINAL_LOCAL_DIRECTORY",
+      "archive_bytes": 27112089,
+      "archive_sha256": "d7e0e2ff60e4970a7e0802bd9b919266c226f45696fde0505f856c85147a1922",
+      "archive_entries": 1632,
+      "regular_files": 1632,
+      "symlinks_or_hardlinks": 0,
+      "directories": 203,
+      "submodule_declaration_files": 0,
+      "checks": {
+        "archive_bytes_match": true,
+        "archive_sha256_match": true,
+        "archive_entries_match": true,
+        "gzip_test": true,
+        "all_chunks_match": true
+      },
+      "status": "PASS"
+    },
+    {
+      "repository": "Shubhamsaboo/awesome-llm-apps",
+      "commit": "c46144eb61c18cd1a495445c79ec47145722053e",
+      "recovery_type": "RECONSTRUCTED_UPSTREAM_WORKTREE_NOT_ORIGINAL_LOCAL_DIRECTORY",
+      "archive_bytes": 71576269,
+      "archive_sha256": "20418505efefd902b2e1f6ab3573df7154e00b96046ee3ab523417e8cd1d4bd3",
+      "archive_entries": 1989,
+      "regular_files": 1989,
+      "symlinks_or_hardlinks": 0,
+      "directories": 559,
+      "submodule_declaration_files": 0,
+      "checks": {
+        "archive_bytes_match": true,
+        "archive_sha256_match": true,
+        "archive_entries_match": true,
+        "gzip_test": true,
+        "all_chunks_match": true
+      },
+      "status": "PASS"
+    }
+  ]
+}
