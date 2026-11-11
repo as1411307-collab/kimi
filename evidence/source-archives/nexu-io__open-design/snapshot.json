@@ -1,0 +1,42 @@
+{
+  "repository": "nexu-io/open-design",
+  "commit": "07a86b1041531bfa0bec1006d9c0993985fee560",
+  "source_url": "https://github.com/nexu-io/open-design/tree/07a86b1041531bfa0bec1006d9c0993985fee560",
+  "recovery_method": "git fetch --depth 1 COMMIT followed by git archive FETCH_HEAD over SSH",
+  "commit_verified_against_github_api": true,
+  "recovery_type": "RECONSTRUCTED_UPSTREAM_WORKTREE_NOT_ORIGINAL_LOCAL_DIRECTORY",
+  "includes_git_directory": false,
+  "archive_file_name": "nexu-io__open-design.07a86b104153.worktree.tar.gz",
+  "archive_bytes": 202996545,
+  "archive_sha256": "942fb15ec56083e125f59de3370f6ee027e3c5a27562257bbf644655c51b0ad0",
+  "archive_entries": 14266,
+  "gzip_test": "PASS",
+  "files": [
+    {
+      "path": "evidence/source-archives/nexu-io__open-design/nexu-io__open-design.07a86b104153.worktree.tar.gz.part000",
+      "bytes": 41943040,
+      "sha256": "677d4d55475c84f8298e2878e7d9c1e81c0196b6a96e686de2391244fe4c061e"
+    },
+    {
+      "path": "evidence/source-archives/nexu-io__open-design/nexu-io__open-design.07a86b104153.worktree.tar.gz.part001",
+      "bytes": 41943040,
+      "sha256": "2eccfda12b5be377960da3b759bad51bf35dd246dc7388c8f8386f807533fdba"
+    },
+    {
+      "path": "evidence/source-archives/nexu-io__open-design/nexu-io__open-design.07a86b104153.worktree.tar.gz.part002",
+      "bytes": 41943040,
+      "sha256": "e3a54bfea4cb8c14679b77f388a6f956083ce3ad53352f7a5427bbdac4c168a1"
+    },
+    {
+      "path": "evidence/source-archives/nexu-io__open-design/nexu-io__open-design.07a86b104153.worktree.tar.gz.part003",
+      "bytes": 41943040,
+      "sha256": "03e93933e94c409e5e98767706e82d6dba7a2a2f8956fd6d05280f1f98a3d42a"
+    },
+    {
+      "path": "evidence/source-archives/nexu-io__open-design/nexu-io__open-design.07a86b104153.worktree.tar.gz.part004",
+      "bytes": 35224385,
+      "sha256": "6778b2cf7bb683e33dcad1299cf77cd62df31a860b0f00b18aadadc731fa49d0"
+    }
+  ],
+  "recovered_at": "2026-11-11T11:51:15.974671+00:00"
+}
