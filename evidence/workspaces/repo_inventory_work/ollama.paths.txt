@@ -1,0 +1,1836 @@
+# ollama — main — complete recursive Git tree
+# entries=1834 files=1632 directories=202 submodules=0 truncated=False
+blob	65	.dockerignore
+blob	361	.gitattributes
+tree		.github
+tree		.github/ISSUE_TEMPLATE
+blob	1622	.github/ISSUE_TEMPLATE/10_bug_report.yml
+blob	84	.github/ISSUE_TEMPLATE/20_feature_request.md
+blob	110	.github/ISSUE_TEMPLATE/30_model_request.md
+blob	313	.github/ISSUE_TEMPLATE/config.yml
+tree		.github/scripts
+blob	11584	.github/scripts/prepare_mlx_darwin.sh
+tree		.github/workflows
+blob	533	.github/workflows/latest.yaml
+blob	38824	.github/workflows/release.yaml
+blob	488	.github/workflows/test-install.yaml
+blob	27140	.github/workflows/test-llamacpp-update.yaml
+blob	1174	.github/workflows/test-tokenizer.yaml
+blob	3268	.github/workflows/test-xgrammar.yaml
+blob	24269	.github/workflows/test.yaml
+blob	164	.gitignore
+blob	1715	.golangci.yaml
+blob	358	AGENTS.md
+blob	84	CLAUDE.md
+blob	2995	CMakeLists.txt
+blob	704	CMakePresets.json
+blob	3678	CONTRIBUTING.md
+blob	14697	Dockerfile
+blob	1058	LICENSE
+blob	7	LLAMA_CPP_VERSION
+blob	41	MLX_C_VERSION
+blob	41	MLX_VERSION
+blob	19433	README.md
+blob	1075	SECURITY.md
+tree		anthropic
+blob	36046	anthropic/anthropic.go
+blob	57758	anthropic/anthropic_test.go
+blob	2323	anthropic/thinking_test.go
+blob	9500	anthropic/trace.go
+tree		api
+blob	16709	api/client.go
+blob	16242	api/client_test.go
+tree		api/examples
+blob	380	api/examples/README.md
+tree		api/examples/chat
+blob	809	api/examples/chat/main.go
+tree		api/examples/generate
+tree		api/examples/generate-streaming
+blob	865	api/examples/generate-streaming/main.go
+blob	654	api/examples/generate/main.go
+tree		api/examples/multimodal
+blob	874	api/examples/multimodal/main.go
+tree		api/examples/pull-progress
+blob	518	api/examples/pull-progress/main.go
+blob	1841	api/metrics_test.go
+blob	44623	api/types.go
+blob	25134	api/types_test.go
+blob	2768	api/types_typescript_test.go
+tree		app
+blob	93	app/.gitignore
+blob	2156	app/README.md
+tree		app/assets
+blob	7502	app/assets/app.ico
+blob	264	app/assets/assets.go
+blob	15741	app/assets/background.png
+blob	77418	app/assets/setup.bmp
+blob	118170	app/assets/tray.ico
+blob	118876	app/assets/tray_upgrade.ico
+tree		app/auth
+blob	634	app/auth/connect.go
+tree		app/cmd
+tree		app/cmd/app
+blob	160	app/cmd/app/AppDelegate.h
+blob	15839	app/cmd/app/app.go
+blob	64147	app/cmd/app/app_darwin.go
+blob	2592	app/cmd/app/app_darwin.h
+blob	98852	app/cmd/app/app_darwin.m
+blob	117237	app/cmd/app/app_darwin_test.go
+blob	4725	app/cmd/app/app_test.go
+blob	11466	app/cmd/app/app_windows.go
+blob	2834	app/cmd/app/claude_desktop_bindings_darwin.go
+blob	126	app/cmd/app/claude_desktop_bindings_windows.go
+blob	8432	app/cmd/app/claude_desktop_installer_darwin.go
+blob	5532	app/cmd/app/claude_desktop_installer_darwin_test.go
+blob	2563	app/cmd/app/claude_desktop_status.go
+blob	2136	app/cmd/app/codex_app_bindings_darwin.go
+blob	125	app/cmd/app/codex_app_bindings_windows.go
+blob	35339	app/cmd/app/codex_app_darwin.go
+blob	57508	app/cmd/app/codex_app_darwin_test.go
+blob	6820	app/cmd/app/codex_desktop_installer_darwin.go
+blob	4230	app/cmd/app/codex_desktop_installer_darwin_test.go
+blob	2799	app/cmd/app/desktop_models_darwin.go
+blob	5148	app/cmd/app/desktop_models_darwin_test.go
+blob	116	app/cmd/app/desktop_models_windows.go
+blob	453	app/cmd/app/menu.h
+blob	15309	app/cmd/app/webview.go
+tree		app/cmd/squirrel
+blob	1268	app/cmd/squirrel/Info.plist
+tree		app/darwin
+tree		app/darwin/Ollama.app
+tree		app/darwin/Ollama.app/Contents
+blob	1529	app/darwin/Ollama.app/Contents/Info.plist
+tree		app/darwin/Ollama.app/Contents/Library
+tree		app/darwin/Ollama.app/Contents/Library/LaunchAgents
+blob	757	app/darwin/Ollama.app/Contents/Library/LaunchAgents/com.ollama.ollama.plist
+tree		app/darwin/Ollama.app/Contents/Resources
+blob	1736	app/darwin/Ollama.app/Contents/Resources/chatgpt.svg
+blob	4095	app/darwin/Ollama.app/Contents/Resources/claude.svg
+blob	223821	app/darwin/Ollama.app/Contents/Resources/icon.icns
+blob	374	app/darwin/Ollama.app/Contents/Resources/ollama.png
+blob	661	app/darwin/Ollama.app/Contents/Resources/ollama@2x.png
+blob	363	app/darwin/Ollama.app/Contents/Resources/ollamaDark.png
+blob	745	app/darwin/Ollama.app/Contents/Resources/ollamaDark@2x.png
+blob	381	app/darwin/Ollama.app/Contents/Resources/ollamaUpdate.png
+blob	648	app/darwin/Ollama.app/Contents/Resources/ollamaUpdate@2x.png
+blob	412	app/darwin/Ollama.app/Contents/Resources/ollamaUpdateDark.png
+blob	771	app/darwin/Ollama.app/Contents/Resources/ollamaUpdateDark@2x.png
+tree		app/dialog
+blob	750	app/dialog/LICENSE
+tree		app/dialog/cocoa
+blob	1104	app/dialog/cocoa/dlg.h
+blob	5912	app/dialog/cocoa/dlg.m
+blob	4584	app/dialog/cocoa/dlg_darwin.go
+blob	5406	app/dialog/dlgs.go
+blob	1840	app/dialog/dlgs_darwin.go
+blob	6036	app/dialog/dlgs_windows.go
+blob	153	app/dialog/util.go
+tree		app/format
+blob	633	app/format/field.go
+blob	849	app/format/field_test.go
+tree		app/logrotate
+blob	1061	app/logrotate/logrotate.go
+blob	2006	app/logrotate/logrotate_test.go
+blob	12924	app/ollama.iss
+blob	555	app/ollama.rc
+tree		app/server
+blob	9745	app/server/server.go
+blob	11610	app/server/server_test.go
+blob	2693	app/server/server_unix.go
+blob	3769	app/server/server_windows.go
+tree		app/store
+blob	3182	app/store/cloud_config.go
+blob	3278	app/store/cloud_config_test.go
+blob	40124	app/store/database.go
+blob	17361	app/store/database_test.go
+blob	3340	app/store/image.go
+blob	8187	app/store/migration_test.go
+blob	2252	app/store/schema.sql
+blob	1539	app/store/schema_test.go
+blob	15710	app/store/store.go
+blob	12551	app/store/store_test.go
+blob	178	app/store/test_home_test.go
+tree		app/store/testdata
+blob	2249	app/store/testdata/schema.sql
+tree		app/tools
+blob	23611	app/tools/browser.go
+blob	3772	app/tools/browser_crawl.go
+blob	5943	app/tools/browser_test.go
+blob	4049	app/tools/browser_websearch.go
+blob	979	app/tools/cloud_policy.go
+blob	2136	app/tools/cloud_policy_test.go
+blob	3136	app/tools/tools.go
+blob	1341	app/tools/url_policy.go
+blob	630	app/tools/url_policy_test.go
+blob	3293	app/tools/web_fetch.go
+blob	3623	app/tools/web_search.go
+tree		app/types
+tree		app/types/not
+blob	893	app/types/not/found.go
+blob	1111	app/types/not/valids.go
+blob	1029	app/types/not/valids_test.go
+tree		app/ui
+tree		app/ui/app
+blob	1111	app/ui/app.go
+blob	303	app/ui/app/.gitignore
+blob	8	app/ui/app/.prettierignore
+blob	89	app/ui/app/.prettierrc
+tree		app/ui/app/codegen
+blob	18310	app/ui/app/codegen/gotypes.gen.ts
+blob	941	app/ui/app/eslint.config.js
+blob	6310	app/ui/app/index.html
+blob	477555	app/ui/app/package-lock.json
+blob	2616	app/ui/app/package.json
+tree		app/ui/app/public
+blob	532833	app/ui/app/public/chatgpt-connected.png
+blob	110445	app/ui/app/public/claude-connected.png
+blob	10437	app/ui/app/public/hello.png
+tree		app/ui/app/public/launch-icons
+blob	424	app/ui/app/public/launch-icons/claude-code.svg
+blob	4095	app/ui/app/public/launch-icons/claude.svg
+blob	795	app/ui/app/public/launch-icons/cline.svg
+blob	2080	app/ui/app/public/launch-icons/codex-color.svg
+blob	1748	app/ui/app/public/launch-icons/codex-dark.svg
+blob	1736	app/ui/app/public/launch-icons/codex.svg
+blob	1976	app/ui/app/public/launch-icons/copilot-dark.svg
+blob	1962	app/ui/app/public/launch-icons/copilot.svg
+blob	3546	app/ui/app/public/launch-icons/deepseek-harness.svg
+blob	6353	app/ui/app/public/launch-icons/droid.svg
+blob	13430	app/ui/app/public/launch-icons/hermes-agent.svg
+blob	451	app/ui/app/public/launch-icons/oh-my-pi.svg
+blob	12943	app/ui/app/public/launch-icons/openclaw.svg
+blob	612	app/ui/app/public/launch-icons/opencode.svg
+blob	389	app/ui/app/public/launch-icons/pi-dark.svg
+blob	389	app/ui/app/public/launch-icons/pi.svg
+blob	682	app/ui/app/public/launch-icons/poolside.svg
+blob	832	app/ui/app/public/launch-icons/qwen-code.svg
+tree		app/ui/app/src
+blob	6079	app/ui/app/src/api.test.ts
+blob	16927	app/ui/app/src/api.ts
+tree		app/ui/app/src/components
+blob	1521	app/ui/app/src/components/AppSidebar.tsx
+blob	8929	app/ui/app/src/components/Chat.tsx
+blob	34492	app/ui/app/src/components/ChatForm.tsx
+blob	1126	app/ui/app/src/components/ChatIcon.tsx
+blob	11281	app/ui/app/src/components/ChatSidebar.tsx
+blob	30104	app/ui/app/src/components/ClaudeDesktopModelsSettings.interaction.test.tsx
+blob	5221	app/ui/app/src/components/ClaudeDesktopModelsSettings.test.tsx
+blob	25816	app/ui/app/src/components/ClaudeDesktopModelsSettings.tsx
+blob	1094	app/ui/app/src/components/CodexConnectedIntro.test.tsx
+blob	2058	app/ui/app/src/components/CodexConnectedIntro.tsx
+blob	49555	app/ui/app/src/components/CodexDesktopModelsSettings.test.tsx
+blob	25109	app/ui/app/src/components/CodexDesktopModelsSettings.tsx
+blob	54694	app/ui/app/src/components/CodexDesktopRow.test.tsx
+blob	17621	app/ui/app/src/components/CodexDesktopRow.tsx
+blob	2639	app/ui/app/src/components/CopyButton.tsx
+blob	3502	app/ui/app/src/components/DesktopModelPickers.browser.test.tsx
+blob	1777	app/ui/app/src/components/DisplayLogin.tsx
+blob	1237	app/ui/app/src/components/DisplayStale.tsx
+blob	2942	app/ui/app/src/components/Downloading.tsx
+blob	2340	app/ui/app/src/components/ErrorMessage.tsx
+blob	7629	app/ui/app/src/components/FileUpload.tsx
+blob	3360	app/ui/app/src/components/ImageThumbnail.tsx
+blob	1250	app/ui/app/src/components/IntegrationConnectButton.tsx
+blob	10073	app/ui/app/src/components/Logo.tsx
+blob	10907	app/ui/app/src/components/Message.stories.tsx
+blob	44836	app/ui/app/src/components/Message.tsx
+blob	5565	app/ui/app/src/components/MessageList.tsx
+blob	11775	app/ui/app/src/components/ModelPicker.tsx
+blob	40685	app/ui/app/src/components/Onboarding.test.tsx
+blob	44109	app/ui/app/src/components/Onboarding.tsx
+blob	7568	app/ui/app/src/components/OnboardingRoute.test.tsx
+blob	9039	app/ui/app/src/components/Settings.interaction.test.tsx
+blob	9617	app/ui/app/src/components/Settings.test.ts
+blob	32626	app/ui/app/src/components/Settings.tsx
+blob	1668	app/ui/app/src/components/StreamingMarkdownContent.test.tsx
+blob	11975	app/ui/app/src/components/StreamingMarkdownContent.tsx
+blob	6747	app/ui/app/src/components/ThinkButton.tsx
+blob	6699	app/ui/app/src/components/Thinking.tsx
+blob	1335	app/ui/app/src/components/WebSearchButton.tsx
+tree		app/ui/app/src/components/layout
+blob	693	app/ui/app/src/components/layout/layout.test.tsx
+blob	4494	app/ui/app/src/components/layout/layout.tsx
+tree		app/ui/app/src/components/ui
+blob	4582	app/ui/app/src/components/ui/badge.tsx
+blob	12818	app/ui/app/src/components/ui/button.tsx
+blob	3784	app/ui/app/src/components/ui/display.tsx
+blob	2733	app/ui/app/src/components/ui/fieldset.tsx
+blob	4487	app/ui/app/src/components/ui/input.tsx
+blob	477	app/ui/app/src/components/ui/link.tsx
+blob	3984	app/ui/app/src/components/ui/slider.tsx
+blob	9706	app/ui/app/src/components/ui/switch.tsx
+blob	1310	app/ui/app/src/components/ui/text.tsx
+tree		app/ui/app/src/contexts
+blob	1896	app/ui/app/src/contexts/StreamingContext.tsx
+tree		app/ui/app/src/hooks
+blob	25543	app/ui/app/src/hooks/useChats.ts
+blob	601	app/ui/app/src/hooks/useCloudStatus.ts
+blob	800	app/ui/app/src/hooks/useDeleteChat.ts
+blob	415	app/ui/app/src/hooks/useFeaturedModels.ts
+blob	648	app/ui/app/src/hooks/useHealth.ts
+blob	10694	app/ui/app/src/hooks/useMessageAutoscroll.ts
+blob	1133	app/ui/app/src/hooks/useModelCapabilities.ts
+blob	2144	app/ui/app/src/hooks/useModels.ts
+blob	3686	app/ui/app/src/hooks/useQueryBatcher.ts
+blob	681	app/ui/app/src/hooks/useRenameChat.ts
+blob	5993	app/ui/app/src/hooks/useSelectedModel.ts
+blob	2671	app/ui/app/src/hooks/useSettings.ts
+blob	1654	app/ui/app/src/hooks/useUser.test.tsx
+blob	1941	app/ui/app/src/hooks/useUser.ts
+blob	2067	app/ui/app/src/index.css
+tree		app/ui/app/src/lib
+blob	904	app/ui/app/src/lib/chatPreload.test.ts
+blob	814	app/ui/app/src/lib/chatPreload.ts
+blob	7421	app/ui/app/src/lib/claudeDesktop.test.ts
+blob	4062	app/ui/app/src/lib/claudeDesktop.ts
+blob	598	app/ui/app/src/lib/claudeDesktopModelStatus.ts
+blob	454	app/ui/app/src/lib/config.ts
+blob	1616	app/ui/app/src/lib/desktopModels.test.ts
+blob	1122	app/ui/app/src/lib/desktopModels.ts
+blob	3884	app/ui/app/src/lib/highlighter.ts
+blob	1393	app/ui/app/src/lib/keyboard.test.ts
+blob	632	app/ui/app/src/lib/keyboard.ts
+blob	1163	app/ui/app/src/lib/launchCommands.ts
+blob	445	app/ui/app/src/lib/ollama-client.ts
+blob	948	app/ui/app/src/lib/onboarding.ts
+blob	277	app/ui/app/src/lib/platform.ts
+blob	210	app/ui/app/src/lib/queryClient.ts
+blob	1627	app/ui/app/src/lib/settingsMutationScope.test.ts
+blob	73	app/ui/app/src/lib/settingsMutationScope.ts
+blob	1066	app/ui/app/src/main.tsx
+blob	4516	app/ui/app/src/routeTree.gen.ts
+tree		app/ui/app/src/routes
+blob	1139	app/ui/app/src/routes/__root.tsx
+blob	2594	app/ui/app/src/routes/c.$chatId.tsx
+blob	483	app/ui/app/src/routes/connect.tsx
+blob	708	app/ui/app/src/routes/index.tsx
+blob	6608	app/ui/app/src/routes/onboarding.tsx
+blob	470	app/ui/app/src/routes/settings.tsx
+tree		app/ui/app/src/types
+blob	5582	app/ui/app/src/types/webview.d.ts
+tree		app/ui/app/src/util
+blob	1477	app/ui/app/src/util/jsonl-parsing.ts
+tree		app/ui/app/src/utils
+blob	1556	app/ui/app/src/utils/clipboard.test.ts
+blob	844	app/ui/app/src/utils/clipboard.ts
+blob	3533	app/ui/app/src/utils/fileValidation.test.ts
+blob	3298	app/ui/app/src/utils/fileValidation.ts
+blob	194	app/ui/app/src/utils/imageUtils.ts
+blob	3145	app/ui/app/src/utils/remarkCitationParser.ts
+blob	3952	app/ui/app/src/utils/vram.test.ts
+blob	833	app/ui/app/src/utils/vram.ts
+blob	38	app/ui/app/src/vite-env.d.ts
+blob	363	app/ui/app/tailwind.config.js
+blob	898	app/ui/app/tsconfig.app.json
+blob	162	app/ui/app/tsconfig.json
+blob	630	app/ui/app/tsconfig.node.json
+blob	160	app/ui/app/tsconfig.stories.json
+blob	2216	app/ui/app/vite.config.ts
+blob	967	app/ui/app/vitest.config.ts
+blob	63	app/ui/app/vitest.shims.d.ts
+blob	2074	app/ui/extract.go
+tree		app/ui/responses
+blob	5068	app/ui/responses/types.go
+blob	59399	app/ui/ui.go
+blob	36472	app/ui/ui_test.go
+tree		app/updater
+blob	11783	app/updater/updater.go
+blob	14133	app/updater/updater_darwin.go
+blob	498	app/updater/updater_darwin.h
+blob	6966	app/updater/updater_darwin.m
+blob	18376	app/updater/updater_darwin_test.go
+blob	3502	app/updater/updater_live_test.go
+blob	19642	app/updater/updater_test.go
+blob	12139	app/updater/updater_windows.go
+blob	2544	app/updater/updater_windows_test.go
+tree		app/version
+blob	76	app/version/version.go
+tree		app/webview
+blob	269	app/webview/.gitignore
+blob	248	app/webview/README.md
+blob	2471734	app/webview/WebView2.h
+blob	1018	app/webview/glue.c
+blob	20	app/webview/webview.cc
+blob	10643	app/webview/webview.go
+blob	132574	app/webview/webview.h
+tree		app/wintray
+blob	9744	app/wintray/eventloop.go
+blob	1339	app/wintray/eventloop_test.go
+blob	3098	app/wintray/menus.go
+blob	499	app/wintray/messages.go
+blob	1466	app/wintray/notifyicon.go
+blob	12399	app/wintray/tray.go
+blob	4016	app/wintray/w32api.go
+blob	1228	app/wintray/winclass.go
+tree		auth
+blob	1863	auth/auth.go
+tree		cmake
+blob	2545	cmake/apply-git-patches.cmake
+blob	3038	cmake/generate_go_license.cmake
+blob	38579	cmake/local.cmake
+tree		cmake/mlx
+blob	21743	cmake/mlx/CMakeLists.txt
+blob	2680	cmake/mlx/CMakePresets.json
+blob	600	cmake/vendor-mlx-c-headers.cmake
+blob	3096	cmake/windows-arm64-llvm-mingw.cmake
+tree		cmd
+tree		cmd/bench
+blob	9212	cmd/bench/README.md
+blob	43513	cmd/bench/bench.go
+blob	51304	cmd/bench/bench_test.go
+blob	11963	cmd/bench/decision.go
+blob	13285	cmd/bench/decision_test.go
+tree		cmd/bench/prompts
+blob	214438	cmd/bench/prompts/HumanEval.jsonl
+blob	1083	cmd/bench/prompts/LICENSE
+blob	4387	cmd/cloud_suggest.go
+blob	14979	cmd/cloud_suggest_test.go
+blob	77776	cmd/cmd.go
+blob	9323	cmd/cmd_launcher_test.go
+blob	97013	cmd/cmd_test.go
+tree		cmd/config
+blob	8385	cmd/config/config.go
+blob	17541	cmd/config/config_cloud_test.go
+blob	18518	cmd/config/config_test.go
+blob	11212	cmd/create_safetensors.go
+blob	8231	cmd/create_safetensors_remote.go
+blob	8226	cmd/create_safetensors_remote_test.go
+blob	18548	cmd/create_safetensors_test.go
+blob	6739	cmd/decide.go
+blob	8671	cmd/decide_test.go
+blob	61	cmd/editor_unix.go
+blob	62	cmd/editor_windows.go
+blob	23790	cmd/interactive.go
+blob	5039	cmd/interactive_test.go
+tree		cmd/internal
+tree		cmd/internal/fileutil
+blob	4235	cmd/internal/fileutil/files.go
+blob	18000	cmd/internal/fileutil/files_test.go
+tree		cmd/launch
+blob	7903	cmd/launch/account.go
+blob	6555	cmd/launch/claude.go
+blob	37169	cmd/launch/claude_desktop.go
+blob	55271	cmd/launch/claude_desktop_test.go
+blob	22909	cmd/launch/claude_test.go
+blob	6785	cmd/launch/cline.go
+blob	14373	cmd/launch/cline_test.go
+blob	22942	cmd/launch/codex.go
+blob	89594	cmd/launch/codex_app.go
+blob	6483	cmd/launch/codex_app_profile.go
+blob	33552	cmd/launch/codex_app_restore_test.go
+blob	131437	cmd/launch/codex_app_test.go
+blob	27731	cmd/launch/codex_test.go
+blob	26767	cmd/launch/command_test.go
+blob	1838	cmd/launch/context_window.go
+blob	3368	cmd/launch/context_window_test.go
+blob	1741	cmd/launch/copilot.go
+blob	4252	cmd/launch/copilot_test.go
+blob	17197	cmd/launch/deepseek_harness.go
+blob	18766	cmd/launch/deepseek_harness_test.go
+blob	3242	cmd/launch/deprecated_models.go
+blob	2571	cmd/launch/deprecated_models_test.go
+blob	5112	cmd/launch/droid.go
+blob	36794	cmd/launch/droid_test.go
+blob	23495	cmd/launch/hermes.go
+blob	45833	cmd/launch/hermes_test.go
+blob	66944	cmd/launch/integrations_test.go
+blob	21384	cmd/launch/kimi.go
+blob	42132	cmd/launch/kimi_code_test.go
+blob	18878	cmd/launch/kimi_test.go
+blob	54635	cmd/launch/launch.go
+blob	149800	cmd/launch/launch_test.go
+blob	8091	cmd/launch/model_inventory.go
+blob	6183	cmd/launch/model_inventory_test.go
+blob	18617	cmd/launch/models.go
+blob	2456	cmd/launch/models_test.go
+blob	12941	cmd/launch/muse.go
+blob	19235	cmd/launch/muse_test.go
+blob	10779	cmd/launch/omp.go
+blob	19599	cmd/launch/omp_test.go
+blob	27016	cmd/launch/openclaw.go
+blob	83683	cmd/launch/openclaw_test.go
+blob	19993	cmd/launch/opencode.go
+blob	22729	cmd/launch/opencode_context_test.go
+blob	36097	cmd/launch/opencode_test.go
+blob	30995	cmd/launch/pi.go
+blob	27639	cmd/launch/pi_catalog_test.go
+blob	17650	cmd/launch/pi_launch_selection_test.go
+blob	55971	cmd/launch/pi_test.go
+blob	1096	cmd/launch/poolside.go
+blob	2426	cmd/launch/poolside_test.go
+blob	11885	cmd/launch/qwen.go
+blob	25135	cmd/launch/qwen_test.go
+blob	15544	cmd/launch/registry.go
+blob	523	cmd/launch/registry_test_helpers_test.go
+blob	2524	cmd/launch/runner_exec_only_test.go
+blob	4700	cmd/launch/selector_hooks.go
+blob	2899	cmd/launch/selector_test.go
+blob	3724	cmd/launch/spinner.go
+blob	2905	cmd/launch/test_config_helpers_test.go
+blob	17215	cmd/launch/vscode.go
+blob	14568	cmd/launch/vscode_test.go
+blob	8726	cmd/speech.go
+blob	3021	cmd/speech_test.go
+blob	514	cmd/start.go
+blob	703	cmd/start_darwin.go
+blob	265	cmd/start_default.go
+blob	2904	cmd/start_windows.go
+tree		cmd/tui
+blob	2848	cmd/tui/confirm.go
+blob	5935	cmd/tui/confirm_test.go
+blob	30405	cmd/tui/selector.go
+blob	27109	cmd/tui/selector_test.go
+blob	3341	cmd/tui/signin.go
+blob	3960	cmd/tui/signin_test.go
+blob	3159	cmd/tui/spinner.go
+blob	9400	cmd/tui/tui.go
+blob	11883	cmd/tui/tui_test.go
+blob	2369	cmd/tui/welcome.go
+blob	1223	cmd/tui/welcome_test.go
+blob	1646	cmd/warn_thinking_test.go
+blob	687	cmd/welcome.go
+blob	928	cmd/welcome_test.go
+tree		compatmigrate
+blob	2391	compatmigrate/bakllava.go
+blob	7045	compatmigrate/deepseek_ocr.go
+blob	261	compatmigrate/disk_unix.go
+blob	418	compatmigrate/disk_windows.go
+blob	2098	compatmigrate/embeddinggemma.go
+blob	7888	compatmigrate/gemma3.go
+blob	5045	compatmigrate/gemma3n.go
+blob	8350	compatmigrate/gemma4.go
+blob	8588	compatmigrate/glm47_flash.go
+blob	10515	compatmigrate/glm_ocr.go
+blob	2018	compatmigrate/gptoss.go
+blob	1712	compatmigrate/laguna.go
+blob	3025	compatmigrate/lfm25_thinking.go
+blob	4488	compatmigrate/llama3.go
+blob	4563	compatmigrate/llama4.go
+blob	5347	compatmigrate/manifest.go
+blob	13260	compatmigrate/migrate.go
+blob	46448	compatmigrate/migrate_test.go
+blob	8517	compatmigrate/mistral_pixtral.go
+blob	13680	compatmigrate/nemotron3.go
+blob	2313	compatmigrate/nemotron_h_moe.go
+blob	1282	compatmigrate/olmo3.go
+blob	6341	compatmigrate/qwen25vl.go
+blob	14471	compatmigrate/qwen35.go
+blob	2040	compatmigrate/qwen3next.go
+blob	16049	compatmigrate/qwen3vl.go
+blob	1786	compatmigrate/snowflake_arctic_embed2.go
+blob	6574	compatmigrate/source_model.go
+blob	10771	compatmigrate/source_tensor.go
+blob	3952	compatmigrate/tensor_layout.go
+blob	9032	compatmigrate/tensor_layout_test.go
+blob	11133	compatmigrate/tensor_ops.go
+blob	7346	compatmigrate/tensor_row.go
+blob	6669	compatmigrate/writer.go
+tree		create
+blob	1844	create/autotrust_decision_test.go
+blob	6150	create/blockfp8.go
+blob	7667	create/blockfp8_test.go
+blob	5991	create/classify.go
+blob	5501	create/classify_test.go
+blob	3034	create/clef.go
+blob	8592	create/clef_test.go
+blob	2432	create/cohere2moe.go
+blob	18464	create/create.go
+blob	19966	create/create_test.go
+blob	3073	create/d3.go
+blob	3590	create/d3_test.go
+blob	3890	create/draft.go
+blob	5000	create/draft_test.go
+blob	747	create/filetype.go
+blob	827	create/filetype_test.go
+blob	3108	create/gemma4.go
+blob	12083	create/gemma4_test.go
+blob	3210	create/gemma4embedding.go
+blob	3832	create/gemma4embedding_test.go
+blob	2250	create/glimmer.go
+blob	5217	create/glimmer_test.go
+blob	10915	create/inventory.go
+blob	7101	create/inventory_test.go
+blob	817	create/kev.go
+blob	3228	create/kev_test.go
+blob	5239	create/laguna.go
+blob	12897	create/laguna_test.go
+blob	1928	create/laya.go
+blob	3341	create/laya_test.go
+blob	2053	create/lfm3.go
+blob	3541	create/lfm3_test.go
+blob	2686	create/lfm3speech.go
+blob	4368	create/lfm3speech_test.go
+blob	8926	create/manifest.go
+blob	9728	create/manifest_test.go
+blob	12175	create/metadata.go
+blob	14843	create/metadata_test.go
+blob	1242	create/mlxthread.go
+blob	4018	create/nemotron_h.go
+blob	8193	create/nemotron_h_test.go
+blob	2748	create/phonon.go
+blob	3591	create/phonon_test.go
+blob	7410	create/pipeline.go
+blob	11740	create/pipeline_test.go
+blob	12070	create/plan.go
+blob	13024	create/plan_test.go
+blob	4355	create/pplx.go
+blob	8458	create/pplx_test.go
+blob	13478	create/prequant.go
+blob	15410	create/prequant_test.go
+blob	9665	create/quantize.go
+blob	3648	create/quantpolicy.go
+blob	754	create/qwen35.go
+blob	628	create/qwen35_decision.go
+blob	1242	create/qwen35_decision_test.go
+blob	2338	create/qwen4_exp.go
+blob	2724	create/qwen4_exp_test.go
+blob	2837	create/transform.go
+blob	1398	create/verify.go
+blob	1608	create/verify_test.go
+blob	7518	create/writer.go
+blob	18304	create/writer_test.go
+tree		decision
+blob	2118	decision/autotrust_decision_test.go
+blob	5060	decision/clef.go
+blob	11320	decision/clef_test.go
+blob	1578	decision/d1.go
+blob	3639	decision/d1_test.go
+blob	3104	decision/d3.go
+blob	6878	decision/kev.go
+blob	4459	decision/kev_test.go
+blob	5015	decision/pplx.go
+blob	5280	decision/pplx_test.go
+blob	2159	decision/prompts.go
+blob	3267	decision/prompts_test.go
+blob	4356	decision/strands.go
+blob	6634	decision/strands_test.go
+blob	12022	decision/systemone.go
+blob	10653	decision/systemone_test.go
+blob	1778	decision/types.go
+tree		discover
+blob	13282	discover/amd.go
+blob	8118	discover/amd_test.go
+blob	2381	discover/cpu_linux.go
+blob	1022	discover/cpu_windows.go
+blob	2804	discover/cuda_compat.go
+blob	3743	discover/cuda_compat_test.go
+blob	1905	discover/gpu.go
+blob	552	discover/gpu_darwin.go
+blob	134	discover/gpu_info_darwin.h
+blob	1457	discover/gpu_info_darwin.m
+blob	17063	discover/llama_server.go
+blob	20221	discover/llama_server_test.go
+blob	7187	discover/native_probe.go
+blob	14654	discover/native_probe_linux.go
+blob	235	discover/native_probe_linux_nocgo.go
+blob	2832	discover/native_probe_platform.go
+blob	254	discover/native_probe_stub.go
+blob	5984	discover/native_probe_test.go
+blob	12966	discover/native_probe_windows.go
+blob	23107	discover/runner.go
+blob	11054	discover/runner_test.go
+blob	1573	discover/types.go
+blob	4160	discover/vulkan.go
+blob	38	discover/vulkan_refine_stub.go
+blob	3428	discover/vulkan_refine_windows.go
+tree		docs
+blob	815	docs/README.md
+tree		docs/api
+blob	54614	docs/api.md
+blob	10521	docs/api/anthropic-compatibility.mdx
+blob	1564	docs/api/authentication.mdx
+blob	1707	docs/api/balance.mdx
+blob	7444	docs/api/cloud-usage.mdx
+blob	1452	docs/api/errors.mdx
+blob	2331	docs/api/introduction.mdx
+blob	27012	docs/api/openai-compatibility.mdx
+blob	1573	docs/api/streaming.mdx
+blob	1335	docs/api/usage.mdx
+tree		docs/capabilities
+blob	8488	docs/capabilities/decision.mdx
+blob	2889	docs/capabilities/embeddings.mdx
+blob	4946	docs/capabilities/speech.mdx
+blob	3360	docs/capabilities/streaming.mdx
+blob	5024	docs/capabilities/structured-outputs.mdx
+blob	4616	docs/capabilities/thinking.mdx
+blob	22213	docs/capabilities/tool-calling.mdx
+blob	1980	docs/capabilities/vision.mdx
+blob	11059	docs/capabilities/web-search.mdx
+blob	2963	docs/cli.mdx
+blob	2451	docs/cloud.mdx
+blob	1413	docs/context-length.mdx
+blob	5853	docs/development.md
+blob	2663	docs/docker.mdx
+blob	6403	docs/docs.json
+blob	467	docs/examples.md
+blob	18143	docs/faq.mdx
+blob	6820	docs/favicon-dark.svg
+blob	6672	docs/favicon.svg
+blob	11960	docs/gpu.mdx
+tree		docs/images
+blob	314548	docs/images/claude-code-kimi-k2-6.png
+blob	303697	docs/images/claude-cowork-kimi-k2-6.png
+blob	495520	docs/images/cline-cli.png
+blob	630003	docs/images/cline-kanban.png
+blob	569400	docs/images/cline-mcp.png
+blob	77680	docs/images/cline-settings.png
+blob	502441	docs/images/codex-app-annotate.png
+blob	624807	docs/images/codex-app-home.png
+blob	607450	docs/images/codex-app-review.png
+blob	970636	docs/images/codex-mcp.png
+blob	890	docs/images/favicon.png
+blob	163778	docs/images/goose-cli.png
+blob	897733	docs/images/goose-mcp-1.png
+blob	932479	docs/images/goose-mcp-2.png
+blob	111667	docs/images/goose-settings.png
+blob	1426824	docs/images/hermes.png
+blob	70915	docs/images/intellij-chat-sidebar.png
+blob	108749	docs/images/intellij-current-model.png
+blob	80981	docs/images/intellij-local-models.png
+tree		docs/images/launch-icons
+blob	1818	docs/images/launch-icons/chatgpt.svg
+blob	425	docs/images/launch-icons/claude-code.svg
+blob	4095	docs/images/launch-icons/claude.svg
+blob	2756	docs/images/launch-icons/deepseek-harness.svg
+blob	13421	docs/images/launch-icons/hermes-agent.svg
+blob	12944	docs/images/launch-icons/openclaw.svg
+blob	613	docs/images/launch-icons/opencode.svg
+blob	3495	docs/images/launch-icons/vscode.svg
+blob	29798	docs/images/local.png
+blob	3377	docs/images/logo-dark.png
+blob	2765	docs/images/logo.png
+blob	177627	docs/images/marimo-add-model.png
+blob	82170	docs/images/marimo-chat.png
+blob	235386	docs/images/marimo-code-completion.png
+blob	182699	docs/images/marimo-models.png
+blob	190268	docs/images/marimo-settings.png
+blob	88920	docs/images/n8n-chat-model.png
+blob	71333	docs/images/n8n-chat-node.png
+blob	43948	docs/images/n8n-credential-creation.png
+blob	132903	docs/images/n8n-models.png
+blob	53813	docs/images/n8n-ollama-form.png
+blob	154049	docs/images/ollama-keys.png
+blob	3740227	docs/images/ollama-settings.png
+blob	102753	docs/images/onyx-login.png
+blob	313801	docs/images/onyx-ollama-form.png
+blob	307295	docs/images/onyx-ollama-llm.png
+blob	216141	docs/images/onyx-query.png
+blob	81360	docs/images/signup.png
+blob	66080	docs/images/vscode-add-ollama.png
+blob	52746	docs/images/vscode-other-models.png
+blob	25766	docs/images/vscode-sidebar.png
+blob	68719	docs/images/vscode-unhide.png
+blob	2862120	docs/images/vscode.png
+blob	238659	docs/images/welcome.png
+blob	190485	docs/images/xcode-chat-icon.png
+blob	186678	docs/images/xcode-intelligence-window.png
+blob	149175	docs/images/xcode-locally-hosted.png
+blob	39329	docs/images/zed-ollama-dropdown.png
+blob	58513	docs/images/zed-settings.png
+blob	2869	docs/import.mdx
+blob	1468	docs/index.mdx
+tree		docs/integrations
+blob	1770	docs/integrations/chatgpt.mdx
+blob	6745	docs/integrations/claude-code.mdx
+blob	1415	docs/integrations/claude-desktop.mdx
+blob	1858	docs/integrations/cline-cli.mdx
+blob	998	docs/integrations/cline.mdx
+blob	1957	docs/integrations/codex.mdx
+blob	2061	docs/integrations/copilot-cli.mdx
+blob	1334	docs/integrations/deepseek-harness.mdx
+blob	1903	docs/integrations/droid.mdx
+blob	1309	docs/integrations/goose.mdx
+blob	1435	docs/integrations/hermes-desktop.mdx
+blob	2553	docs/integrations/hermes.mdx
+blob	1891	docs/integrations/index.mdx
+blob	1281	docs/integrations/jetbrains.mdx
+blob	1952	docs/integrations/marimo.mdx
+blob	1894	docs/integrations/n8n.mdx
+blob	1478	docs/integrations/nemoclaw.mdx
+blob	894	docs/integrations/oh-my-pi.mdx
+blob	1802	docs/integrations/onyx.mdx
+blob	2435	docs/integrations/openclaw.mdx
+blob	4059	docs/integrations/opencode.mdx
+blob	2576	docs/integrations/pi.mdx
+blob	948	docs/integrations/pool.mdx
+blob	1104	docs/integrations/roo-code.mdx
+blob	1831	docs/integrations/vscode.mdx
+blob	1197	docs/integrations/xcode.mdx
+blob	981	docs/integrations/zed.mdx
+blob	4087	docs/linux.mdx
+blob	6871	docs/logo.svg
+blob	1877	docs/macos.mdx
+blob	13006	docs/modelfile.mdx
+blob	6915	docs/ollama-logo.svg
+blob	7487	docs/ollama.png
+blob	87400	docs/openapi.yaml
+blob	7674	docs/quickstart.mdx
+blob	2332	docs/styling.css
+blob	5814	docs/template.mdx
+tree		docs/tools
+tree		docs/tools/extract-examples
+blob	1120	docs/tools/extract-examples/README.md
+blob	3268	docs/tools/extract-examples/main.go
+blob	7837	docs/troubleshooting.mdx
+blob	4713	docs/windows.mdx
+tree		envconfig
+blob	16343	envconfig/config.go
+blob	11296	envconfig/config_test.go
+blob	205	envconfig/test_home_test.go
+tree		format
+blob	1187	format/bytes.go
+blob	1642	format/bytes_test.go
+blob	782	format/format.go
+blob	633	format/format_test.go
+blob	1478	format/time.go
+blob	1061	format/time_test.go
+tree		fs
+tree		fs/gguf
+blob	2199	fs/gguf/file_type.go
+blob	12396	fs/gguf/gguf.go
+blob	9651	fs/gguf/gguf_internal_test.go
+blob	9888	fs/gguf/gguf_test.go
+blob	3811	fs/gguf/keyvalue.go
+blob	4995	fs/gguf/keyvalue_test.go
+blob	1858	fs/gguf/lazy.go
+blob	5445	fs/gguf/metadata.go
+blob	5193	fs/gguf/metadata_test.go
+blob	4815	fs/gguf/model.go
+blob	5063	fs/gguf/model_test.go
+blob	373	fs/gguf/reader.go
+blob	7321	fs/gguf/tensor.go
+tree		fs/safetensors
+blob	12209	fs/safetensors/extractor.go
+blob	16297	fs/safetensors/extractor_test.go
+tree		fs/util
+tree		fs/util/bufioutil
+blob	590	fs/util/bufioutil/buffer_seeker.go
+blob	1131	fs/util/bufioutil/buffer_seeker_test.go
+blob	3943	go.mod
+blob	20396	go.sum
+tree		harmony
+blob	18306	harmony/harmonyparser.go
+blob	17482	harmony/harmonyparser_test.go
+tree		integration
+blob	2092	integration/README.md
+blob	16651	integration/api_test.go
+blob	10051	integration/audio_test.go
+blob	224796	integration/audio_test_data_test.go
+blob	4876	integration/basic_test.go
+blob	4142	integration/chat_cases_test.go
+blob	3160	integration/compatibility_model_matrix_test.go
+blob	13117	integration/compatibility_models_test.go
+blob	6861	integration/concurrency_test.go
+blob	13288	integration/context_test.go
+blob	14371	integration/create_test.go
+blob	5516	integration/embed_cases_test.go
+blob	42631	integration/embed_test.go
+blob	7799	integration/generate_jinja_test.go
+blob	37732	integration/llm_image_test.go
+blob	3549	integration/max_queue_test.go
+blob	12646	integration/migration_test.go
+blob	1238	integration/quantization_test.go
+blob	673	integration/reg_create_test.go
+blob	2164	integration/reg_fast_test.go
+blob	2522	integration/reg_groups_test.go
+blob	4141	integration/reg_library_test.go
+blob	6414	integration/reg_release_test.go
+blob	239	integration/reg_required_test.go
+blob	3243	integration/reg_test.go
+blob	6178	integration/structured_output_test.go
+blob	8403	integration/systemone_test.go
+tree		integration/testdata
+blob	131796	integration/testdata/embed.json
+blob	5458199	integration/testdata/shakespeare.txt
+blob	4740	integration/thinking_test.go
+blob	13626	integration/tools_routes_test.go
+blob	30673	integration/tools_stress_test.go
+blob	4646	integration/tools_test.go
+blob	24981	integration/utils_test.go
+blob	5229	integration/vision_ocr_test.go
+blob	12270	integration/vision_test.go
+blob	61789	integration/vision_test_data_test.go
+tree		internal
+tree		internal/cloud
+blob	566	internal/cloud/policy.go
+blob	1913	internal/cloud/policy_test.go
+blob	224	internal/cloud/test_home_test.go
+tree		internal/decisiontest
+blob	8117	internal/decisiontest/corpus.go
+blob	6461	internal/decisiontest/corpus_test.go
+blob	4654	internal/decisiontest/response.go
+blob	2341	internal/decisiontest/response_test.go
+blob	1066	internal/decisiontest/tally.go
+tree		internal/modelref
+blob	2693	internal/modelref/modelref.go
+blob	7809	internal/modelref/modelref_test.go
+tree		internal/onboarding
+blob	2184	internal/onboarding/app_state.go
+blob	1699	internal/onboarding/state.go
+tree		internal/orderedmap
+blob	2294	internal/orderedmap/orderedmap.go
+blob	7526	internal/orderedmap/orderedmap_test.go
+tree		internal/proxy
+blob	29287	internal/proxy/claude_desktop.go
+blob	4720	internal/proxy/claude_desktop_access.go
+blob	4686	internal/proxy/claude_desktop_access_test.go
+blob	18913	internal/proxy/claude_desktop_models.go
+blob	20431	internal/proxy/claude_desktop_models_test.go
+blob	60778	internal/proxy/claude_desktop_test.go
+blob	21781	internal/proxy/codex_desktop.go
+blob	8750	internal/proxy/codex_desktop_agents_test.go
+blob	24875	internal/proxy/codex_desktop_autoreview.go
+blob	3831	internal/proxy/codex_desktop_errors_test.go
+blob	17807	internal/proxy/codex_desktop_normalize.go
+blob	83166	internal/proxy/codex_desktop_test.go
+tree		internal/testutil
+tree		internal/testutil/gguf
+blob	7673	internal/testutil/gguf/gguf.go
+tree		llama
+blob	19	llama/.gitignore
+blob	4023	llama/README.md
+tree		llama/compat
+blob	4903	llama/compat/001-llama-cpp-hooks.patch
+blob	8998	llama/compat/README.md
+blob	2504	llama/compat/compat.cmake
+blob	16708	llama/compat/llama-ollama-compat-util.cpp
+blob	6806	llama/compat/llama-ollama-compat-util.h
+blob	171133	llama/compat/llama-ollama-compat.cpp
+blob	5329	llama/compat/llama-ollama-compat.h
+tree		llama/server
+blob	29227	llama/server/CMakeLists.txt
+blob	9820	llama/server/CMakePresets.json
+tree		llm
+blob	789	llm/exit_status.go
+blob	300	llm/exit_status_other.go
+blob	911	llm/exit_status_windows.go
+blob	4617	llm/gbnf.go
+blob	2918	llm/gbnf_test.go
+blob	4034	llm/llama_binary.go
+blob	5554	llm/llama_binary_test.go
+blob	92665	llm/llama_server.go
+blob	5749	llm/llama_server_speech.go
+blob	9843	llm/llama_server_speech_test.go
+blob	2374	llm/llama_server_systemone.go
+blob	125048	llm/llama_server_test.go
+blob	88	llm/llm_darwin.go
+blob	88	llm/llm_linux.go
+blob	844	llm/llm_windows.go
+blob	789	llm/media.go
+blob	1130	llm/metal_retry.go
+blob	5376	llm/model_split.go
+blob	5882	llm/model_split_test.go
+blob	112	llm/rocm_default.go
+blob	10051	llm/rocm_windows.go
+blob	152	llm/runner_job_other.go
+blob	1551	llm/runner_job_windows.go
+blob	1867	llm/runner_job_windows_test.go
+blob	3499	llm/score.go
+blob	8561	llm/server.go
+blob	735	llm/server_wait_test.go
+blob	748	llm/speech.go
+blob	4093	llm/status.go
+blob	2917	llm/status_test.go
+blob	2865	llm/vulkan_windows.go
+tree		logutil
+blob	1153	logutil/logutil.go
+blob	367	logutil/logutil_test.go
+blob	180	main.go
+tree		manifest
+blob	6516	manifest/downgrade_test.go
+blob	4238	manifest/layer.go
+blob	46476	manifest/manifest.go
+blob	42915	manifest/manifest_test.go
+blob	10402	manifest/paths.go
+tree		middleware
+blob	27509	middleware/anthropic.go
+blob	95847	middleware/anthropic_test.go
+blob	406	middleware/metrics.go
+blob	40868	middleware/openai.go
+blob	5827	middleware/openai_encoding_format_test.go
+blob	51760	middleware/openai_test.go
+blob	11612	middleware/responses_errors_test.go
+blob	3810	middleware/responses_input_content_test.go
+blob	4596	middleware/responses_tool_search_test.go
+blob	59122	middleware/responses_web_search_test.go
+blob	493	middleware/test_home_test.go
+blob	445	middleware/thinking.go
+blob	3593	middleware/thinking_test.go
+blob	2218	middleware/web_search.go
+blob	5011	middleware/web_search_test.go
+tree		ml
+blob	14057	ml/device.go
+blob	7456	ml/device_test.go
+blob	2879	ml/path.go
+blob	3632	ml/path_test.go
+tree		mlx
+blob	17	mlx/.gitignore
+blob	1918	mlx/CMakeLists.txt
+blob	4578	mlx/act.go
+blob	5029	mlx/act_test.go
+blob	5276	mlx/array.go
+blob	4663	mlx/array_test.go
+tree		mlx/compat
+tree		mlx/compat/mlx-c
+blob	1148	mlx/compat/mlx-c/0001-mlx-c-sdpa-window-size.patch
+blob	800	mlx/compat/mlx-c/0002-cuda-get-arch-list.patch
+blob	5007	mlx/compile.go
+blob	4109	mlx/compile_test.go
+blob	4971	mlx/cuda.go
+blob	3679	mlx/cuda_test.go
+blob	5770	mlx/depthwise_conv.go
+blob	1377	mlx/depthwise_conv_test.go
+blob	1736	mlx/dtype.go
+blob	1362	mlx/dynamic.c
+blob	11580	mlx/dynamic.go
+blob	1478	mlx/dynamic.h
+blob	263	mlx/dynamic_darwin.go
+blob	75	mlx/dynamic_other.go
+blob	2764	mlx/fast.go
+blob	5133	mlx/fast_gated_delta_test.go
+blob	32624	mlx/gated_delta.go
+blob	12830	mlx/gated_delta_test.go
+blob	112548	mlx/generated.c
+blob	264603	mlx/generated.h
+tree		mlx/generator
+blob	413	mlx/generator/generated.c.gotmpl
+blob	592	mlx/generator/generated.h.gotmpl
+blob	3867	mlx/generator/main.go
+blob	11044	mlx/gpu_kernel.go
+tree		mlx/include
+tree		mlx/include/mlx
+tree		mlx/include/mlx/c
+blob	412	mlx/include/mlx/c/README.md
+blob	10297	mlx/include/mlx/c/array.h
+blob	5792	mlx/include/mlx/c/closure.h
+blob	1596	mlx/include/mlx/c/compile.h
+blob	785	mlx/include/mlx/c/cuda.h
+blob	3557	mlx/include/mlx/c/device.h
+blob	2031	mlx/include/mlx/c/distributed.h
+blob	1211	mlx/include/mlx/c/distributed_group.h
+blob	693	mlx/include/mlx/c/error.h
+blob	1880	mlx/include/mlx/c/export.h
+blob	6038	mlx/include/mlx/c/fast.h
+blob	3252	mlx/include/mlx/c/fft.h
+blob	1270	mlx/include/mlx/c/graph_utils.h
+blob	440	mlx/include/mlx/c/half.h
+blob	1682	mlx/include/mlx/c/io.h
+blob	3566	mlx/include/mlx/c/io_types.h
+blob	3172	mlx/include/mlx/c/linalg.h
+blob	3386	mlx/include/mlx/c/map.h
+blob	1142	mlx/include/mlx/c/memory.h
+blob	920	mlx/include/mlx/c/metal.h
+blob	833	mlx/include/mlx/c/mlx.h
+blob	35276	mlx/include/mlx/c/ops.h
+blob	687	mlx/include/mlx/c/optional.h
+blob	4010	mlx/include/mlx/c/random.h
+blob	3689	mlx/include/mlx/c/stream.h
+blob	858	mlx/include/mlx/c/string.h
+blob	1712	mlx/include/mlx/c/transforms.h
+blob	1197	mlx/include/mlx/c/transforms_impl.h
+blob	5263	mlx/include/mlx/c/vector.h
+blob	225	mlx/include/mlx/c/version.h
+blob	11200	mlx/indexed_attention.go
+blob	2881	mlx/indexed_attention_test.go
+blob	4434	mlx/io.go
+blob	1782	mlx/io_test.go
+blob	2282	mlx/kernel_test.go
+blob	11909	mlx/mamba2_scan.go
+blob	11729	mlx/mamba_kernels_test.go
+blob	2811	mlx/memory.go
+blob	1524	mlx/memory_test.go
+blob	4809	mlx/mlx.go
+tree		mlx/mlxtest
+blob	1698	mlx/mlxtest/mlxtest.go
+tree		mlx/mlxthread
+tree		mlx/mlxthread/mlxthreadtest
+blob	4383	mlx/mlxthread/mlxthreadtest/mlxthreadtest.go
+blob	9693	mlx/mlxthread/mlxthreadtest/mlxthreadtest_test.go
+blob	181	mlx/mlxthread/mlxthreadtest/threadid_darwin.go
+blob	126	mlx/mlxthread/mlxthreadtest/threadid_linux.go
+blob	109	mlx/mlxthread/mlxthreadtest/threadid_other.go
+blob	157	mlx/mlxthread/mlxthreadtest/threadid_windows.go
+blob	3918	mlx/mlxthread/thread.go
+blob	562	mlx/mlxthread/thread_affinity_test.go
+blob	7544	mlx/mlxthread/thread_test.go
+blob	177	mlx/mlxthread/threadid_darwin_test.go
+blob	122	mlx/mlxthread/threadid_linux_test.go
+blob	721	mlx/nn.go
+blob	9045	mlx/ops.go
+blob	20996	mlx/ops_extra.go
+blob	6085	mlx/ops_extra_test.go
+blob	3238	mlx/path.go
+blob	4200	mlx/path_linux_test.go
+blob	3752	mlx/path_test.go
+tree		mlx/quant
+blob	2604	mlx/quant/quant.go
+blob	1507	mlx/quant/quant_test.go
+blob	952	mlx/random.go
+blob	5349	mlx/scope.go
+blob	4335	mlx/scope_test.go
+blob	2217	mlx/slice.go
+blob	1877	mlx/stream.go
+blob	1469	mlx/thread_test.go
+blob	1507	mlx/topk.go
+blob	2800	mlx/topk_test.go
+blob	3000	mlx/weighted_sum.go
+blob	3596	mlx/weighted_sum_test.go
+tree		mlxrunner
+tree		mlxrunner/batch
+blob	2307	mlxrunner/batch/batch.go
+tree		mlxrunner/cache
+blob	6149	mlxrunner/cache/cache.go
+blob	7875	mlxrunner/cache/cache_test.go
+blob	4345	mlxrunner/cache/hidden.go
+blob	1510	mlxrunner/cache/hidden_test.go
+blob	12122	mlxrunner/cache/kvcache.go
+blob	11418	mlxrunner/cache/lazy_test.go
+blob	10706	mlxrunner/cache/recurrent.go
+blob	10127	mlxrunner/cache/recurrent_test.go
+blob	18488	mlxrunner/cache/rotating.go
+blob	17637	mlxrunner/cache/rotating_attention_test.go
+blob	9567	mlxrunner/cache/rotating_multiturn_test.go
+blob	25732	mlxrunner/cache/snapshot_capture_test.go
+blob	8997	mlxrunner/cache_trie.go
+blob	12562	mlxrunner/cache_trie_test.go
+blob	18427	mlxrunner/client.go
+blob	1150	mlxrunner/client_score.go
+blob	3179	mlxrunner/client_score_test.go
+blob	1289	mlxrunner/client_speech.go
+blob	6251	mlxrunner/client_speech_test.go
+blob	2159	mlxrunner/client_test.go
+blob	7223	mlxrunner/dflash.go
+blob	17527	mlxrunner/dflash_test.go
+blob	13467	mlxrunner/embed.go
+blob	17766	mlxrunner/embed_test.go
+blob	13351	mlxrunner/grammar.go
+blob	11626	mlxrunner/grammar_mask_test.go
+blob	13143	mlxrunner/grammar_test.go
+blob	7155	mlxrunner/media.go
+blob	5405	mlxrunner/media_test.go
+tree		mlxrunner/model
+tree		mlxrunner/model/architectures
+blob	1343	mlxrunner/model/architectures/architectures.go
+tree		mlxrunner/model/audio
+blob	9416	mlxrunner/model/audio/audio.go
+blob	10670	mlxrunner/model/audio/audio_test.go
+tree		mlxrunner/model/autotrustdecision
+blob	828	mlxrunner/model/autotrustdecision/config.go
+blob	5315	mlxrunner/model/autotrustdecision/config_test.go
+blob	6082	mlxrunner/model/autotrustdecision/model.go
+blob	6295	mlxrunner/model/autotrustdecision/score.go
+blob	4746	mlxrunner/model/autotrustdecision/score_test.go
+tree		mlxrunner/model/clef
+blob	2220	mlxrunner/model/clef/encode.go
+blob	2351	mlxrunner/model/clef/encode_test.go
+blob	9058	mlxrunner/model/clef/head.go
+blob	2165	mlxrunner/model/clef/model.go
+blob	3911	mlxrunner/model/clef/score.go
+tree		mlxrunner/model/cohere2_moe
+blob	29485	mlxrunner/model/cohere2_moe/cohere2_moe.go
+blob	1597	mlxrunner/model/cohere2_moe/cohere2_moe_test.go
+tree		mlxrunner/model/d1
+blob	1023	mlxrunner/model/d1/fuzz_test.go
+blob	3477	mlxrunner/model/d1/model.go
+blob	6357	mlxrunner/model/d1/prompt.go
+blob	5120	mlxrunner/model/d1/pyjson.go
+blob	1205	mlxrunner/model/d1/pyjson_test.go
+blob	2909	mlxrunner/model/d1/question.go
+blob	5390	mlxrunner/model/d1/question_test.go
+blob	1108	mlxrunner/model/d1/readout.go
+blob	1296	mlxrunner/model/d1/readout_test.go
+blob	10475	mlxrunner/model/d1/score.go
+tree		mlxrunner/model/d3
+blob	3284	mlxrunner/model/d3/model.go
+blob	5059	mlxrunner/model/d3/score.go
+blob	4228	mlxrunner/model/d3/score_test.go
+tree		mlxrunner/model/decisionqwen
+blob	876	mlxrunner/model/decisionqwen/decisionqwen.go
+blob	1012	mlxrunner/model/decisionqwen/decisionqwen_test.go
+tree		mlxrunner/model/dflash
+blob	16463	mlxrunner/model/dflash/cache_test.go
+blob	26436	mlxrunner/model/dflash/dflash.go
+blob	10039	mlxrunner/model/dflash/dflash2.go
+blob	25612	mlxrunner/model/dflash/dflash2_test.go
+blob	5253	mlxrunner/model/dflash/dflash_test.go
+blob	1218	mlxrunner/model/embedding.go
+blob	4169	mlxrunner/model/embedding_test.go
+tree		mlxrunner/model/flint
+blob	12762	mlxrunner/model/flint/flint.go
+blob	10982	mlxrunner/model/flint/moe.go
+blob	10825	mlxrunner/model/flint/moe_test.go
+blob	7147	mlxrunner/model/flint/precision_test.go
+tree		mlxrunner/model/gemma4
+blob	13435	mlxrunner/model/gemma4/assistant.go
+blob	18235	mlxrunner/model/gemma4/audio.go
+blob	6689	mlxrunner/model/gemma4/audio_test.go
+blob	55909	mlxrunner/model/gemma4/gemma4.go
+blob	13550	mlxrunner/model/gemma4/gemma4_moe_test.go
+blob	21956	mlxrunner/model/gemma4/gemma4_test.go
+blob	10245	mlxrunner/model/gemma4/media.go
+blob	11914	mlxrunner/model/gemma4/media_test.go
+blob	982	mlxrunner/model/gemma4/multimodal_export_test.go
+blob	5964	mlxrunner/model/gemma4/process_audio.go
+blob	3480	mlxrunner/model/gemma4/process_audio_test.go
+blob	8126	mlxrunner/model/gemma4/process_image.go
+blob	1661	mlxrunner/model/gemma4/process_image_test.go
+blob	15987	mlxrunner/model/gemma4/vision.go
+blob	11402	mlxrunner/model/gemma4/vision_test.go
+tree		mlxrunner/model/gemma4embedding
+blob	10744	mlxrunner/model/gemma4embedding/forward.go
+blob	26861	mlxrunner/model/gemma4embedding/gemma4embedding.go
+blob	3396	mlxrunner/model/gemma4embedding/gemma4embedding_test.go
+blob	20748	mlxrunner/model/gemma4embedding/gemma4embedding_towers_test.go
+tree		mlxrunner/model/glimmer
+blob	24933	mlxrunner/model/glimmer/glimmer.go
+blob	9864	mlxrunner/model/glimmer/glimmer_test.go
+blob	6703	mlxrunner/model/glimmer/media.go
+blob	2429	mlxrunner/model/glimmer/media_test.go
+blob	13949	mlxrunner/model/glimmer/vision.go
+tree		mlxrunner/model/glm4_moe_lite
+blob	2732	mlxrunner/model/glm4_moe_lite/config_test.go
+blob	29085	mlxrunner/model/glm4_moe_lite/glm4_moe_lite.go
+blob	15171	mlxrunner/model/glm4_moe_lite/parser.go
+blob	4760	mlxrunner/model/glm4_moe_lite/parser_test.go
+blob	5051	mlxrunner/model/glm4_moe_lite/render.go
+blob	4924	mlxrunner/model/glm4_moe_lite/render_test.go
+blob	2989	mlxrunner/model/globalscale.go
+blob	9024	mlxrunner/model/globalscale_test.go
+tree		mlxrunner/model/kev
+blob	2956	mlxrunner/model/kev/model.go
+blob	4181	mlxrunner/model/kev/score.go
+tree		mlxrunner/model/laguna
+blob	46606	mlxrunner/model/laguna/laguna.go
+blob	26161	mlxrunner/model/laguna/laguna_test.go
+tree		mlxrunner/model/laya
+blob	3802	mlxrunner/model/laya/attention_test.go
+blob	4043	mlxrunner/model/laya/config.go
+blob	6952	mlxrunner/model/laya/model.go
+blob	6219	mlxrunner/model/laya/score.go
+blob	6835	mlxrunner/model/laya/score_test.go
+tree		mlxrunner/model/lfm3
+blob	5710	mlxrunner/model/lfm3/audio.go
+blob	743	mlxrunner/model/lfm3/audio_test.go
+blob	2702	mlxrunner/model/lfm3/decision.go
+blob	17821	mlxrunner/model/lfm3/lfm3.go
+tree		mlxrunner/model/lfm3/lfm3audio
+blob	12346	mlxrunner/model/lfm3/lfm3audio/config.go
+blob	3944	mlxrunner/model/lfm3/lfm3audio/config_test.go
+blob	14388	mlxrunner/model/lfm3/lfm3audio/encoder.go
+blob	6778	mlxrunner/model/lfm3/lfm3audio/encoder_test.go
+blob	5976	mlxrunner/model/lfm3/lfm3audio/features.go
+blob	4030	mlxrunner/model/lfm3/lfm3audio/features_test.go
+tree		mlxrunner/model/lfm3/lfm3speech
+blob	15116	mlxrunner/model/lfm3/lfm3speech/codec.go
+blob	7528	mlxrunner/model/lfm3/lfm3speech/codec_test.go
+blob	9537	mlxrunner/model/lfm3/lfm3speech/config.go
+blob	4996	mlxrunner/model/lfm3/lfm3speech/config_test.go
+blob	11816	mlxrunner/model/lfm3/lfm3speech/depth.go
+blob	6466	mlxrunner/model/lfm3/lfm3speech/depth_test.go
+blob	2219	mlxrunner/model/lfm3/lfm3speech/embed.go
+blob	4266	mlxrunner/model/lfm3/lfm3speech/layers.go
+blob	4799	mlxrunner/model/lfm3/lfm3speech/sample.go
+blob	2838	mlxrunner/model/lfm3/lfm3speech/sample_test.go
+blob	8385	mlxrunner/model/lfm3/media.go
+blob	8390	mlxrunner/model/lfm3/speech.go
+blob	2911	mlxrunner/model/lfm3/speech_test.go
+blob	9631	mlxrunner/model/lfm3/vision.go
+blob	4423	mlxrunner/model/lfm3/vl.go
+blob	2229	mlxrunner/model/linear.go
+tree		mlxrunner/model/llama
+blob	9916	mlxrunner/model/llama/llama.go
+blob	2865	mlxrunner/model/media.go
+blob	7010	mlxrunner/model/model.go
+tree		mlxrunner/model/nemotron_h
+blob	1744	mlxrunner/model/nemotron_h/mamba_compile_test.go
+blob	54935	mlxrunner/model/nemotron_h/nemotron_h.go
+blob	33119	mlxrunner/model/nemotron_h/nemotron_h_test.go
+blob	23321	mlxrunner/model/nemotron_h/vision.go
+blob	6718	mlxrunner/model/nemotron_h/vision_prompt.go
+blob	4605	mlxrunner/model/nemotron_h/vision_prompt_test.go
+blob	3232	mlxrunner/model/nemotron_h/vision_resize.go
+tree		mlxrunner/model/phonon
+blob	1489	mlxrunner/model/phonon/conditions.go
+blob	7620	mlxrunner/model/phonon/flow.go
+blob	6028	mlxrunner/model/phonon/mimi.go
+blob	13579	mlxrunner/model/phonon/model.go
+blob	3151	mlxrunner/model/phonon/model_test.go
+blob	14690	mlxrunner/model/phonon/normalize.go
+blob	10666	mlxrunner/model/phonon/normalize_test.go
+blob	25124	mlxrunner/model/phonon/rewrite.go
+blob	10696	mlxrunner/model/phonon/text.go
+blob	5723	mlxrunner/model/phonon/text_test.go
+tree		mlxrunner/model/pplxdecider
+blob	4344	mlxrunner/model/pplxdecider/model.go
+blob	395	mlxrunner/model/pplxdecider/model_test.go
+blob	6576	mlxrunner/model/pplxdecider/score.go
+blob	2317	mlxrunner/model/pplxdecider/score_test.go
+blob	7604	mlxrunner/model/quant.go
+tree		mlxrunner/model/qwen3
+blob	11479	mlxrunner/model/qwen3/qwen3.go
+blob	6118	mlxrunner/model/qwen3/qwen3_test.go
+tree		mlxrunner/model/qwen3_5
+blob	6909	mlxrunner/model/qwen3_5/gdn_projections.go
+blob	4476	mlxrunner/model/qwen3_5/gdn_projections_test.go
+blob	6270	mlxrunner/model/qwen3_5/process_image.go
+blob	47243	mlxrunner/model/qwen3_5/qwen3_5.go
+blob	18700	mlxrunner/model/qwen3_5/qwen3_5_test.go
+blob	7863	mlxrunner/model/qwen3_5/rope_test.go
+blob	1203	mlxrunner/model/qwen3_5/score.go
+blob	3012	mlxrunner/model/qwen3_5/score_test.go
+blob	19033	mlxrunner/model/qwen3_5/vision.go
+blob	5998	mlxrunner/model/qwen3_5/vision_test.go
+tree		mlxrunner/model/qwen3_5_moe
+blob	479	mlxrunner/model/qwen3_5_moe/qwen3_5_moe.go
+tree		mlxrunner/model/qwen4_exp
+blob	10551	mlxrunner/model/qwen4_exp/config.go
+blob	4902	mlxrunner/model/qwen4_exp/config_test.go
+blob	7090	mlxrunner/model/qwen4_exp/engram.go
+blob	5849	mlxrunner/model/qwen4_exp/engram_cache.go
+blob	3788	mlxrunner/model/qwen4_exp/engram_test.go
+blob	7453	mlxrunner/model/qwen4_exp/hyper_connection.go
+blob	3492	mlxrunner/model/qwen4_exp/hyper_connection_test.go
+blob	3858	mlxrunner/model/qwen4_exp/linear_attention.go
+blob	5693	mlxrunner/model/qwen4_exp/moe.go
+blob	3017	mlxrunner/model/qwen4_exp/mtp.go
+blob	8507	mlxrunner/model/qwen4_exp/ple_host.go
+blob	4600	mlxrunner/model/qwen4_exp/ple_host_test.go
+blob	775	mlxrunner/model/qwen4_exp/ple_mapping_other.go
+blob	543	mlxrunner/model/qwen4_exp/ple_mapping_other_test.go
+blob	1209	mlxrunner/model/qwen4_exp/ple_mapping_unix.go
+blob	10288	mlxrunner/model/qwen4_exp/qsa.go
+blob	4234	mlxrunner/model/qwen4_exp/qsa_test.go
+blob	9086	mlxrunner/model/qwen4_exp/qwen4_exp.go
+blob	924	mlxrunner/model/qwen4_exp/weights.go
+blob	3296	mlxrunner/model/qwen4_exp/weights_test.go
+tree		mlxrunner/model/ripple
+blob	6402	mlxrunner/model/ripple/forward.go
+blob	13266	mlxrunner/model/ripple/ripple.go
+blob	48274	mlxrunner/model/ripple/ripple_test.go
+blob	2869	mlxrunner/model/root.go
+blob	711	mlxrunner/model/score.go
+blob	341	mlxrunner/model/speech.go
+tree		mlxrunner/model/strands
+blob	3533	mlxrunner/model/strands/model.go
+blob	1981	mlxrunner/model/strands/model_test.go
+blob	4276	mlxrunner/model/strands/score.go
+blob	2062	mlxrunner/model/strands/score_test.go
+blob	12282	mlxrunner/mtp.go
+blob	50461	mlxrunner/mtp_test.go
+tree		mlxrunner/nn
+blob	708	mlxrunner/nn/conv.go
+blob	1686	mlxrunner/nn/embedding.go
+blob	1219	mlxrunner/nn/embedding_test.go
+blob	2990	mlxrunner/nn/linear.go
+blob	5514	mlxrunner/nn/linear_test.go
+blob	417	mlxrunner/nn/multilinear.go
+blob	721	mlxrunner/nn/norm.go
+blob	3984	mlxrunner/nn/norm_test.go
+blob	14114	mlxrunner/nn/recurrent.go
+blob	15525	mlxrunner/nn/recurrent_test.go
+blob	4095	mlxrunner/nn/rope.go
+blob	1901	mlxrunner/nn/rope_test.go
+blob	23203	mlxrunner/nn/sdpa.go
+blob	28237	mlxrunner/nn/sdpa_test.go
+blob	18462	mlxrunner/pipeline.go
+blob	3008	mlxrunner/pipeline_panic_test.go
+blob	6850	mlxrunner/pipeline_test.go
+blob	24710	mlxrunner/prefix_cache.go
+blob	12813	mlxrunner/prefix_cache_scenario_test.go
+blob	46001	mlxrunner/prefix_cache_test.go
+blob	23931	mlxrunner/ripple_test.go
+blob	10652	mlxrunner/runner.go
+blob	3983	mlxrunner/runner_test.go
+tree		mlxrunner/sample
+blob	8017	mlxrunner/sample/logprob_test.go
+blob	31918	mlxrunner/sample/sample.go
+blob	20490	mlxrunner/sample/sample_test.go
+blob	8193	mlxrunner/score.go
+blob	7876	mlxrunner/score_hidden_test.go
+blob	9848	mlxrunner/score_test.go
+blob	8410	mlxrunner/server.go
+blob	20036	mlxrunner/speculate.go
+blob	11913	mlxrunner/speculate_depth.go
+blob	12456	mlxrunner/speculate_depth_test.go
+blob	2748	mlxrunner/speculate_stats.go
+blob	3751	mlxrunner/speech.go
+blob	2215	mlxrunner/status_memory.go
+blob	5805	mlxrunner/status_memory_test.go
+tree		mlxrunner/testdata
+blob	133103	mlxrunner/testdata/qwen35_yarn.json
+blob	56756	mlxrunner/testdata/yarn.json
+tree		mlxrunner/tokenizer
+tree		mlxrunner/tokenizer/testdata
+tree		mlxrunner/tokenizer/testdata/llama3.2
+blob	2748871	mlxrunner/tokenizer/testdata/llama3.2/encoder.json
+blob	3243736	mlxrunner/tokenizer/testdata/llama3.2/vocab.bpe
+blob	4866	mlxrunner/tokenizer/testdata/mini_llama.json
+blob	3147	mlxrunner/tokenizer/tokenizer.go
+blob	1532	mlxrunner/tokenizer/tokenizer_added.go
+blob	4644	mlxrunner/tokenizer/tokenizer_benchmark_test.go
+blob	4326	mlxrunner/tokenizer/tokenizer_bpe.go
+blob	3379	mlxrunner/tokenizer/tokenizer_bpe_spans_test.go
+blob	3418	mlxrunner/tokenizer/tokenizer_config_test.go
+blob	3495	mlxrunner/tokenizer/tokenizer_correctness_test.go
+blob	1234	mlxrunner/tokenizer/tokenizer_decode.go
+blob	5484	mlxrunner/tokenizer/tokenizer_encode.go
+blob	5184	mlxrunner/tokenizer/tokenizer_ggml_parity_test.go
+blob	12185	mlxrunner/tokenizer/tokenizer_load.go
+blob	3909	mlxrunner/tokenizer/tokenizer_load_test.go
+blob	11837	mlxrunner/tokenizer/tokenizer_normalization_test.go
+blob	8753	mlxrunner/tokenizer/tokenizer_pretokenizer.go
+blob	9930	mlxrunner/tokenizer/tokenizer_pretokenizer_test.go
+blob	1327	mlxrunner/tokenizer/tokenizer_reference_benchmark_test.go
+blob	7083	mlxrunner/tokenizer/tokenizer_reference_model_test.go
+blob	21810	mlxrunner/tokenizer/tokenizer_reference_test.go
+blob	815	mlxrunner/utf8_buffer.go
+blob	1075	mlxrunner/utf8_buffer_test.go
+blob	441	mlxrunner/verify.go
+blob	471	mlxrunner/verify_test.go
+tree		mlxrunner/xgrammar
+blob	6000	mlxrunner/xgrammar/dynamic.c
+blob	1224	mlxrunner/xgrammar/dynamic.h
+tree		mlxrunner/xgrammar/native
+blob	1758	mlxrunner/xgrammar/native/CMakeLists.txt
+blob	7758	mlxrunner/xgrammar/native/xgrammar.cpp
+blob	2042	mlxrunner/xgrammar/native/xgrammar.h
+blob	7453	mlxrunner/xgrammar/xgrammar.go
+blob	10068	mlxrunner/xgrammar/xgrammar_test.go
+tree		model
+tree		model/parsers
+blob	9708	model/parsers/cogito.go
+blob	16311	model/parsers/cogito_test.go
+blob	9190	model/parsers/cohere.go
+blob	8066	model/parsers/cohere_test.go
+blob	8954	model/parsers/deepseek3.go
+blob	23080	model/parsers/deepseek3_test.go
+blob	1248	model/parsers/flint.go
+blob	6924	model/parsers/flint_test.go
+blob	8237	model/parsers/functiongemma.go
+blob	11398	model/parsers/functiongemma_test.go
+blob	23093	model/parsers/gemma4.go
+blob	41936	model/parsers/gemma4_test.go
+blob	17047	model/parsers/glimmer.go
+blob	22459	model/parsers/glimmer_test.go
+blob	20885	model/parsers/glm46.go
+blob	30208	model/parsers/glm46_test.go
+blob	783	model/parsers/glm47.go
+blob	6088	model/parsers/glm47_test.go
+blob	354	model/parsers/glmocr.go
+blob	17037	model/parsers/laguna.go
+blob	23952	model/parsers/laguna_test.go
+blob	18800	model/parsers/lfm2.go
+blob	32651	model/parsers/lfm2_test.go
+blob	3250	model/parsers/lfm3.go
+blob	5487	model/parsers/lfm3_test.go
+blob	6087	model/parsers/lfm3_thinkoff_test.go
+blob	3283	model/parsers/lfm3audio.go
+blob	3937	model/parsers/lfm3audio_test.go
+blob	1723	model/parsers/mimo_test.go
+blob	9435	model/parsers/ministral.go
+blob	17915	model/parsers/ministral_test.go
+blob	5785	model/parsers/nemotron3nano.go
+blob	18106	model/parsers/nemotron3nano_test.go
+blob	11268	model/parsers/olmo3.go
+blob	12614	model/parsers/olmo3_test.go
+blob	4525	model/parsers/olmo3_think.go
+blob	11132	model/parsers/olmo3_think_test.go
+blob	5313	model/parsers/parsers.go
+blob	10894	model/parsers/parsers_test.go
+blob	10644	model/parsers/qwen3.go
+blob	7660	model/parsers/qwen35.go
+blob	14592	model/parsers/qwen35_test.go
+blob	3782	model/parsers/qwen38_test.go
+blob	10320	model/parsers/qwen3_test.go
+blob	14453	model/parsers/qwen3coder.go
+blob	35074	model/parsers/qwen3coder_test.go
+blob	7798	model/parsers/qwen3vl.go
+blob	21761	model/parsers/qwen3vl_nonthinking_test.go
+blob	23999	model/parsers/qwen3vl_thinking_test.go
+blob	5021	model/parsers/ripple.go
+blob	9837	model/parsers/ripple_test.go
+blob	2761	model/parsers/testhelpers_test.go
+tree		model/renderers
+blob	4319	model/renderers/audio.go
+blob	6133	model/renderers/audio_test.go
+blob	3657	model/renderers/cogito.go
+blob	19322	model/renderers/cogito_test.go
+blob	7453	model/renderers/cohere.go
+blob	7292	model/renderers/cohere_test.go
+blob	2411	model/renderers/d3_reference_test.go
+blob	4682	model/renderers/deepseek3.go
+blob	44798	model/renderers/deepseek3_test.go
+blob	4505	model/renderers/flint.go
+blob	3986	model/renderers/flint_json.go
+blob	18880	model/renderers/flint_reference_test.go
+blob	11928	model/renderers/flint_test.go
+blob	7220	model/renderers/functiongemma.go
+blob	21204	model/renderers/functiongemma_test.go
+blob	21270	model/renderers/gemma4.go
+blob	2762	model/renderers/gemma4_audio.go
+blob	75551	model/renderers/gemma4_reference_test.go
+blob	10167	model/renderers/glimmer.go
+blob	25172	model/renderers/glimmer_reference_test.go
+blob	4462	model/renderers/glimmer_test.go
+blob	3147	model/renderers/glm46.go
+blob	7296	model/renderers/glm46_test.go
+blob	5087	model/renderers/glm47.go
+blob	8041	model/renderers/glm47_test.go
+blob	3814	model/renderers/glmocr.go
+blob	2499	model/renderers/glmocr_test.go
+blob	1019	model/renderers/image_tags.go
+blob	1683	model/renderers/image_tags_test.go
+blob	4066	model/renderers/json.go
+blob	15123	model/renderers/json_test.go
+blob	8824	model/renderers/laguna.go
+blob	29202	model/renderers/laguna_test.go
+blob	8592	model/renderers/lfm2.go
+blob	12396	model/renderers/lfm2_test.go
+blob	7364	model/renderers/lfm3.go
+blob	1491	model/renderers/lfm3_audio.go
+blob	29770	model/renderers/lfm3_reference_test.go
+blob	7031	model/renderers/lfm3_speech.go
+blob	6083	model/renderers/lfm3_speech_test.go
+blob	4281	model/renderers/lfm3_test.go
+blob	2847	model/renderers/mimo.go
+blob	8857	model/renderers/mimo_reference_test.go
+blob	50964	model/renderers/nemotron35_reference_test.go
+blob	1099	model/renderers/nemotron35_super_test.go
+blob	15825	model/renderers/nemotron3nano.go
+blob	21323	model/renderers/nemotron3nano_reference_test.go
+blob	1880	model/renderers/nemotron3nano_test.go
+blob	25702	model/renderers/nemotron_cases_test.go
+blob	40480	model/renderers/nemotron_extra_reference_test.go
+blob	4608	model/renderers/olmo3.go
+blob	10418	model/renderers/olmo3_test.go
+blob	2534	model/renderers/olmo3_think.go
+blob	5599	model/renderers/olmo3_think_test.go
+blob	349	model/renderers/ornith.go
+blob	1468	model/renderers/ornith_test.go
+blob	11201	model/renderers/qwen35.go
+blob	9026	model/renderers/qwen35_test.go
+blob	19657	model/renderers/qwen38_test.go
+blob	7674	model/renderers/qwen3coder.go
+blob	10937	model/renderers/qwen3coder_test.go
+blob	4967	model/renderers/qwen3vl.go
+blob	17419	model/renderers/qwen3vl_nonthinking_test.go
+blob	14402	model/renderers/qwen3vl_thinking_test.go
+blob	4277	model/renderers/renderer.go
+blob	3038	model/renderers/renderer_test.go
+blob	3064	model/renderers/ripple.go
+blob	15180	model/renderers/ripple_test.go
+blob	1369	model/renderers/speech.go
+tree		model/renderers/testdata
+blob	8952	model/renderers/testdata/d3_chat_template.jinja
+blob	7755	model/renderers/testdata/d3_edge_chat_template.jinja
+blob	7756	model/renderers/testdata/d3_mini_chat_template.jinja
+blob	2328	model/renderers/testdata/flint_chat_template.jinja
+blob	18681	model/renderers/testdata/gemma4_31b_chat_template.jinja2
+blob	18568	model/renderers/testdata/gemma4_e2b_chat_template.jinja2
+blob	20161	model/renderers/testdata/gemma4_nemotron_chat_template.jinja2
+blob	9992	model/renderers/testdata/glimmer_chat_template.jinja
+blob	6232	model/renderers/testdata/laguna_v2_chat_template.jinja2
+blob	3875	model/renderers/testdata/laguna_v8_chat_template.jinja2
+blob	9328	model/renderers/testdata/lfm3_audio_chat_template.jinja2
+blob	12129	model/renderers/testdata/lfm3_chat_template.jinja2
+blob	13513	model/renderers/testdata/lfm3_omni_chat_template.jinja2
+blob	3916	model/renderers/testdata/mimo_v26_chat_template.jinja
+blob	10152	model/renderers/testdata/nemotron35_chat_template.jinja2
+blob	14277	model/renderers/testdata/nemotron3nano_chat_template.jinja2
+blob	8953	model/renderers/testdata/qwen38_chat_template.jinja
+blob	2652	model/renderers/testdata/ripple_chat_template.jinja
+blob	1871	model/renderers/testhelpers_test.go
+blob	1124	model/renderers/thinking.go
+blob	2603	model/renderers/thinking_test.go
+tree		openai
+blob	29720	openai/openai.go
+blob	3980	openai/openai_encoding_format_test.go
+blob	42554	openai/openai_test.go
+blob	68651	openai/responses.go
+blob	35743	openai/responses_compact.go
+blob	7017	openai/responses_compact_foreign_test.go
+blob	7965	openai/responses_compact_names_test.go
+blob	38537	openai/responses_compact_test.go
+blob	3334	openai/responses_custom_tool_test.go
+blob	582	openai/responses_errors.go
+blob	4270	openai/responses_input_content_test.go
+blob	117886	openai/responses_test.go
+blob	5899	openai/thinking_test.go
+tree		parser
+blob	3588	parser/expandpath_test.go
+blob	18284	parser/parser.go
+blob	31961	parser/parser_test.go
+tree		progress
+blob	4949	progress/bar.go
+blob	3023	progress/progress.go
+blob	2509	progress/progress_test.go
+blob	1683	progress/spinner.go
+tree		readline
+blob	11892	readline/buffer.go
+blob	241	readline/errors.go
+blob	2233	readline/history.go
+blob	9340	readline/readline.go
+blob	291	readline/readline_unix.go
+blob	116	readline/readline_windows.go
+blob	1042	readline/term.go
+blob	564	readline/term_bsd.go
+blob	567	readline/term_linux.go
+blob	1097	readline/term_windows.go
+blob	1778	readline/types.go
+tree		scripts
+blob	128	scripts/.this-is-the-create-dmg-repo
+blob	12974	scripts/build_darwin.sh
+blob	813	scripts/build_docker.sh
+blob	3513	scripts/build_linux.sh
+blob	51823	scripts/build_windows.ps1
+blob	482	scripts/buildkitd.toml.example
+blob	19200	scripts/create-dmg.sh
+blob	1560	scripts/env.sh
+blob	10778	scripts/install.ps1
+blob	15902	scripts/install.sh
+blob	367	scripts/push_docker.sh
+tree		scripts/support
+blob	2372	scripts/support/eula-resources-template.xml
+blob	1828	scripts/support/template.applescript
+blob	603	scripts/tag_latest.sh
+tree		server
+blob	4604	server/anthropic_thinking_test.go
+blob	2264	server/auth.go
+blob	3148	server/auth_test.go
+blob	6294	server/capabilities_test.go
+blob	16601	server/cloud_proxy.go
+blob	15718	server/cloud_proxy_anthropic_test.go
+blob	11456	server/cloud_proxy_test.go
+blob	969	server/codex_proxy.go
+blob	1913	server/codex_proxy_test.go
+blob	39738	server/create.go
+blob	3906	server/create_fuzz_test.go
+blob	8965	server/create_split_gguf.go
+blob	6463	server/create_test.go
+blob	13251	server/download.go
+blob	9868	server/download_test.go
+blob	598	server/fixblobs.go
+blob	2134	server/fixblobs_test.go
+blob	2642	server/gemma4_test.go
+blob	9880	server/gguf_metadata.go
+blob	20983	server/gguf_metadata_test.go
+blob	596	server/glimmer_images_test.go
+blob	55504	server/images.go
+blob	52186	server/images_test.go
+blob	3719	server/inference_request_log.go
+blob	950	server/logprob.go
+blob	3783	server/model.go
+blob	484	server/model_caches.go
+blob	7444	server/model_list.go
+blob	5166	server/model_list_test.go
+blob	10733	server/model_recommendations.go
+blob	23699	server/model_recommendations_test.go
+blob	4039	server/model_resolver.go
+blob	4764	server/model_resolver_test.go
+blob	18193	server/model_show_cache.go
+blob	17137	server/model_show_cache_test.go
+blob	3788	server/model_thinking.go
+blob	16780	server/model_thinking_test.go
+blob	4362	server/prompt.go
+blob	18571	server/prompt_test.go
+blob	2242	server/renderer_resolution.go
+blob	7965	server/responses_compact.go
+blob	44713	server/responses_compact_test.go
+blob	3748	server/responses_compact_truncation_test.go
+blob	4355	server/responses_thinking_test.go
+blob	108936	server/routes.go
+blob	47285	server/routes_cloud_test.go
+blob	104143	server/routes_create_test.go
+blob	13298	server/routes_debug_test.go
+blob	3587	server/routes_delete_test.go
+blob	11731	server/routes_generate_renderer_test.go
+blob	101266	server/routes_generate_test.go
+blob	21349	server/routes_harmony_streaming_test.go
+blob	13469	server/routes_list_test.go
+blob	8246	server/routes_options_test.go
+blob	3996	server/routes_parse_error_test.go
+blob	6963	server/routes_remote_test.go
+blob	5566	server/routes_reporting_test.go
+blob	3497	server/routes_request_log_test.go
+blob	77604	server/routes_test.go
+blob	10937	server/routes_web_experimental_test.go
+blob	60315	server/sched.go
+blob	74852	server/sched_test.go
+blob	6184	server/show_manifest.go
+blob	15536	server/show_safetensors.go
+blob	40237	server/show_safetensors_test.go
+blob	79	server/sparse_common.go
+blob	307	server/sparse_windows.go
+blob	5958	server/speech.go
+blob	3887	server/speech_gguf_test.go
+blob	6733	server/speech_test.go
+blob	28474	server/systemone_test.go
+blob	256	server/test_home_test.go
+blob	14163	server/transcription.go
+blob	19478	server/transcription_test.go
+blob	9355	server/upload.go
+tree		template
+blob	96	template/alfred.gotmpl
+blob	107	template/alfred.json
+blob	414	template/alpaca.gotmpl
+blob	63	template/alpaca.json
+blob	102	template/chatml.gotmpl
+blob	57	template/chatml.json
+blob	186	template/chatqa.gotmpl
+blob	90	template/chatqa.json
+blob	229	template/codellama-70b-instruct.gotmpl
+blob	68	template/codellama-70b-instruct.json
+blob	2865	template/command-r.gotmpl
+blob	79	template/command-r.json
+blob	210	template/falcon-instruct.gotmpl
+blob	50	template/falcon-instruct.json
+blob	445	template/gemma-instruct.gotmpl
+blob	63	template/gemma-instruct.json
+blob	363	template/gemma3-instruct.gotmpl
+blob	62	template/gemma3-instruct.json
+blob	185	template/granite-instruct.gotmpl
+blob	66	template/granite-instruct.json
+blob	26348	template/index.json
+blob	412	template/llama2-chat.gotmpl
+blob	79	template/llama2-chat.json
+blob	153	template/llama3-instruct.gotmpl
+blob	89	template/llama3-instruct.json
+blob	409	template/magicoder.gotmpl
+blob	60	template/magicoder.json
+blob	218	template/mistral-instruct.gotmpl
+blob	57	template/mistral-instruct.json
+blob	229	template/openchat.gotmpl
+blob	42	template/openchat.json
+blob	83	template/phi-3.gotmpl
+blob	89	template/phi-3.json
+blob	238	template/solar-instruct.gotmpl
+blob	76	template/solar-instruct.json
+blob	424	template/starcoder2-instruct.gotmpl
+blob	83	template/starcoder2-instruct.json
+blob	15235	template/template.go
+blob	20802	template/template_test.go
+tree		template/testdata
+tree		template/testdata/alfred.gotmpl
+blob	260	template/testdata/alfred.gotmpl/system-user-assistant-user
+blob	61	template/testdata/alfred.gotmpl/user
+blob	205	template/testdata/alfred.gotmpl/user-assistant-user
+tree		template/testdata/alpaca.gotmpl
+blob	206	template/testdata/alpaca.gotmpl/system-user-assistant-user
+blob	52	template/testdata/alpaca.gotmpl/user
+blob	176	template/testdata/alpaca.gotmpl/user-assistant-user
+tree		template/testdata/chatml.gotmpl
+blob	277	template/testdata/chatml.gotmpl/system-user-assistant-user
+blob	69	template/testdata/chatml.gotmpl/user
+blob	219	template/testdata/chatml.gotmpl/user-assistant-user
+tree		template/testdata/chatqa.gotmpl
+blob	185	template/testdata/chatqa.gotmpl/system-user-assistant-user
+blob	37	template/testdata/chatqa.gotmpl/user
+blob	147	template/testdata/chatqa.gotmpl/user-assistant-user
+tree		template/testdata/codellama-70b-instruct.gotmpl
+blob	273	template/testdata/codellama-70b-instruct.gotmpl/system-user-assistant-user
+blob	80	template/testdata/codellama-70b-instruct.gotmpl/user
+blob	220	template/testdata/codellama-70b-instruct.gotmpl/user-assistant-user
+tree		template/testdata/command-r.gotmpl
+blob	435	template/testdata/command-r.gotmpl/system-user-assistant-user
+blob	139	template/testdata/command-r.gotmpl/user
+blob	347	template/testdata/command-r.gotmpl/user-assistant-user
+tree		template/testdata/falcon-instruct.gotmpl
+blob	176	template/testdata/falcon-instruct.gotmpl/system-user-assistant-user
+blob	34	template/testdata/falcon-instruct.gotmpl/user
+blob	139	template/testdata/falcon-instruct.gotmpl/user-assistant-user
+tree		template/testdata/gemma-instruct.gotmpl
+blob	261	template/testdata/gemma-instruct.gotmpl/system-user-assistant-user
+blob	74	template/testdata/gemma-instruct.gotmpl/user
+blob	232	template/testdata/gemma-instruct.gotmpl/user-assistant-user
+tree		template/testdata/gemma3-instruct.gotmpl
+blob	263	template/testdata/gemma3-instruct.gotmpl/system-user-assistant-user
+blob	75	template/testdata/gemma3-instruct.gotmpl/user
+blob	233	template/testdata/gemma3-instruct.gotmpl/user-assistant-user
+tree		template/testdata/granite-instruct.gotmpl
+blob	188	template/testdata/granite-instruct.gotmpl/system-user-assistant-user
+blob	39	template/testdata/granite-instruct.gotmpl/user
+blob	150	template/testdata/granite-instruct.gotmpl/user-assistant-user
+tree		template/testdata/llama2-chat.gotmpl
+blob	210	template/testdata/llama2-chat.gotmpl/system-user-assistant-user
+blob	51	template/testdata/llama2-chat.gotmpl/user
+blob	180	template/testdata/llama2-chat.gotmpl/user-assistant-user
+tree		template/testdata/llama3-instruct.gotmpl
+blob	398	template/testdata/llama3-instruct.gotmpl/system-user-assistant-user
+blob	118	template/testdata/llama3-instruct.gotmpl/user
+blob	316	template/testdata/llama3-instruct.gotmpl/user-assistant-user
+tree		template/testdata/magicoder.gotmpl
+blob	198	template/testdata/magicoder.gotmpl/system-user-assistant-user
+blob	48	template/testdata/magicoder.gotmpl/user
+blob	168	template/testdata/magicoder.gotmpl/user-assistant-user
+tree		template/testdata/mistral-instruct.gotmpl
+blob	171	template/testdata/mistral-instruct.gotmpl/system-user-assistant-user
+blob	33	template/testdata/mistral-instruct.gotmpl/user
+blob	141	template/testdata/mistral-instruct.gotmpl/user-assistant-user
+tree		template/testdata/openchat.gotmpl
+blob	302	template/testdata/openchat.gotmpl/system-user-assistant-user
+blob	76	template/testdata/openchat.gotmpl/user
+blob	238	template/testdata/openchat.gotmpl/user-assistant-user
+tree		template/testdata/phi-3.gotmpl
+blob	225	template/testdata/phi-3.gotmpl/system-user-assistant-user
+blob	50	template/testdata/phi-3.gotmpl/user
+blob	178	template/testdata/phi-3.gotmpl/user-assistant-user
+tree		template/testdata/solar-instruct.gotmpl
+blob	210	template/testdata/solar-instruct.gotmpl/system-user-assistant-user
+blob	46	template/testdata/solar-instruct.gotmpl/user
+blob	168	template/testdata/solar-instruct.gotmpl/user-assistant-user
+tree		template/testdata/starcoder2-instruct.gotmpl
+blob	215	template/testdata/starcoder2-instruct.gotmpl/system-user-assistant-user
+blob	50	template/testdata/starcoder2-instruct.gotmpl/user
+blob	185	template/testdata/starcoder2-instruct.gotmpl/user-assistant-user
+blob	17706	template/testdata/templates.jsonl
+tree		template/testdata/vicuna.gotmpl
+blob	178	template/testdata/vicuna.gotmpl/system-user-assistant-user
+blob	36	template/testdata/vicuna.gotmpl/user
+blob	148	template/testdata/vicuna.gotmpl/user-assistant-user
+tree		template/testdata/zephyr.gotmpl
+blob	213	template/testdata/zephyr.gotmpl/system-user-assistant-user
+blob	47	template/testdata/zephyr.gotmpl/user
+blob	169	template/testdata/zephyr.gotmpl/user-assistant-user
+blob	398	template/vicuna.gotmpl
+blob	50	template/vicuna.json
+blob	80	template/zephyr.gotmpl
+blob	86	template/zephyr.json
+tree		thinking
+blob	5561	thinking/parser.go
+blob	6835	thinking/parser_test.go
+blob	4230	thinking/template.go
+blob	4019	thinking/template_test.go
+tree		tools
+blob	3699	tools/template.go
+blob	4312	tools/template_test.go
+blob	8548	tools/tools.go
+blob	33729	tools/tools_test.go
+tree		transfer
+blob	13218	transfer/download.go
+blob	11500	transfer/redirect.go
+blob	22505	transfer/redirect_test.go
+blob	439	transfer/sparse_other.go
+blob	858	transfer/sparse_windows.go
+blob	10691	transfer/transfer.go
+blob	85609	transfer/transfer_test.go
+blob	28103	transfer/upload.go
+tree		types
+tree		types/errtypes
+blob	447	types/errtypes/errtypes.go
+tree		types/model
+blob	959	types/model/capability.go
+blob	1918	types/model/config.go
+blob	4257	types/model/generation.go
+blob	1875	types/model/generation_test.go
+blob	10108	types/model/name.go
+blob	9388	types/model/name_test.go
+tree		types/model/testdata
+tree		types/model/testdata/fuzz
+tree		types/model/testdata/fuzz/FuzzName
+blob	30	types/model/testdata/fuzz/FuzzName/d37463aa416f6bab
+blob	3256	types/model/thinking.go
+blob	3915	types/model/thinking_test.go
+tree		types/syncmap
+blob	648	types/syncmap/syncmap.go
+tree		version
+blob	46	version/version.go

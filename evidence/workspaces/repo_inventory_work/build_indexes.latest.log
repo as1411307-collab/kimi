@@ -1,0 +1,20 @@
+
+=== open-design ===
+{'entries': 16766, 'files': 14266, 'directories': 2500, 'submodules': 0, 'truncated': False, 'branches': 2852, 'main_commit': '07a86b1041531bfa0bec1006d9c0993985fee560'}
+Top extensions: [('.html', 2339), ('.md', 2317), ('.test.ts', 2150), ('.ts', 1940), ('.json', 1236), ('.test.tsx', 459), ('.css', 444), ('.png', 418), ('.tsx', 351), ('.manifest.json', 152)]
+Branch prefixes: [('fix', 758), ('codex', 652), ('feat', 395), ('[root]', 168), ('agent', 145), ('looper', 119), ('chore', 91), ('release', 47), ('docs', 32), ('ci', 28)]
+
+=== awesome-llm-apps ===
+{'entries': 2547, 'files': 1989, 'directories': 558, 'submodules': 0, 'truncated': False, 'branches': 15, 'main_commit': 'c46144eb61c18cd1a495445c79ec47145722053e'}
+Top extensions: [('.py', 557), ('.md', 290), ('.tsx', 212), ('.txt', 166), ('.json', 102), ('.jpg', 78), ('.ts', 75), ('.js', 68), ('.png', 64), ('.env.example', 36)]
+Branch prefixes: [('[root]', 9), ('claude', 3), ('feat', 2), ('fix', 1)]
+
+=== langflow ===
+{'entries': 14234, 'files': 11878, 'directories': 2356, 'submodules': 0, 'truncated': False, 'branches': 2660, 'main_commit': '60999cc9a7350e44dde3ef641baae864e10861f0'}
+Top extensions: [('.py', 4951), ('.mdx', 1482), ('.tsx', 940), ('.ts', 807), ('.sh', 540), ('.js', 516), ('.json', 497), ('.test.ts', 314), ('.test.tsx', 307), ('.svg', 296)]
+Branch prefixes: [('[root]', 1218), ('cz', 265), ('test', 250), ('feat', 182), ('codeflash', 176), ('fix', 158), ('translations', 98), ('dependabot', 72), ('review', 44), ('perf', 26)]
+
+=== ollama ===
+{'entries': 1834, 'files': 1632, 'directories': 202, 'submodules': 0, 'truncated': False, 'branches': 493, 'main_commit': '1f23c7232e8e35b21d81bb03569a8afde2a6b0f9'}
+Top extensions: [('.go', 1077), ('[no extension]', 68), ('.png', 63), ('.mdx', 60), ('.tsx', 44), ('.h', 43), ('.json', 33), ('.ts', 33), ('.svg', 32), ('.md', 20)]
+Branch prefixes: [('[root]', 102), ('jmorganca', 79), ('hoyyeva', 55), ('brucemacd', 53), ('mxyng', 46), ('parth', 46), ('pdevine', 23), ('jyan', 17), ('bmizerany', 15), ('mattw', 10)]

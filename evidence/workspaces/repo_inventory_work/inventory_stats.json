@@ -1,0 +1,878 @@
+{
+  "open-design": {
+    "tree_sha": "07a86b1041531bfa0bec1006d9c0993985fee560",
+    "truncated": false,
+    "entries": 16766,
+    "files": 14266,
+    "directories": 2500,
+    "submodules": 0,
+    "blob_bytes": 339021331,
+    "top_extensions": [
+      [
+        ".html",
+        2339
+      ],
+      [
+        ".md",
+        2317
+      ],
+      [
+        ".test.ts",
+        2150
+      ],
+      [
+        ".ts",
+        1940
+      ],
+      [
+        ".json",
+        1236
+      ],
+      [
+        ".test.tsx",
+        459
+      ],
+      [
+        ".css",
+        444
+      ],
+      [
+        ".png",
+        418
+      ],
+      [
+        ".tsx",
+        351
+      ],
+      [
+        ".manifest.json",
+        152
+      ],
+      [
+        ".report.json",
+        150
+      ],
+      [
+        ".source.json",
+        150
+      ],
+      [
+        ".dark.html",
+        150
+      ],
+      [
+        ".default.json",
+        150
+      ],
+      [
+        "[no extension]",
+        121
+      ],
+      [
+        ".module.css",
+        121
+      ],
+      [
+        ".py",
+        118
+      ],
+      [
+        ".woff2",
+        107
+      ],
+      [
+        ".jpg",
+        79
+      ],
+      [
+        ".svg",
+        76
+      ]
+    ],
+    "root_entry_counts": {
+      ".claude": 31,
+      ".claude-plugin": 2,
+      ".dockerignore": 1,
+      ".gitattributes": 1,
+      ".github": 164,
+      ".gitignore": 1,
+      ".ignore": 1,
+      ".looper-attachments": 2,
+      ".node-version": 1,
+      ".vaunt": 8,
+      "AGENTS.md": 1,
+      "CHANGELOG.md": 1,
+      "CLAUDE.md": 1,
+      "CONTEXT.md": 1,
+      "CONTRIBUTING.md": 1,
+      "LICENSE": 1,
+      "MAINTAINERS.md": 1,
+      "PRIVACY.md": 1,
+      "QUICKSTART.md": 1,
+      "README.md": 1,
+      "RELEASE-NOTES-0.10.0.md": 1,
+      "TRANSLATIONS.md": 1,
+      "apps": 4826,
+      "assets": 46,
+      "charts": 16,
+      "clipper": 75,
+      "craft": 14,
+      "data": 8,
+      "deploy": 30,
+      "design-browser-task-handoff.md": 1,
+      "design-systems": 4772,
+      "design-templates": 958,
+      "docs": 405,
+      "e2e": 425,
+      "figma-plugin": 6,
+      "mise.toml": 1,
+      "mocks": 50,
+      "package.json": 1,
+      "packages": 588,
+      "plugins": 2886,
+      "pnpm-lock.yaml": 1,
+      "pnpm-workspace.yaml": 1,
+      "prompt-templates": 110,
+      "scripts": 58,
+      "shells": 53,
+      "skills": 679,
+      "specs": 139,
+      "story": 3,
+      "templates": 13,
+      "tools": 373,
+      "ui-audit": 3,
+      "vercel.json": 1
+    },
+    "branches": 2852,
+    "main_commit": "07a86b1041531bfa0bec1006d9c0993985fee560",
+    "branch_prefixes": [
+      [
+        "fix",
+        758
+      ],
+      [
+        "codex",
+        652
+      ],
+      [
+        "feat",
+        395
+      ],
+      [
+        "[root]",
+        168
+      ],
+      [
+        "agent",
+        145
+      ],
+      [
+        "looper",
+        119
+      ],
+      [
+        "chore",
+        91
+      ],
+      [
+        "release",
+        47
+      ],
+      [
+        "docs",
+        32
+      ],
+      [
+        "ci",
+        28
+      ],
+      [
+        "release-bot",
+        27
+      ],
+      [
+        "william",
+        24
+      ],
+      [
+        "test",
+        22
+      ],
+      [
+        "perf",
+        19
+      ],
+      [
+        "qa",
+        14
+      ],
+      [
+        "mason",
+        13
+      ],
+      [
+        "odeval",
+        11
+      ],
+      [
+        "claude",
+        9
+      ],
+      [
+        "d4",
+        9
+      ],
+      [
+        "refactor",
+        9
+      ],
+      [
+        "demo",
+        8
+      ],
+      [
+        "revert",
+        8
+      ],
+      [
+        "template",
+        8
+      ],
+      [
+        "gh-readonly-queue",
+        7
+      ],
+      [
+        "opend-4356",
+        7
+      ]
+    ]
+  },
+  "awesome-llm-apps": {
+    "tree_sha": "c46144eb61c18cd1a495445c79ec47145722053e",
+    "truncated": false,
+    "entries": 2547,
+    "files": 1989,
+    "directories": 558,
+    "submodules": 0,
+    "blob_bytes": 90353765,
+    "top_extensions": [
+      [
+        ".py",
+        557
+      ],
+      [
+        ".md",
+        290
+      ],
+      [
+        ".tsx",
+        212
+      ],
+      [
+        ".txt",
+        166
+      ],
+      [
+        ".json",
+        102
+      ],
+      [
+        ".jpg",
+        78
+      ],
+      [
+        ".ts",
+        75
+      ],
+      [
+        ".js",
+        68
+      ],
+      [
+        ".png",
+        64
+      ],
+      [
+        ".env.example",
+        36
+      ],
+      [
+        ".svg",
+        29
+      ],
+      [
+        ".example",
+        29
+      ],
+      [
+        ".gitignore",
+        24
+      ],
+      [
+        ".css",
+        24
+      ],
+      [
+        ".html",
+        18
+      ],
+      [
+        ".toml",
+        16
+      ],
+      [
+        "[no extension]",
+        15
+      ],
+      [
+        ".config.ts",
+        15
+      ],
+      [
+        ".config.mjs",
+        13
+      ],
+      [
+        ".yaml",
+        13
+      ]
+    ],
+    "root_entry_counts": {
+      ".gitattributes": 1,
+      ".github": 4,
+      ".gitignore": 1,
+      "LICENSE": 1,
+      "README.md": 1,
+      "advanced_ai_agents": 696,
+      "advanced_llm_apps": 336,
+      "agent_skills": 127,
+      "ai_agent_framework_crash_course": 326,
+      "always_on_agents": 33,
+      "docs": 18,
+      "generative_ui_agents": 712,
+      "mcp_ai_agents": 31,
+      "rag_tutorials": 143,
+      "starter_ai_agents": 76,
+      "voice_ai_agents": 41
+    },
+    "branches": 15,
+    "main_commit": "c46144eb61c18cd1a495445c79ec47145722053e",
+    "branch_prefixes": [
+      [
+        "[root]",
+        9
+      ],
+      [
+        "claude",
+        3
+      ],
+      [
+        "feat",
+        2
+      ],
+      [
+        "fix",
+        1
+      ]
+    ]
+  },
+  "langflow": {
+    "tree_sha": "60999cc9a7350e44dde3ef641baae864e10861f0",
+    "truncated": false,
+    "entries": 14234,
+    "files": 11878,
+    "directories": 2356,
+    "submodules": 0,
+    "blob_bytes": 240442520,
+    "top_extensions": [
+      [
+        ".py",
+        4951
+      ],
+      [
+        ".mdx",
+        1482
+      ],
+      [
+        ".tsx",
+        940
+      ],
+      [
+        ".ts",
+        807
+      ],
+      [
+        ".sh",
+        540
+      ],
+      [
+        ".js",
+        516
+      ],
+      [
+        ".json",
+        497
+      ],
+      [
+        ".test.ts",
+        314
+      ],
+      [
+        ".test.tsx",
+        307
+      ],
+      [
+        ".svg",
+        296
+      ],
+      [
+        ".jsx",
+        207
+      ],
+      [
+        ".spec.ts",
+        199
+      ],
+      [
+        ".md",
+        169
+      ],
+      [
+        ".png",
+        117
+      ],
+      [
+        ".a11y.test.tsx",
+        101
+      ],
+      [
+        ".txt",
+        81
+      ],
+      [
+        ".yml",
+        70
+      ],
+      [
+        ".toml",
+        35
+      ],
+      [
+        ".css",
+        16
+      ],
+      [
+        ".a11y.spec.ts",
+        15
+      ]
+    ],
+    "root_entry_counts": {
+      ".agents": 58,
+      ".coderabbit.yaml": 1,
+      ".composio.lock": 1,
+      ".cursor": 4,
+      ".devcontainer": 4,
+      ".dockerignore": 1,
+      ".env.example": 1,
+      ".eslintrc.json": 1,
+      ".gitattributes": 1,
+      ".github": 75,
+      ".gitignore": 1,
+      ".pre-commit-config.yaml": 1,
+      ".release-artifacts": 2,
+      ".secrets.baseline": 1,
+      ".vscode": 3,
+      ".whitesource": 1,
+      "AGENTS-example.md": 1,
+      "AGENTS.md": 1,
+      "BUNDLE_API.md": 1,
+      "CLAUDE.md": 1,
+      "CODE_OF_CONDUCT.md": 1,
+      "CONTRIBUTING.md": 1,
+      "DESIGN.md": 1,
+      "DEVELOPMENT.md": 1,
+      "LICENSE": 1,
+      "Makefile": 1,
+      "Makefile.frontend": 1,
+      "README.md": 1,
+      "RELEASE.md": 1,
+      "SECURITY.md": 1,
+      "ci-skip-analysis.md": 1,
+      "codecov.yml": 1,
+      "deploy": 27,
+      "design": 46,
+      "docker": 20,
+      "docker_example": 6,
+      "docs": 3878,
+      "package-lock.json": 1,
+      "package.json": 1,
+      "pyproject.toml": 1,
+      "regressions": 7,
+      "render.yaml": 1,
+      "scripts": 171,
+      "src": 9901,
+      "uv.lock": 1,
+      "wss-generated.config": 1
+    },
+    "branches": 2660,
+    "main_commit": "60999cc9a7350e44dde3ef641baae864e10861f0",
+    "branch_prefixes": [
+      [
+        "[root]",
+        1218
+      ],
+      [
+        "cz",
+        265
+      ],
+      [
+        "test",
+        250
+      ],
+      [
+        "feat",
+        182
+      ],
+      [
+        "codeflash",
+        176
+      ],
+      [
+        "fix",
+        158
+      ],
+      [
+        "translations",
+        98
+      ],
+      [
+        "dependabot",
+        72
+      ],
+      [
+        "review",
+        44
+      ],
+      [
+        "perf",
+        26
+      ],
+      [
+        "feature",
+        25
+      ],
+      [
+        "refactor",
+        25
+      ],
+      [
+        "coderabbitai",
+        14
+      ],
+      [
+        "bug",
+        11
+      ],
+      [
+        "claude",
+        10
+      ],
+      [
+        "security",
+        9
+      ],
+      [
+        "chore",
+        5
+      ],
+      [
+        "lf",
+        5
+      ],
+      [
+        "copilot",
+        4
+      ],
+      [
+        "ic",
+        4
+      ],
+      [
+        "ija",
+        4
+      ],
+      [
+        "EJ",
+        3
+      ],
+      [
+        "aka",
+        3
+      ],
+      [
+        "bugfix",
+        3
+      ],
+      [
+        "cursor",
+        3
+      ]
+    ]
+  },
+  "ollama": {
+    "tree_sha": "1f23c7232e8e35b21d81bb03569a8afde2a6b0f9",
+    "truncated": false,
+    "entries": 1834,
+    "files": 1632,
+    "directories": 202,
+    "submodules": 0,
+    "blob_bytes": 50472380,
+    "top_extensions": [
+      [
+        ".go",
+        1077
+      ],
+      [
+        "[no extension]",
+        68
+      ],
+      [
+        ".png",
+        63
+      ],
+      [
+        ".mdx",
+        60
+      ],
+      [
+        ".tsx",
+        44
+      ],
+      [
+        ".h",
+        43
+      ],
+      [
+        ".json",
+        33
+      ],
+      [
+        ".ts",
+        33
+      ],
+      [
+        ".svg",
+        32
+      ],
+      [
+        ".md",
+        20
+      ],
+      [
+        ".gotmpl",
+        20
+      ],
+      [
+        ".test.ts",
+        10
+      ],
+      [
+        ".jinja2",
+        10
+      ],
+      [
+        ".sh",
+        9
+      ],
+      [
+        ".test.tsx",
+        9
+      ],
+      [
+        ".yaml",
+        8
+      ],
+      [
+        ".jinja",
+        8
+      ],
+      [
+        ".gitignore",
+        6
+      ],
+      [
+        ".txt",
+        6
+      ],
+      [
+        ".cmake",
+        6
+      ]
+    ],
+    "root_entry_counts": {
+      ".dockerignore": 1,
+      ".gitattributes": 1,
+      ".github": 16,
+      ".gitignore": 1,
+      ".golangci.yaml": 1,
+      "AGENTS.md": 1,
+      "CLAUDE.md": 1,
+      "CMakeLists.txt": 1,
+      "CMakePresets.json": 1,
+      "CONTRIBUTING.md": 1,
+      "Dockerfile": 1,
+      "LICENSE": 1,
+      "LLAMA_CPP_VERSION": 1,
+      "MLX_C_VERSION": 1,
+      "MLX_VERSION": 1,
+      "README.md": 1,
+      "SECURITY.md": 1,
+      "anthropic": 5,
+      "api": 19,
+      "app": 306,
+      "auth": 2,
+      "cmake": 9,
+      "cmd": 117,
+      "compatmigrate": 35,
+      "create": 64,
+      "decision": 18,
+      "discover": 26,
+      "docs": 140,
+      "envconfig": 4,
+      "format": 7,
+      "fs": 22,
+      "go.mod": 1,
+      "go.sum": 1,
+      "harmony": 3,
+      "integration": 39,
+      "internal": 36,
+      "llama": 14,
+      "llm": 32,
+      "logutil": 3,
+      "main.go": 1,
+      "manifest": 6,
+      "middleware": 16,
+      "ml": 5,
+      "mlx": 112,
+      "mlxrunner": 321,
+      "model": 146,
+      "openai": 14,
+      "parser": 4,
+      "progress": 5,
+      "readline": 12,
+      "scripts": 16,
+      "server": 76,
+      "template": 126,
+      "thinking": 5,
+      "tools": 5,
+      "transfer": 9,
+      "types": 18,
+      "version": 2
+    },
+    "branches": 493,
+    "main_commit": "1f23c7232e8e35b21d81bb03569a8afde2a6b0f9",
+    "branch_prefixes": [
+      [
+        "[root]",
+        102
+      ],
+      [
+        "jmorganca",
+        79
+      ],
+      [
+        "hoyyeva",
+        55
+      ],
+      [
+        "brucemacd",
+        53
+      ],
+      [
+        "mxyng",
+        46
+      ],
+      [
+        "parth",
+        46
+      ],
+      [
+        "pdevine",
+        23
+      ],
+      [
+        "jyan",
+        17
+      ],
+      [
+        "bmizerany",
+        15
+      ],
+      [
+        "mattw",
+        10
+      ],
+      [
+        "drifkin",
+        8
+      ],
+      [
+        "codex",
+        5
+      ],
+      [
+        "grace",
+        5
+      ],
+      [
+        "fix",
+        4
+      ],
+      [
+        "nicole",
+        4
+      ],
+      [
+        "royh",
+        4
+      ],
+      [
+        "matt",
+        2
+      ],
+      [
+        "Parth",
+        1
+      ],
+      [
+        "bruce",
+        1
+      ],
+      [
+        "brucemac",
+        1
+      ],
+      [
+        "dhiltgen",
+        1
+      ],
+      [
+        "dongchen",
+        1
+      ],
+      [
+        "feature",
+        1
+      ],
+      [
+        "jberg",
+        1
+      ],
+      [
+        "jmorgan",
+        1
+      ]
+    ]
+  }
+}

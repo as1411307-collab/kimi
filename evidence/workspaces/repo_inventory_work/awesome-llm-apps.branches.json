@@ -1,0 +1,122 @@
+[
+  {
+    "name": "add-vorflux-sponsor",
+    "commit": {
+      "sha": "b2bdfa591006f200c9efb575736df8c217f44327",
+      "url": "https://api.github.com/repos/Shubhamsaboo/awesome-llm-apps/commits/b2bdfa591006f200c9efb575736df8c217f44327"
+    },
+    "protected": false
+  },
+  {
+    "name": "advisor-cover-image",
+    "commit": {
+      "sha": "2e6877e83a4b89537cf2feaa2b46d41a4afd6a50",
+      "url": "https://api.github.com/repos/Shubhamsaboo/awesome-llm-apps/commits/2e6877e83a4b89537cf2feaa2b46d41a4afd6a50"
+    },
+    "protected": false
+  },
+  {
+    "name": "advisor-skill-cover-and-readme",
+    "commit": {
+      "sha": "cfc6779f8bdb094bc39d75e7e2b5371b3852ab7b",
+      "url": "https://api.github.com/repos/Shubhamsaboo/awesome-llm-apps/commits/cfc6779f8bdb094bc39d75e7e2b5371b3852ab7b"
+    },
+    "protected": false
+  },
+  {
+    "name": "claude/zealous-heisenberg-6y0cil",
+    "commit": {
+      "sha": "8abf46a4e7078c9fff48bac7afc0454b0c0893d1",
+      "url": "https://api.github.com/repos/Shubhamsaboo/awesome-llm-apps/commits/8abf46a4e7078c9fff48bac7afc0454b0c0893d1"
+    },
+    "protected": false
+  },
+  {
+    "name": "claude/zealous-heisenberg-v4xhow",
+    "commit": {
+      "sha": "927b0bb7d74334e26438ae3d3c29bd96a6998032",
+      "url": "https://api.github.com/repos/Shubhamsaboo/awesome-llm-apps/commits/927b0bb7d74334e26438ae3d3c29bd96a6998032"
+    },
+    "protected": false
+  },
+  {
+    "name": "claude/zealous-heisenberg-x1x0jp",
+    "commit": {
+      "sha": "1dd9f2ab105aa8040bae51977e68263a03244d9c",
+      "url": "https://api.github.com/repos/Shubhamsaboo/awesome-llm-apps/commits/1dd9f2ab105aa8040bae51977e68263a03244d9c"
+    },
+    "protected": false
+  },
+  {
+    "name": "feat/excaliflow",
+    "commit": {
+      "sha": "1bb58b544f7b2f05b80e6d9e01221fd2c72395c0",
+      "url": "https://api.github.com/repos/Shubhamsaboo/awesome-llm-apps/commits/1bb58b544f7b2f05b80e6d9e01221fd2c72395c0"
+    },
+    "protected": false
+  },
+  {
+    "name": "feat/excaliflow-agent-collab",
+    "commit": {
+      "sha": "d83499be187711045a430976b7f593377be0627d",
+      "url": "https://api.github.com/repos/Shubhamsaboo/awesome-llm-apps/commits/d83499be187711045a430976b7f593377be0627d"
+    },
+    "protected": false
+  },
+  {
+    "name": "fix/insurance-live-demo-reliability",
+    "commit": {
+      "sha": "233dcbcd3aef70329aed38be6d2a1977b01192e4",
+      "url": "https://api.github.com/repos/Shubhamsaboo/awesome-llm-apps/commits/233dcbcd3aef70329aed38be6d2a1977b01192e4"
+    },
+    "protected": false
+  },
+  {
+    "name": "insurance-claim-gemini-3-8-live",
+    "commit": {
+      "sha": "062954d888be589905a8fc40d6eda5a4c23ebf33",
+      "url": "https://api.github.com/repos/Shubhamsaboo/awesome-llm-apps/commits/062954d888be589905a8fc40d6eda5a4c23ebf33"
+    },
+    "protected": false
+  },
+  {
+    "name": "main",
+    "commit": {
+      "sha": "c46144eb61c18cd1a495445c79ec47145722053e",
+      "url": "https://api.github.com/repos/Shubhamsaboo/awesome-llm-apps/commits/c46144eb61c18cd1a495445c79ec47145722053e"
+    },
+    "protected": false
+  },
+  {
+    "name": "swap-advisor-cover-dark",
+    "commit": {
+      "sha": "cfc6779f8bdb094bc39d75e7e2b5371b3852ab7b",
+      "url": "https://api.github.com/repos/Shubhamsaboo/awesome-llm-apps/commits/cfc6779f8bdb094bc39d75e7e2b5371b3852ab7b"
+    },
+    "protected": false
+  },
+  {
+    "name": "thinking-out-loud-skill",
+    "commit": {
+      "sha": "17ea0382459046c4314a584589240aa5dfd566c3",
+      "url": "https://api.github.com/repos/Shubhamsaboo/awesome-llm-apps/commits/17ea0382459046c4314a584589240aa5dfd566c3"
+    },
+    "protected": false
+  },
+  {
+    "name": "update-advisor-worker-gemini-3-7-flash",
+    "commit": {
+      "sha": "2d52ca9214f83e860272a5ae1527b0a55ac2b793",
+      "url": "https://api.github.com/repos/Shubhamsaboo/awesome-llm-apps/commits/2d52ca9214f83e860272a5ae1527b0a55ac2b793"
+    },
+    "protected": false
+  },
+  {
+    "name": "update-agent-skills",
+    "commit": {
+      "sha": "da0490fb5ac011c3717c69d02f2ab40652d4cec4",
+      "url": "https://api.github.com/repos/Shubhamsaboo/awesome-llm-apps/commits/da0490fb5ac011c3717c69d02f2ab40652d4cec4"
+    },
+    "protected": false
+  }
+]

@@ -1,0 +1,802 @@
+[
+  {
+    "name": "Parth/mlx-launch-recommendations",
+    "commit": {
+      "sha": "0e8615db56e7d664df020f28d7b1fb0b2fe7028d",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/0e8615db56e7d664df020f28d7b1fb0b2fe7028d"
+    },
+    "protected": false
+  },
+  {
+    "name": "api",
+    "commit": {
+      "sha": "949fc4eafa0cabacb2bf643d1c90a51a45ccc4a4",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/949fc4eafa0cabacb2bf643d1c90a51a45ccc4a4"
+    },
+    "protected": false
+  },
+  {
+    "name": "bmizerany/client-registry",
+    "commit": {
+      "sha": "889c5b1a753f81f799764086a0454d8f06bf3b56",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/889c5b1a753f81f799764086a0454d8f06bf3b56"
+    },
+    "protected": false
+  },
+  {
+    "name": "bmizerany/embedspeedup",
+    "commit": {
+      "sha": "e7254617e3abe18908c0f0b99381b54ea18a49bf",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/e7254617e3abe18908c0f0b99381b54ea18a49bf"
+    },
+    "protected": false
+  },
+  {
+    "name": "bmizerany/fastverify",
+    "commit": {
+      "sha": "95af97b9f3fb1d5a955ffc54ebb5b74afc230709",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/95af97b9f3fb1d5a955ffc54ebb5b74afc230709"
+    },
+    "protected": false
+  },
+  {
+    "name": "bmizerany/filepathnobuild",
+    "commit": {
+      "sha": "cfd4152eb67931af911d5e25042f55b3eaac59c0",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/cfd4152eb67931af911d5e25042f55b3eaac59c0"
+    },
+    "protected": false
+  },
+  {
+    "name": "bmizerany/filepathwithcoloninhost",
+    "commit": {
+      "sha": "61b287cf25ca033a29cf02a7f97f7fe31483c783",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/61b287cf25ca033a29cf02a7f97f7fe31483c783"
+    },
+    "protected": false
+  },
+  {
+    "name": "bmizerany/grammar",
+    "commit": {
+      "sha": "f91565dfb5e01a6087acf36b33b02caa8680300e",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/f91565dfb5e01a6087acf36b33b02caa8680300e"
+    },
+    "protected": false
+  },
+  {
+    "name": "bmizerany/hrm",
+    "commit": {
+      "sha": "348effebf9cc07e08e8cc0d87adc3813aa4c4048",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/348effebf9cc07e08e8cc0d87adc3813aa4c4048"
+    },
+    "protected": false
+  },
+  {
+    "name": "bmizerany/modenameenforcealphanum",
+    "commit": {
+      "sha": "1b21a22d0efe4fe31ccbbab7201482d59ca56396",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/1b21a22d0efe4fe31ccbbab7201482d59ca56396"
+    },
+    "protected": false
+  },
+  {
+    "name": "bmizerany/nameswork",
+    "commit": {
+      "sha": "b48b6f85cd01d3273cc9c8c5c7a489f1121794e0",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/b48b6f85cd01d3273cc9c8c5c7a489f1121794e0"
+    },
+    "protected": false
+  },
+  {
+    "name": "bmizerany/noseek",
+    "commit": {
+      "sha": "1963c00201958da7165a40f9d2f22b28e11be718",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/1963c00201958da7165a40f9d2f22b28e11be718"
+    },
+    "protected": false
+  },
+  {
+    "name": "bmizerany/nosillyggufslurps",
+    "commit": {
+      "sha": "acbffa59e9f5ea20d0183c10c4896d297e47da10",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/acbffa59e9f5ea20d0183c10c4896d297e47da10"
+    },
+    "protected": false
+  },
+  {
+    "name": "bmizerany/replacecolon",
+    "commit": {
+      "sha": "d9ea2e5c7a9741be63c53233942f404b8a176f9a",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/d9ea2e5c7a9741be63c53233942f404b8a176f9a"
+    },
+    "protected": false
+  },
+  {
+    "name": "bmizerany/types/model/defaultfix",
+    "commit": {
+      "sha": "5cddcd079a1f340c720f11f1fd2e9d3ce8b9c7dd",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/5cddcd079a1f340c720f11f1fd2e9d3ce8b9c7dd"
+    },
+    "protected": false
+  },
+  {
+    "name": "bmizerany/validatenames",
+    "commit": {
+      "sha": "9c1204b686f10a9f9bc2a4d4eb70aadf25e61905",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/9c1204b686f10a9f9bc2a4d4eb70aadf25e61905"
+    },
+    "protected": false
+  },
+  {
+    "name": "bmizerany/x",
+    "commit": {
+      "sha": "a2cf25caf7ee0b1a9987975acb2672fa3a56bc5f",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/a2cf25caf7ee0b1a9987975acb2672fa3a56bc5f"
+    },
+    "protected": false
+  },
+  {
+    "name": "bruce/iq-quants",
+    "commit": {
+      "sha": "d40497b9a29a17363a69534e793a364f058b5639",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/d40497b9a29a17363a69534e793a364f058b5639"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemac/start-ap-install",
+    "commit": {
+      "sha": "a60a79a5e1a3e30bb5694d5d3275ce9b95162fb0",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/a60a79a5e1a3e30bb5694d5d3275ce9b95162fb0"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/allow-ollama",
+    "commit": {
+      "sha": "f84cc9939c85319d0e6b17543bdb74b04d0df2c7",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/f84cc9939c85319d0e6b17543bdb74b04d0df2c7"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/benchmark-list",
+    "commit": {
+      "sha": "46faf61a149f7ee4abdc684f136ca1cb8bfd5310",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/46faf61a149f7ee4abdc684f136ca1cb8bfd5310"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/browser-key-register",
+    "commit": {
+      "sha": "375a662775579ee373ee40d045edc3d2ffa420c3",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/375a662775579ee373ee40d045edc3d2ffa420c3"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/cache-metrics",
+    "commit": {
+      "sha": "6e65d95ef5162e61145dc27303357e9fb17c7665",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/6e65d95ef5162e61145dc27303357e9fb17c7665"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/cache-models",
+    "commit": {
+      "sha": "f2a4d058f9d723fc11bbffcb5e579505a3c19be6",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/f2a4d058f9d723fc11bbffcb5e579505a3c19be6"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/check-key-register",
+    "commit": {
+      "sha": "ac300ec32b546e743f972eaabaa2bbded04d74bf",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/ac300ec32b546e743f972eaabaa2bbded04d74bf"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/check-key-register-structured-err",
+    "commit": {
+      "sha": "e19c64e047d23d0bc2bc5ce914c095e23156da95",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/e19c64e047d23d0bc2bc5ce914c095e23156da95"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/config-docs",
+    "commit": {
+      "sha": "cc3ac5fee316af54ee16476a2eba426d55c2a6c9",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/cc3ac5fee316af54ee16476a2eba426d55c2a6c9"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/convert-cli",
+    "commit": {
+      "sha": "4819239e7356cbd919992944482ea3836f130dd0",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/4819239e7356cbd919992944482ea3836f130dd0"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/create-no-loop",
+    "commit": {
+      "sha": "04950140ec1c62ea48450845354a9a28f905425e",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/04950140ec1c62ea48450845354a9a28f905425e"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/doc-go-engine",
+    "commit": {
+      "sha": "5f62064e2f175476abe1f5cd756e1c1574586315",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/5f62064e2f175476abe1f5cd756e1c1574586315"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/docs-glm52",
+    "commit": {
+      "sha": "5b7635b93300ea9ad8ead270e23367edd2ce561c",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/5b7635b93300ea9ad8ead270e23367edd2ce561c"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/download-before-remove",
+    "commit": {
+      "sha": "1bf60003b98018df5da43d857026fc4ea4340af6",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/1bf60003b98018df5da43d857026fc4ea4340af6"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/err-hint",
+    "commit": {
+      "sha": "b438a483ba8d1ffbf72afda5a8db9c19822aa26d",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/b438a483ba8d1ffbf72afda5a8db9c19822aa26d"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/err-no-vocab",
+    "commit": {
+      "sha": "4a8c539c99b2a961c705f01efbb546544fb55109",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/4a8c539c99b2a961c705f01efbb546544fb55109"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/forward-test",
+    "commit": {
+      "sha": "31d04eb7950e058c598f997c51bac1391b715ca5",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/31d04eb7950e058c598f997c51bac1391b715ca5"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/gliner",
+    "commit": {
+      "sha": "d9ec300e5d8251e52b2d4ee81427780a83b39dda",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/d9ec300e5d8251e52b2d4ee81427780a83b39dda"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/go_qwen2",
+    "commit": {
+      "sha": "7fa9694359ed908e9193c3780930c5d1605a74c1",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/7fa9694359ed908e9193c3780930c5d1605a74c1"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/hermes-desktop",
+    "commit": {
+      "sha": "ce5dd77d44ed68d59f9584d44b0b5af918d3887b",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/ce5dd77d44ed68d59f9584d44b0b5af918d3887b"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/install-path-clean",
+    "commit": {
+      "sha": "8f8aac9cd30e889973472d779aa493dcc7453972",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/8f8aac9cd30e889973472d779aa493dcc7453972"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/install-server-wait",
+    "commit": {
+      "sha": "e4c48e80f58294e59935c8ce39716516de547570",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/e4c48e80f58294e59935c8ce39716516de547570"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/jomorganca/mistral",
+    "commit": {
+      "sha": "ed14ce2db87ba5e34b293a312eb5237efa9b6761",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/ed14ce2db87ba5e34b293a312eb5237efa9b6761"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/launch-fetch-reccomended",
+    "commit": {
+      "sha": "cfee09b3ab60367ce031fd43aee5586229f62bee",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/cfee09b3ab60367ce031fd43aee5586229f62bee"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/list-model-tags",
+    "commit": {
+      "sha": "56bdff85e4a70a715fa4216b911e2ee31b2049a5",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/56bdff85e4a70a715fa4216b911e2ee31b2049a5"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/llama-mem-calc",
+    "commit": {
+      "sha": "0498f7ce56686bd44a8f92954daebe02352cdf82",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/0498f7ce56686bd44a8f92954daebe02352cdf82"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/logprobs",
+    "commit": {
+      "sha": "b88489a87e809672538b3ebc912504ea09cbb89f",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/b88489a87e809672538b3ebc912504ea09cbb89f"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/mistral",
+    "commit": {
+      "sha": "c7c751647dc5c0e0012a127bf2bab1923ed41bad",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/c7c751647dc5c0e0012a127bf2bab1923ed41bad"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/mistral-small-convert",
+    "commit": {
+      "sha": "9de1410542ce3367f6d6a8cec38fa858948b562c",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/9de1410542ce3367f6d6a8cec38fa858948b562c"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/model-forward-test-ext",
+    "commit": {
+      "sha": "715952705ecedc51b66fdd3531952b69e8e32a93",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/715952705ecedc51b66fdd3531952b69e8e32a93"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/model-think-cap",
+    "commit": {
+      "sha": "9764ed75a95568d6eeab33c656cd27e70013868a",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/9764ed75a95568d6eeab33c656cd27e70013868a"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/new_runner_e2e",
+    "commit": {
+      "sha": "c2b11611a84b6d7e30266d2629863844ebaf1641",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/c2b11611a84b6d7e30266d2629863844ebaf1641"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/new_runner_graph_bench",
+    "commit": {
+      "sha": "057cc54b6666c9f9c7320fe811dba2a5f3a6ff79",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/057cc54b6666c9f9c7320fe811dba2a5f3a6ff79"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/new_runner_qwen2",
+    "commit": {
+      "sha": "60f0b7db76761dcf0f803327367c08848a9e3973",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/60f0b7db76761dcf0f803327367c08848a9e3973"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/next-bpe-bench",
+    "commit": {
+      "sha": "fa74ae72142be7683ed968cc2f5a11c5935e373a",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/fa74ae72142be7683ed968cc2f5a11c5935e373a"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/next-bpe-test",
+    "commit": {
+      "sha": "60b2d494bcf797a936647eed75b81e366a2b6e3e",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/60b2d494bcf797a936647eed75b81e366a2b6e3e"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/oai-chat-req-multipart",
+    "commit": {
+      "sha": "f82d00af74e8874861397ac6a05f35988cc45a52",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/f82d00af74e8874861397ac6a05f35988cc45a52"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/omp-docs",
+    "commit": {
+      "sha": "d9ac9664ea0c50d94638ab1f839cc74946869e31",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/d9ac9664ea0c50d94638ab1f839cc74946869e31"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/parallel-embed-models",
+    "commit": {
+      "sha": "12a8b00b34dfd64b3f59234b3ae4d0ba4a0e0937",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/12a8b00b34dfd64b3f59234b3ae4d0ba4a0e0937"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/partial-read-caps",
+    "commit": {
+      "sha": "3cf62838ce70b934d699cfac90192a47ac77818b",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/3cf62838ce70b934d699cfac90192a47ac77818b"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/push-name-validation",
+    "commit": {
+      "sha": "a5bc4b7c1776fa80c119621b9e9a78fb8bac5d5a",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/a5bc4b7c1776fa80c119621b9e9a78fb8bac5d5a"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/qwen2_5",
+    "commit": {
+      "sha": "2c0300073f5b74fecf6d5230af5e1cf5177ea47d",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/2c0300073f5b74fecf6d5230af5e1cf5177ea47d"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/qwen3vl",
+    "commit": {
+      "sha": "f5c9eb5aa270440801dd96191489be1a81eeee73",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/f5c9eb5aa270440801dd96191489be1a81eeee73"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/rope-config",
+    "commit": {
+      "sha": "c259747acb721831e0fd292b1281b1e191865519",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/c259747acb721831e0fd292b1281b1e191865519"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/ropeconfig",
+    "commit": {
+      "sha": "159821594c345b1e4fd124edb256e8e26dc94060",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/159821594c345b1e4fd124edb256e8e26dc94060"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/runner-completion",
+    "commit": {
+      "sha": "d5eae8248dea951b82dca0a9d72b4800f629700f",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/d5eae8248dea951b82dca0a9d72b4800f629700f"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/runner-test",
+    "commit": {
+      "sha": "5a2cd7b48adb777b208c706f2e78a7990bf3500c",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/5a2cd7b48adb777b208c706f2e78a7990bf3500c"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/shim-grammar",
+    "commit": {
+      "sha": "81888abbe42ec668242fd9e68a5f9391542469b6",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/81888abbe42ec668242fd9e68a5f9391542469b6"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/sign-sh-install",
+    "commit": {
+      "sha": "917b1316364a5c6d2940388aabe1f1b58106ba85",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/917b1316364a5c6d2940388aabe1f1b58106ba85"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/simplify-model-picker",
+    "commit": {
+      "sha": "f92a82db15ba1aae065c9aeea134bf2753d4ed6c",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/f92a82db15ba1aae065c9aeea134bf2753d4ed6c"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/tokenize",
+    "commit": {
+      "sha": "938be81c45c2b38974b1a45ed51a4fe404451088",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/938be81c45c2b38974b1a45ed51a4fe404451088"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/tui-update",
+    "commit": {
+      "sha": "365a3657adddb10c628cb25f6242b778f791d258",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/365a3657adddb10c628cb25f6242b778f791d258"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/usage-api",
+    "commit": {
+      "sha": "9ac1300805d65f1601bf6cd6bf8307eba1070379",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/9ac1300805d65f1601bf6cd6bf8307eba1070379"
+    },
+    "protected": false
+  },
+  {
+    "name": "brucemacd/usage-cli",
+    "commit": {
+      "sha": "e6f5a982d34bb2ec237b85debefd7943e1156b4d",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/e6f5a982d34bb2ec237b85debefd7943e1156b4d"
+    },
+    "protected": false
+  },
+  {
+    "name": "build_dist",
+    "commit": {
+      "sha": "7893ccb68c089fc2855bd626ad82a1925f71023c",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/7893ccb68c089fc2855bd626ad82a1925f71023c"
+    },
+    "protected": false
+  },
+  {
+    "name": "cgo",
+    "commit": {
+      "sha": "131413ddffb98bbcab697a12071eb141df9c52bc",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/131413ddffb98bbcab697a12071eb141df9c52bc"
+    },
+    "protected": false
+  },
+  {
+    "name": "codex/app-feature-flagging",
+    "commit": {
+      "sha": "6c4f69b1eb5972f386ca8d4957c5458cd86428f9",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/6c4f69b1eb5972f386ca8d4957c5458cd86428f9"
+    },
+    "protected": false
+  },
+  {
+    "name": "codex/fix-codex-model-metadata-warning",
+    "commit": {
+      "sha": "0cd8a0a442d2c2d134af083f2caf2a9e3ad20494",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/0cd8a0a442d2c2d134af083f2caf2a9e3ad20494"
+    },
+    "protected": false
+  },
+  {
+    "name": "codex/make-integration-hidden-and-lunchable",
+    "commit": {
+      "sha": "8fde6f216351db6e6d41f179414e3a0167b23632",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/8fde6f216351db6e6d41f179414e3a0167b23632"
+    },
+    "protected": false
+  },
+  {
+    "name": "codex/phonon-tts",
+    "commit": {
+      "sha": "16d3d21faaab5f052aeb98f24756d619e478cf19",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/16d3d21faaab5f052aeb98f24756d619e478cf19"
+    },
+    "protected": false
+  },
+  {
+    "name": "codex/pplx-decider-v1-27b",
+    "commit": {
+      "sha": "f58b23155117694b47b6b10e79d22360673a570f",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/f58b23155117694b47b6b10e79d22360673a570f"
+    },
+    "protected": false
+  },
+  {
+    "name": "cp-model",
+    "commit": {
+      "sha": "11b844e1bbec6f086a5b7d393cc6978e076e41a2",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/11b844e1bbec6f086a5b7d393cc6978e076e41a2"
+    },
+    "protected": false
+  },
+  {
+    "name": "cuda-search",
+    "commit": {
+      "sha": "be721ca0df10b3079d7fc7d27cce9d320fcde5fb",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/be721ca0df10b3079d7fc7d27cce9d320fcde5fb"
+    },
+    "protected": false
+  },
+  {
+    "name": "delete-fix",
+    "commit": {
+      "sha": "1758d365632d00115a13a26be95ff4e163b22d28",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/1758d365632d00115a13a26be95ff4e163b22d28"
+    },
+    "protected": false
+  },
+  {
+    "name": "deletemodels",
+    "commit": {
+      "sha": "4f473a40a6e53405eeefeef2dafac7eb2c87fb65",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/4f473a40a6e53405eeefeef2dafac7eb2c87fb65"
+    },
+    "protected": false
+  },
+  {
+    "name": "dhiltgen/remove_submodule",
+    "commit": {
+      "sha": "8de8729e35f110f7542982dc16d9ba556f8402d5",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/8de8729e35f110f7542982dc16d9ba556f8402d5"
+    },
+    "protected": false
+  },
+  {
+    "name": "distribution",
+    "commit": {
+      "sha": "e6d0062c130ae2c62607bcabefb50e35aa6e7a88",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/e6d0062c130ae2c62607bcabefb50e35aa6e7a88"
+    },
+    "protected": false
+  },
+  {
+    "name": "docs_restructuring",
+    "commit": {
+      "sha": "04494de5b2a5b5c86ce704da1b572f1deaa1fda4",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/04494de5b2a5b5c86ce704da1b572f1deaa1fda4"
+    },
+    "protected": false
+  },
+  {
+    "name": "dongchen/resumable_transfer_fix",
+    "commit": {
+      "sha": "241ac6e0038104927b7a53ea2f28c09b9cb9fde5",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/241ac6e0038104927b7a53ea2f28c09b9cb9fde5"
+    },
+    "protected": false
+  },
+  {
+    "name": "drifkin/api-show-fallback",
+    "commit": {
+      "sha": "f9a46b73dabd6b6281bbafd2b09835cb869090b3",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/f9a46b73dabd6b6281bbafd2b09835cb869090b3"
+    },
+    "protected": false
+  },
+  {
+    "name": "drifkin/array-head-count",
+    "commit": {
+      "sha": "7c94471d381cccf56608ea11bf69a6db50c4cf60",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/7c94471d381cccf56608ea11bf69a6db50c4cf60"
+    },
+    "protected": false
+  },
+  {
+    "name": "drifkin/chat-truncation-fix",
+    "commit": {
+      "sha": "d20cd8df8012a4600c3caf3e64b3d17c40f58903",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/d20cd8df8012a4600c3caf3e64b3d17c40f58903"
+    },
+    "protected": false
+  },
+  {
+    "name": "drifkin/num-parallel",
+    "commit": {
+      "sha": "67335dede2a615fec160a524debfc58c860934d8",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/67335dede2a615fec160a524debfc58c860934d8"
+    },
+    "protected": false
+  },
+  {
+    "name": "drifkin/qwen3-coder-opening-tag",
+    "commit": {
+      "sha": "b202a9b4ce2d295f06525a4d8c9cb1ddbf317bc9",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/b202a9b4ce2d295f06525a4d8c9cb1ddbf317bc9"
+    },
+    "protected": false
+  },
+  {
+    "name": "drifkin/stable-tool-args",
+    "commit": {
+      "sha": "c87b910232c213df7f4f1729d1f3151a690a55be",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/c87b910232c213df7f4f1729d1f3151a690a55be"
+    },
+    "protected": false
+  },
+  {
+    "name": "drifkin/suggest-cloud-launch",
+    "commit": {
+      "sha": "8aa01893e5ebc232e36ea942de2ce8b8578aeac7",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/8aa01893e5ebc232e36ea942de2ce8b8578aeac7"
+    },
+    "protected": false
+  },
+  {
+    "name": "drifkin/suggest-cloud-launch-alt",
+    "commit": {
+      "sha": "09005ed7d28b84de0a34523c015978711284e413",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/09005ed7d28b84de0a34523c015978711284e413"
+    },
+    "protected": false
+  },
+  {
+    "name": "editor",
+    "commit": {
+      "sha": "ad83c87454c84f4d2fc7b2a391a4cf621a3ea971",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/ad83c87454c84f4d2fc7b2a391a4cf621a3ea971"
+    },
+    "protected": false
+  },
+  {
+    "name": "feature/claude-desktop-1m-context",
+    "commit": {
+      "sha": "3b4e70e62c94b3715a22e030a611bad42c035689",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/3b4e70e62c94b3715a22e030a611bad42c035689"
+    },
+    "protected": false
+  },
+  {
+    "name": "fix/claude-auto-mode-always-on",
+    "commit": {
+      "sha": "3e1cdf38281db39201243a63e991dc8d0c4c1f04",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/3e1cdf38281db39201243a63e991dc8d0c4c1f04"
+    },
+    "protected": false
+  },
+  {
+    "name": "fix/codex-integration-review",
+    "commit": {
+      "sha": "21f1c12080fe5d0aad6c2268b516e58fd6338ec8",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/21f1c12080fe5d0aad6c2268b516e58fd6338ec8"
+    },
+    "protected": false
+  },
+  {
+    "name": "fix/dsh-max-output-tokens",
+    "commit": {
+      "sha": "7912ea35787244b539d3eb074c6cd48d952a63bc",
+      "url": "https://api.github.com/repos/ollama/ollama/commits/7912ea35787244b539d3eb074c6cd48d952a63bc"
+    },
+    "protected": false
+  }
+]
