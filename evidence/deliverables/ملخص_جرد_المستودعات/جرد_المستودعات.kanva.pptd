@@ -1,0 +1,51 @@
+version: v2
+title: خريطة جرد المستودعات الأربعة
+size: [1080, 1720]
+customFonts:
+  - family: Noto Kufi Arabic
+    src: "https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic"
+  - family: Noto Sans Arabic
+    src: "https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic"
+theme:
+  colors:
+    ink: "#0B1220"
+    panel: "#121D2E"
+    panel2: "#17263A"
+    sand: "#F4EBDD"
+    muted: "#9DB0C7"
+    cyan: "#51D6C7"
+    amber: "#F0B45B"
+    blue: "#78A9FF"
+    coral: "#F27D72"
+  textStyles:
+    title:
+      fontFamily: Noto Kufi Arabic
+      fontSize: 39
+      color: "$sand"
+      bold: true
+    subtitle:
+      fontFamily: Noto Sans Arabic
+      fontSize: 18
+      color: "$muted"
+    repo:
+      fontFamily: Noto Kufi Arabic
+      fontSize: 24
+      color: "$sand"
+      bold: true
+    body:
+      fontFamily: Noto Sans Arabic
+      fontSize: 18
+      color: "$sand"
+      lineHeight: 1.45
+    small:
+      fontFamily: Noto Sans Arabic
+      fontSize: 15
+      color: "$muted"
+      lineHeight: 1.35
+    number:
+      fontFamily: Noto Kufi Arabic
+      fontSize: 29
+      color: "$sand"
+      bold: true
+pages:
+  - pages/1_خريطة_الجرد.page

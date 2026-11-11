@@ -1,0 +1,947 @@
+# جرد المستودعات الأربعة — المرحلة الأولى
+
+**النطاق:** قراءة مستقلة للمستودعات الظاهرة في الصور، من دون ربطها بأي مشروع أو محادثة سابقة. الصور الخمس تعرض أربعة مستودعات فريدة؛ صورة **Awesome LLM Apps** مكررة.
+
+**تاريخ اللقطة:** 2026-11-10.
+
+**ما أُنجز في هذه المرحلة:** جرد شجرة `main` كاملة لكل مستودع، وتسجيل جميع الفروع، وقراءة الوثائق المفتاحية، وتصنيف الأقسام والفائدة والنواقص والترشيحات. لم يبدأ استخراج الأكواد أو دمجها.
+
+## 1. حدود القراءة والصدق
+
+- تم تنزيل شجرة Git الـrecursive لكل `main`، وكانت النتائج الأربع `truncated=false`؛ أي إن الفهرس الشجري كامل وليس مقتطعاً.
+- الإجمالي: **35,381 مدخلاً**، منها **29,765 ملفاً** و**5,616 مجلداً**.
+- تم تسجيل **6,020 فرعاً** بأسمائها وقيم SHA. جرد المحتوى التفصيلي أدناه يخص `main` فقط؛ وجود ميزة في اسم فرع آخر لا يجعلها جزءاً من النسخة الرئيسية.
+- هذه قراءة هيكلية كاملة للمسارات وقراءة للوثائق والملفات المفتاحية، **وليست مراجعة سطراً بسطر لكل ملف**، ولا تشغيل أو اختبار لكل مثال.
+- `REAL—مصدر` تعني: يوجد تنفيذ أو وحدة في `main`، ولا تعني أنني شغّلته في هذا الجرد.
+- `DEMO—مثال` تعني: مثال أو مشروع مستقل يمكن التعلم منه، وليس خدمة موحدة جاهزة.
+- `EXT—تكامل` تعني: القدرة تعتمد على نموذج أو API أو خدمة خارجية، وقد تتطلب مفتاحاً أو تكلفة أو إعداداً.
+- «لا يظهر» تعني: لم أجد وحدة مخصصة موثقة بالمسارات والوثائق المقروءة؛ لا تُفسّر كإثبات رياضي لغياب كل سطر متعلق بالموضوع.
+
+## 2. اللقطات والأحجام والفروع
+
+| المستودع | `main` / SHA | ملفات `main` | مجلدات `main` | إجمالي المدخلات | الفروع | الترخيص |
+|---|---|---:|---:|---:|---:|---|
+| `nexu-io/open-design` | `07a86b1041531bfa0bec1006d9c0993985fee560` | 14,266 | 2,500 | 16,766 | 2,852 | Apache-2.0 |
+| `Shubhamsaboo/awesome-llm-apps` | `c46144eb61c18cd1a495445c79ec47145722053e` | 1,989 | 558 | 2,547 | 15 | Apache-2.0 |
+| `langflow-ai/langflow` | `60999cc9a7350e44dde3ef641baae864e10861f0` | 11,878 | 2,356 | 14,234 | 2,660 | MIT |
+| `ollama/ollama` | `1f23c7232e8e35b21d81bb03569a8afde2a6b0f9` | 1,632 | 202 | 1,834 | 493 | MIT |
+
+> بعض الحزم والقوالب داخل المستودعات تحتفظ بتراخيصها الأصلية؛ يجب فحص ملف `LICENSE` داخل العنصر المختار قبل إعادة الاستخدام أو الدمج.
+
+## 3. الصورة الكبرى ببساطة
+
+| المستودع | ما هو فعلاً؟ | أقوى فائدة مستقبلية | ما لا يجب افتراضه عنه |
+|---|---|---|---|
+| **Open Design** | مساحة تصميم وعمل وكلاء، فيها daemon وواجهة ومحادثات ومشاريع ومهارات وقوالب وDesign Systems وplugins ووسائط | التصميم، المهارات، القوالب، توليد الفيديو والصوت، تكاملات coding agents، وأنماط الحماية والاختبارات | ليس محرك نماذج، وليس منظومة أقسام بحث ومال وثغرات جاهزة |
+| **Awesome LLM Apps** | 144 مشروعاً/مثالاً مستقلاً + 8 مهارات + 21 درساً للوكلاء وRAG والصوت والذاكرة وMCP وUI | اختيار نمط أو مثال لكل قسم: بحث، مال، صوت، ذاكرة، فرق وكلاء، تدقيق، واجهات | ليس تطبيقاً واحداً ولا معمارية موحدة؛ جودة وإعداد كل مثال مستقل |
+| **Langflow** | منصة بناء ونشر agents وworkflows بصرياً وبرمجياً مع API وMCP وذاكرة وRAG وصوت وصلاحيات | المرجع الأقرب لنواة تنسيق الأقسام، تحويل الـflow إلى API/MCP، وإدارة المكونات والتشغيل | لا يشغّل النماذج محلياً بنفسه مثل Ollama، وليس محطة مال أو فيديو أو اختراق جاهزة |
+| **Ollama** | Runtime لإدارة وتشغيل النماذج وواجهات REST وchat وspeech وأدوات وتحليل مخرجات النماذج | طبقة النماذج المحلية/السحابية، الاستدلال، speech/audio، وتوصيل coding agents والتطبيقات | ليس ذاكرة طويلة أو RAG أو multi-agent orchestrator أو نظام مهارات مستقلاً |
+
+## 4. مصفوفة ما يفيد الأقسام المطلوبة
+
+**الاختصارات:** `REAL` مصدر في `main` · `DEMO` أمثلة مستقلة · `EXT` تكامل خارجي · `—` لا يظهر كوحدة مخصصة.
+
+| المجال | Open Design | Awesome LLM Apps | Langflow | Ollama |
+|---|---|---|---|---|
+| المحادثة وإدارة الجلسات | `REAL`: مشاريع ومحادثات ورسائل وSQLite واستئناف جلسات | `DEMO`: chat وstateful chat | `REAL`: محادثات وإدارة conversation | `REAL`: `/api/chat`؛ لا ذاكرة طويلة تلقائية |
+| الذاكرة طويلة الأمد | `REAL/محدود`: تفضيلات وذاكرة مرتبطة بالمشاريع والعلامة | `DEMO`: 7 أمثلة مخصصة للذاكرة | `REAL`: message history وmemory bases وتكاملات | `—`؛ تُبنى خارجياً |
+| الصوت والكلام | `REAL/EXT`: speech وElevenLabs وSenseAudio وغيرها | `DEMO/EXT`: 4 مجلدات voice وPodcast | `REAL/EXT`: voice mode وتسجيل وواجهات صوت | `REAL`: speech ومعالجة audio في النماذج المدعومة |
+| الوكلاء وmulti-agent | `REAL`: runtime adapters؛ ليس أقساماً جاهزة | `DEMO`: فرق وmulti-agent وmixture | `REAL`: multi-agent orchestration وA2A وworkflows | `EXT`: تشغيل agents خارجية، لا orchestrator مدمج |
+| RAG والمعرفة | مهارات وقوالب بحث؛ ليس منصة RAG عامة | `DEMO`: 24 مجلداً في `rag_tutorials` | `REAL/EXT`: retrieval وvector stores وknowledge | `EXT`: embeddings ونماذج؛ خط RAG خارجي |
+| البحث والقراءة والمستندات | مهارات بحث وPDF وDOCX وweb clone وقراءة مشاريع | أمثلة deep research وscraping وChat with X وPDF/YouTube | مكونات بحث وقراءة ومستندات وRAG | `REAL`: web search وweb fetch/crawl كأدوات؛ لا فهرس محلي أو محلل PDF مدمج |
+| التصميم وUI | `REAL`: أقوى تغطية؛ 169 مهارة و115 قالباً و152 Design System | `DEMO`: Generative UI وdesign teams | واجهة المنصة ومكوناتها؛ لا مكتبة Design Systems مماثلة | تكاملات واجهات خارجية |
+| البرمجة والبناء والتدقيق | `REAL`: adapters وlint وcritique واختبارات | `DEMO`: coding teams وdependency/review skills | تخصيص Python واختبارات وplayground؛ ليس قسم هندسة جاهزاً | `EXT`: Claude Code وCodex وغيرها |
+| المهارات وplugins | `REAL`: Skills وDesign Templates وPlugins وregistry | `DEMO`: 8 مهارات في `agent_skills` مع مجلد evals مستقل | مكونات وbundles وMCP؛ ليست Agent Skills بنفس الصيغة | لا registry مستقل في `main` |
+| الفيديو والوسائط | `REAL/EXT`: HyperFrames وقوالب video وصوت وصور | `DEMO`: movie ومقاطع وExcaliflow وتحليل فيديو | `EXT`: TwelveLabs وYouTube؛ ليس استوديو مونتاج | لا يظهر مسار video مخصص في `main` |
+| التحليل المالي | قوالب مثل finance وDCF وtrading؛ ليست تحليلاً حياً بحد ذاتها | `DEMO`: finance وinvestment وVC وfraud وearnings | Yahoo Finance وFinancial Report Parser؛ نواة تكامل لا محطة كاملة | لا يظهر قسم مالي |
+| البحث الاستدلالي | عبر coding agents والمهارات؛ الاستدلال من النموذج الخارجي | أمثلة reasoning وdeep research وadaptive teams | flows وagents ونماذج خارجية | تشغيل نماذج reasoning ومعالجة thinking/parser |
+| الحماية الدفاعية | `REAL`: auth وSSRF وorigins وصلاحيات واختبارات | أمثلة trust/evals واختبارات متفرقة | `REAL`: authentication وAPI keys وصلاحيات واختبارات | `REAL`: auth/security policy واختبارات؛ الحماية المحيطة تُضبط خارجياً أيضاً |
+| فك الشفرات واكتشاف الثغرات | لا يظهر toolkit مخصص؛ الحماية الدفاعية ليست vulnerability scanner | لا يظهر toolkit مخصص موحد | لا يظهر toolkit مخصص؛ decrypt لأسرار التطبيق ليس فك شفرات هجومي | لا يظهر toolkit مخصص |
+| النشر والأنظمة | Docker وdesktop وsource وdaemon | يختلف لكل مثال | Docker وcloud وAPI/MCP وFrontend/Backend | installers وDocker وREST وmodel management |
+| المراقبة والاختبارات | اختبارات كثيفة وtelemetry وlint | skill evals وبعض الاختبارات؛ غير موحد | LangSmith/Langfuse واختبارات واسعة | unit/integration tests؛ observability خارجي عند الحاجة |
+
+## 5. ما لا توفره المجموعة كنظام واحد جاهز
+
+1. **لا يوجد في هذه المستودعات مدير منظومة جاهز** يحتوي أقسام البحث والبرمجة والبناء والتدقيق والفيديو والمال والاستدلال والثغرات بتصميم موحد.
+2. **لا يوجد عقد موحد للذاكرة والهوية والصلاحيات والرسائل** يجمع الأمثلة كلها؛ سيكون مطلوباً تصميم طبقة موحدة عند الدمج.
+3. **لا يوجد ضمان أن كل مثال يعمل اليوم بلا مفاتيح أو خدمات مدفوعة**؛ كثير من الأمثلة تعتمد على API خارجي وإصدارات نماذج متغيرة.
+4. **لا يوجد قسم مخصص مكتمل لفك الشفرات أو اكتشاف الثغرات** في `main` بهذه المستودعات. الموجود هو أساسيات حماية ومصادقة واختبارات وtrust/evals، وهذا مختلف.
+5. **الفيديو ليس موحداً:** Open Design يحتوي خطاً واضحاً للتوليد والـrendering، بينما أغلب العناصر الأخرى أمثلة تحليل أو تكاملات.
+6. **المال ليس محطة بيانات احترافية:** توجد أمثلة وقوالب ومكونات، لكن جودة المصدر والتحقق والحدود تختلف من مشروع لآخر.
+
+## 6. الجرد التفصيلي لكل مستودع
+
+تتبع هنا قوائم المجلدات والعناصر والفائدة العملية لكل مستودع. الفهرس الآلي الحرفي لكل المسارات محفوظ في ملف مستقل، والسجل الكامل للفروع في ملف مستقل آخر.
+
+### 6.1 Open Design — الجرد التفصيلي
+
+**المصدر الرسمي:** [nexu-io/open-design@main](https://github.com/nexu-io/open-design/tree/main).
+
+#### 1) التعريف والترخيص واللغة والتقنيات
+
+- **التعريف (من README):** «OpenDesign: أول مساحة عمل تعاونية لوكيل تصميم ذكاء اصطناعي» — يبدأ بموجز (brief)، ثم يستخدم وكيل برمجة موجوداً لدى المستخدم (Claude Code / Codex / Cursor / …) أو OpenDesign Cloud لتوليد نماذج أولية (prototypes) وشرائح وصور وفيديو تتبع نظام تصميم (`DESIGN.md`)، مع سير عمل قابل للتوسعة عبر أربع طبقات: **Plugins** (سير عمل) + **Skills** (سلوك وكيل) + **Design Templates** (مخططات عرض) + **Design Systems** (الهوية).
+- **الترخيص:** Apache-2.0 (ملف `LICENSE` في الجذر، تم التحقق من نصه). استثناءات موثقة في README: حزم مدمجة تحتفظ برخصها الخاصة MIT — `design-templates/guizang-ppt/` و`design-templates/html-ppt/` و`skills/web-clone/`.
+- **commit فرع main (من سجل الفروع):** `07a86b1041531bfa0bec1006d9c0993985fee560` — ويتطابق مع `sha` الشجرة المفحوصة. عدد الفروع الكلي في الملف: **2852 فرعاً**.
+- **اللغة والتقنيات (موثق):** مونوريبو pnpm (`pnpm-workspace.yaml`) بلغة TypeScript؛ الواجهة **Next.js 16 App Router + React 18**؛ الدايمون **Node 24 + Express + SSE + better-sqlite3**؛ سطح المكتب **Electron** مع sidecar IPC؛ البناء esbuild؛ الاختبارات **Vitest + Playwright**؛ النشر **Docker / AWS SAM / Azure Bicep / Sealos**؛ فيديو عبر **HyperFrames** (HTML+CSS+GSAP → MP4 عبر headless Chrome + FFmpeg)؛ بروتوكول **MCP** (stdio server) للتكامل مع وكلاء البرمجة.
+- **الإصدارات (من CHANGELOG الموجود في الشجرة):** `docs/CHANGELOG/` يحوي ملفات إصدارات حتى v0.27.0، وملف جذر `RELEASE-NOTES-0.10.0.md`.
+
+
+#### 2) مجلدات وملفات الجذر (52 عنصراً) وشرح كل واحد
+
+**مجلدات تشغيلية/منتج:**
+- `apps/` — التطبيقات الخمسة (انظر القسم 3).
+- `packages/` — 17 حزمة مشتركة (انظر القسم 3).
+- `skills/` — 169 مهارة وظيفية بصيغة `SKILL.md` (مواثيق Agent Skills).
+- `design-templates/` — 115 قالب عرض/تصميم قابل للتوليد.
+- `design-systems/` — 152 حزمة نظام تصميم + مجلد `_schema`.
+- `plugins/` — البلجنات: `_official/` (رسمية)، `community/` (10 إدخالات مجتمعية)، `registry/` (سجلّا official/community)، `spec/` (مواصفة البلجن SPEC.md + أدلة)، `open-design/` (إعداد `.mcp.json` و`.claude-plugin`).
+- `prompt-templates/` — قوالب برومبت صور وفيديو (JSON + معاينات).
+- `docs/` — الوثائق (انظر القسم 3).
+- `deploy/` — النشر: Dockerfile وdocker-compose وAWS SAM وAzure Bicep وسكربتات تثبيت/تحقق واختبارات.
+- `e2e/` — اختبارات طرف-لطرف (Playwright/Vitest).
+
+**مجلدات داعمة:**
+- `assets/` — أصول ثابتة: `community-pets/`، `frames/` (إطارات أجهزة)، `prompt-templates/`.
+- `charts/` — Helm chart (`open-design`) لنشر Kubernetes (استنتاج من الاسم والهيكل؛ لم يُفتح محتواه).
+- `clipper/` — إضافة متصفح (manifest.json + content/background/popup) لالتقاط محتوى الويب إلى OpenDesign («brand-capture»).
+- `craft/` — أدلة حِرفة تصميمية نصية (typography, color, anti-ai-slop, laws-of-ux, accessibility-baseline, rtl-and-bidi…).
+- `data/` — بيانات: `contributors.json`, `events.jsonl`, `cards/`, `plugin-previews/`.
+- `figma-plugin/` — بلجن Figma مستقل (`code.js`, `manifest.json`, `ui.html`, `IR.md`).
+- `mocks/` — وكيل وهمي (`mock-agent.mjs`) وتسجيلات ذهبية للاختبار.
+- `scripts/` — 47+ سكربت صيانة/تحقق/مزامنة (sync-design-systems, check-*…).
+- `shells/` — `terminal/` (غلاف طرفية) + AGENTS.md.
+- `specs/` — مواصفات ميزات (`current/`, `change/`, `od-clipper.md`, `2026-04-29-live-artifacts/`).
+- `story/` — `STORY.md` قصة/سردية المشروع (إنجليزي + صيني).
+- `templates/` — قوالب HTML داخلية: `deck-framework.html`, `kami-deck.html`, `live-artifacts/`.
+- `tools/` — أدوات المستودع: `dev`, `pack`, `release`, `serve` (نقطة الدخول `pnpm tools-dev`).
+- `ui-audit/` — تدقيق UI (`goal66/`).
+- `.github/` — CI/workflows وسكربتات وكلاء (agent-pr-explore…). `.claude/` و`.claude-plugin/` — إعدادات Claude. `.vaunt/` و`.looper-attachments/` — ملحقات أدوات خارجية (استنتاج).
+- ملفات جذر وثائقية: `AGENTS.md` (عقد إلزامي للوكلاء، يتضمن «Daemon data directory contract»)، `CLAUDE.md`، `CONTEXT.md`، `CONTRIBUTING.md`، `MAINTAINERS.md`، `PRIVACY.md`، `QUICKSTART.md`، `CHANGELOG.md`، `TRANSLATIONS.md`، `design-browser-task-handoff.md`.
+- ملفات إعداد: `package.json`, `pnpm-lock.yaml`, `mise.toml`, `vercel.json`, `.node-version`, `.gitignore/.gitattributes/.dockerignore/.ignore`.
+
+
+#### 3) الجرد الكامل للأسماء في المجلدات المطلوبة
+
+##### 3.1 `apps/` — 5 تطبيقات
+| التطبيق | الدور |
+|---|---|
+| `apps/daemon` | الدايمون المحلي (Node/Express/SSE/SQLite) — العملية المميّزة الوحيدة؛ تعريفات الـruntimes في `src/runtimes/defs/` |
+| `apps/web` | تطبيق الويب Next.js 16 (App Router) + sidecar |
+| `apps/desktop` | غلاف Electron لسطح المكتب (macOS/Windows) |
+| `apps/packaged` | نسخة التغليف القابلة للتوزيع (esbuild) — له README خاص |
+| `apps/closure` | حزمة/إغلاق (closure) بإعداد esbuild خاص (الدور الدقيق لم يُقرأ — استنتاج من الاسم) |
+
+##### 3.2 `packages/` — 17 حزمة
+`agui-adapter` (محوّل بروتوكول AG-UI — استنتاج من الاسم) · `components` · `contracts` · `diagnostics` · `download` · `dsh-runtime` (runtime لـ DeepSeek Harness عبر `dsh` CLI؛ يحوي `cordis.patch.yml`) · `host` · `launcher` · `launcher-proto` · `metatool` · `platform` · `plugin-runtime` · `registry-protocol` · `release` · `sidecar` · `sidecar-proto` · `standalone`
+(لكل حزمة `src/` و`tests/` و`package.json`؛ الأدوار التفصيلية لم تُقرأ في هذه المرحلة.)
+
+##### 3.3 `docs/` — 59 عنصراً بالمستوى الأول
+
+**ملفات:** `MOCKS-CONTRACT-CHECK.md` · `agent-adapters.md` · `ai-native-observability-trace-analysis.md` · `architecture.md` · `atoms.md` · `code-review-guidelines.md` · `codex-pets.md` · `critique-theater.md` · `deepseek-harness-one-click-install.zh-CN.md` · `design-system-tracking-spec.md` · `design-systems.md` · `external-media-orchestration.md` · `headless-byok.md` · `install-guide.md` · `media-stock-telemetry.md` · `modes.md` · `motion-template-sources.md` · `new-agent-runtime-acp.md` · `notebooklm.md` · `orchestrator-workspaces.md` · `plugins-spec.md` · `plugins-spec.zh-CN.md` · `prompt-composition.md` · `publishing-a-plugin.md` · `publishing-a-plugin.zh-CN.md` · `references.md` · `roadmap.md` · `seats-journey-analytics.md` · `self-hosting-a-registry.md` · `skills-contributing.md` · `skills-protocol.md` · `spec.md` · `typescript-7.md` · `v0.8.0-announcement.md` · `v0.8.0-announcement.zh-CN.md` · `whats-new.json` · `whats-new.md` · `windows-troubleshooting.md` · `wsl-setup.md`
+
+**مجلدات:**
+- `adr/` — قرار معماري واحد: `0001-centralize-daemon-startup.md`
+- `CHANGELOG/` — 15 مدخلاً (v0.14.1 … v0.24.0+)
+- `assets/` · `images/` · `screenshots/` — أصول وصور الوثائق وجولة المنتج
+- `ci/` — `version-bump-policy.md`، `workload-products.md`
+- `deployment/` — `docker.md`، `cloud/`، `workspace-team-rollout.md`
+- `design/` — `chat-mirror/`، `run-errors/`
+- `evidence/` — أدلة تشغيلية (`od-next-profile-access`, `pi-rpc-close-grace`)
+- `examples/` — `DESIGN.sample.md`، `saas-landing-skill/`
+- `handoffs/` — `slides-project-experience-handoff.md`
+- `i18n/` — 35 ملف ترجمة (README/CONTRIBUTING/MAINTAINERS بـ 8+ لغات منها العربية)
+- `observability/` — `update-lifecycle.md` + `drafts/`
+- `plans/` — خطط: sandbox-orchestration-hardening، plugins-implementation، plugin-registry، manual-edit-mode، amr-vela-cli-ci
+- `qa/` — تقارير QA ولقطات
+- `rfc-drafts/` — `agent-ready.md`، `agent-ready-cross-project.md`، `dev-server-auto-detect.md`
+- `schemas/` — `open-design.plugin.v1.json`، `open-design.marketplace.v1.json`
+- `superpowers/` — `plans/` و`specs/` (منهجية عمل داخلية — استنتاج من الاسم)
+- `telemetry/` — crash-and-exit، preview-and-navigation، responsiveness، stability-metrics، update-lifecycle
+- `testing/` — 22 مدخلاً (عقود اختبار AMR، تغطية e2e، codex-patch-streaming…)
+
+##### 3.4 `skills/` — 169 مهارة (الأسماء الكاملة من الشجرة)
+
+
+`8-bit-orbit-video-template` · `ad-creative` · `after-hours-editorial-template` · `agent-browser` · `ai-music-album` · `algorithmic-art` · `animate` · `apple-hig` · `article-magazine` · `artifacts-builder` · `brainstorming` · `brand-extract` · `brand-guidelines` · `brandkit` · `brutalist-skill` · `canvas-design` · `card-twitter` · `card-xiaohongshu` · `chat-motion-overlay` · `color-expert` · `competitive-ads-extractor` · `copywriting` · `creative-director` · `d3-visualization` · `data-report` · `deck-guizang-editorial` · `deck-open-slide-canvas` · `deck-swiss-international` · `design-brief` · `design-consultation` · `design-md` · `design-review` · `digits-fintech-swiss-template` · `doc` · `doc-kami-parchment` · `docx` · `domain-name-brainstormer` · `ecommerce-image-workflow` · `editorial-burgundy-principles-template` · `emil-design-eng` · `emilkowalski-motion` · `enhance-prompt` · `export-download-debugging` · `fal-3d` · `fal-generate` · `fal-image-edit` · `fal-kling-o3` · `fal-lip-sync` · `fal-realtime` · `fal-restore` · `fal-train` · `fal-tryon` · `fal-upscale` · `fal-video-edit` · `fal-vision` · `faq-page` · `field-notes-editorial-template` · `figma-code-connect-components` · `figma-create-design-system-rules` · `figma-create-new-file` · `figma-generate-design` · `figma-generate-library` · `figma-implement-design` · `figma-use` · `flutter-animating-apps` · `frame-data-chart-nyt` · `frame-flowchart-sticky` · `frame-glitch-title` · `frame-light-leak-cinema` · `frame-liquid-bg-hero` · `frame-logo-outro` · `frame-macos-notification` · `frontend-design` · `frontend-dev` · `frontend-skill` · `frontend-slides` · `full-page-screenshot` · `gif-sticker-maker` · `gpt-tasteskill` · `gsap-core` · `gsap-frameworks` · `gsap-performance` · `gsap-plugins` · `gsap-react` · `gsap-scrolltrigger` · `gsap-timeline` · `gsap-utils` · `hand-drawn-diagrams` · `hatch-pet` · `html-ppt-retro-quarterly-review` · `huashu-art-motion` · `image-enhancer` · `image-to-code-skill` · `imagegen` · `imagegen-frontend-mobile` · `imagegen-frontend-web` · `imagen` · `impeccable-design-polish` · `library-curator` · `login-flow` · `marketing-psychology` · `minimalist-skill` · `minimax-docx` · `minimax-pdf` · `mockup-device-3d` · `motion-design` · `motion-lab` · `nanobanana-ppt` · `od-next-media-inputs` · `oil-motion` · `output-skill` · `paywall-upgrade-cro` · `pdf` · `pixelbin-media` · `plan-design-review` · `platform-design` · `poster-hero` · `ppt-keynote` · `pptx` · `pptx-generator` · `pptx-html-fidelity-audit` · `pr-feedback-quality-gate` · `redesign-skill` · `reference-design-contract` · `release-notes-one-pager` · `remotion` · `replicate` · `research-decision-room` · `resume-modern` · `review-animations` · `screenshot` · `screenshots-marketing` · `shadcn-ui` · `shader-dev` · `slack-gif-creator` · `slides` · `social-reddit-card` · `social-spotify-card` · `social-x-post-card` · `soft-skill` · `sora` · `speech` · `stitch-loop` · `stitch-skill` · `swiftui-design` · `swiss-creative-mode-template` · `swiss-user-research-video-template` · `taste-skill` · `taste-skill-v1` · `theme-factory` · `threejs` · `ui-animation` · `ui-skills` · `ui-ux-pro-max` · `venice-audio-music` · `venice-audio-speech` · `venice-image-edit` · `venice-image-generate` · `venice-video` · `vfx-text-cursor` · `video-downloader` · `video-hyperframes` · `web-artifacts-builder` · `web-clone` · `web-design-guidelines` · `weread-year-in-review-video-template` · `wpds` · `writing-guidelines` · `youtube-clipper`
+
+
+(منها عائلات واضحة: تكاملات Figma السبع `figma-*`، عائلة Fal للوسائط `fal-*` (توليد/تعديل/ترقية صور وفيديو وlip-sync وتدريب ورؤية)، عائلة GSAP الثمانية للحركة، عائلة Venice للوسائط، مهارات مستندات `doc/docx/pdf/pptx/pptx-*`، مهارات صوت `speech`/`venice-audio-*`، مهارات فيديو `sora`/`video-*`/`remotion`، ومهارات هندسية `frontend-*`/`shadcn-ui`/`threejs`/`shader-dev`/`gsap-*`.)
+
+##### 3.5 `design-templates/` — 115 قالباً (الأسماء الكاملة من الشجرة)
+
+
+`aster-atelier` · `audio-jingle` · `blog-post` · `clinical-case-report` · `contact-widget` · `critique` · `dashboard` · `dating-web` · `dcf-valuation` · `digital-eguide` · `docs-page` · `email-marketing` · `eng-runbook` · `finance-report` · `flowai-live-dashboard-template` · `gamified-app` · `github-dashboard` · `guizang-ppt` · `hr-onboarding` · `html-ppt` · `html-ppt-course-module` · `html-ppt-graphify-dark-graph` · `html-ppt-hermes-cyber-terminal` · `html-ppt-knowledge-arch-blueprint` · `html-ppt-obsidian-claude-gradient` · `html-ppt-pitch-deck` · `html-ppt-presenter-mode-reveal` · `html-ppt-product-launch` · `html-ppt-taste-brutalist` · `html-ppt-taste-editorial` · `html-ppt-tech-sharing` · `html-ppt-testing-safety-alert` · `html-ppt-weekly-report` · `html-ppt-xhs-pastel-card` · `html-ppt-xhs-white-editorial` · `html-ppt-zhangzara-8-bit-orbit` · `html-ppt-zhangzara-biennale-yellow` · `html-ppt-zhangzara-block-frame` · `html-ppt-zhangzara-blue-professional` · `html-ppt-zhangzara-bold-poster` · `html-ppt-zhangzara-broadside` · `html-ppt-zhangzara-capsule` · `html-ppt-zhangzara-cartesian` · `html-ppt-zhangzara-cobalt-grid` · `html-ppt-zhangzara-coral` · `html-ppt-zhangzara-creative-mode` · `html-ppt-zhangzara-daisy-days` · `html-ppt-zhangzara-editorial-tri-tone` · `html-ppt-zhangzara-grove` · `html-ppt-zhangzara-long-table` · `html-ppt-zhangzara-mat` · `html-ppt-zhangzara-monochrome` · `html-ppt-zhangzara-neo-grid-bold` · `html-ppt-zhangzara-peoples-platform` · `html-ppt-zhangzara-pin-and-paper` · `html-ppt-zhangzara-pink-script` · `html-ppt-zhangzara-playful` · `html-ppt-zhangzara-raw-grid` · `html-ppt-zhangzara-retro-windows` · `html-ppt-zhangzara-retro-zine` · `html-ppt-zhangzara-sakura-chroma` · `html-ppt-zhangzara-scatterbrain` · `html-ppt-zhangzara-signal` · `html-ppt-zhangzara-soft-editorial` · `html-ppt-zhangzara-stencil-tablet` · `html-ppt-zhangzara-studio` · `html-ppt-zhangzara-vellum` · `hyperframes` · `ib-pitch-book` · `image-poster` · `invoice` · `kami-deck` · `kami-landing` · `kanban-board` · `last30days` · `live-artifact` · `live-dashboard` · `magazine-poster` · `meeting-notes` · `mobile-app` · `mobile-onboarding` · `motion-frames` · `open-design-landing` · `open-design-landing-deck` · `orbit-general` · `orbit-github` · `orbit-gmail` · `orbit-linear` · `orbit-notion` · `pm-spec` · `pricing-page` · `replit-deck` · `saas-landing` · `simple-deck` · `social-carousel` · `social-media-dashboard` · `social-media-matrix-tracker-template` · `sprite-animation` · `team-okrs` · `trading-analysis-dashboard-template` · `tweaks` · `video-shortform` · `waitlist-page` · `web-prototype` · `web-prototype-taste-brutalist` · `web-prototype-taste-editorial` · `web-prototype-taste-soft` · `webgl-experience` · `weekly-update` · `wireframe-annotated` · `wireframe-greybox` · `wireframe-mobile-flow` · `wireframe-sketch` · `worker-visualizer` · `x-research`
+
+
+(عائلة `html-ppt-*` وحدها **48 قالب شرائح**، منها سلسلة `html-ppt-zhangzara-*`؛ وقوالب مالية: `dcf-valuation`, `finance-report`, `ib-pitch-book`, `invoice`, `trading-analysis-dashboard-template`؛ وقوالب بحث: `x-research`, `last30days`؛ وفيديو: `video-shortform`, `hyperframes`؛ وصوت: `audio-jingle`.)
+
+##### 3.6 `design-systems/` — 152 حزمة + `_schema` (مجمّعة في فئات؛ التصنيف مأخوذ من README وطُبّق على أسماء الشجرة الموثقة)
+
+
+- **أنظمة شركات AI/LLM** (13): `claude` · `cohere` · `mistral-ai` · `minimax` · `together-ai` · `replicate` · `runwayml` · `elevenlabs` · `ollama` · `x-ai` · `openai` · `huggingface` · `perplexity`
+- **أدوات مطوّرين** (23): `cursor` · `vercel` · `linear-app` · `expo` · `clickhouse` · `mongodb` · `supabase` · `hashicorp` · `posthog` · `sentry` · `warp` · `sanity` · `mintlify` · `composio` · `opencode-ai` · `voltagent` · `github` · `figma` · `framer` · `webflow` · `raycast` · `shadcn` · `resend`
+- **إنتاجية وتواصل** (13): `notion` · `miro` · `airtable` · `superhuman` · `intercom` · `zapier` · `cal` · `clay` · `slack` · `discord` · `loom` · `webex` · `wechat`
+- **تقنية مالية Fintech** (8): `stripe` · `coinbase` · `binance` · `kraken` · `mastercard` · `revolut` · `wise` · `trading-terminal`
+- **تجارة واستهلاك** (7): `shopify` · `airbnb` · `uber` · `nike` · `starbucks` · `pinterest` · `duolingo`
+- **إعلام ومنصات** (6): `spotify` · `playstation` · `wired` · `theverge` · `meta` · `xiaohongshu`
+- **سيارات** (7): `tesla` · `bmw` · `bmw-m` · `ferrari` · `lamborghini` · `bugatti` · `renault`
+- **شركات تقنية أخرى** (7): `apple` · `ibm` · `nvidia` · `vodafone` · `spacex` · `cisco` · `cloudflare-kumo`
+- **أنماط بصرية/عامة وحزم ابتدائية** (68): `agentic` · `ant` · `application` · `arc` · `artistic` · `atelier-zero` · `bento` · `bold` · `brutalism` · `cafe` · `canva` · `claymorphism` · `clean` · `colorful` · `contemporary` · `corporate` · `cosmic` · `creative` · `dashboard` · `default` · `dithered` · `doodle` · `dramatic` · `editorial` · `elegant` · `energetic` · `enterprise` · `expressive` · `fantasy` · `flat` · `friendly` · `futuristic` · `glassmorphism` · `gradient` · `hud` · `kami` · `levels` · `lingo` · `lovable` · `luxury` · `material` · `minimal` · `mission-control` · `modern` · `mono` · `neobrutalism` · `neon` · `neumorphism` · `pacman` · `paper` · `perspective` · `premium` · `professional` · `publication` · `refined` · `retro` · `simple` · `skeumorphism` · `sleek` · `spacious` · `storytelling` · `tetris` · `tom-modern` · `totality-festival` · `urdu` · `vibrant` · `vintage` · `warm-editorial`
+
+
+(كل حزمة حديثة تحوي `DESIGN.md` كعقد هوية + `manifest.json` + `tokens.css` + `design-tokens.json` + `components.html` + `components.manifest.json` + `tailwind-v4.css` + `USAGE.md` + `preview/` + `source/` + `system/` — موثق من الشجرة في عيّنات مفحوصة مثل `wechat` و`trading-terminal` و`agentic`.)
+
+##### 3.7 `plugins/_official/` — 6 فئات، 479 مجلد بلجن فعلياً
+
+**`atoms/` (13):** `build-test` · `code-import` · `critique-theater` · `design-extract` · `diff-review` · `direction-picker` · `discovery-question-form` · `figma-extract` · `handoff` · `patch-edit` · `rewrite-plan` · `todo-write` · `token-map`
+
+**`scenarios/` (14):** `od-code-migration` · `od-default` · `od-design-refine` · `od-figma-migration` · `od-media-generation` · `od-new-generation` · `od-next-strategy` · `od-nextjs-export` · `od-plugin-authoring` · `od-react-export` · `od-share-to-community` · `od-tune-collab` · `od-vue-export` · `od-web-effect-extractor`
+
+**`image-templates/` (45):** `3d-stone-staircase-evolution-infographic` · `anime-martial-arts-battle-illustration` · `e-commerce-live-stream-ui-mockup` · `game-screenshot-anime-fighting-game-captain-ryuuga-vs-kaze-renshin` · `game-screenshot-three-kingdoms-guanyu-slaying-yanliang` · `game-screenshot-three-kingdoms-lyubu-yuanmen-archery` · `game-screenshot-three-kingdoms-zhaoyun-cradle-escape` · `game-ui-ancient-china-open-world-mmo-hud` · `illustrated-city-food-map` · `illustration-crayon-kid-drawing-rework` · `infographic-otaku-dance-choreography-breakdown-gokurakujodo-16-panels` · `momotaro-explainer-slide-in-hybrid-style` · `notion-team-dashboard-live-artifact` · `profile-avatar-anime-girl-to-cinematic-photo` · `profile-avatar-casual-fashion-grid-photoshoot` · `profile-avatar-cinematic-south-asian-male-portrait-with-vultures` · `profile-avatar-cyberpunk-anime-portrait-with-neon-face-text` · `profile-avatar-elegant-fantasy-girl-in-violet-garden` · `profile-avatar-ethereal-blue-haired-fantasy-portrait` · `profile-avatar-glamorous-woman-in-black-portrait` · `profile-avatar-hyper-realistic-selfie-texture-prompts` · `profile-avatar-lavender-fantasy-mage-portrait` · `profile-avatar-monochrome-studio-portrait` · `profile-avatar-old-photo-restoration-to-dslr-portrait` · `profile-avatar-poetic-woman-in-garden-portrait` · `profile-avatar-professional-identity-portrait-wallpaper` · `profile-avatar-realistically-imperfect-ai-selfie` · `profile-avatar-signed-marker-portrait-on-shikishi` · `profile-avatar-snow-rabbit-empress-portrait` · `profile-avatar-snow-rabbit-mask-hanfu-portrait` · `profile-avatar-snowy-rabbit-hanfu-portrait` · `profile-avatar-snowy-rabbit-spirit-portrait` · `profile-avatar-song-dynasty-hanfu-portrait` · `social-media-post-anime-pokemon-shop-outfit-teaser-poster` · `social-media-post-cinematic-elevator-scene` · `social-media-post-confused-elf-girl-at-pastel-desk` · `social-media-post-editorial-fashion-photography` · `social-media-post-fashion-editorial-collage` · `social-media-post-psg-transfer-announcement-poster` · `social-media-post-sensational-girl-dance-storyboard-8-shots` · `social-media-post-showa-day-retro-culture-magazine-cover` · `social-media-post-social-media-fashion-outfit-generation` · `social-media-post-travel-snapshot-collage-prompt` · `social-media-post-vintage-sign-painter-sketch` · `vr-headset-exploded-view-poster`
+
+**`video-templates/` (63):** `3d-animated-boy-building-lego` · `a-decade-of-refinement-glow-up` · `ancient-guardian-dragon-rescue` · `ancient-indian-kingdom-fpv-video` · `animation-transfer-and-camera-tracking-prompt` · `beat-synced-outfit-transformation-dance` · `character-intro-motion-graphics-sequence` · `cinematic-birthday-celebration-sequence` · `cinematic-dragon-interaction-flight` · `cinematic-east-asian-woman-hand-dance` · `cinematic-emotional-face-close-up` · `cinematic-marine-biologist-exploration` · `cinematic-music-podcast-and-guitar-technique` · `cinematic-route-navigation-guide` · `cinematic-street-racing-sequence-for-seedance-2` · `cinematic-vampire-alley-fight-sequence` · `crimson-horizon-sci-fi-cinematic-sequence` · `cyberpunk-game-trailer-script` · `forbidden-city-cat-satire` · `frame-bold-poster` · `frame-bold-signal` · `frame-build-minimal` · `frame-creative-voltage` · `frame-data-chart-nyt` · `frame-data-rollup` · `frame-decision-tree` · `frame-electric-studio` · `frame-glitch-title` · `frame-kinetic-type` · `frame-light-leak-cinema` · `frame-liquid-bg-hero` · `frame-logo-outro` · `frame-nyt-graph` · `frame-pentagram-stat` · `frame-play-mode` · `frame-product-promo` · `frame-product-promo-30s` · `frame-swiss-grid` · `frame-takram-organic` · `frame-vignelli` · `frame-warm-grain` · `hollywood-haute-couture-fantasy-video-prompt` · `hunched-character-animation` · `live-action-anime-adaptation-water-vs-thunder-breathing-duel` · `luxury-supercar-cinematic-narrative` · `magical-academy-storyboard-sequence` · `modern-rural-aesthetics-healing-short-film-video-prompt` · `nightclub-flyer-atmospheric-animation` · `retro-hk-wuxia-film-aesthetic` · `seedance-2-0-15-second-cinematic-japanese-romance-short-film` · `seedance-2-0-80-year-old-rapper-mv` · `sequence-and-movement-instruction-for-martial-arts-video` · `soul-switching-mirror-magic-sequence` · `toaster-rocket-jumpscare` · `traditional-dance-performance` · `vfx-text-cursor` · `video-seedance-desk-hologram-ar-realdesk` · `video-seedance-three-kingdoms-guanyu-slaying-yanliang` · `video-seedance-three-kingdoms-lyubu-yuanmen-archery` · `video-seedance-three-kingdoms-zhaoyun-cradle-escape` · `vintage-disney-style-pirate-crocodile-animation` · `viral-k-pop-dance-choreography` · `wasteland-factory-chase`
+
+**`design-systems/` (143):** نفس أسماء أنظمة التصميم مغلّفة كبلجنات (مجموعة شبه مطابقة لمحتوى `design-systems/`؛ أولها: `agentic` · `airbnb` · `airtable` · `ant` · `apple` · `application` · `arc` · `artistic` · `atelier-zero` · `bento` …).
+
+**`examples/` (201):** `article-magazine` · `audio-jingle` · `blog-post` · `card-twitter` · `card-xiaohongshu` · `clinical-case-report` · `codex-interactive-capability-map` · `critique` · `dashboard` · `data-report` · `dating-web` · `dcf-valuation` · `deck-guizang-editorial` · `deck-open-slide-canvas` · `deck-swiss-international` · `design-brief` · `digital-eguide` · `doc-kami-parchment` · `docs-page` · `email-marketing` · `eng-runbook` · `finance-report` · `flowai-live-dashboard-template` · `frame-data-chart-nyt` · `frame-flowchart-sticky` · `frame-glitch-title` · `frame-light-leak-cinema` · `frame-liquid-bg-hero` · `frame-logo-outro` · `frame-macos-notification` · `frontend-slides` · `fs-creative-voltage` · `fs-editorial-forest` · `fs-electric-studio` · `fs-emerald-editorial` · `fs-notebook-tabs` · `gamified-app` · `github-dashboard` · `guizang-ppt` · `hatch-pet` · `hps-academic-paper` · `hps-bauhaus` · `hps-memphis-pop` · `hps-retro-tv` · `hps-true-blueprint` · `hps-y2k-chrome` · `hr-onboarding` · `html-ppt` · `html-ppt-course-module` · `html-ppt-graphify-dark-graph` · `html-ppt-hermes-cyber-terminal` · `html-ppt-knowledge-arch-blueprint` · `html-ppt-obsidian-claude-gradient` · `html-ppt-pitch-deck` · `html-ppt-presenter-mode-reveal` · `html-ppt-product-launch` · `html-ppt-taste-brutalist` · `html-ppt-taste-editorial` · `html-ppt-tech-sharing` · `html-ppt-testing-safety-alert` · `html-ppt-weekly-report` · `html-ppt-xhs-pastel-card` · `html-ppt-xhs-white-editorial` · `html-ppt-zhangzara-8-bit-orbit` · `html-ppt-zhangzara-biennale-yellow` · `html-ppt-zhangzara-block-frame` · `html-ppt-zhangzara-blue-professional` · `html-ppt-zhangzara-bold-poster` · `html-ppt-zhangzara-broadside` · `html-ppt-zhangzara-capsule` · `html-ppt-zhangzara-cartesian` · `html-ppt-zhangzara-cobalt-grid` · `html-ppt-zhangzara-coral` · `html-ppt-zhangzara-creative-mode` · `html-ppt-zhangzara-daisy-days` · `html-ppt-zhangzara-editorial-tri-tone` · `html-ppt-zhangzara-grove` · `html-ppt-zhangzara-long-table` · `html-ppt-zhangzara-mat` · `html-ppt-zhangzara-monochrome` · `html-ppt-zhangzara-neo-grid-bold` · `html-ppt-zhangzara-peoples-platform` · `html-ppt-zhangzara-pin-and-paper` · `html-ppt-zhangzara-pink-script` · `html-ppt-zhangzara-playful` · `html-ppt-zhangzara-raw-grid` · `html-ppt-zhangzara-retro-windows` · `html-ppt-zhangzara-retro-zine` · `html-ppt-zhangzara-sakura-chroma` · `html-ppt-zhangzara-scatterbrain` · `html-ppt-zhangzara-signal` · `html-ppt-zhangzara-soft-editorial` · `html-ppt-zhangzara-stencil-tablet` · `html-ppt-zhangzara-studio` · `html-ppt-zhangzara-vellum` · `huashu-annual-letter` · `huashu-bento-insight` · `huashu-golden-circle` · `huashu-keynote-black` · `huashu-luxe-whitespace` · `huashu-pentagram-grid` · `huashu-slides` · `huashu-sparkline-arc` · `huashu-takram-soft-tech` · `hyperframes` · `ib-pitch-book` · `image-poster` · `invoice` · `kami-deck` · `kami-landing` · `kanban-board` · `last30days` · `live-artifact` · `live-dashboard` · `magazine-poster` · `meeting-notes` · `mobile-app` · `mobile-onboarding` · `mockup-device-3d` · `motion-claude-agent-lab` · `motion-claude-design-team` · `motion-distilbook-explainer` · `motion-flowdrive-motion-reel` · `motion-frames` · `motion-future` · `motion-kinetic-motion-designer` · `motion-mind-clarity-journey` · `motion-opus-design-lab` · `motion-product-promo` · `motion-prompt-motion-gallery` · `motion-semantic-color-stripes` · `motion-showreel` · `motion-sky-water-tessellation` · `motion-superx-audience-growth` · `motion-tixfox-ticket-promo` · `motion-ui-morph` · `motion-visual-lesson` · `motion-windows-studio-launch` · `od-plugin-contribute-open-design` · `od-plugin-publish-github` · `open-design-homepage` · `open-design-landing` · `open-design-landing-deck` · `orbit-general` · `orbit-github` · `orbit-gmail` · `orbit-linear` · `orbit-notion` · `pm-spec` · `poster-hero` · `ppt-keynote` · `pptx-html-fidelity-audit` · `pricing-page` · `replit-deck` · `resume-modern` · `saas-landing` · `simple-deck` · `social-carousel` · `social-media-dashboard` · `social-media-matrix-tracker-template` · `social-reddit-card` · `social-spotify-card` · `social-x-post-card` · `sprite-animation` · `team-okrs` · `trading-analysis-dashboard-template` · `tweaks` · `ve-midnight-editorial` · `ve-terminal-mono` · `velar-luxury-real-estate` · `vfx-text-cursor` · `video-hyperframes` · `video-shortform` · `waitlist-page` · `web-clone` · `web-prototype` · `web-prototype-taste-brutalist` · `web-prototype-taste-editorial` · `web-prototype-taste-soft` · `webgl-aurora-veil` · `webgl-caustic-pool` · `webgl-depth-gallery` · `webgl-distortion-grain` · `webgl-experience` · `webgl-halftone-drift` · `webgl-holographic-foil` · `webgl-horizontal-parallax` · `webgl-liquid-iridescence` · `webgl-liquid-metal` · `webgl-neon-grid` · `webgl-particle-galaxy` · `webgl-pixel-reveal-gallery` · `webgl-raymarched-hero` · `webgl-voronoi-cells` · `weekly-update` · `wireframe-annotated` · `wireframe-greybox` · `wireframe-mobile-flow` · `wireframe-sketch` · `worker-visualizer` · `x-research`
+
+##### 3.8 `prompt-templates/`
+- `image/` — **48 قالب JSON** (+ معاينة PNG واحدة على الأقل)، أسماء تمثل: إنفوغرافيك، لقطات ألعاب، بورتريهات سينمائية، خرائط طعام مرسومة…
+- `video/` — **58 قالب JSON**: مشاهد سينمائية، HyperFrames (saas-promo، karaoke talking-head، logo-outro، bar-chart-race، flight-map…)، برومبتات Seedance.
+
+##### 3.9 `deploy/`
+`Dockerfile` + `Dockerfile.local` + `docker-compose.yml` + `docker-compose.linux.yml` + `.env.example` · `aws/` (SAM `template.yaml`) · `azure/` (Bicep: `aci`, `app-service`, `container-instance` + `azure-pipelines.yml` + سكربت) · `scripts/` (install/uninstall/update/publish-images/verify-image…) · `tests/` (اختبارات Bicep والتثبيت) · `README.md`.
+
+##### 3.10 `e2e/`
+- `playwright.config.ts` + `playwright.visual.config.ts` + `vitest.config.ts`
+- `specs/` — **8 ملفات `.spec.ts`**: `mac.spec.ts`, `win.spec.ts`, `linux.spec.ts` + ملف داخل كل مجلد من `dialog/namespace/orbit/pet/web-clone`
+- `tests/` — ≈150 مسار اختبار (vitest): amr، antigravity، collab، artifact-lint، docker-image…
+- `ui/` — **126 ملف اختبار UI** (أكبر مجموعة: سيناريوهات sandbox، wallet، settings، chat، memory routines…)
+- `lib/` — مساعدات (fake-agents، playwright، desktop…) · `resources/` — تسجيلات وفريمات · `scripts/` — أدوات تشغيل.
+
+
+#### 4) العدّ الفعلي من الشجرة مقابل أرقام README
+
+| العنصر | رقم README | العدد الفعلي من الشجرة | ملاحظة |
+|---|---|---|---|
+| أنظمة التصميم | 151 | **152 حزمة** (+ مجلد `_schema`) | README متأخر بمقدار 1 على الأقل |
+| المهارات الوظيفية | «100+» | **169 مجلداً** في `skills/` | متوافق تقريبياً (README متحفظ) |
+| البلجنات الرسمية | 277 + 183 مثالاً | **278 + 201 = 479** (atoms 13 + scenarios 14 + image 45 + video 63 + design-systems 143 + examples 201) | فروق: scenarios 14 لا 13 (وجود `od-next-strategy`)، examples 201 لا 183 |
+| قوالب البرومبت | 93 («11 HyperFrames + 39 Seedance») | **48 صورة + 58 فيديو = 106 JSON** | README أقدم من المحتوى |
+| قوالب الشرائح html-ppt | «15 قالباً × 36 ثيماً» | **48 مجلداً** باسم `html-ppt*` | README يعدّ «القوالب» لا المجلدات |
+| تعريفات الـruntimes | 27 تعريفاً / 26 CLI | لم يُعدَّ في هذه المرحلة (يتطلب قراءة `apps/daemon/src/runtimes/`) | مؤجل للمرحلة الثانية |
+| اختبارات e2e/ui | — | **126 ملفاً** | — |
+
+
+#### 5) ماذا يفيد المستودع في المواضيع المطلوبة (بمسارات دقيقة)
+
+- **الذاكرة:** محدود لكنه موجود — اختبار `e2e/ui/settings-memory-routines.test.ts`، ومواصفة `specs/current/creative-memory-integration-shape.md`، وإشارة README إلى تراكم «screenshots/fonts/palettes/artifacts» كافتراضيات للجلسات. لا يوجد نظام ذاكرة عام مستقل (vector store…). (موثق شجرة + README)
+- **المحادثة:** جوهرية — محادثات ورسائل مخزنة في SQLite (README roadmap)، بث عبر `/api/chat (SSE)`، اختبارات `e2e/ui/chat-*.test.ts`، توثيق `docs/design/chat-mirror/`، مهارة `skills/chat-motion-overlay/`. (موثق)
+- **الصوت:** توليد فقط (TTS/موسيقى)، لا معالجة/تعرّف — مهارات `skills/speech/`, `skills/venice-audio-speech/`, `skills/venice-audio-music/`, `skills/ai-music-album/`, `skills/fal-lip-sync/`، قالب `design-templates/audio-jingle/`، موفر `senseaudio` ضمن BYOK proxy (README). (موثق)
+- **المعماريات:** غنية — `docs/architecture.md`, `docs/adr/0001-centralize-daemon-startup.md`, `docs/spec.md`, `docs/plugins-spec.md`, `docs/skills-protocol.md`, `docs/agent-adapters.md`, `docs/new-agent-runtime-acp.md`, `docs/orchestrator-workspaces.md`, `docs/prompt-composition.md`, `packages/contracts`, `packages/registry-protocol`, `docs/schemas/open-design.plugin.v1.json`. (موثق)
+- **الوكلاء:** جوهر المنتج — `apps/daemon/src/runtimes/defs/` (تعريفات 26+ وكيل CLI)، `docs/agent-adapters.md` (عقد المحوّل)، MCP stdio server، `packages/agui-adapter`, `packages/dsh-runtime`, ملفات `AGENTS.md` في كل مجلد رئيسي، سيناريوهات `plugins/_official/scenarios/od-*`. (موثق)
+- **التصميم:** كتلة المستودع الأكبر — `design-systems/` (152)، `design-templates/` (115)، `skills/` (169 أغلبها تصميمي)، `craft/` (أدلة جودة)، `docs/design-system-tracking-spec.md`, `docs/atoms.md`, `docs/modes.md`. (موثق)
+- **الحماية:** وقائية معمارية لا هجومية — حماية SSRF في BYOK proxy (README)، ربط loopback افتراضي + `OD_BIND_HOST`/`OD_ALLOWED_ORIGINS`، `OD_ALLOWED_INTERNAL_HOSTS`، `OD_API_TOKEN` + Basic Auth في Docker، sandboxed iframe للمعاينة، Electron sandboxed renderer، `docs/plans/2026-06-01-sandbox-orchestration-hardening-architecture.md`، اختبارات `e2e/ui/*sandbox*.test.ts` و`api-security-view016.test.ts`، `PRIVACY.md` (telemetry بموافقة). (موثق)
+- **المهارات:** بروتوكول كامل — `docs/skills-protocol.md`, `docs/skills-contributing.md`, `skills/README.md`, `skills/AGENTS.md`. (موثق)
+- **الأنظمة (design systems):** `design-systems/README.md`, `_schema/`, `scripts/sync-design-systems.ts`, اختبارات سلامة الحزم في `scripts/check-design-system-*.ts`. (موثق)
+- **البحث والقراءة:** بحث محلي في الكتالوجات (صفحة Plugins ببحث حسب README)؛ لا يوجد RAG/فيكتور. قوالب بحث: `skills/research-decision-room/`, `design-templates/x-research/`, `design-templates/last30days/`، وأداة التقاط ويب `clipper/` + `specs/od-clipper.md`. (موثق + استنتاج لغياب RAG من غياب أي مسارات vector/embedding في الشجرة)
+- **الفيديو:** قوي — HyperFrames (`design-templates/hyperframes/`, `docs/external-media-orchestration.md`, `docs/motion-template-sources.md`)، مهارات `sora`, `remotion`, `fal-kling-o3`, `fal-video-edit`, `video-downloader`, `youtube-clipper`, `video-hyperframes`, `venice-video`, `chat-motion-overlay`، و58 برومبت فيديو + 63 بلجن فيديو. (موثق)
+- **التحليل المالي:** قوالب عرض مالية فقط، لا محرك حسابات — `design-templates/dcf-valuation/` (به `references/`)، `finance-report/`, `ib-pitch-book/`, `invoice/`, `trading-analysis-dashboard-template/`, نظام `design-systems/trading-terminal/`. (موثق)
+- **البحث الاستدلالي:** لا يوجد مكوّن مخصص؛ أقرب شيء: `skills/research-decision-room/`, `skills/brainstorming/`, بلجن مجتمعي `plugins/community/deep-think-maximum-cognitive-effort-protocol-*`، وتكامل مع وكلاء خارجيين يملكون الاستدلال. (موثق للأسماء؛ الحكم استنتاج)
+- **فك الشفرات/الثغرات:** **لا يوجد** أي مكوّن لهذا الغرض (لا أسماء ولا مسارات تتعلق بـ CTF/exploit/decrypt في الشجرة). (موثق بالسلب)
+
+
+#### 6) ما لا يوجد صراحة / خارج نطاق المستودع (بلا مبالغة)
+
+1. **لا يوجد نموذج/وكيل ذكاء اصطناعي خاص** — المستودع «model-agnostic» ويعتمد كلياً على CLIs خارجية أو BYOK (README صريح: "We don't ship an agent").
+2. **لا ذاكرة دلالية/متجهة (RAG، embeddings، vector DB)** — لا مسارات ولا حزم بهذا المعنى؛ «الذاكرة» الحالية تفضيلات وتراكم أصول.
+3. **لا معالجة صوتية** (تعرّف على الكلام/تحويل صوت-نص محلي) — التوليد فقط عبر مزودين خارجيين.
+4. **لا يظهر مكوّن مخصص لفك الشفرات أو اختبار الاختراق أو CTF**؛ الحماية الظاهرة دفاعية لتأمين الـdaemon المحلي، وليست toolkit لفحص الآخرين.
+5. **لا محرك تحليل مالي حسابي** (بيانات سوق حية، backtesting) — قوالب عرض HTML فقط.
+6. **لا دعم Linux مبنياً مسبقاً** لسطح المكتب (README: من المصدر فقط، متابعة في issue #4368).
+7. **لا تكامل استدلالي مدمج** (deep-research/multi-hop) كمكوّن — يُفوَّض للوكيل الخارجي.
+8. ميزات معلنة لكنها **غير مكتملة** حسب roadmap: tweaks panel، comment-mode surgical edits، `npx od init`، Plugin SDK CLI، وبلجنات ترحيل Figma→React (alpha).
+
+
+#### 7) مرشحون للتوسع في مرحلة لاحقة (مع السبب)
+
+1. **`apps/daemon/src/runtimes/defs/` + `docs/agent-adapters.md`** — عقد تكامل 26+ وكيل CLI؛ الأعلى قيمة لفهم طبقة «الوكلاء».
+2. **`plugins/_official/scenarios/od-*` (14 سيناريو)** — سير عمل كامل جاهز (ترحيل كود/Figma، توليد وسائط، تصدير React/Next/Vue).
+3. **`docs/skills-protocol.md` + `plugins/spec/SPEC.md` + `docs/schemas/*.json`** — المواصفات الرسمية القابلة لإعادة الاستخدام في أنظمة بلجن أخرى.
+4. **`design-systems/_schema/` + `scripts/sync-design-systems.ts`** — آلية تحويل هوية علامة إلى حزمة `DESIGN.md` قابلة للنقل.
+5. **`design-templates/hyperframes/` + `docs/external-media-orchestration.md`** — خط أنابيب HTML→MP4 (فيديو) الوحيد الموثق تفصيلياً.
+6. **`packages/contracts` و`registry-protocol` و`plugin-runtime`** — عقود البنية الداخلية قبل أي استخراج كود.
+7. **`deploy/` (Docker/AWS/Azure) + عقد بيانات الدايمون في `AGENTS.md`** — لمسار الاستضافة الذاتية.
+8. **`e2e/` (≈290 اختباراً)** — خريطة سلوك فعلية للمنتج مفيدة للتحقق من أي فهم لاحق.
+9. **`clipper/` + `specs/od-clipper.md`** — التقاط هوية بصرية من الويب (مدخل «البحث والقراءة» الوحيد تقريباً).
+10. **`docs/plans/2026-06-01-sandbox-orchestration-hardening-architecture.md`** — أعمق وثيقة حماية في المستودع.
+
+### 6.2 Awesome LLM Apps — الجرد التفصيلي
+
+**المصدر الرسمي:** [Shubhamsaboo/awesome-llm-apps@main](https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main).
+
+> نطاق هذه المرحلة: **جرد بنيوي فقط** اعتماداً على شجرة Git الكاملة لفرع `main`
+> **لم يتم استخراج أي كود، ولم يتم تشغيل أو اختبار أي مشروع، ولم يتم تعديل المصدر.**
+
+#### 1) تعريف وترخيص وتقنيات وcommit الفرع main
+
+- **التعريف**: مجموعة مفتوحة المصدر تضم «100+» تطبيق وكيل ذكاء اصطناعي ومهارات وكلاء (Agent Skills) وتطبيقات RAG، وفق وصف README الرسمي: "Hand-built, tested end-to-end". المستودع **ليس منظومة واحدة** بل فهرس مشاريع/أمثلة مستقلة، كل مشروع في مجلده الخاص مع README واعتمادياته الخاصة. ملاحظة: عبارة "tested end-to-end" ادعاء من صاحب المستودع؛ **نحن لم نختبر أي عنصر**.
+- **الترخيص**: Apache-2.0 (ملف `LICENSE` في الجذر، ويؤكده تذييل README: "Apache-2.0 · Fork it, ship it, sell it").
+- **commit الفرع main**: `c46144eb61c18cd1a495445c79ec47145722053e` (مطابق لجذر الشجرة المحفوظة). عدد الفروع في ملف الفروع: 15 فرعاً؛ التحليل هنا يخص `main` فقط.
+- **التقنيات** (مستنتجة من الشجرة وREADME، لا من فحص الأكواد):
+  - اللغات: Python غالباً (`.py`, requirements, Streamlit)، وTypeScript/React/Next.js في مشاريع الواجهات التوليدية والإضافات (`.ts/.tsx`، package-lock)، إضافة إلى Prisma وSQL وDocker/Nixpacks في بعض المشاريع.
+  - أطر الوكلاء المذكورة رسمياً: OpenAI Agents SDK، Google ADK، CrewAI، AG2 (AutoGen)، LangGraph، Pydantic AI، Agno، EvoAgentX، MCP (Model Context Protocol)، browser-use.
+  - النماذج المذكورة: Claude، GPT (OpenAI)، Gemini، DeepSeek R1، Llama 3.x، Qwen، Grok (xAI)، Gemma/EmbeddingGemma، Cohere Command R7B.
+  - بنى تحتية متكررة: Qdrant ومتاجر متجهات، Firecrawl، Unsloth (LoRA)، واجهات Streamlit، بوابات CI في `.github/workflows` (منها `skill-evals.yml` كبوابة تقييم/أمان لمهارات الوكلاء).
+
+#### 2) شرح مجلدات الجذر (16 مدخلاً)
+
+| المسار | النوع | الشرح |
+|---|---|---|
+| `.gitattributes` | ملف | إعدادات Git. |
+| `.github/` | مجلد | workflows للتكامل المستمر: `claude.yml` و`skill-evals.yml` (بوابة CI لتقييم وأمان المهارات). |
+| `.gitignore` | ملف | استثناءات Git. |
+| `LICENSE` | ملف | ترخيص Apache-2.0. |
+| `README.md` | ملف | الفهرس الرئيسي الرسمي لكل القوالب. |
+| `advanced_ai_agents/` | مجلد | وكلاء متقدمون: ألعاب مستقلة، تطبيقات وكيل مفرد، تطبيقات متعددة الوكلاء وفرق وكلاء. |
+| `advanced_llm_apps/` | مجلد | تطبيقات LLM متقدمة: محادثة مع مصادر (Chat with X)، ذاكرة، ضبط دقيق، تحسين تكلفة، أدوات/إضافات مستقلة. |
+| `agent_skills/` | مجلد | «مهارات وكلاء» قابلة للتثبيت بأمر واحد لوكلاء البرمجة (Claude Code/Codex/Cursor...) مع مجلد `evals/` للتقييمات. |
+| `ai_agent_framework_crash_course/` | مجلد | دورتان تعليميتان متدرجتان: Google ADK وOpenAI Agents SDK. |
+| `always_on_agents/` | مجلد | وكلاء يعملون باستمرار/بجدولة (مراقبة وإيجازات استباقية). |
+| `docs/` | مجلد | أصول توثيقية فقط: `banner/sponsors/` و`gallery/` (صور المعرض)، لا كود. |
+| `generative_ui_agents/` | مجلد | وكلاء يولّدون واجهات تفاعلية (مكونات، لوحات، تطبيقات MCP) لا نصوصاً فقط. |
+| `mcp_ai_agents/` | مجلد | وكلاء يتصلون بأدوات خارجية عبر بروتوكول MCP. |
+| `rag_tutorials/` | مجلد | خطوط استرجاع معزز (RAG): من السلسلة البسيطة إلى RAG وكيل/هجين/متعدد الوسائط/رسوم معرفية. |
+| `starter_ai_agents/` | مجلد | وكلاء مبتدئون أحاديو الملف غالباً، يعملون بمفتاح API واحد. |
+| `voice_ai_agents/` | مجلد | وكلاء صوت-إلى-صوت بواجهات Realtime. |
+
+#### 3) القائمة الكاملة للمشاريع/الأمثلة (محسوبة من الشجرة)
+
+##### 3.1 `advanced_ai_agents/` — 38 مجلد مشروع أولي، **54 مشروعاً طرفياً**
+- `autonomous_game_playing_agent_apps/` — **3** مشاريع لعب ذاتي:
+  - `ai_3dpygame_r1` (DeepSeek R1 يكتب PyGame ووكلاء متصفح يشغّلونه)
+  - `ai_chess_agent` (وكيل أبيض ضد وكيل أسود بحركات متحققة)
+  - `ai_tic_tac_toe_agent` (نموذجان يتنافسان نقلة-نقلة)
+- `single_agent_apps/` — **18** وكيلاً مفرداً:
+  `ai_agent_governance`، `ai_consultant_agent`، `ai_customer_support_agent`، `ai_deep_research_agent`، `ai_email_gtm_reachout_agent`، `ai_fraud_investigation_agent`، `ai_health_fitness_agent`، `ai_investment_agent`، `ai_journalist_agent`، `ai_meeting_agent`، `ai_movie_production_agent`، `ai_personal_finance_agent`، `ai_recipe_meal_planning_agent`، `ai_startup_insight_fire1_agent`، `ai_system_architect_r1`، `earnings_call_analyst_agent`، `research_agent_gemini_interaction_api`، `windows_use_autonomous_agent`.
+- `multi_agent_apps/` — **17** مدخلاً = 16 تطبيقاً مستقلاً + مجلد `agent_teams/` الذي يضم **17** فريقاً:
+  - التطبيقات الستة عشر: `ai_aqi_analysis_agent`، `ai_codebase_migration_agent`، `ai_domain_deep_research_agent`، `ai_email_gtm_outreach_agent`، `ai_financial_coach_agent`، `ai_home_renovation_agent`، `ai_mental_wellbeing_agent`، `ai_negotiation_battle_simulator`، `ai_news_and_podcast_agents`، `ai_self_evolving_agent`، `ai_speech_trainer_agent`، `devpulse_ai`، `multi_agent_researcher`، `multi_agent_trust_layer`، `product_launch_intelligence_agent`، `trust_gated_agent_team`.
+  - فرق `agent_teams/` (17): `ag2_adaptive_research_team`، `ai_competitor_intelligence_agent_team`، `ai_finance_agent_team`، `ai_game_design_agent_team`، `ai_legal_agent_team`، `ai_real_estate_agent_team`، `ai_recruitment_agent_team`، `ai_sales_intelligence_agent_team`، `ai_seo_audit_team`، `ai_services_agency`، `ai_teaching_agent_team`، `ai_travel_planner_agent_team`، `ai_vc_due_diligence_agent_team`، `llm_panel_agent_team`، `multimodal_coding_agent_team`، `multimodal_design_agent_team`، `multimodal_uiux_feedback_agent_team`.
+
+##### 3.2 `advanced_llm_apps/` — 13 مجلداً أولياً، **28 مشروعاً طرفياً**
+- `chat-with-tarots/` — مشروع واحد (دردشة تاروت؛ بنية data/helpers/images).
+- `chat_with_X_tutorials/` — **7**: `chat_with_github`، `chat_with_gmail`، `chat_with_pdf`، `chat_with_research_papers`، `chat_with_substack`، `chat_with_youtube_videos`، `streaming_ai_chatbot`.
+- `cursor_ai_experiments/` — **2**: `llm_router_app`، `local_chatgpt_clone`.
+- `excaliflow/` — مشروع واحد (لوحة رسم Excalidraw بأسهم متحركة وتصدير فيديو).
+- `gpt_oss_critique_improvement_loop/` — مشروع واحد (حلقة نقد وتحسين ذاتي بنماذج GPT المفتوحة).
+- `llm_apps_with_memory_tutorials/` — **7**: `adk_career_coach_agent_memory`، `ai_arxiv_agent_memory`، `ai_travel_agent_memory`، `llama3_stateful_chat`، `llm_app_personalized_memory`، `local_chatgpt_with_memory`، `multi_llm_memory`.
+- `llm_finetuning_tutorials/` — **2**: `gemma3_finetuning`، `llama3.2_finetuning`.
+- `llm_optimization_tools/` — **2**: `headroom_context_optimization`، `toonify_token_optimization`.
+- `multimodal_video_moment_finder/` — مشروع واحد (backend+frontend لإيجاد لقطات في الفيديو).
+- `needle/` — مشروع واحد (إضافة Chrome للبحث الدلالي داخل الصفحات؛ api/extension/server/src/tests).
+- `resume_job_matcher/` — مشروع واحد (مطابقة السير الذاتية مع الوظائف).
+- `ripple/` — مشروع واحد (إضافة تكشف التناقضات أثناء تحرير Google Doc).
+- `thinkpath_chatbot_app/` — مشروع واحد.
+
+##### 3.3 `agent_skills/` — **8 مهارات** + مجلد تقييمات
+- المهارات الثماني: `advisor-orchestrator-worker` (حلقة ميتا: مستشار/منسّق/عامل)، `commit-archaeologist` (إعادة بناء سبب وجود الكود من تاريخ الالتزامات)، `dependency-doctor` (فحص ملفات الاعتماديات)، `first-reader` (محاكاة قرّاء حقيقيين للمسودات)، `project-graveyard` (تشريح المشاريع الجانبية المهجورة)، `scope-creep-detector` (كشف تضخم نطاق الـdiff)، `self-improving-agent-skills` (تحسين المهارات ذاتياً عبر Gemini وADK)، `thinking-out-loud` (تحويل الثرثرة الصوتية إلى موجز قابل للمسح).
+- `evals/` — ليست مهارة بل **بنية تقييم**: 7 مجلدات تقييم مماثلة للمهارات + مجلد `tools/`، وتدعمها بوابة CI `skill-evals.yml`.
+
+##### 3.4 `ai_agent_framework_crash_course/` — دورتان، **21 درساً**
+- `google_adk_crash_course/` — **10**: `1_starter_agent`، `2_model_agnostic_agent`، `3_structured_output_agent`، `4_tool_using_agent`، `5_memory_agent`، `6_callbacks`، `7_plugins`، `8_simple_multi_agent`، `9_multi_agent_patterns`، `adk_yaml_examples`.
+- `openai_sdk_crash_course/` — **11**: `1_starter_agent`، `2_structured_output_agent`، `3_tool_using_agent`، `4_running_agents`، `5_context_management`، `6_guardrails_validation`، `7_sessions`، `8_handoffs_delegation`، `9_multi_agent_orchestration`، `10_tracing_observability`، `11_voice`.
+
+##### 3.5 `always_on_agents/` — **2**
+`always_on_hn_briefing_agent` (إيجاز Hacker News مجدول إلى Slack/بريد)، `release_radar_agent` (مراقبة إصدارات الاعتماديات وتصنيف الكاسر/الأمني/الرئيسي).
+
+##### 3.6 `generative_ui_agents/` — **8**
+`ai-dashboard-canvas-agent`، `ai-deep-research-agent`، `ai-financial-coach-agent`، `ai-knowledge-explorer`، `ai-mcp-app-builder`، `ai-shadcn-component-generator`، `generative-ui-starter-project`، `mcp-apps-generative-ui-showcase`.
+
+##### 3.7 `mcp_ai_agents/` — **7**
+`ai_travel_planner_mcp_agent_team`، `browser_mcp_agent`، `github_mcp_agent`، `multi_mcp_agent`، `multi_mcp_agent_router`، `notion_mcp_agent`، `openai_remote_mcp_bridge`.
+
+##### 3.8 `rag_tutorials/` — **24**
+`agentic_rag_embedding_gemma`، `agentic_rag_gpt5`، `agentic_rag_math_agent` (بنية كاملة: app/benchmark/config/data/logs/rag)، `agentic_rag_with_reasoning`، `agentic_typed_rag_pydanticai`، `ai_blog_search`، `autonomous_rag`، `contextualai_rag_agent`، `corrective_rag`، `deepseek_local_rag_agent`، `gemini_agentic_rag`، `hybrid_search_rag`، `knowledge_graph_rag_citations`، `llama3.1_local_rag`، `local_hybrid_search_rag`، `local_rag_agent`، `multimodal_agentic_rag` (backend+frontend)، `qwen_local_rag`، `rag-as-a-service`، `rag_agent_cohere`، `rag_chain`، `rag_database_routing`، `rag_failure_diagnostics_clinic`، `vision_rag`.
+
+##### 3.9 `starter_ai_agents/` — **17**
+`ai_blog_to_podcast_agent`، `ai_breakup_recovery_agent`، `ai_data_analysis_agent`، `ai_data_visualisation_agent`، `ai_life_insurance_advisor_agent`، `ai_medical_imaging_agent`، `ai_meme_generator_agent_browseruse`، `ai_music_generator_agent`، `ai_reasoning_agent`، `ai_startup_trend_analysis_agent`، `ai_travel_agent`، `ai_x402_paying_agent`، `mixture_of_agents`، `multimodal_ai_agent`، `openai_research_agent`، `web_scraping_ai_agent`، `xai_finance_agent`.
+
+##### 3.10 `voice_ai_agents/` — **4**
+`ai_audio_tour_agent`، `customer_support_voice_agent`، `insurance_claim_live_agent_team` (استقبال مطالبات صوتي حي مع رؤية عبر الكاميرا)، `voice_rag_openaisdk`.
+
+##### 3.11 `docs/` — **0 مشاريع** (محتوى توثيقي فقط)
+`docs/banner/sponsors/` و`docs/gallery/` (صور PNG للمعرض المستخدمة في README).
+
+##### إجمالي الحساب
+مشاريع/أمثلة طرفية قابلة للتشغيل نظرياً: 3 (ألعاب) + 18 (مفرد) + 33 (متعدد الوكلاء والفرق) + 28 (advanced_llm_apps) + 17 (starter) + 4 (voice) + 2 (always-on) + 8 (generative UI) + 7 (MCP) + 24 (RAG) = **144 مشروعاً**، إضافة إلى **8 مهارات وكلاء** و**21 درساً** في الدورتين. README يقول "100+" وهو متسق مع هذا العدد. **تنبيه جوهري: هذه أمثلة مستقلة متفاوتة النضج، وليست منظومة واحدة متكاملة.**
+
+#### 4) فهرس الفائدة (مسارات دقيقة من الشجرة)
+
+- **الذاكرة (Memory)**:
+  - `advanced_llm_apps/llm_apps_with_memory_tutorials/` — 7 أمثلة: `ai_arxiv_agent_memory`، `ai_travel_agent_memory`، `adk_career_coach_agent_memory`، `llama3_stateful_chat`، `llm_app_personalized_memory`، `local_chatgpt_with_memory`، `multi_llm_memory` (ذاكرة مشتركة بين نماذج مختلفة).
+  - `ai_agent_framework_crash_course/google_adk_crash_course/5_memory_agent`، `openai_sdk_crash_course/5_context_management` و`7_sessions`.
+- **المحادثة (Chat/Conversational)**:
+  - `advanced_llm_apps/chat_with_X_tutorials/` (GitHub/Gmail/PDF/أوراق بحثية/Substack/YouTube + `streaming_ai_chatbot`).
+  - `advanced_llm_apps/cursor_ai_experiments/local_chatgpt_clone`، `advanced_llm_apps/thinkpath_chatbot_app`.
+- **الصوت (Voice/Audio)**:
+  - `voice_ai_agents/` الأربعة كلها؛ `ai_agent_framework_crash_course/openai_sdk_crash_course/11_voice`؛ `starter_ai_agents/ai_blog_to_podcast_agent`؛ `agent_skills/thinking-out-loud`؛ `advanced_ai_agents/multi_agent_apps/ai_speech_trainer_agent` و`ai_news_and_podcast_agents` (توليد بودكاست).
+- **المعماريات (System Architecture)**:
+  - `advanced_ai_agents/single_agent_apps/ai_system_architect_r1` (مراجعة معمارية باستدلال DeepSeek R1 + Claude).
+  - `advanced_llm_apps/excaliflow/` (رسم معماريات بتدفقات متحركة).
+- **الوكلاء (Agents عموماً)**:
+  - `starter_ai_agents/` (17 للمبتدئين)، `advanced_ai_agents/single_agent_apps/` (18)، `advanced_ai_agents/multi_agent_apps/` (16+17 فريقاً)، `ai_agent_framework_crash_course/` (دروس التدرج من وكيل مفرد إلى تعدد وكلاء وتفويض Handoffs).
+- **التصميم والواجهات التوليدية (Design/Generative UI)**:
+  - `generative_ui_agents/` الثمانية كلها (خاصة `ai-shadcn-component-generator` و`ai-dashboard-canvas-agent` و`generative-ui-starter-project` و`mcp-apps-generative-ui-showcase`).
+  - `advanced_ai_agents/multi_agent_apps/agent_teams/multimodal_design_agent_team` و`multimodal_uiux_feedback_agent_team` و`multimodal_coding_agent_team`.
+  - `advanced_ai_agents/multi_agent_apps/ai_home_renovation_agent` (تصميم داخلي فوتورياليستي).
+- **الحماية والثقة والحوكمة (Security/Trust/Guardrails)**:
+  - `advanced_ai_agents/multi_agent_apps/multi_agent_trust_layer`، `trust_gated_agent_team` (سجل تدقيق مربوط بالتجزئة)، `advanced_ai_agents/single_agent_apps/ai_agent_governance`.
+  - `ai_agent_framework_crash_course/openai_sdk_crash_course/6_guardrails_validation`.
+  - `agent_skills/dependency-doctor` (إصدارات مسحوبة/غير مثبتة)، `agent_skills/scope-creep-detector`، `always_on_agents/release_radar_agent` (تنبيهات أمنية للاعتماديات).
+  - بوابة CI: `.github/workflows/skill-evals.yml`.
+- **المهارات (Agent Skills)**: `agent_skills/` الثمانية (انظر 3.3) — قابلة للتثبيت عبر `npx skills add` وتعمل مع Claude Code/Codex/Cursor.
+- **البحث والتقصي (Research/Search)**:
+  - `advanced_ai_agents/single_agent_apps/ai_deep_research_agent`، `generative_ui_agents/ai-deep-research-agent`، `advanced_ai_agents/multi_agent_apps/ai_domain_deep_research_agent` و`multi_agent_researcher`، `starter_ai_agents/openai_research_agent`، `advanced_ai_agents/multi_agent_apps/agent_teams/ag2_adaptive_research_team`، `advanced_ai_agents/single_agent_apps/research_agent_gemini_interaction_api`، `rag_tutorials/ai_blog_search`، `advanced_llm_apps/needle/` (بحث دلالي داخل صفحات الويب).
+- **القراءة والمحادثة مع المستندات (Reading/Docs)**:
+  - `advanced_llm_apps/chat_with_X_tutorials/chat_with_pdf` و`chat_with_research_papers` و`chat_with_substack` و`chat_with_gmail`؛ `voice_ai_agents/voice_rag_openaisdk`؛ `rag_tutorials/knowledge_graph_rag_citations` (استشهادات متعددة القفزات) و`vision_rag` و`corrective_rag` و`rag_failure_diagnostics_clinic` (تشخيص أعطال RAG).
+- **الفيديو (Video)**:
+  - `advanced_llm_apps/chat_with_X_tutorials/chat_with_youtube_videos`، `advanced_llm_apps/multimodal_video_moment_finder/`، `starter_ai_agents/multimodal_ai_agent`، `advanced_ai_agents/single_agent_apps/earnings_call_analyst_agent` (مزامنة تحليل مع تشغيل مكالمات الأرباح).
+- **التحليل المالي (Finance)**:
+  - `advanced_ai_agents/multi_agent_apps/agent_teams/ai_finance_agent_team` و`ai_vc_due_diligence_agent_team`؛ `advanced_ai_agents/single_agent_apps/ai_investment_agent` و`ai_personal_finance_agent` و`earnings_call_analyst_agent`؛ `advanced_ai_agents/multi_agent_apps/ai_financial_coach_agent` و`generative_ui_agents/ai-financial-coach-agent`؛ `starter_ai_agents/xai_finance_agent`؛ `starter_ai_agents/ai_x402_paying_agent` (مدفوعات وكيل لكل استدعاء).
+- **الاستدلال (Reasoning)**:
+  - `starter_ai_agents/ai_reasoning_agent`، `rag_tutorials/agentic_rag_with_reasoning`، `rag_tutorials/deepseek_local_rag_agent`، `advanced_ai_agents/single_agent_apps/ai_system_architect_r1`، `advanced_ai_agents/autonomous_game_playing_agent_apps/ai_3dpygame_r1`، `rag_tutorials/gemini_agentic_rag` (إعادة صياغة الاستعلام)، `advanced_llm_apps/gpt_oss_critique_improvement_loop` (نقد وتحسين ذاتي).
+- **فك الشفرات/الثغرات (Security probing)**:
+  - **لا يوجد مشروع مخصص لكسر التشفير أو اختبار الاختراق الهجومي.** الأقرب دفاعياً: `advanced_ai_agents/single_agent_apps/ai_fraud_investigation_agent` (تحقيق احتيال من السجلات العامة)، `agent_skills/commit-archaeologist` (تنقيب تاريخ الكود)، `agent_skills/dependency-doctor` و`always_on_agents/release_radar_agent` (مخاطر سلسلة الإمداد)، و`multi_agent_trust_layer`/`trust_gated_agent_team` (تدقيق وثقة).
+
+#### 5) ما لا يوجد / ما ليس نظاماً جاهزاً
+
+- **ليس منتجاً واحداً**: لا يوجد تطبيق موحّد أو نقطة دخول مشتركة؛ كل مجلد مشروع مستقل باعتمادياته، وكثير منها أمثلة تعليمية (Crash courses, tutorials) لا أنظمة إنتاجية.
+- **لا اختبارات شاملة قابلة للتحقق**: مجلدات `tests/` موجودة فقط في 9 مواقع من أصل ~144 مشروعاً (`needle`، `ripple`، `always_on_hn_briefing_agent`، `release_radar_agent`، `insurance_claim_live_agent_team`، `earnings_call_analyst_agent`، `ai_news_and_podcast_agents/beifong`، `generative_ui_agents/ai-deep-research-agent/agent`، `generative_ui_agents/ai-knowledge-explorer/agent`). عبارة README "tested end-to-end" لم نتحقق منها ولم نشغّل شيئاً.
+- **لا أدوات هجومية/تشفيرية**: لا كسر تشفير، لا فحص ثغرات، لا CTF.
+- **لا نماذج مدرّبة داخلياً**: المستودع يستهلك نماذج خارجية (سحابية أو محلية عبر Ollama-style) ولا يحتوي أوزاناً.
+- **لا بيانات حقيقية حساسة**: أمثلة مثل التأمين والطب (`ai_medical_imaging_agent`، `ai_life_insurance_advisor_agent`) أمثلة تعليمية وليست أنظمة معتمدة طبياً/تأمينياً.
+- **`docs/` ليست وثائق تقنية**: مجرد صور لافتات ومعرض؛ الوثائق الفعلية موزعة كـ README داخل كل مشروع.
+- بعض عناصر README **روابط خارجية** لا توجد في الشجرة (مثل Openwork وWispr Flow clone) — ليست جزءاً من المستودع.
+
+#### 6) المرشحون للتوسع (مرحلة لاحقة) ولماذا
+
+1. **`advanced_llm_apps/llm_apps_with_memory_tutorials/` (7 مشاريع)** — تغطية الذاكرة الأوسع والأنظف تنظيماً؛ مباشرة الصلة بأي منظومة محادثة طويلة الأمد.
+2. **`ai_agent_framework_crash_course/` (21 درساً)** — أساس تعليمي متدرج لبناء الوكلاء (ADK + OpenAI SDK) يصلح كنواة معرفية قبل أي توسع.
+3. **`rag_tutorials/` (24 مشروعاً)** — أغنى قسم؛ يشمل RAG محلياً بالكامل (`local_rag_agent`، `llama3.1_local_rag`، `qwen_local_rag`، `deepseek_local_rag_agent`) وRAG تشخيصياً (`rag_failure_diagnostics_clinic`) وبالاستشهادات (`knowledge_graph_rag_citations`) — قيمة عملية عالية وقابلية دمج.
+4. **`agent_skills/` (8 مهارات + evals)** — وحدات صغيرة محكمة الحدود مع بوابة CI فعلية (`skill-evals.yml`)؛ أسهل ما يمكن تبنيه والتحقق منه.
+5. **`mcp_ai_agents/` (7)** — طبقة تكامل موحدة عبر MCP (GitHub/Notion/متصفح) قابلة لإعادة الاستخدام كموصّلات.
+6. **`generative_ui_agents/` (8)** — الوحيد الذي يغطي الواجهات التفاعلية التوليدية؛ مرشح قوي إن كان الهدف منتجاً بوجهة مستخدم.
+7. **`voice_ai_agents/` (4)** — صغير ومتماسك؛ `voice_rag_openaisdk` يجمع الصوت+القراءة معاً.
+8. **`always_on_agents/` (2)** — نمط الجدولة/المراقبة الاستباقية نادر في المستودع وقابل للتعميم (منهجان فقط لكن باختبارات موجودة).
+
+### 6.3 Langflow — الجرد التفصيلي
+
+**المصدر الرسمي:** [langflow-ai/langflow@main](https://github.com/langflow-ai/langflow/tree/main).
+
+> **نطاق العمل**: مرحلة جرد (Inventory) فقط — لا استخراج كود، لا تشغيل، لا اختبار.
+> **تنبيه**: كل ما ورد أدناه مستنتج من أسماء المسارات والملفات والوثائق، ولم يتم تشغيل أي جزء من المشروع أو اختباره.
+
+
+#### 1. التعريف والترخيص والتقنيات
+
+##### التعريف
+- **الاسم**: Langflow — منظومة مفتوحة المصدر لبناء ونشر وكلاء الذكاء الاصطناعي وسير العمل (AI agents & workflows).
+- **التعريف الرسمي (README)**: «منصة قوية لبناء ونشر الوكلاء وسير العمل المدعومة بالذكاء الاصطناعي، مع مُنشئ مرئي (Visual builder) وخوادم API وMCP مدمجة تحوّل كل سير عمل إلى أداة قابلة للتكامل».
+- **المالك/المنظمة**: `langflow-ai` (الإبلاغ الأمني عبر HackerOne التابع لـ IBM — مؤشر على علاقة IBM بالمشروع).
+- **الموقع**: langflow.org — التوثيق: docs.langflow.org.
+
+##### الترخيص
+- **MIT License** — `LICENSE` (Copyright (c) 2024 Langflow). ترخيص متساهل يسمح بالاستخدام التجاري والتعديل وإعادة التوزيع.
+
+##### معرّف الفرع الرئيسي
+- إجمالي الفروع في المستودع: **2660 فرعاً** (منها فروع إصدارات مرقّمة مثل 1.9.x–1.13.x).
+
+##### التقنيات (من DEVELOPMENT.md وملفات الإعداد في الشجرة)
+| الطبقة | التقنية | الدليل |
+|---|---|---|
+| لغة الخلفية | Python 3.10–3.14 | README + `pyproject.toml` + `uv.lock` |
+| مدير الحزم | uv (≥0.4) من Astral | DEVELOPMENT.md |
+| إطار الخلفية | FastAPI + SQLAlchemy + Alembic | `src/backend/base/langflow/api/`، `alembic/`، مراجع `.agents/skills/backend-code-review/references/sqlalchemy-rule.md` |
+| الواجهة | React + TypeScript + Vite + Tailwind CSS | `src/frontend/` (vite.config.mts, tailwind.config.mjs, tsconfig.json) |
+| جودة الواجهة | Biome, ESLint, Jest, Playwright, Storybook, Husky | ملفات الإعداد في `src/frontend/` |
+| Node.js | v22.12 LTS / npm v10.9 | DEVELOPMENT.md |
+| بناء/تشغيل | Makefile + Makefile.frontend | الجذر |
+| CI/CD | GitHub Actions — **52 سير عمل** | `.github/workflows/` |
+| التوثيق | Docusaurus (مع i18n ونسخ versioned) | `docs/docusaurus.config.js`، `docs/versioned_docs/` |
+| الحاويات | Docker / docker-compose / Render / GCP | `docker/`، `deploy/`، `render.yaml`، `scripts/gcp/` |
+| الترجمة | 8 لغات (en, de, es, fr, ja, ko, pt, zh-Hans) | `src/frontend/src/locales/`، `src/backend/base/langflow/locales/` |
+
+##### حجم الشجرة
+- **11,878 ملفاً** و**2,356 مجلداً**؛ صفحات التوثيق الحالية (docs/docs): **276 صفحة** mdx/md.
+
+
+#### 2. كل مجلدات وملفات الجذر
+
+##### مجلدات الجذر (11)
+| المجلد | الوصف المستنتج |
+|---|---|
+| `.agents/skills/` | مهارات وكلاء الترميز لمراجعة الكود (11 مهارة: backend-code-review, component-refactoring, e2e-testing, frontend-code-review, frontend-i18n, frontend-query-mutation, frontend-testing, ibm-a11y-level1-audit, ibm-a11y-pr-remediation, ibm-a11y-route-scan, ibm-a11y-testing-guide) — كل مهارة بملف SKILL.md ومراجع |
+| `.cursor/` | إعدادات محرر Cursor |
+| `.devcontainer/` | حاوية تطوير جاهزة (موصى بها لويندوز) |
+| `.github/` | 52 workflow + قوالب issues + dependabot + codeql + ملاحظات mend-scan |
+| `.release-artifacts/` | قطع الإصدارات |
+| `.vscode/` | إعدادات VS Code |
+| `deploy/` | نشر إنتاجي: docker-compose + prometheus + observability (grafana-loki) + listeners (k8s deployment) |
+| `design/` | موارد تصميم: `dedicated-integrations/` و`dedicated-integrations-triggers/` |
+| `docker/` | 6+ Dockerfiles (build_and_push, backend, ep, cdk, dev, render) + compose للتطوير |
+| `docker_example/` | مثال نشر مبسّط (Dockerfile + compose + pre) |
+| `docs/` | موقع Docusaurus الكامل للتوثيق (276 صفحة + نسخ مؤرشفة 1.9–1.13) |
+| `regressions/` | ملفات YAML لاختبارات الانحدار لكل إصدار: 1.9.x إلى 1.13.x + README |
+| `scripts/` | سكربتات تشغيلية (تفصيل أدناه) |
+| `src/` | الكود المصدري (تفصيل أدناه) |
+
+##### أهم ملفات الجذر
+- الوثائق: `README.md`, `DEVELOPMENT.md`, `DESIGN.md` (نظام تصميم كامل بالألوان/الطباعة/المكونات), `SECURITY.md`, `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, `RELEASE.md`, `AGENTS.md`, `AGENTS-example.md`, `CLAUDE.md`, `BUNDLE_API.md`, `ci-skip-analysis.md`
+- البناء: `Makefile`, `Makefile.frontend`, `pyproject.toml`, `uv.lock`, `package.json`, `package-lock.json`
+- الإعداد/الأمان: `.env.example`, `.dockerignore`, `.pre-commit-config.yaml`, `.secrets.baseline`, `.whitesource`, `.coderabbit.yaml`, `.composio.lock`, `.eslintrc.json`, `.gitattributes`, `.gitignore`, `codecov.yml`, `render.yaml`, `wss-generated.config`
+
+
+#### 3. خريطة src و deploy و docker و docs و scripts و tests/regressions
+
+##### 3.1 خريطة `src/` (6 وحدات رئيسية)
+```
+src/
+├── backend/            # تطبيق FastAPI الرئيسي
+│   ├── base/langflow/  # الحزمة الأساسية (api, services, graph, agentic, alembic...)
+│   ├── langflow/       # نسخة التوزيع (version فقط)
+│   └── tests/          # unit (1162 ملف اختبار) + integration (52) + locust + performance + stress + test_migrations
+├── frontend/           # React/TS/Vite — src/{components, CustomNodes, CustomEdges, pages, modals, stores, controllers, hooks, contexts, locales...} + tests (295 ملفاً)
+├── lfx/                # نواة المكونات الجديدة (حزمة مستقلة): src/lfx/{components, base, mcp, memory, workflow, execution, services...} + tests (593 ملفاً)
+├── bundles/            # 27 حزمة مورّد منفصلة + lfx-bundles الداخلية = 28 مجلداً
+├── sdk/                # SDK مستقل (src + tests + langflow-environments.toml.example)
+└── langflow-stepflow/  # محرك/حزمة stepflow (src/langflow_stepflow + tests)
+```
+
+###### الخلفية `src/backend/base/langflow/` — أبرز الوحدات
+- `api/v1/`: **أكثر من 55 موجّه endpoint** منها: `flows`, `chat`, `voice_mode`, `mcp`, `mcp_projects`, `a2a`, `a2a_executor`, `knowledge_bases`, `memories`, `triggers`, `trigger_ingress`, `openai_responses`, `authz_*` (roles, teams, shares, capabilities, audit), `audits`, `monitor`, `store`, `files`, `projects*`, `deployments`, `model_provider_policy*`, `policy_bundle`, `data_subjects*`, `login`, `users`, `api_key`, `variable`, `flow_version`, `flow_conflict*`, `flow_events`
+- `api/v2/`: `workflow*` (host/execution/background/validation/reconstruction/public), `hitl` (Human-in-the-loop), `mcp`, `files`, `registration`
+- `agentic/`: `api`, `flows`, `mcp` (خادم MCP داخلي: `server.py`), `services`, `schema`
+- `services/`: **40 خدمة** منها: `auth`, `authorization`, `audit`, `rate_limit`, `session`, `chat`, `cache`, `database`, `storage`, `store`, `telemetry`, `tracing`, `triggers`, `jobs`, `job_queue`, `task`, `variable`, `flow`, `state`, `transaction`, `checkpoint`, `knowledge_base_storage`, `memory_base`, `warm_registry`, `catalog_policy`, `deployment_artifacts`
+- وحدات بنيوية: `graph/`, `processing/`, `schema/`, `serialization/`, `template/`, `custom/`, `load/`, `inputs/`, `io/`, `middleware.py`, `worker.py`, `main.py`, `server.py`, `memory.py`
+- `initial_setup/starter_projects/`: **27 مشروعاً جاهزاً** (انظر §5)
+
+###### نواة lfx `src/lfx/src/lfx/`
+- `components/` (108 فئات فرعية/مجلدات)، `base/` (agents, chains, embeddings, memory, models, vectorstores, tools, triggers, mcp, composio, knowledge_bases...), `workflow/` (actions, host, router, agui_translator, end_user_identity), `mcp/`, `memory/` (flow_context, stubs), `execution/`, `integrations/` (capabilities), `services/`, `upgrade/`, `testing/`
+- ملفات مرجعية: `LFX_MCP.md`, `PLUGGABLE_SERVICES.md`, `README.md`, `lfx.toml.example`
+
+##### 3.2 خريطة `deploy/`
+- `docker-compose.yml` + `docker-compose.override.yml` + `.env.example` + `prometheus.yml`
+- `observability/grafana-loki/` — مراقبة سجلات
+- `listeners/` — `docker-compose.listeners.yml` + `kubernetes-deployment.yaml`
+
+##### 3.3 خريطة `docker/` و`docker_example/`
+- صور: `build_and_push.Dockerfile`, `build_and_push_backend.Dockerfile`, `build_and_push_ep.Dockerfile`, `cdk.Dockerfile`, `dev.Dockerfile`, `render.Dockerfile`, `render.pre-release.Dockerfile`, `frontend/`
+- أوضاع: `cdk-docker-compose.yml`, `dev.docker-compose.yml`, `install_hardened_npm.sh` (تصلّب أمني لـ npm)
+
+##### 3.4 خريطة `docs/`
+- أقسام التوثيق: `Get-Started`, `Agents`, `Components`, `Flows`, `Develop`, `Deployment`, `API-Reference`, `Lfx`, `Tutorials`, `Contributing`, `Support`
+- `versioned_docs/`: نسخ 1.9.0، 1.10.0، 1.11.0، 1.12.0، 1.13.0
+- `openapi/`، `i18n/`، `agents/`، `features/`، `development/`
+
+##### 3.5 خريطة `scripts/`
+- `ci/` (89 عنصراً: مصفوفة authz، مقاييس اختبارات، bundle profiles وقفلها، فحص المصادقة...)، `gcp/` (نشر GCP + spot)، `benchmark/`، `e2e_deployment_tests/watsonx_orchestrate`، `migrate/` (ترحيل الحزم)، `migration_rehearsal/`، `lint/`، `a11y/` (فحص الوصولية)، `windows/` (bat/ps1)، `i18n/`، `setup/`، `gp/`
+- ملفات: `build_component_index.py`, `generate_migration.py`, `migrate_secret_key.py`, `update_legacy_storage_sources.py`, `release-lfx.sh`
+
+##### 3.6 الاختبارات والانحدارات
+| الموقع | العدد المحسوب من الشجرة |
+|---|---|
+| `src/backend/tests/unit/` | 1,162 ملف Python |
+| `src/backend/tests/integration/` | 52 ملفاً |
+| `src/backend/tests/` إضافية | `locust/`، `performance/`، `stress/`، `test_migrations/` |
+| `src/lfx/tests/` | 593 ملفاً |
+| `src/frontend/tests/` | 295 ملفاً (Playwright/Jest) |
+| `regressions/` | تعريفات YAML: 1.9.x، 1.10.x، 1.11.x، 1.12.x، 1.13.x |
+| CI | workflows مخصصة: `backend-unit-tests.yml`, `cross-bundle-test.yml`, `cross-platform-test.yml`, `db-migration-validation.yml`, `a11y-scan.yml`, `codeql.yml`... |
+
+
+#### 4. فئات المكونات والحزم (عدّ محسوب من الشجرة)
+
+##### العدد الإجمالي
+- **مكونات النواة lfx** (`src/lfx/src/lfx/components/`): **182 ملف مكوّن .py** موزعة على **~100 فئة/مزوّد**.
+- **الحزم المنفصلة** (`src/bundles/*`): **نحو 113 ملف مكوّن** عبر **27 حزمة مورّد منفصلة**، إضافة إلى `lfx-bundles` الداخلية، بحسب تصنيف ملفات المكونات في هذا الجرد.
+- **الحزم الداخلية المجمّعة** (`src/bundles/lfx-bundles/src/lfx_bundles/`): **200 وحدة .py** عبر 73 مجلد مورّد (منها ~70 مكوّن Composio).
+- **الإجمالي التقريبي: ~495 ملف مكوّن** (182 + 113 + 200).
+
+##### 4.1 فئات مكونات lfx الأساسية (الأسماء الفعلية من الشجرة)
+- **الوكلاء والنماذج** `models_and_agents/` (10): `agent.py`, `a2a_agent.py`, `language_model.py`, `embedding_model.py`, `mcp_component.py`, `memory.py`, `model_selection.py`, `prompt.py`, `policies_component.py` + مجلدات `agent_helpers`, `policies`, `structured_output`
+- **الوكلاء التوليدية** `agentics/` (5): `agenerate_component.py`, `amap_component.py`, `areduce_component.py`
+- **المدخلات/المخرجات** `input_output/` (6): `chat.py`, `chat_output.py`, `text.py`, `text_output.py`, `webhook.py`
+- **المحفّزات** `triggers/` (3): `inbound_webhook_trigger.py`, `schedule_trigger.py`
+- **مصادر البيانات** `data_source/` (10): `api_request.py`, `csv_to_data.py`, `json_to_data.py`, `sql_executor.py`, `url.py`, `web_search.py`, `news_search.py`, `rss.py`, `mock_data.py`
+- **الملفات والمعرفة** `files_and_knowledge/` (12): `file.py`, `directory.py`, `filesystem.py`, `ingestion.py`, `retrieval.py`, `knowledge.py`, `memory_retrieval.py`, `save_file.py` + عزل نظام الملفات `_filesystem_isolation.py`, `_filesystem_namespace.py`
+- **الأدوات** `tools/` (12): `calculator.py`, `python_repl.py`, `google_search_api.py`, `google_serper_api.py`, `serp_api.py`, `search_api.py`, `searxng.py`, `tavily_search_tool.py`, `wikipedia_api.py`, `wikidata_api.py`, `yahoo_finance.py`
+- **عمليات LLM** `llm_operations/` (8): `structured_output.py`, `guardrails.py`, `guardrails_v2.py`, `llm_conditional_router.py`, `llm_selector.py`, `batch_run.py`, `lambda_filter.py`
+- **التحكم بالتدفق** `flow_controls/` (11): `conditional_router.py`, `loop.py`, `sub_flow.py`, `run_flow.py`, `flow_tool.py`, `human_input.py`, `listen.py`, `notify.py`, `pass_message.py`
+- **المعالجة** `processing/` (28): `parse_data.py`, `filter_data.py`, `merge_data.py`, `split_text.py`, `regex.py`, `data_operations.py`, `dataframe_operations.py`, `store_message.py`...
+- **أدوات LangChain** `langchain_utilities/` (27)
+- **معطّلة** `deactivated/` (23)
+- فئات مفردة أخرى: `chains`, `embeddings`, `models`, `output_parsers`, `textsplitters`, `vectorstores`, `helpers`, `logic`, `link_extractors`, `documentloaders`, `knowledge_bases`, `custom_component`, `prototypes`, `utilities`, `toolkits`, `data`
+
+##### 4.2 مزودو LLM (فئات فعلية — 28 تقريباً)
+openai, anthropic, azure, google/vertexai, amazon (Bedrock), ollama, mistral, groq, cohere, deepseek, xai, openrouter, litellm, lmstudio, huggingface, nvidia, sambanova, novita, perplexity, maritalk, baidu, cometapi, aiml, ibm (watsonx), cloudflare, vllm, openai-compatible
+
+##### 4.3 مخازن المتجهات وقواعد البيانات (21 تقريباً)
+FAISS, chroma, qdrant, pinecone, weaviate, milvus, pgvector, redis, valkey, upstash, elastic, clickhouse, couchbase, mongodb, supabase, cassandra/datastax (AstraDB + HCD + Graph RAG), oracle (oraclevs), ibm (db2_vector), vectara, needle, nextplaid (multivector/vllm)
+
+##### 4.4 البحث والزحف واستخراج الويب
+tavily, exa, serpapi, searchapi, serpingapi, serply, duckduckgo, bing, yahoosearch, wikipedia, wikidata, wolframalpha, arxiv + firecrawl (crawl/map/scrape/search), apify, spider, scrapegraph, unstructured, docling (4 مكونات), confluence, glean, mrscraper
+
+##### 4.5 حزم bundles المنفصلة (العدد الفعلي لكل حزمة)
+google (20)، datastax (14)، microsoft (12)، slack (9)، ibm (8)، toolguard (6)، confluent (5: Kafka consumer/producer + tableflow + context engine)، amazon (4)، firecrawl (4)، docling (4)، oracle (4)، cohere (3)، nextplaid (3)، azure (2)، ollama (2)، openai (2)، valkey (2)، empiriolabs (2)، وملفات مكونات أخرى لـ: anthropic, arxiv, duckduckgo, exa, paddle, serpingapi, serply, openai-compatible, vllm
+- **ملاحظة**: حزم google وmicrosoft وslack تتضمن **محفّزات** (gmail_trigger, calendar_trigger, drive_trigger, mail_trigger, file_trigger, slack_on_message, slack_on_reaction).
+
+##### 4.6 lfx-bundles (72 مجلد مورّد داخلياً، أبرزها)
+- **~70 مكوّن Composio** جاهز: github, gmail, slack, notion, jira, linear, asana, airtable, discord, dropbox, figma, canva, reddit, instagram, snowflake, supabase, googlesheets/docs/calendar/meet/tasks/bigquery/classroom, outlook, onedrive, calendly, todoist, wrike, miro, pandadoc, klaviyo, freshdesk, peopledatalabs, listennotes, timelinesai, elevenlabs, heygen, bolna, fireflies, brightdata, apollo, attio, coda, contentful, digicert, flexisign, finage, fixer, jotform, missive, mem0, exa, firecrawl, perplexityai, serpapi, tavily, youtube...
+- وكلاء متخصصون: `crewai` (7 مكونات)، `altk/altk_agent.py`, `cuga/cuga_agent.py`, `codeagents/codeact_agent_smolagents.py`, `codeagents/open_ds_star_agent.py`
+- صوت: `funasr/funasr_transcription.py`، `assemblyai/` (5: start/poll/list transcripts, lemur, subtitles)
+- فيديو: `twelvelabs/` (9: pegasus index/model, video embeddings, split_video, text embeddings...)، `youtube/` (7: search, channel, playlist, comments, trending, transcripts, video_details)
+- ذاكرة: `mem0/mem0_chat_memory.py`, `zep/zep.py`
+
+
+#### 5. الإمكانات التفصيلية مع المسارات
+
+> كل ما يلي «موجود في الشجرة» — لم يُختبر تشغيلياً.
+
+| الإمكانية | الحالة | المسارات الدالة |
+|---|---|---|
+| **الذاكرة** | مدمجة + خارجية | `src/lfx/src/lfx/memory/` (flow_context, stubs)؛ مكوّن `models_and_agents/memory.py`؛ `files_and_knowledge/memory_retrieval.py`؛ خارجية: `lfx_bundles/mem0/mem0_chat_memory.py`, `lfx_bundles/zep/zep.py`, `bundles/datastax/astradb_chatmemory.py`, redis/upstash/valkey؛ خدمات: `services/session`, `services/memory_base`, `backend/base/langflow/memory.py`؛ endpoint: `api/v1/memories.py` |
+| **المحادثة** | مدمجة | مكوّنا `input_output/chat.py` و`chat_output.py`؛ `api/v1/chat.py`؛ `services/chat/`؛ مشروع «Memory Chatbot.json» الجاهز؛ Playground تفاعلي في الواجهة (`src/frontend/src/components/core/playgroundComponent/`) |
+| **الصوت** | مدمج (Voice Mode) + خارجي | `api/v1/voice_mode.py` + `utils/voice_utils.py`؛ واجهة كاملة: `src/frontend/src/modals/IOModal/components/chatView/chatInput/components/voice-assistant/` (أزرار، إعدادات صوت/ميكروفون/لغة، audio-worklet)؛ توثيق `docs/docs/Develop/concepts-voice-mode.mdx`؛ خارجي: funasr (تفريغ)، AssemblyAI (5 مكونات)، ElevenLabs عبر Composio، plivo، bolna |
+| **المعماريات** | متعددة | خادم FastAPI + workers (`worker.py`, `services/job_queue`, `services/jobs`, `services/task`)؛ محرك workflow مستقل (`lfx/workflow/`, `api/v2/workflow_*`)؛ محرك graph (`graph/`)؛ SDK مستقل (`src/sdk/`)؛ نواة lfx قابلة للتثبيت منفصلة؛ حزم opt-in (`docs`: _partial-opt-in-bundles)؛ خدمات قابلة للتبديل (`lfx/PLUGGABLE_SERVICES.md`) |
+| **Multi-agent** | مدمج | مكوّن `agent.py` و`a2a_agent.py` (بروتوكول Agent-to-Agent مع `api/v1/a2a.py` + `a2a_executor.py` + `a2a_utils.py`)؛ CrewAI (7 مكونات)؛ وكلاء `altk`, `cuga`, `codeagents` (smolagents CodeAct, Open DS Star)؛ مشاريع جاهزة: «Multi Agent Flow.json», «Sequential Tasks Agents.json», «Travel Planning Agents.json»؛ README يذكر «Multi-agent orchestration» صراحة |
+| **MCP** | عميل + خادم | خادم: `agentic/mcp/server.py`, `api/v1/mcp.py`, `mcp_projects.py`, `api/v2/mcp.py`؛ عميل: مكوّن `models_and_agents/mcp_component.py`؛ `lfx/mcp/`؛ توثيق: `docs/docs/Agents/mcp-server.mdx`, `mcp-client.mdx`, `Components/mcp-tools.mdx`؛ README: «Deploy as an MCP server» |
+| **RAG** | مدمج | `files_and_knowledge/` (ingestion, retrieval, knowledge)؛ `knowledge_bases/` + `api/v1/knowledge_bases.py` + `services/knowledge_base_storage/`؛ 21 مخزن متجهات؛ مشاريع جاهزة: «Vector Store RAG.json», «Hybrid Search RAG.json», «Document Q&A.json», «Knowledge Retrieval.json»؛ `bundles/datastax/graph_rag.py` (GraphRAG)؛ مقسمات نصوص `textsplitters`؛ docling لتقسيم المستندات |
+| **البحث** | مدمج + خارجي | مدمج: `data_source/web_search.py`, `news_search.py`؛ أدوات: tavily, serp, google_search, searxng, wikipedia, wikidata, yahoo_finance؛ خارجي: 13+ مزود بحث (§4.4) |
+| **القراءة/جلب المستندات** | مدمج + خارجي | مدمج: `data_source/url.py`, `api_request.py`, `csv/json_to_data.py`, `file.py`, `directory.py`؛ خارجي: firecrawl, apify, spider, scrapegraph, unstructured, docling, confluence, google_drive_fetch, sharepoint_fetch, youtube_transcripts |
+| **التصميم** | نظام تصميم موثّق | `DESIGN.md` (نظام ألوان/طباعة/مكونات كامل: Inter + JetBrains Mono + Chivo، شبكة 4px، 14 لوناً لأنواع البيانات، وضع فاتح/داكن)؛ مجلد `design/` للتكاملات المخصصة؛ Storybook (`.storybook/`) |
+| **الحماية** | طبقات متعددة | مصادقة: `services/auth`, `api/v1/login.py`, `api_key.py`، auto-login يُعطَّل افتراضياً في الإصدارات الرسمية (README/DEVELOPMENT)؛ تخويل دقيق: `services/authorization` + 8 موجهات `authz_*` (roles, teams, shares, capabilities, audit)؛ تدقيق: `services/audit`, `api/v1/audits.py`, `flows_audits.py`؛ تحديد المعدل: `services/rate_limit`؛ عزل نظام الملفات: `_filesystem_isolation.py`؛ حماية SSRF: `bundles/datastax/_ssrf.py`؛ سياسات: `model_provider_policy*`, `catalog_policy`, `policy_bundle`, `custom_component_policy`؛ حِراسات: `llm_operations/guardrails.py` + `guardrails_v2.py` + حزمة `toolguard` (6 مكونات)؛ فحص: codeql.yml, .secrets.baseline, .whitesource (Mend)؛ الإبلاغ: SECURITY.md عبر HackerOne/IBM |
+| **المهارات (Skills)** | مهارات وكلاء ترميز | `.agents/skills/` — 11 مهارة SKILL.md (مراجعة backend/frontend، إعادة هيكلة المكونات، e2e، i18n، 4 مهارات وصولية IBM a11y) — موجّهة لوكلاء التطوير لا لمكونات المنتج |
+| **الفيديو** | خارجي فقط | `lfx_bundles/twelvelabs/` (9 مكونات: فهرسة Pegasus، تضمينات فيديو/نص، تقسيم)؛ `lfx_bundles/youtube/` (7 مكونات)؛ heygen عبر Composio؛ لا معالجة فيديو أصلية مدمجة |
+| **المال/الأسواق** | أدوات محدودة | `tools/yahoo_finance.py` + اختباره؛ عبر Composio: `finage_composio.py`, `fixer_composio.py` (عملات)؛ مشاريع جاهزة ذات طابع مالي: «Financial Report Parser.json», «Price Deal Finder.json», «SaaS Pricing.json»؛ **لا** يوجد مدفوعات/فوترة (لا stripe/payment/billing في الشجرة) |
+| **الاستدلال/التوجيه** | مدمج | `llm_operations/` (llm_conditional_router, llm_selector, structured_output, batch_run)؛ `flow_controls/conditional_router.py`, `data_conditional_router.py`؛ `logic/`؛ `output_parsers/`؛ `agentics/` (amap/areduce/agenerate)؛ حلقات `flow_controls/loop.py` |
+| **Human-in-the-loop** | مدمج | `api/v2/hitl.py`؛ مكوّن `flow_controls/human_input.py`؛ `flow_controls/listen.py`, `notify.py` |
+| **المحفّزات والجدولة** | مدمج + خارجي | `triggers/` (webhook وschedule)؛ `api/v1/triggers.py`, `trigger_ingress.py`؛ `services/triggers/`؛ محفّزات Gmail/Calendar/Drive/Outlook/Slack/OneDrive في الحزم |
+| **المراقبة والتتبع** | مدمج + خارجي | `services/tracing` (LangSmith, LangFuse حسب README)، `services/telemetry`, `observability*.py` في lfx، `api/v1/monitor.py`, `traces.py`؛ deploy: prometheus + grafana-loki؛ خارجي: langwatch |
+| **ملاحظات تقنية/حوكمة — ليست ثغرات مثبتة** | ملاحظات جرد | (1) مجلد `deactivated/` فيه 23 مكوّناً معطّلاً (دين تقني مرئي)؛ (2) ملف متبقٍّ محرر: `src/frontend/src/.routes.tsx.swp`؛ (3) ازدواج بنيوي أثناء الترحيل: المكونات موزعة بين lfx وبين bundles (أرشيف انتقالي موثّق في BUNDLE_API.md وscripts/migrate)؛ (4) auto-login مفعّل في فروع التطوير افتراضياً (موثّق، مقصود، لكنه خطر إن أُسيء نشره)؛ (5) `.secrets.baseline` يشير لتاريخ فحص أسرار — لم تُفحص نتائجه؛ (6) ملفات `.composio.lock` و`.whitesource` تكشف اعتمادات خارجية تحتاج إدارة |
+
+##### المشاريع الجاهزة (27 في `initial_setup/starter_projects/`)
+Basic Prompting, Blog Writer, Content Aggregator, Custom Component Generator, Deep Research Agent, Document Q&A, Financial Report Parser, Hybrid Search RAG, Image Sentiment Analysis, Instagram Copywriter, Knowledge Retrieval, Market Research, Meeting Summary, Memory Chatbot, Multi Agent Flow, Portfolio Website Code Generator, Price Deal Finder, Research Translation Loop, SEO Keyword Generator, SaaS Pricing, Sequential Tasks Agents, Simple Agent, Social Media Agent, Text Sentiment Analysis, Travel Planning Agents, Twitter Thread Generator, Vector Store RAG.
+
+
+#### 6. مدمج (Built-in) مقابل تكامل خارجي
+
+| مدمج في النواة | تكامل خارجي (حزم/واجهات) |
+|---|---|
+| محرك graph + workflow + API + MCP server | كل مزودي LLM الخارجيين (OpenAI, Anthropic, Google...) |
+| الذاكرة المحلية (session/flow_context) وذاكرة المحادثة | mem0, zep, AstraDB chat memory, Redis/Upstash/Valkey |
+| RAG محلي (ingestion/retrieval/KB) + FAISS/Chroma | 19+ مخزن متجهات سحابي |
+| Voice Mode (WebSocket + واجهة) | funasr, AssemblyAI, ElevenLabs, Bolna, Plivo |
+| الوكلاء الأساسيون + A2A + أدوات Python REPL/حاسبة | CrewAI, smolagents, altk, cuga, Composio (~70 أداة SaaS) |
+| الحِراسات الأساسية guardrails v1/v2 | IBM toolguard |
+| بحث ويب أساسي (web_search/news_search) | tavily, exa, serpapi, duckduckgo... |
+| المحفّزات (webhook/schedule) | محفّزات Gmail/Outlook/Slack/Drive |
+| التتبع الداخلي + telemetry | LangSmith, LangFuse, LangWatch |
+| المتجر المدمج (store) لمشاركة التدفقات | Langflow Store الخارجي |
+
+
+#### 7. ما لا يوجد / خارج النطاق
+- **لا مدفوعات أو فوترة أو إدارة اشتراكات** (لا ملفات payment/billing/stripe) — المنتج أداة OSS بلا طبقة تجارية داخلية.
+- **لا تطبيق موبايل** — الواجهة ويب فقط + Langflow Desktop (مستودع منفصل، يُوزَّع كثنائيات).
+- **لا معالجة فيديو أصلية** — الفيديو عبر مزودين خارجيين؛ أما Voice Mode فواجهته وتنسيقه مدمجان، بينما يعتمد التعرف/التوليد على مزودين مثل AssemblyAI وfunasr.
+- **لا تدريب/ضبط دقيق (fine-tuning) للنماذج** داخل الشجرة — استدلال فقط.
+- **لا خط أنابيب بيانات ضخم داخلي** — التكامل مع Kafka عبر حزمة confluent فقط.
+- **خارج نطاق هذه المرحلة**: قراءة محتوى الأكواد، تشغيل الاختبارات (1,162 + 593 + 295 ملف اختبار موجودة لكنها لم تُشغَّل)، فحص ثغرات فعلي، تقييم جودة التنفيذ.
+
+
+#### 8. المرشحون للتوسّع ولماذا
+1. **`src/lfx/` (النواة)** — مرشح أول: إنها الحزمة المستقلة التي تنتقل إليها المكونات (توثيق LFX_MCP.md وPLUGGABLE_SERVICES.md)، وفهمها يفتح فهم كل شيء آخر؛ بها 593 اختباراً جاهزاً كمرجع سلوك.
+2. **`src/lfx/src/lfx/components/` (182 مكوّناً)** — لأي استخراج/إعادة استخدام للمكونات؛ البدء بـ `models_and_agents/` و`files_and_knowledge/` و`llm_operations/` لأنها قلب الوكلاء وRAG.
+3. **`src/backend/base/langflow/api/` + `services/`** — لمن يريد بناء منتج فوق الخادم: طبقة authz/audit/rate-limit النادرة في مشاريع مشابهة تجعلها صالحة مؤسسياً.
+4. **`src/bundles/` كنموذج توسعة** — آلية حزم opt-in موثّقة (BUNDLE_API.md, PORTING.md, NIGHTLY.md) تسمح بإضافة مزودين جدد دون لمس النواة — المسار الأنظف لأي توسيع.
+5. **Voice Mode + A2A + HITL** — قدرات حديثة (voice_mode.py, a2a_*, v2/hitl.py) قليلة الانتشار في البدائل، ومرشحة لتمايز تنافسي أو اقتباس التصميم.
+6. **starter_projects (27 تدفقاً جاهزاً)** — أسرع طريق لفهم أنماط الاستخدام الحقيقية (RAG، وكلاء متعددون، أبحاث عميقة) قبل أي توسع.
+7. **مناطق حذرة للتوسع**: `deactivated/` (23 مكوّناً) وملف `.routes.tsx.swp` والازدواج أثناء ترحيل lfx/bundles — يجب التحقق من وضعها قبل البناء عليها.
+
+
+*أُنجز هذا الجرد آلياً من شجرة Git الكاملة للفرع main عند الالتزام `60999cc9a7350e44dde3ef641baae864e10861f0` مع قراءة الوثائق الرئيسية. لم يتم تشغيل أو اختبار أي مكوّن. الأعداد محسوبة من الشجرة مباشرة.*
+
+### 6.4 Ollama — الجرد التفصيلي
+
+**المصدر الرسمي:** [ollama/ollama@main](https://github.com/ollama/ollama/tree/main).
+
+> نطاق هذه المرحلة: **جرد بنيوي فقط** اعتماداً على شجرة Git الكاملة لفرع `main`
+> **لم يتم استخراج أي كود، ولم يتم تشغيل أو اختبار أي شيء، ولم يتم تعديل المصدر.**
+
+#### 1) تعريف وترخيص وتقنيات وcommit الفرع main
+
+- **التعريف**: Ollama — منصة/أداة سطر أوامر وخادم محلي لتشغيل النماذج اللغوية المفتوحة محلياً أو سحابياً، مع REST API وتطبيق سطح مكتب. **بعكس awesome-llm-apps، هذا مشروع برمجي واحد متماسك** (منتج واحد ببنية Go موحّدة)، وليس فهرس أمثلة.
+- **الترخيص**: MIT (ملف `LICENSE` في الجذر؛ الترخيص المعروف للمشروع — لم يُفتح محتوى الملف في هذه المرحلة).
+- **commit الفرع main**: `1f23c7232e8e35b21d81bb03569a8afde2a6b0f9` (مطابق لجذر الشجرة المحفوظة).
+- **التقنيات** (محسوبة من الشجرة): Go هو الأساس الساحق (**1077 ملف .go**، منها **489 ملف `_test.go`** — تغطية اختبارات واسعة بنيوياً)، مع TypeScript/TSX (~108 ملفات) لتطبيق سطح المكتب `app/` (webview/wintray/darwin)، C/CMake للربط مع المحركات، وقوالب محادثة `.gotmpl`/`.jinja`، ووثائق Mintlify بصيغة `.mdx` (60 ملفاً). محركات التشغيل: llama.cpp (`llama/`، ملف الإصدار `LLAMA_CPP_VERSION`) وApple MLX (`mlx/`, `mlxrunner/`، ملفا `MLX_VERSION`/`MLX_C_VERSION`). وثائق مفتاحية في الجذر: `AGENTS.md`, `CLAUDE.md`, `CONTRIBUTING.md`, `SECURITY.md`.
+
+#### 2) شرح مجلدات/عناصر الجذر (58 مدخلاً)
+
+| المسار | الشرح |
+|---|---|
+| `main.go`, `cmd/` | نقطة دخول CLI؛ `cmd/` يضم `bench` (قياس أداء)، `config`، `launch` (تشغيل تكاملات مثل Claude Code/Codex)، `tui` (واجهة طرفية تفاعلية)، `internal`. |
+| `server/` | خادم HTTP الرئيسي (75 ملفاً): إنشاء/سحب النماذج، المصادقة `auth.go`، بروكسيات `cloud_proxy*.go` و`codex_proxy.go`، اختبارات fuzz للإنشاء. |
+| `api/` | تعريفات REST API وعميل Go (`client.go`, `types.go`) + `api/examples/`. |
+| `app/` | تطبيق سطح المكتب (16 حزمة فرعية: `darwin`, `wintray`, `webview`, `ui`, `updater`, `auth`, `store`, `server`, `tools`, `assets`...) — واجهة Ollama الرسومية. |
+| `llm/` | طبقة إدارة محرك الاستدلال: تشغيل ثنائيات llama.cpp (`llama_binary.go`, `llama_server*.go` بما فيه نسخة speech)، GBNF grammars. |
+| `llama/` | تكامل llama.cpp (`compat`, `server`). |
+| `mlx/`, `mlxrunner/` | محرك Apple MLX للتشغيل على أجهزة Apple Silicon (`generator`, `quant`, `compat`, اختبارات). |
+| `ml/` | تجريدات الأجهزة (`device.go`) ومسارات المكتبات. |
+| `discover/` | اكتشاف العتاد: GPU (CUDA/AMD/Metal عبر `gpu_darwin.*`), CPU لكل نظام. |
+| `model/` | `model/parsers` و`model/renderers` — محللات ومصيّرات لكل عائلة نماذج. |
+| `create/` | تحويل/إنشاء النماذج من الصيغ الخام (63 ملفاً: gguf, safetensors, quant مثل blockfp8, دعم عائلات: cohere2moe, gemma, gpt-oss, deepseek, glm...). |
+| `fs/` | قراءة صيغ النماذج: `gguf`, `safetensors`. |
+| `parser/` | محلل Modelfile. |
+| `template/` | قوالب المحادثة الجاهزة (44 ملفاً: `.gotmpl` + بيانات اختبار `.json` لعائلات مثل chatml, alpaca, command-r, codellama...). |
+| `tools/` | تحليل وتوليد استدعاءات الأدوات (tool calling) وقوالبها. |
+| `thinking/` | محلل/قوالب مخرجات «التفكير» (reasoning traces). |
+| `harmony/` | محلل صيغة Harmony (قناة/تنسيق gpt-oss). |
+| `openai/` | طبقة توافق OpenAI API بما فيه **Responses API** (responses*.go). |
+| `anthropic/` | طبقة توافق Anthropic Messages API مع دعم thinking. |
+| `middleware/` | وسائط HTTP: openai/anthropic، مقاييس، thinking، بحث ويب/أدوات في Responses. |
+| `decision/` | وحدة قرار/توجيه داخلية (17 ملفاً: `clef`, `d1`, `d3`, `kev`, `pplx`, `prompts` + اختبارات autotrust). |
+| `auth/` | مفاتيح/مصادقة النماذج السحابية. |
+| `transfer/` | تنزيل/رفع النماذج (resume، redirect، ملفات sparse على Windows). |
+| `manifest/` | بيانات النماذج الوصفية (manifests/layers) واختبارات الترقية/التراجع. |
+| `envconfig/`, `format/`, `logutil/`, `progress/`, `readline/`, `version/`, `types/` | حزم أدوات مساعدة (إعدادات بيئة، تنسيق، سجلات، أشرطة تقدم، طرفية، إصدار، أنواع مشتركة). |
+| `internal/` | حزم داخلية: `cloud`, `proxy`, `onboarding`, `modelref`, `orderedmap`, `decisiontest`, `testutil`. |
+| `compatmigrate/` | ترحيلات توافق لعائلات النماذج (34 ملفاً: gemma3/4, gptoss, glm, deepseek_ocr, laguna...). |
+| `integration/` | اختبارات تكامل (`testdata`). |
+| `docs/` | وثائق Mintlify فعلية: `api/` (بما فيه openai-compatibility وanthropic-compatibility وauthentication), `capabilities/` (tool-calling, vision, speech, thinking, embeddings, web-search, structured-outputs, decision), `integrations/`, `tools/`، إضافة إلى `cli.mdx`, `faq.mdx`, `gpu.mdx`, `docker.mdx`, `development.md`. |
+| `scripts/` | سكربتات دعم. |
+| `cmake/` | وحدات CMake المساعدة، بما فيها إعدادات MLX. |
+| `.dockerignore`, `.gitattributes`, `.gitignore` | إعدادات استثناءات Git وDocker وخصائص الملفات. |
+| `.github/` | قوالب Issues + workflows: `test.yaml`, `release.yaml`, `latest.yaml`, `test-install.yaml`, `test-llamacpp-update.yaml`, `test-tokenizer.yaml`, `test-xgrammar.yaml` — CI حقيقي شامل. |
+| `Dockerfile`, `CMakeLists.txt`, `CMakePresets.json`, `.golangci.yaml` | بناء Docker/CMake وفحص Go (golangci-lint). |
+| `go.mod`, `go.sum` | وحدة Go واعتمادياتها. |
+| `LICENSE`, `README.md`, `AGENTS.md`, `CLAUDE.md`, `CONTRIBUTING.md`, `SECURITY.md` | ترخيص ووثائق مفتاحية (بما فيها سياسة أمن وسياسات للوكلاء). |
+| `LLAMA_CPP_VERSION`, `MLX_VERSION`, `MLX_C_VERSION` | تثبيت إصدارات المحركات المدمجة. |
+
+#### 3) ملاحظات بنيوية رئيسية (من الشجرة فقط)
+
+1. **منتج واحد متماسك** بمعمارية حزم Go واضحة (server ← api/middleware ← llm ← llama/mlx)، وليس مجموعة أمثلة.
+2. **اختبارات واسعة**: 489 ملف `_test.go` (نسبة ~45% من ملفات Go) شاملة fuzz tests — لكننا **لم نشغّلها**.
+3. **واجهات توافق متعددة**: واجهة Ollama الأصلية + OpenAI (chat + Responses) + Anthropic، مع بروكسيات سحابية وCodex — أي أنه يعمل كطبقة تجريد/موجّه للنماذج محلياً وسحابياً.
+4. **قدرات موثقة رسمياً**: tool calling، vision، speech، thinking، embeddings، web search، structured outputs (`docs/capabilities/*`).
+5. **دعم عتاد واسع**: CUDA/AMD/Metal/CPU عبر `discover/`، ومحرك MLX مخصص لـApple Silicon.
+6. **تطبيق سطح مكتب مدمج** (`app/` بنية TS/webview) إلى جانب CLI/TUI.
+7. README يركّز على التكامل مع وكلاء البرمجة (Claude Code, Codex, Copilot CLI, OpenCode, OpenClaw) عبر `ollama launch`.
+
+#### 3.5) خريطة الوحدات التي تهم بناء الوكلاء
+
+##### أ) API والخادم والسياق
+
+- `api/types.go` و`api/client.go`: عقود Generate وChat وEmbed وShow وPull/Push وCreate وList وPS وVersion وأنواع Tool/ToolCall، مع أمثلة في `api/examples/`.
+- `server/routes.go` و`server/sched.go`: نقاط API وجدولة تحميل/تفريغ النماذج والتوازي.
+- `openai/openai.go`: توافق Chat Completions؛ `openai/responses*.go`: توافق Responses API والأدوات والأخطاء.
+- `openai/responses_compact.go` و`server/responses_compact.go`: ضغط/تلخيص سياق المحادثة لـResponses API؛ مفيد لإدارة السياق، لكنه ليس ذاكرة معرفية طويلة الأمد.
+- `anthropic/`: توافق Anthropic Messages API مع thinking، و`middleware/` يربط التوافق والمقاييس والبحث وthinking.
+
+##### ب) الصوت والكلام
+
+- `cmd/speech.go`: واجهة CLI للصوت.
+- `server/speech.go` و`server/transcription.go`: مسارا speech وtranscription في الخادم.
+- `llm/speech.go` و`llm/llama_server_speech.go`: ربط الصوت بمحرك الاستدلال.
+- `mlxrunner/speech.go` و`mlxrunner/client_speech.go` و`mlxrunner/model/audio/`: دعم الصوت داخل runner ومعالجة النماذج.
+- `model/renderers/audio.go` و`model/renderers/speech.go` و`model/parsers/lfm3audio.go`: rendering/parsing للوسائط الصوتية.
+- `docs/capabilities/speech.mdx` و`integration/audio_test.go`: التوثيق واختبار التكامل. لم أشغّل الاختبار.
+
+##### ج) المحادثة والذاكرة والتخزين
+
+- `app/store/database.go` و`app/store/schema.sql`: SQLite محلي لتطبيق سطح المكتب، ومنه تخزين محادثات/إعدادات التطبيق.
+- `readline/history.go`: تاريخ إدخال الطرفية.
+- `mlxrunner/prefix_cache.go` و`mlxrunner/cache/`: KV/prefix cache لإعادة استخدام بادئات المحادثة؛ ذاكرة تشغيلية قصيرة، لا ذاكرة مستخدم دلالية.
+- `server/sched.go`: slots وجلسات الاستدلال، لا ملف تعريف مستخدم طويل الأمد.
+- الخلاصة: توجد لبنات سياق وتخزين محلي، لكن **لا يوجد نظام ذاكرة وكيل طويلة المدى أو ذاكرة متجهية مدمج**.
+
+##### د) البحث والقراءة والجلب
+
+- `middleware/web_search.go`: بحث ويب كأداة ضمن مسار Responses.
+- `app/tools/web_search.go` و`app/tools/browser_websearch.go`: أدوات بحث للتطبيق.
+- `app/tools/browser.go` و`app/tools/browser_crawl.go` و`app/tools/web_fetch.go`: تصفح وزحف وجلب URL.
+- `app/tools/url_policy.go` و`app/tools/cloud_policy.go`: سياسات URL والسحابة حول هذه الأدوات.
+- `docs/capabilities/web-search.mdx` و`middleware/responses_web_search_test.go`: التوثيق والاختبار.
+- الحد: لا يوجد فهرس بحث محلي/متجهي أو محلل PDF مدمج؛ هذه أدوات وصول وبحث، لا نظام RAG كامل.
+
+##### هـ) الوكلاء والتكاملات
+
+- `cmd/launch/`: مشغّلات Claude Code وClaude Desktop وCodex وCodex App وCopilot وCline وDeepSeek Harness وDroid وHermes وKimi وMuse وOpenClaw وOpenCode وPi وPoolside وQwen وVS Code وغيرها، مع `registry.go` و`context_window.go` و`model_inventory.go`.
+- `internal/proxy/`: بروكسيات Claude Desktop وCodex Desktop؛ `server/codex_proxy.go` و`server/cloud_proxy.go` للتمرير والسحابة.
+- `tools/` و`model/parsers/` و`docs/capabilities/tool-calling.mdx`: Function/Tool Calling وتحليل مخرجاته، وليس تنسيق فرق وكلاء.
+- `docs/integrations/`: أدلة التكاملات الخارجية، بما فيها n8n وOnyx وMarimo وGoose وRoo Code وJetBrains وXcode وZed وغيرها.
+- الخلاصة: الوكلاء المذكورون **برامج خارجية** يشغّلها Ollama أو يمرّر لها الطلبات؛ ليست أقساماً داخل المستودع.
+
+##### و) parsers وrenderers وStructured Outputs
+
+- `model/parsers/`: محللات عائلات النماذج وtool calls وthinking؛ تظهر عائلات qwen3 وqwen3.5 وqwen3coder وdeepseek3 وgemma4 وglm46/47 وcohere وlfm2/3 وministral وnemotron وolmo3 وغيرها.
+- `model/renderers/`: قوالب تلك العائلات مع JSON وimage/audio/speech/thinking.
+- `thinking/parser.go` و`harmony/harmonyparser.go`: فصل قنوات التفكير وتنسيق Harmony.
+- `llm/gbnf.go` و`mlxrunner/grammar.go` و`mlxrunner/xgrammar/` و`model/renderers/json.go`: الإخراج المقيد وStructured Outputs.
+- `parser/`: محلل Modelfile، و`template/`: قوالب المحادثات القديمة والحالية لمختلف العائلات.
+
+##### ز) runtime منخفض المستوى — مفيد عند الحاجة المتخصصة
+
+- `llm/` و`llama/`: تشغيل ومراقبة llama-server وإدارة المنصات وتوزيع الأوزان.
+- `mlxrunner/`: runner بمعمارية Go+MLX، وفيه batch وKV cache وprefix cache وtokenizer وsample وspeculative generation وxgrammar وتنفيذات معماريات نماذج متعددة.
+- `discover/`: اكتشاف CUDA وROCm وVulkan وMetal وCPU واختيار runner.
+- `create/` و`compatmigrate/` و`fs/gguf/` و`fs/safetensors/`: تحويل الأوزان وتكميمها وترحيل التوافق.
+- هذه الوحدات قوية لتحسين الأداء أو تعديل runtime، لكنها ليست نقطة البداية المثلى لبناء منسّق أقسام.
+
+##### ح) التوثيق والاختبارات
+
+- `docs/api/`: OpenAI/Anthropic compatibility وauthentication وerrors وstreaming وusage وcloud usage وbalance.
+- `docs/capabilities/`: tool-calling وthinking وvision وspeech وembeddings وstructured-outputs وstreaming وweb-search وdecision.
+- `integration/`: اختبارات vision وaudio وtools وembed وconcurrency وcontext وquantization وmigration وstructured output وthinking.
+- `.github/workflows/`: test وrelease وtest-install وtest-tokenizer وtest-xgrammar وغيرها. وجودها دليل بنية CI، لا نتيجة نجاح مثبتة في هذا الجرد.
+
+#### 4) فهرس فائدة سريع (مسارات دقيقة)
+
+- **تشغيل نماذج محلياً/خصوصية**: `server/`, `llm/`, `llama/`, `mlxrunner/`, `discover/`.
+- **واجهة OpenAI/Anthropic متوافقة للتكامل مع الوكلاء**: `openai/`, `anthropic/`, `middleware/`.
+- **استدعاء الأدوات Tool calling**: `tools/`, `docs/capabilities/tool-calling.mdx`.
+- **الاستدلال/التفكير**: `thinking/`, `harmony/`.
+- **تحويل واستيراد النماذج والكمّ**: `create/`, `fs/gguf`, `fs/safetensors`, `compatmigrate/`.
+- **قوالب المحادثة**: `template/`.
+- **الواجهات**: `cmd/tui` (طرفية), `app/` (سطح مكتب).
+- **الوثائق الرسمية داخل المستودع**: `docs/` (60 ملف mdx).
+- **الأمن**: `SECURITY.md`, `auth/`, `server/auth.go`, `decision/autotrust_decision_test.go`.
+
+#### 5) ما لا يوجد / حدود
+
+- لا يحتوي أوزان نماذج؛ النماذج تُسحب من سجل Ollama أو تُستورد.
+- لا يوجد إطار وكلاء متعدد داخل المستودع؛ Ollama بنية تحتية للتشغيل ويُتكامل مع أطر الوكلاء خارجياً.
+- وحدة `decision/` غير موثقة بتفصيل في README؛ وظيفتها تُستنتج من أسماء الملفات فقط في هذه المرحلة.
+- لم نتحقق من نجاح الاختبارات أو البناء؛ الاستنتاج عن CI من أسماء workflows فقط.
+
+
+## 7. قراءة الفروع — ما الذي يعنيه عددها الكبير؟
+
+الفروع ليست «إصدارات منتج» ولا ميزات مضمونة. أغلبها تطوير وإصلاح وتجارب وPRs. لذلك لم أدمج أي ادعاء من اسم فرع داخل قائمة إمكانات `main`. السجل النصي المرفق يحفظ الأسماء وSHA كاملة.
+
+| المستودع | العدد | أكثر البادئات ظهوراً | فروع محمية/ملاحظة |
+|---|---:|---|---|
+| Open Design | 2852 | `fix=758 · codex=652 · feat=395 · [root]=168 · agent=145 · looper=119` | 50 محمياً؛ منها main وخطوط release/v* |
+| Awesome LLM Apps | 15 | `[root]=9 · claude=3 · feat=2 · fix=1` | لا يظهر فرع محمي في السجل المسترجع |
+| Langflow | 2660 | `[root]=1218 · cz=265 · test=250 · feat=182 · codeflash=176 · fix=158` | 19 محمياً؛ منها main وdev وrelease-* |
+| Ollama | 493 | `[root]=102 · jmorganca=79 · hoyyeva=55 · brucemacd=53 · mxyng=46 · parth=46` | main محمي؛ بقية الأسماء غالباً تجارب مطورين |
+
+### فروع Awesome LLM Apps الخمسة عشر كاملة
+
+هذا هو المستودع الوحيد ذو العدد الصغير الذي يسمح بإدراج القائمة هنا بوضوح؛ البقية في سجل الفروع المرفق.
+
+| الفرع | SHA المختصر |
+|---|---|
+| `add-vorflux-sponsor` | `b2bdfa591006` |
+| `advisor-cover-image` | `2e6877e83a4b` |
+| `advisor-skill-cover-and-readme` | `cfc6779f8bdb` |
+| `claude/zealous-heisenberg-6y0cil` | `8abf46a4e707` |
+| `claude/zealous-heisenberg-v4xhow` | `927b0bb7d743` |
+| `claude/zealous-heisenberg-x1x0jp` | `1dd9f2ab105a` |
+| `feat/excaliflow` | `1bb58b544f7b` |
+| `feat/excaliflow-agent-collab` | `d83499be1877` |
+| `fix/insurance-live-demo-reliability` | `233dcbcd3aef` |
+| `insurance-claim-gemini-3-8-live` | `062954d888be` |
+| `main` | `c46144eb61c1` |
+| `swap-advisor-cover-dark` | `cfc6779f8bdb` |
+| `thinking-out-loud-skill` | `17ea03824590` |
+| `update-advisor-worker-gemini-3-7-flash` | `2d52ca9214f8` |
+| `update-agent-skills` | `da0490fb5ac0` |
+
+### أسماء فروع تستحق الفحص الاختياري لاحقاً — ليست إمكانات مؤكدة في main
+
+- **Ollama:** `parth/agent-skills`، `parth/agents`، `royh/whisper`، `codex/phonon-tts`، `nicole/websearch_local`، `parth/add-websearch-client`، `research-codex-web-search-proxy`. هذه أسماء فقط؛ يلزم diff وقراءة الكود قبل الحكم.
+- **Awesome LLM Apps:** `update-agent-skills`، `thinking-out-loud-skill`، `feat/excaliflow-agent-collab`، `fix/insurance-live-demo-reliability`.
+- **Open Design:** خطوط `release/v*` و`feat/workspace-team` مفيدة لتتبع الاستقرار والتعاون، لا لافتراض ميزات إضافية.
+- **Langflow:** `dev` وخطوط `release-*` مفيدة للمقارنة واكتشاف ما تغيّر، لكن تقرير هذه المرحلة ثابت على `main`.
+
+
+## 8. القوائم المرشحة للتوسع — اخترها برمزها
+
+هذه ليست أمراً بالتنفيذ؛ هي فهارس مرشحة فقط. عندما تختار رمزاً، تكون الخطوة التالية قراءة الملفات والأكواد داخل ذلك المسار، واستخراج الأنماط والعقود والاختبارات، ثم الحكم على قابلية النقل.
+
+### 8.1 Open Design
+
+| الرمز | القائمة المختارة | لماذا أرشحها؟ | الأولوية |
+|---|---|---|---|
+| `OD-01` | `docs/architecture.md` + `docs/agent-adapters.md` + `apps/daemon/src/runtimes/` | لفهم فصل الواجهة عن الـdaemon، واكتشاف coding agents، وتوحيد streaming/cancel/resume | عالية للمعمارية |
+| `OD-02` | `docs/skills-protocol.md` + `plugins/spec/SPEC.md` + `plugins/spec/AGENT-DEVELOPMENT.md` + `packages/plugin-runtime/` | لبناء نظام Skills/Plugins قابل للتحقق والتوسعة بدلاً من مجلدات prompts مبعثرة | عالية للمهارات |
+| `OD-03` | `apps/daemon/src/media/` + `design-templates/hyperframes/` + `skills/video-hyperframes/` + `skills/speech/` + `prompt-templates/video/` | أفضل مسار مباشر لتوليد الفيديو والصوت والصور وفهم rendering والتكاملات الخارجية | عالية للفيديو والصوت |
+| `OD-04` | `apps/daemon/src/api-token-auth.ts` + اختبارات SSRF/auth في `apps/daemon/tests/` + `packages/contracts/src/api/artifact-lint.ts` + `e2e/` | أنماط حماية وحدود وصلاحيات وlint واختبارات قبل قبول المخرجات | عالية للحماية والتدقيق |
+| `OD-05` | أسماء محددة من `skills/` و`design-templates/` و`design-systems/`، لا المكتبة كلها دفعة واحدة | 169 مهارة و115 قالباً و152 نظام تصميم؛ الاختيار الانتقائي أسرع وأنفع من النسخ الشامل | حسب قسم التصميم |
+
+### 8.2 Awesome LLM Apps
+
+| الرمز | القائمة المختارة | لماذا أرشحها؟ | الأولوية |
+|---|---|---|---|
+| `AW-01` | `advanced_llm_apps/llm_apps_with_memory_tutorials/` + `advanced_llm_apps/chat_with_X_tutorials/` + دروس memory/sessions في `ai_agent_framework_crash_course/` | 7 نماذج ذاكرة و7 تطبيقات Chat with X ودروس sessions؛ تغطي المحادثة والحالة والذاكرة المشتركة | عالية جداً |
+| `AW-02` | `rag_tutorials/` + `ai_deep_research_agent` + `ai_domain_deep_research_agent` + `multi_agent_researcher` + `ag2_adaptive_research_team` | 24 مسار RAG مع بحث محلي وهجين وتصحيحي ومتعدد الوسائط وKnowledge Graph وتشخيص الأعطال | عالية جداً للبحث والقراءة |
+| `AW-03` | `mcp_ai_agents/` + `agent_skills/` + `ai_agent_framework_crash_course/` + `multi_mcp_agent_router` | موصّلات MCP، و8 مهارات مع evals، و21 درساً في التنسيق والتفويض والحواجز والمراقبة | عالية جداً للمعمارية |
+| `AW-04` | `multi_agent_trust_layer` + `trust_gated_agent_team` + `ai_agent_governance` + `agent_skills/dependency-doctor` + `always_on_agents/release_radar_agent` | أنماط الثقة والحوكمة وسلسلة الإمداد وسجل التدقيق؛ مفيدة للحماية الدفاعية لا للهجوم | عالية للحماية |
+| `AW-05` | `voice_ai_agents/` + `ai_news_and_podcast_agents` + `ai_blog_to_podcast_agent` + `ai_speech_trainer_agent` + درس `11_voice` | أربعة وكلاء صوت ونماذج Podcast وتحويل الكلام إلى موجز؛ مسار صغير ومتماسك | عالية للصوت |
+| `AW-06` | `ai_finance_agent_team` + `ai_financial_coach_agent` + `ai_investment_agent` + `ai_personal_finance_agent` + `ai_vc_due_diligence_agent_team` + `earnings_call_analyst_agent` + `ai_fraud_investigation_agent` | تغطي التحليل والاستثمار والميزانية وVC والأرباح والاحتيال؛ أمثلة بداية لا مصدر بيانات موثوق تلقائياً | عالية للمال |
+| `AW-07` | `multimodal_coding_agent_team` + `ai_codebase_migration_agent` + `ai_seo_audit_team` + `llm_panel_agent_team` + `dependency-doctor` + `scope-creep-detector` + `commit-archaeologist` + `self-improving-agent-skills` | بناء وتدقيق ومراجعة جماعية وفحص اعتماديات وتاريخ الكود وتحسين المهارات | عالية للبرمجة والتدقيق |
+| `AW-08` | `generative_ui_agents/` + `multimodal_design_agent_team` + `multimodal_uiux_feedback_agent_team` + `excaliflow/` | واجهات تفاعلية ولوحات وMCP Apps ونقد تصميم ورسم معماري متحرك | عالية للتصميم |
+| `AW-09` | `advanced_llm_apps/multimodal_video_moment_finder/` + `chat_with_youtube_videos` + `multimodal_ai_agent` + `excaliflow/` | فهم الفيديو واستخراج اللحظات والمحادثة معه وتصدير رسم متحرك؛ ليس بديلاً عن HyperFrames | متخصصة للفيديو |
+| `AW-10` | `always_on_agents/` + `llm_optimization_tools/` + `llm_finetuning_tutorials/` | جدولة ومراقبة استباقية، ثم خفض السياق والتكلفة، ثم fine-tuning عند الحاجة فقط | متوسطة/متخصصة |
+
+### 8.3 Langflow
+
+| الرمز | القائمة المختارة | لماذا أرشحها؟ | الأولوية |
+|---|---|---|---|
+| `LF-01` | `docs/docs/Agents/` + `src/backend/base/langflow/api/` + `src/lfx/src/lfx/components/` + ملفات MCP الحالية في `docs/docs/` | نواة agents/workflows وتحويلها إلى API وMCP وربط الأدوات والمكونات | عالية جداً للنواة |
+| `LF-02` | `docs/docs/Develop/memory.mdx` + `memory-bases.mdx` + `docs/docs/Components/` + `src/backend/base/langflow/base/memory/` + مكونات retrieval/vector stores | الذاكرة والمعرفة وRAG ورسائل المحادثة وقواعد البيانات المتجهية | عالية جداً للذاكرة والبحث |
+| `LF-03` | `src/backend/base/langflow/api/v1/voice_mode.py` + `src/backend/base/langflow/utils/voice_utils.py` + مكونات voice في `src/frontend/` + `docs/docs/Develop/concepts-voice-mode.mdx` | تنفيذ voice mode فعلياً مع واجهة واختبارات وصلاحيات، لا مجرد اسم تكامل | عالية للصوت |
+| `LF-04` | `SECURITY.md` + `docs/docs/Develop/authentication-overview.mdx` + `api-keys-and-authentication.mdx` + `authorization.mdx` + `src/backend/tests/` | المصادقة والصلاحيات ونطاقات الجلسات والاختبارات؛ ضرورية قبل مشاركة الأقسام أو نشرها | عالية للحماية |
+| `LF-05` | `docker/` + `deploy/` + `DEVELOPMENT.md` + `DESIGN.md` + `BUNDLE_API.md` + `src/frontend/` + `regressions/` | التشغيل والنشر والواجهة وحدود الحزم والانحدارات؛ يفيد قسم الأنظمة والبناء | عالية للأنظمة |
+| `LF-06` | `src/lfx/src/lfx/components/tools/yahoo_finance.py` + `starter_projects/Financial Report Parser.json` + `src/bundles/lfx-bundles/src/lfx_bundles/twelvelabs/` + `youtube/` | مكونات مالية وفيديو جاهزة كتكاملات؛ تُراجع بعد الأساس لا قبله | متخصصة للمال والفيديو |
+
+### 8.4 Ollama
+
+| الرمز | القائمة المختارة | لماذا أرشحها؟ | الأولوية |
+|---|---|---|---|
+| `OL-01` | `api/` + `server/` + `openai/` + `anthropic/` + `docs/openapi.yaml` | عقود REST وOpenAI وAnthropic وإدارة النماذج والجدولة؛ هي نقطة ربط المنظومة بالنماذج | عالية جداً |
+| `OL-02` | `cmd/speech.go` + `server/speech.go` + `server/transcription.go` + `llm/speech.go` + `docs/capabilities/speech.mdx` + `integration/audio_test.go` | مسار speech/transcription حقيقي مع اختبارات؛ لا حاجة لتخمين بنية الصوت | عالية للصوت |
+| `OL-03` | `model/parsers/` + `model/renderers/` + `thinking/` + `tools/` + `llm/gbnf.go` + `mlxrunner/xgrammar/` | tool calling وthinking وStructured Outputs وقوالب عائلات النماذج؛ مهم لاستقرار الوكلاء | عالية جداً |
+| `OL-04` | `openai/responses_compact.go` + `server/responses_compact.go` + `app/store/` + `middleware/web_search.go` + `app/tools/` | ضغط السياق وتخزين محادثات التطبيق والبحث والجلب والزحف؛ مكملات للذاكرة والبحث لا بديل عنهما | عالية للمحادثة والبحث |
+| `OL-05` | `cmd/launch/` + `internal/proxy/` + `docs/integrations/` | أنماط ربط coding agents والتطبيقات الخارجية مع الحفاظ على حدود runtime | عالية للتكاملات |
+| `OL-06` | `llm/` + `llama/` + `mlxrunner/` + `discover/` + `create/` + `compatmigrate/` + `integration/` | الأداء والعتاد والتحويل والتكميم والمحرك منخفض المستوى؛ لا تبدأ به إلا إذا كان هدفك تعديل runtime نفسه | متخصصة جداً |
+
+### 8.5 ترتيبي المقترح عند اختيار أقل عدد يعطي أوسع تغطية
+
+1. **النواة والعقود:** `LF-01` + `OL-01` + `OL-03`.
+2. **الذاكرة والبحث والقراءة:** `AW-01` + `AW-02` + `LF-02` + `OL-04`.
+3. **المهارات وتعدد الوكلاء والحماية:** `AW-03` + `AW-04` + `OD-01` + `OD-02` + `OD-04` + `LF-04`.
+4. **الأقسام المتخصصة:** `AW-05` للصوت، `AW-06` للمال، `AW-07` للبرمجة والتدقيق، `AW-08` للتصميم، `OD-03` للفيديو.
+5. **التشغيل والتكاملات:** `LF-05` + `OL-02` + `OL-05`.
+
+### 8.6 ما لا أرشح البدء به
+
+- `docs/versioned_docs/` في Langflow: نسخ تاريخية مكررة؛ ابدأ بـ`docs/docs/` الحالية، وارجع للتاريخ عند الحاجة فقط.
+- كل الفروع الـ6,020 أو مقارنة كل الإصدارات: ابدأ بـ`main`، ثم اختر فرعاً محدداً لسبب واضح.
+- جميع Design Systems والقوالب والأمثلة دفعة واحدة: اختر ما يخدم القسم المطلوب لتجنب مئات الملفات المتكررة.
+- الصور والأصول الثابتة و`.github/screenshots/` و`docs/gallery/`: مفيدة للعرض لا لاستخراج معمارية الوكلاء.
+- `mlxrunner/` و`llm/` و`create/` في Ollama قبل فهم API: قوية لكنها منخفضة المستوى، وتستهلك وقتاً بلا فائدة مباشرة لمنسّق الأقسام.
+- الروابط الخارجية المذكورة في README ولا توجد داخل شجرة المستودع: ليست جزءاً من هذا الجرد وتحتاج جرداً مستقلاً إن اخترتها.
+- أي مشروع طبي أو تأميني أو مالي بوصفه جاهزاً للاستخدام الحقيقي: هي أمثلة تحتاج مراجعة بيانات وحدود واختبارات ومسؤولية مهنية.
+
+**طريقة الاختيار للمرحلة الثانية:** أرسل الرموز فقط، مثل: `AW-01 + AW-02 + LF-01 + OD-03 + OL-02`، وسأتوسع في تلك القوائم وحدها.
+
+
+## 9. دليل الملفات المرفقة
+
+- **هذا التقرير:** الخريطة المختصرة + الجرد التفصيلي + الفروع + حزم التوسع المرمزة.
+- **`الفهرس_الكامل_لمسارات_المستودعات.txt`:** كل الـ35,381 مدخلاً في أشجار `main`، مع النوع والحجم والمسار وSHA لكل لقطة. استخدمه للبحث عن أي ملف لا يظهر في العناوين المختصرة.
+- **`السجل_الكامل_للفروع.txt`:** كل الـ6,020 فرعاً مع SHA وحالة الحماية المتاحة. لا يعني السجل أن محتوى كل فرع تمت قراءته.
+- **`ملخص_جرد_المستودعات_الأربعة.png`:** خريطة بصرية من صفحة واحدة للمشاركة والمراجعة السريعة.
+- **`جرد_المستودعات.kanva.pptd`:** النسخة القابلة للتحرير من الخريطة البصرية.
+
+**الحد النهائي للمرحلة:** لم أستخرج الأكواد ولم أشغّل المشاريع. المرحلة التالية تبدأ فقط بالرموز التي تختارها أنت من القسم 8.

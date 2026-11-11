@@ -1,0 +1,148 @@
+/**
+ * @fileoverview Session context implementation injected into custom tool execute functions.
+ */
+import { Composio as ComposioClient } from '@composio/client';
+import type {
+  SessionContext,
+  CustomToolsMap,
+  InlineCustomToolsWirePayload,
+} from '../types/customTool.types';
+import type {
+  SessionProxyExecuteParams,
+  ToolRouterSessionExecuteResponse,
+  ToolRouterSessionProxyExecuteResponse,
+} from '../types/toolRouter.types';
+import {
+  SessionProxyExecuteParamsSchema,
+  ToolRouterSessionExecuteResponseSchema,
+} from '../types/toolRouter.types';
+import { ValidationError } from '../errors';
+import { transformProxyParams } from './proxyParamsTransform';
+import {
+  assertUnambiguousCustomToolSlug,
+  findCustomTool,
+  executeCustomTool,
+} from './customToolExecution';
+import {
+  transformExecuteResponse,
+  transformProxyExecuteResponse,
+} from '../utils/transformers/toolRouterResponseTransform';
+import type { SessionExecuteParams } from '@composio/client/resources/tool-router/session';
+import { withCancellation } from '../utils/cancellation';
+import { withoutRetries } from '../utils/retries';
+
+/**
+ * Concrete implementation of SessionContext.
+ * One instance is created per session (or per multi-execute batch) and shared
+ * across all custom tool invocations, including sibling routing.
+ *
+ * When `customToolsMap` is provided, `execute()` checks local tools first
+ * before falling back to the backend API. This allows tool A to call tool B
+ * via `session.execute('B', ...)` without hitting the network.
+ *
+ * @internal Internal implementation detail. Not exported from `@composio/core`
+ * and not part of the public API surface — custom tools receive a
+ * `SessionContext` instance via their execute function; they never reference
+ * this class directly. Excluded from the generated SDK reference.
+ */
+export class SessionContextImpl implements SessionContext {
+  public readonly userId: string;
+
+  /**
+   * Per-execution AbortSignal. Never set on the base instance; `executeCustomTool`
+   * grafts it onto a per-call `Object.create` child so concurrent executions
+   * sharing this context don't observe each other's signal. Declared here (rather
+   * than read via a cast) so the contract is explicit.
+   */
+  public readonly signal?: AbortSignal;
+
+  constructor(
+    private readonly client: ComposioClient,
+    userId: string,
+    private readonly sessionId: string,
+    private readonly customToolsMap?: CustomToolsMap,
+    private readonly inlineCustomToolsPayload?: InlineCustomToolsWirePayload
+  ) {
+    this.userId = userId;
+  }
+
+  /**
+   * Execute any tool from within a custom tool.
+   * Routes to sibling local tools in-process when available,
+   * otherwise delegates to the backend API.
+   *
+   * Returns the same response shape as session.execute().
+   */
+  async execute(
+    toolSlug: string,
+    arguments_: Record<string, unknown>
+  ): Promise<ToolRouterSessionExecuteResponse> {
+    const signal = this.signal;
+    const requestOptions = signal ? { signal } : undefined;
+
+    const entry = findCustomTool(this.customToolsMap, toolSlug);
+    if (entry) {
+      const result = await executeCustomTool(entry, arguments_, this, { signal });
+      return ToolRouterSessionExecuteResponseSchema.parse({
+        data: result.data,
+        error: result.error,
+        logId: '',
+        resultType: result.successful ? 'completed' : 'failed',
+      });
+    }
+    assertUnambiguousCustomToolSlug(this.customToolsMap, toolSlug);
+
+    const executeParams: SessionExecuteParams = {
+      tool_slug: toolSlug,
+      arguments: arguments_,
+    };
+    if (this.inlineCustomToolsPayload) {
+      executeParams.experimental = this.inlineCustomToolsPayload;
+    }
+
+    const response = await withCancellation(
+      () =>
+        this.client.toolRouter.session.execute(
+          this.sessionId,
+          executeParams,
+          withoutRetries(requestOptions)
+        ),
+      requestOptions?.signal
+    );
+    return ToolRouterSessionExecuteResponseSchema.parse(
+      transformExecuteResponse(response, toolSlug)
+    );
+  }
+
+  /**
+   * Proxy API calls through Composio's auth layer.
+   * The backend resolves the connected account from the toolkit within the session.
+   */
+  async proxyExecute(
+    params: SessionProxyExecuteParams
+  ): Promise<ToolRouterSessionProxyExecuteResponse> {
+    const validated = SessionProxyExecuteParamsSchema.safeParse(params);
+    if (!validated.success) {
+      throw new ValidationError('Invalid proxy execute parameters', { cause: validated.error });
+    }
+
+    const signal = this.signal;
+    const requestOptions = signal ? { signal } : undefined;
+
+    const clientParams = transformProxyParams(validated.data);
+    const response = await withCancellation(
+      () =>
+        this.client.toolRouter.session.proxyExecute(
+          this.sessionId,
+          clientParams,
+          withoutRetries(requestOptions)
+        ),
+      requestOptions?.signal
+    );
+
+    return transformProxyExecuteResponse(
+      response,
+      `${validated.data.method} proxy call for toolkit ${validated.data.toolkit}`
+    );
+  }
+}

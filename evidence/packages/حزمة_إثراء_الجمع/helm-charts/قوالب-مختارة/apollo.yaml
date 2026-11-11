@@ -1,0 +1,352 @@
+{{- $externalRedis := .Values.externalRedis | default (dict) }}
+{{- $externalRedisSentinel := $externalRedis.sentinel | default (dict) }}
+{{- $externalRedisSentinelEnabled := and $externalRedis.enabled $externalRedisSentinel.enabled }}
+{{- $externalRedisSentinelSecretRef := $externalRedisSentinel.secretRef | default $externalRedis.secretRef }}
+{{- if and $externalRedisSentinelEnabled (or (empty $externalRedisSentinel.hosts) (empty $externalRedisSentinel.masterName)) }}
+{{- fail "Error: externalRedis.sentinel.hosts and externalRedis.sentinel.masterName are required when externalRedis.sentinel.enabled is true" }}
+{{- end }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-apollo
+  labels:
+    app: apollo
+    release: {{ .Release.Name }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+spec:
+  replicas: {{ .Values.apollo.replicaCount }}
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app: apollo
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: apollo
+        release: {{ .Release.Name }}
+        app.kubernetes.io/instance: {{ .Release.Name }}
+      annotations:
+        checksum/config: {{ include (print $.Template.BasePath "/apollo/apollo-configmap.yaml") . | sha256sum | quote }}
+    spec:
+      {{- if .Values.apollo.serviceAccount.enabled }}
+      serviceAccountName: {{ .Values.apollo.serviceAccount.name  }}
+      {{- end }}
+      {{- if .Values.replicated.enabled }}
+      {{- include "replicated.imagePullSecrets" . | nindent 6 }}
+      {{- end }}
+      {{- if not .Values.replicated.enabled }}
+      {{- if .Values.global.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml .Values.global.imagePullSecrets | nindent 8 }}
+      {{- end }}
+      {{- end }}
+      {{- with .Values.apollo.podSecurityContext }}
+      securityContext:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.apollo.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.apollo.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.apollo.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.apollo.additionalInitContainers }}
+      initContainers:
+{{ tpl (toYaml .) $ | nindent 8 }}
+      {{- end }}
+      containers:
+        - name: apollo
+          image: {{ include "composio.imageReference" (dict "image" .Values.apollo.image "context" .) | quote }}
+          imagePullPolicy: {{ .Values.apollo.image.pullPolicy }}
+          {{- with .Values.apollo.containerSecurityContext }}
+          securityContext:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          ports:
+            - containerPort: 9900
+          livenessProbe:
+            httpGet:
+              path: /api/healthz
+              port: 9900
+            initialDelaySeconds: 60
+            periodSeconds: 30
+            timeoutSeconds: 10
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /api/healthz
+              port: 9900
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 3
+          envFrom:
+            - configMapRef:
+                name: {{ .Release.Name }}-apollo-config
+          env:
+            {{- $coreSecret := include "composio.coreSecretName" . }}
+            - name: APOLLO_SECRET_DIR
+              value: {{ .Values.apollo.secretsDir | quote }}
+            - name: EXPOSE_ADVANCED_AUTH_PARAMS_BETA
+              value: "true"
+            {{- if and (eq .Values.apollo.objectStorage.backend "s3") (not .Values.apollo.objectStorage.useWebIdentity) }}
+            - name: S3_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.apollo.objectStorage.accessKey.secretName }}
+                  key: {{ .Values.apollo.objectStorage.accessKey.key }}
+                  optional: true
+            - name: S3_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.apollo.objectStorage.secretKey.secretName }}
+                  key: {{ .Values.apollo.objectStorage.secretKey.key }}
+                  optional: true
+            {{- end }}
+            {{- if eq .Values.apollo.objectStorage.backend "azure_blob_storage" }}
+            - name: AZURE_CONNECTION_STRING
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.apollo.objectStorage.azureConnectionString.secretName }}
+                  key: {{ .Values.apollo.objectStorage.azureConnectionString.key }}
+                  optional: true
+            {{- end }} 
+            {{- if $externalRedisSentinelEnabled }}
+            - name: REDIS_SENTINEL_HOSTS
+              value: {{ $externalRedisSentinel.hosts | quote }}
+            - name: REDIS_SENTINEL_MASTER_NAME
+              value: {{ $externalRedisSentinel.masterName | quote }}
+            - name: REDIS_TLS_ENABLED
+              value: {{ $externalRedisSentinel.tlsEnabled | default false | toString | quote }}
+            {{- if ne (toString $externalRedisSentinel.db) "" }}
+            - name: REDIS_DB
+              value: {{ $externalRedisSentinel.db | toString | quote }}
+            {{- end }}
+            {{- if $externalRedisSentinel.usernameKey }}
+            - name: REDIS_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: {{ $externalRedisSentinelSecretRef }}
+                  key: {{ $externalRedisSentinel.usernameKey }}
+                  optional: true
+            {{- end }}
+            {{- if $externalRedisSentinel.passwordKey }}
+            - name: REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ $externalRedisSentinelSecretRef }}
+                  key: {{ $externalRedisSentinel.passwordKey }}
+                  optional: true
+            {{- end }}
+            {{- if $externalRedisSentinel.sentinelPasswordKey }}
+            - name: REDIS_SENTINEL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ $externalRedisSentinelSecretRef }}
+                  key: {{ $externalRedisSentinel.sentinelPasswordKey }}
+                  optional: true
+            {{- end }}
+            {{- else if $externalRedis.enabled }}
+            - name: REDIS_URL
+              valueFrom:
+                secretKeyRef:
+                  name: {{ $externalRedis.secretRef }}
+                  key: {{ $externalRedis.key }}
+                  optional: true
+            {{- end }}
+            - name: ENCRYPTION_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ $coreSecret }}
+                  key: ENCRYPTION_KEY
+                  optional: true
+            - name: OPENAI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.openAI.secretRef }}
+                  key: {{ .Values.openAI.key }}
+                  optional: true
+            - name: OPENAI_BASE_URL
+              value: {{ .Values.openAI.baseUrl | quote }}
+            - name: APOLLO_ADMIN_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: {{ $coreSecret }}
+                  key: COMPOSIO_ADMIN_TOKEN
+                  optional: true
+            - name: APOLLO_ADMIN_TOKEN_THERMOS
+              valueFrom:
+                secretKeyRef:
+                  name: {{ $coreSecret }}
+                  key: COMPOSIO_ADMIN_TOKEN
+                  optional: true
+            - name: APOLLO_ADMIN_TOKEN_MERCURY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ $coreSecret }}
+                  key: COMPOSIO_ADMIN_TOKEN
+                  optional: true
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: {{ $coreSecret }}
+                  key: POSTGRES_URL
+                  optional: true
+            - name: ORG_API_KEY_ENCRYPTION_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ $coreSecret }}
+                  key: ENCRYPTION_KEY
+                  optional: true
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: {{ $coreSecret }}
+                  key: JWT_SECRET
+                  optional: true
+            {{- if .Values.apollo.smtp.enabled }}
+            - name: SMTP_CONNECTION_STRING
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.apollo.smtp.secretRef | default (printf "%s-smtp-credentials" .Release.Name) }}
+                  key: {{ .Values.apollo.smtp.key }}
+                  optional: true
+            {{- end }}
+            {{- if .Values.aws.bedrock.secretName }}
+            - name: AWS_BEDROCK_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.aws.bedrock.secretName }}
+                  key: AWS_BEDROCK_ACCESS_KEY_ID
+                  optional: true
+            - name: AWS_BEDROCK_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.aws.bedrock.secretName }}
+                  key: AWS_BEDROCK_SECRET_ACCESS_KEY
+                  optional: true
+            {{- end }}
+            {{- if .Values.aws.bedrock.region }}
+            - name: AWS_BEDROCK_REGION
+              value: {{ .Values.aws.bedrock.region }}
+            {{- end }}
+            {{- if .Values.aws.bedrock.endpoint }}
+            - name: AWS_BEDROCK_OPENAI_ENDPOINT
+              value: {{ .Values.aws.bedrock.endpoint }}
+            {{- end }}
+            {{- if .Values.apollo.env }}
+            {{- toYaml .Values.apollo.env | nindent 12 }}
+            {{- end }}
+          resources:
+            {{- toYaml .Values.apollo.resources | nindent 12 }}
+          volumeMounts:
+            {{- include "composio.databaseTlsMount" . | nindent 12 }}
+            - name: apollo-secrets
+              mountPath: {{ .Values.apollo.secretsDir | quote }}
+              readOnly: true
+            {{- if and .Values.apollo.googleServiceAccount .Values.apollo.googleServiceAccount.enabled }}
+            - name: gcp-key
+              mountPath: "{{ .Values.apollo.googleServiceAccount.mountPath }}"
+              readOnly: true
+            {{- end }}
+            {{- with .Values.apollo.volumeMounts }}
+            {{- toYaml . | nindent 12 }}
+            {{- end }}
+      volumes:
+        {{- include "composio.databaseTlsVolume" . | nindent 8 }}
+        - name: apollo-secrets
+          emptyDir: {}
+        {{- if and .Values.apollo.googleServiceAccount .Values.apollo.googleServiceAccount.enabled }}
+        - name: gcp-key
+          secret:
+            secretName: {{ .Values.apollo.googleServiceAccount.secretName }}
+            optional: true
+        {{- end }}
+        {{- with .Values.apollo.volumes }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-apollo
+  labels:
+    app: apollo
+    release: {{ .Release.Name }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+spec:
+  type: {{ .Values.apollo.service.type }}
+  ports:
+    - port: {{ .Values.apollo.service.port }}
+      targetPort: 9900
+      protocol: TCP
+      {{- if and (eq .Values.apollo.service.type "Port") .Values.apollo.service.Port }}
+      Port: {{ .Values.apollo.service.Port }}
+      {{- end }}
+  selector:
+    app: apollo
+    release: {{ .Release.Name }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+---
+{{- if .Values.apollo.autoscaling.enabled }}
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: {{ .Release.Name }}-apollo
+  labels:
+    app: apollo
+    release: {{ .Release.Name }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: {{ .Release.Name }}-apollo
+  minReplicas: {{ .Values.apollo.autoscaling.minReplicas | default 2 }}
+  maxReplicas: {{ .Values.apollo.autoscaling.maxReplicas | default 10 }}
+  metrics:
+    {{- if .Values.apollo.autoscaling.targetCPUUtilizationPercentage }}
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: {{ .Values.apollo.autoscaling.targetCPUUtilizationPercentage }}
+    {{- end }}
+    {{- if .Values.apollo.autoscaling.targetMemoryUtilizationPercentage }}
+    - type: Resource
+      resource:
+        name: memory
+        target:
+          type: Utilization
+          averageUtilization: {{ .Values.apollo.autoscaling.targetMemoryUtilizationPercentage }}
+    {{- end }}
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: {{ .Values.apollo.autoscaling.scaleDownStabilizationWindowSeconds | default 300 }}
+      policies:
+      - type: Percent
+        value: {{ .Values.apollo.autoscaling.scaleDownPercent | default 10 }}
+        periodSeconds: {{ .Values.apollo.autoscaling.scaleDownPeriodSeconds | default 60 }}
+    scaleUp:
+      stabilizationWindowSeconds: {{ .Values.apollo.autoscaling.scaleUpStabilizationWindowSeconds | default 60 }}
+      policies:
+      - type: Percent
+        value: {{ .Values.apollo.autoscaling.scaleUpPercent | default 100 }}
+        periodSeconds: {{ .Values.apollo.autoscaling.scaleUpPeriodSeconds | default 15 }}
+      - type: Pods
+        value: {{ .Values.apollo.autoscaling.scaleUpPods | default 4 }}
+        periodSeconds: {{ .Values.apollo.autoscaling.scaleUpPeriodSeconds | default 15 }}
+      selectPolicy: Max
+{{- end }}

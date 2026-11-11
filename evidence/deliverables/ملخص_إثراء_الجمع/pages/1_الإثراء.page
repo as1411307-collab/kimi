@@ -1,0 +1,210 @@
+pageType: content
+background:
+  type: solid
+  color: "$ink"
+elements:
+  - elementId: title
+    elementType: text
+    bounds: [50, 38, 980, 58]
+    content: {style: "$title", align: [right, middle], wrap: false, text: "إثراء الجمع من Hermes وComposio"}
+  - elementId: subtitle
+    elementType: text
+    bounds: [50, 102, 980, 32]
+    content: {style: "$small", fontSize: 16, align: [right, middle], wrap: false, text: "جرد ونسخ انتقائي — بلا تشغيل أو اختبارات — مع المصدر والترخيص وSHA-256"}
+  - elementId: core-bg
+    elementType: shape
+    bounds: [50, 150, 980, 62]
+    shapeName: roundRect
+    fill: {type: solid, color: "$panel2"}
+    border: {style: solid, width: 1, color: "$green"}
+  - elementId: core-text
+    elementType: text
+    bounds: [70, 150, 940, 62]
+    content: {style: "$badge", color: "$green", fontSize: 17, align: [center, middle], wrap: false, text: "النواة المحفوظة: Ollama + Langflow + Open Design + Awesome patterns"}
+
+  - elementId: h-card
+    elementType: shape
+    bounds: [50, 236, 980, 168]
+    shapeName: roundRect
+    fill: {type: solid, color: "$panel"}
+  - elementId: h-accent
+    elementType: shape
+    bounds: [50, 236, 7, 168]
+    shapeName: roundRect
+    fill: {type: solid, color: "$purple"}
+  - elementId: h-title
+    elementType: text
+    bounds: [76, 252, 590, 34]
+    content: {style: "$repo", align: [left, middle], wrap: false, text: "01 · Hermes Agent"}
+  - elementId: h-badge
+    elementType: text
+    bounds: [742, 252, 262, 34]
+    content: {style: "$small", color: "$purple", bold: true, align: [center, middle], wrap: false, text: "ذاكرة ومهارات وتنفيذ"}
+  - elementId: h-body
+    elementType: text
+    bounds: [76, 298, 928, 92]
+    content:
+      style: "$body"
+      align: [right, top]
+      text: |
+        <p>‫<span style="color:$green">REAL:</span> 44 bundled + 141 optional skills وذاكرة وcompression وdelegation.‬</p>
+        <p>‫<span style="color:$amber">ضبط:</span> Ollama keyless endpoint؛ يلزم context ≥64k على الخادم أو Modelfile.‬</p>
+        <p>‫<span style="color:$coral">الحدود:</span> plugins وskills بامتيازات الوكيل؛ العزل الحقيقي على مستوى OS.‬</p>
+
+  - elementId: c-card
+    elementType: shape
+    bounds: [50, 420, 980, 168]
+    shapeName: roundRect
+    fill: {type: solid, color: "$panel"}
+  - elementId: c-accent
+    elementType: shape
+    bounds: [50, 420, 7, 168]
+    shapeName: roundRect
+    fill: {type: solid, color: "$blue"}
+  - elementId: c-title
+    elementType: text
+    bounds: [76, 436, 590, 34]
+    content: {style: "$repo", align: [left, middle], wrap: false, text: "02 · Composio"}
+  - elementId: c-badge
+    elementType: text
+    bounds: [742, 436, 262, 34]
+    content: {style: "$small", color: "$blue", bold: true, align: [center, middle], wrap: false, text: "SDK ≠ Backend"}
+  - elementId: c-body
+    elementType: text
+    bounds: [76, 482, 928, 92]
+    content:
+      style: "$body"
+      align: [right, top]
+      text: |
+        <p>‫<span style="color:$green">REAL:</span> Sessions وProviders وModifiers وMCP origin guard وworkbench تجريبي.‬</p>
+        <p>‫<span style="color:$amber">EXTERNAL:</span> OAuth custody وtool search وmeta execution وhosted MCP وremote sandbox.‬</p>
+        <p>‫<span style="color:$coral">الربط:</span> Ollama عبر OpenAI/typesafe، وLangflow عبر langchain/MCP؛ الترخيص MIT/ISC/Apache.‬</p>
+
+  - elementId: t-card
+    elementType: shape
+    bounds: [50, 604, 980, 168]
+    shapeName: roundRect
+    fill: {type: solid, color: "$panel"}
+  - elementId: t-accent
+    elementType: shape
+    bounds: [50, 604, 7, 168]
+    shapeName: roundRect
+    fill: {type: solid, color: "$green"}
+  - elementId: t-title
+    elementType: text
+    bounds: [76, 620, 590, 34]
+    content: {style: "$repo", align: [left, middle], wrap: false, text: "03 · TrustClaw"}
+  - elementId: t-badge
+    elementType: text
+    bounds: [742, 620, 262, 34]
+    content: {style: "$small", color: "$green", bold: true, align: [center, middle], wrap: false, text: "أنماط لا منصة ثانية"}
+  - elementId: t-body
+    elementType: text
+    bounds: [76, 666, 928, 92]
+    content:
+      style: "$body"
+      align: [right, top]
+      text: |
+        <p>‫<span style="color:$green">REAL:</span> pgvector وcontext pruning/compaction وrate limits وcron وglen memory.‬</p>
+        <p>‫<span style="color:$amber">EXTERNAL:</span> Vercel AI Gateway وComposio وremote sandbox؛ ليس Offline.‬</p>
+        <p>‫<span style="color:$coral">الفائدة:</span> memory-search/save وcontext-window وtoken-estimation وrate-limit.‬</p>
+
+  - elementId: d-card
+    elementType: shape
+    bounds: [50, 788, 980, 168]
+    shapeName: roundRect
+    fill: {type: solid, color: "$panel"}
+  - elementId: d-accent
+    elementType: shape
+    bounds: [50, 788, 7, 168]
+    shapeName: roundRect
+    fill: {type: solid, color: "$amber"}
+  - elementId: d-title
+    elementType: text
+    bounds: [76, 804, 590, 34]
+    content: {style: "$repo", align: [left, middle], wrap: false, text: "04 · Helm Charts"}
+  - elementId: d-badge
+    elementType: text
+    bounds: [742, 804, 262, 34]
+    content: {style: "$small", color: "$amber", bold: true, align: [center, middle], wrap: false, text: "نشر وRBAC وأسرار"}
+  - elementId: d-body
+    elementType: text
+    bounds: [76, 850, 928, 92]
+    content:
+      style: "$body"
+      align: [right, top]
+      text: |
+        <p>‫<span style="color:$green">REAL:</span> Chart/values/helpers/secrets لخدمات apollo وthermos وmercury وfrontend.‬</p>
+        <p>‫<span style="color:$amber">الفائدة:</span> تقييد SDK secret access وstatus informers وملفات النشر.‬</p>
+        <p>‫<span style="color:$coral">الحدود:</span> Enterprise وdependencies محتملة؛ لا قيم أو أسرار بلا مراجعة.‬</p>
+
+  - elementId: s-card
+    elementType: shape
+    bounds: [50, 972, 980, 168]
+    shapeName: roundRect
+    fill: {type: solid, color: "$panel"}
+  - elementId: s-accent
+    elementType: shape
+    bounds: [50, 972, 7, 168]
+    shapeName: roundRect
+    fill: {type: solid, color: "$coral"}
+  - elementId: s-title
+    elementType: text
+    bounds: [76, 988, 590, 34]
+    content: {style: "$repo", align: [left, middle], wrap: false, text: "05 · Skills + Self-Evolution"}
+  - elementId: s-badge
+    elementType: text
+    bounds: [742, 988, 262, 34]
+    content: {style: "$small", color: "$coral", bold: true, align: [center, middle], wrap: false, text: "انتقاء وترخيص أولاً"}
+  - elementId: s-body
+    elementType: text
+    bounds: [76, 1034, 928, 92]
+    content:
+      style: "$body"
+      align: [right, top]
+      text: |
+        <p>‫<span style="color:$green">Apache:</span> مهارات موثقة مثل webapp-testing وmcp-builder وskill-creator.‬</p>
+        <p>‫<span style="color:$amber">غير مؤكد:</span> مهارات نصية مختارة فقط؛ لا نسخ بالجملة ولا document-skills التجارية.‬</p>
+        <p>‫<span style="color:$coral">Self-Evolution:</span> وثائق evals فقط؛ لا كود لغياب LICENSE، وPhase 1 = DEMO.‬</p>
+
+  - elementId: map-title
+    elementType: text
+    bounds: [50, 1170, 980, 32]
+    content: {style: "$repo", fontSize: 20, align: [right, middle], wrap: false, text: "خريطة الإضافة دون تغيير النواة"}
+  - elementId: map-bg
+    elementType: shape
+    bounds: [50, 1214, 980, 152]
+    shapeName: roundRect
+    fill: {type: solid, color: "$panel"}
+    border: {style: solid, width: 1, color: "$blue"}
+  - elementId: map-lines
+    elementType: text
+    bounds: [82, 1226, 916, 128]
+    content:
+      style: "$body"
+      fontSize: 16
+      align: [center, middle]
+      text: |
+        <p>‫Hermes skills → Open Design / agents  ·  Langflow ↔ Ollama‬</p>
+        <p>‫Composio كخيار خارجي → Langflow / Ollama / Open Design‬</p>
+        <p>‫TrustClaw patterns → Langflow  ·  Helm → Deployment  ·  Self-Evolution docs → Eval gates‬</p>
+  - elementId: security-bg
+    elementType: shape
+    bounds: [50, 1392, 980, 70]
+    shapeName: roundRect
+    fill: {type: solid, color: "#2A2026"}
+    border: {style: solid, width: 1, color: "$coral"}
+  - elementId: security-text
+    elementType: text
+    bounds: [70, 1398, 940, 58]
+    content:
+      style: "$small"
+      color: "$sand"
+      fontSize: 15
+      align: [center, middle]
+      text: |
+        <p>‫OS isolation · user scoping · schema approval · license check · لا كود Self-Evolution · NO TESTS‬</p>
+  - elementId: footer
+    elementType: text
+    bounds: [50, 1478, 980, 24]
+    content: {style: "$small", fontSize: 12, align: [center, middle], wrap: false, text: "REAL = مصدر موجود · EXTERNAL = خدمة خارجية · DEMO = مثال/تجريبي · UNKNOWN = ترخيص أو تشغيل غير مؤكد"}

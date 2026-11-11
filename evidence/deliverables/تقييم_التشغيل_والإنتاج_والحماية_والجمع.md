@@ -1,0 +1,272 @@
+# التشغيل الذاتي والخدمات الخارجية والإنتاجية والحماية والجمع
+
+**نطاق الحكم:** نفس لقطات المستودعات الأربعة التي جُردت في المرحلة الأولى. لا يوجد افتراض أن وجود الكود يعني نجاح التشغيل، ولا أن وجود اختبارات يعني صلاحية الإنتاج.
+
+**فرق أساسي:** `Self-hosted` يعني أن الخدمة تعمل على بنيتك، لكنها قد تتصل بـLLM أو بحث أو تخزين خارجي. أما `Offline` فيتطلب محلياً: النموذج، وقاعدة البيانات، والمستندات، وagent executable، والأدوات، وكل ما يلزم النتيجة. لذلك قد يكون المكوّن self-hosted وغير مستقل شبكياً في الوقت نفسه.
+
+## 1. الإجابة المختصرة
+
+| المكوّن | هل يعمل ذاتياً؟ | متى يحتاج خدمة خارجية؟ | الحكم الإنتاجي الحالي |
+|---|---|---|---|
+| **Ollama** | نعم كـruntime وREST وإدارة نماذج محلياً، بعد توفر نموذج وعتاد مناسبين | Ollama Cloud، النماذج السحابية، وبعض أدوات البحث/التكاملات الخارجية | **Production-shaped**؛ أقوى مرشح للبنية الذاتية، لكن النجاح يقاس باختبار التشغيل والنموذج لا بالمصدر وحده |
+| **Langflow** | النواة والواجهة والـworkflows والذاكرة المحلية وRAG المحلي يمكن استضافتها ذاتياً | أي نتيجة LLM تحتاج مزوداً؛ يمكن أن يكون Ollama محلياً. البحث والصوت وComposio والخدمات السحابية حسب المكونات | **Production-shaped** مع ضبط إلزامي للمصادقة والصلاحيات والشبكة والموارد؛ ليس اعتماداً إنتاجياً تلقائياً |
+| **Open Design** | الـdaemon والمشاريع والقوالب وDesign Systems وملفات المهارات محلية. يمكن تشغيل BYOK محلياً | يحتاج coding agent executable ومزود نموذج. المسار المحلي يتطلب OpenCode داخل بيئة الـdaemon ويمكن استخدام Ollama. معظم مزودي الصوت والفيديو والصور خارجيون | **Production-shaped للنواة**، لكن توليد AI والوسائط له تبعيات مستقلة، وبعض الميزات ما زالت roadmap/alpha |
+| **Awesome LLM Apps** | مجموعة فرعية من الأمثلة المحلية تعمل مع Ollama/Qdrant أو نماذج llama.cpp | معظم الأمثلة تحتاج OpenAI/Gemini/Claude/Grok/Firecrawl/Tavily/ElevenLabs أو خدمات مشابهة | **أغلبها DEMO/تعليمي**؛ لا يوجد مثال يجب اعتماده للإنتاج كما هو بسبب كلمة «local» أو وجود README |
+
+## 2. ما يعمل في بيئة مستقلة — بدقة
+
+### 2.1 مكونات ذاتية البنية
+
+- **Ollama محلياً:** تشغيل النماذج و`chat` و`embed` وإدارة الأوزان وواجهات OpenAI/Anthropic وtool calling وStructured Outputs، بشرط تنزيل النموذج المناسب وتوفر الذاكرة والمعالج/GPU. لا يحتاج اشتراكاً للمسار المحلي.
+- **Langflow + Ollama:** حزمة `lfx-ollama` رسمية، ويوضح `src/bundles/ollama/README.md` تسجيلها تلقائياً عبر `langflow.extensions`، وتوفر مكونات language model وembeddings. هذا مسار مباشر لتشغيل workflows محلياً دون اشتراك نموذج سحابي.
+- **Open Design + OpenCode + Ollama:** وثائق BYOK تقبل `protocol: "ollama"` ونقطة محلية keyless. لكن مفتاح Ollama ليس هو المتطلب الوحيد؛ يجب أن يكون OpenCode executable متاحاً داخل بيئة الـdaemon، وأن يكون النموذج محدداً صراحة.
+- **Qdrant/FAISS/Chroma/PostgreSQL المحلي:** بدائل عملية لعدد من أمثلة RAG والذاكرة بدلاً من قواعد البيانات السحابية.
+
+### 2.2 أمثلة Awesome المحلية — صالحة كأنماط لا كمنتجات
+
+| المثال | الاستقلال الفعلي | لماذا ليس إنتاجياً كما هو؟ |
+|---|---|---|
+| `rag_tutorials/local_rag_agent` | Ollama + Qdrant محليان، ولا مفاتيح API. لكن أول تشغيل يجلب `ThaiRecipes.pdf` من Amazon S3؛ للعمل دون شبكة يجب تنزيل المصدر محلياً وتغييره | مثال مفرد بلا مصادقة أو عزل مستخدمين أو حواجز محتوى أو اختبار RAG poisoning. تحميل PDF خارجي يفتح أيضاً باب تغيير المحتوى وسلسلة الإمداد |
+| `advanced_llm_apps/llm_apps_with_memory_tutorials/local_chatgpt_with_memory` | Ollama + Qdrant + Nomic embeddings محلياً | «تسجيل الدخول» مجرد إدخال Username. يمكن لأي شخص كتابة `user_id` لمستخدم آخر ثم استدعاء ذاكرته عبر `m.get_all(user_id=user_id)`: **IDOR/كسر عزل واضح**. كما تُضاف الرسائل والردود للذاكرة بلا تنقية أو حدود |
+| `rag_tutorials/local_hybrid_search_rag` | النماذج محلية عبر llama.cpp، لكن README يوصي بقاعدة PostgreSQL على Neon | يمكن جعلها ذاتية بقاعدة PostgreSQL محلية، لكنها ليست «صفر خدمات» بالإعداد الموصى به. تحتاج auth وحدود رفع PDF وموارد وتقييم استرجاع |
+| `llama3.1_local_rag` و`qwen_local_rag` و`deepseek_local_rag_agent` و`agentic_rag_embedding_gemma` | مرشحة للاستقلال عبر Ollama ومتاجر محلية حسب إعداد كل مثال | لا تُعتبر مختبرة من هذا الجرد. يلزم تثبيت الاعتماديات والنماذج ثم اختبار الدقة والحماية والموارد |
+| `local_chatgpt_clone` وبقية تطبيقات Streamlit المحلية | يمكن أن تعمل محلياً إذا كانت الاعتماديات متاحة | واجهة تعمل لا تعني خدمة آمنة متعددة المستخدمين؛ يلزم auth وجلسات وحدود ومراقبة |
+
+## 3. ما يحتاج اشتراكاً أو خدمة خارجية للنتيجة المعلنة
+
+| النوع | أمثلة من المستودعات | هل يوجد بديل ذاتي؟ |
+|---|---|---|
+| **LLM APIs** | OpenAI، Anthropic Claude، Google Gemini، xAI/Grok، Cohere، Mistral hosted، OpenRouter | نعم غالباً: Ollama أو LM Studio أو vLLM محلياً، مع اختلاف الجودة والذاكرة والعتاد |
+| **البحث والزحف** | Firecrawl، Tavily، Exa، SerpAPI، SearchAPI، Apify، Bright Data | جزئياً: SearXNG وبحث محلي وcrawler مستضاف؛ تختلف التغطية ومكافحة الحجب |
+| **الصوت** | ElevenLabs، AssemblyAI، OpenAI Realtime، Bolna، Plivo | **Voice Mode في Langflow بهذه اللقطة خارجي** ويحتاج OpenAI Realtime + ElevenLabs. البدائل المحلية مثل Ollama speech أو FunASR تحتاج مساراً منفصلاً واختبار لغة وجودة وتزامن؛ ليست بديلاً جاهزاً مثبتاً |
+| **الصور والفيديو** | Fal، Venice، Sora، Seedance/Kling، Runway ومزودو Open Design | ليس بنفس الجودة أو السهولة دائماً. HyperFrames يعالج العرض/الـrendering، لكن توليد الفيديو بالنموذج قد يبقى خارجياً |
+| **Coding agents** | Claude Code، Codex، OpenCode وغيرها في Open Design وOllama | الملف التنفيذي قد يكون مجانياً، لكن الاستدلال يحتاج نموذجاً محلياً أو API. يجب التحقق من ترخيص كل agent ودعمه للنموذج المحلي |
+| **Vector DB/managed DB** | Neon، Pinecone، AstraDB، Upstash وخدمات أخرى | نعم: Qdrant أو FAISS أو Chroma أو PostgreSQL/pgvector محلياً |
+| **Composio/SaaS** | عشرات أدوات Google/Slack/Notion/GitHub/Jira وغيرها في Langflow | يمكن بناء تكاملات مباشرة بـAPI keys، لكنها تبقى خدمات خارجية بطبيعتها؛ لا «بديل محلي» لـGmail أو Slack |
+| **Ollama Cloud** | النماذج السحابية وبعض ميزات الحساب/الرصيد | المسار المحلي من Ollama لا يحتاجها |
+
+## 4. أيها صالح للاستخدام الإنتاجي؟
+
+### Production-shaped وليس «معتمداً»
+
+1. **Ollama core** — منتج runtime متكامل مع اختبارات كثيفة وCI وواجهات وثائق وتثبيت وتحديثات. يبقى اعتماد النموذج والمنصة والشبكة والموارد والتحديثات ضمن تقييم الإنتاج.
+2. **Langflow core** — توجد مصادقة وتخويل وaudit وrate limiting واختبارات ونشر ومراقبة وRAG وMCP وHITL. يجب ضبطها واختبار سيناريوهات المستأجرين والهجمات قبل إطلاقها.
+3. **Open Design core** — توجد بنية daemon وعقود واختبارات وحماية SSRF وworkspace authorization وحصر جذور runtime عبر `OD_SANDBOX_MODE`، لكن الأخير ليس عزل عمليات. يجب تقييم كل runtime ومزود على حدة؛ نجاح مساحة العمل لا يثبت نجاح توليد الوسائط.
+
+### مرشح بعد إعادة الهندسة والاختبارات
+
+- أمثلة Awesome التي تحتوي اختبارات فعلية أو evals، مثل بعض `always_on_agents` و`agent_skills` ومشاريع UI البحثية. الاختبارات الموجودة نقطة بداية، وليست شهادة أمن أو موثوقية.
+- خدمات Langflow الجاهزة `starter_projects`: تبدأ كقوالب، ثم تراجع مدخلاتها ومزوديها وصلاحياتها وحدودها.
+
+### DEMO/تعليمي ولا يجب نشره كما هو
+
+- `starter_ai_agents` و`rag_tutorials` و`ai_agent_framework_crash_course` ومعظم تطبيقات Streamlit وfinance/voice التعليمية.
+- `local_chatgpt_with_memory` تحديداً بسبب غياب المصادقة وكسر عزل الذاكرة.
+- أي مثال يحمّل مستنداً أو نموذجاً أو حزمة من URL ثابت بلا hash ولا تحقق من المصدر ولا اختبار للمحتوى الضار.
+
+## 5. هل اختبارات الحماية والثقة تغطي الأخطاء الواقعية؟
+
+**الجواب: لا، ليست تغطية شاملة.** توجد مناطق قوية، لكن لا توجد حزمة موحدة تثبت مقاومة prompt injection وRAG poisoning وtool poisoning وBOLA/IDOR وsandbox escape وDoS وسلسلة الإمداد وتسريب الأسرار عبر كل المكونات.
+
+الأدلة التفصيلية ومصفوفة التهديدات تُستكمل أدناه من ملفات الاختبار والتشغيل المعزول، لا من أسماء الميزات فقط.
+
+## 6. هل يمكن جمع المكونات؟
+
+**نعم، لكن كخدمات مستقلة بعقود، لا بدمج المستودعات في codebase واحد.**
+
+### المسار الذاتي المقترح
+
+1. **Ollama:** طبقة النماذج و`chat/embed`؛ توجد وحدات speech في المصدر، لكن نجاحها محلياً لم يُثبت في هذا التحقيق ويحتاج نموذجاً واختباراً منفصلاً.
+2. **Langflow:** طبقة التنسيق وإدارة الـworkflows والذاكرة وRAG وMCP وHITL والصلاحيات.
+3. **Qdrant أو PostgreSQL/pgvector محلي:** المعرفة والذاكرة المتجهية.
+4. **Open Design اختياري:** مساحة التصميم والمهارات والقوالب وHyperFrames، مع OpenCode وOllama للمسار الذاتي، وتعطيل مزودي الوسائط الخارجيين غير المرغوبين.
+5. **Awesome:** مصدر أنماط فقط؛ تُنقل خوارزميات RAG والذاكرة والتقييم المختارة إلى custom components/workers بعد المراجعة، ولا تُشغّل 144 مشروعاً كخدمات متوازية.
+
+**حدود الربط:** `Langflow + Ollama` موثق مباشرة، و`Open Design + Ollama` موثق عبر BYOK مع OpenCode. أما `Open Design + Langflow` فلا يوجد تكامل أصيل في اللقطة؛ توجد نقطة `api/v1/openai_responses.py` في Langflow تجعل flows قابلة للاستهلاك بصيغة OpenAI-compatible، لكن ربطها بـBYOK في Open Design يحتاج اختباراً من الطرف إلى الطرف، وليس افتراضاً جاهزاً. ونقل مكونات Awesome يدوي وليس install-and-play.
+
+### قواعد الجمع الإلزامية
+
+- هوية موحدة وتمرير `user/workspace/project` إلى كل طلب، ومنع الاعتماد على `user_id` نصي.
+- API keys في secret manager، لا في prompts أو project metadata أو MCP inputs.
+- TLS ومصادقة وصلاحيات على كل endpoint، وتعطيل auto-login وkeyless access خارج loopback.
+- allowlist للشبكة والنماذج والأدوات، وحماية SSRF وحدود redirects والملفات الداخلية.
+- sandbox مستقل لتنفيذ الكود والبلجنات، مع read-only filesystem وحدود CPU/RAM/PIDs/وقت وشبكة.
+- تعقيم المستندات والـRAG وtool descriptions، وموافقة بشرية للعمليات الحساسة، وcitations واختبارات poisoning.
+- timeouts وrate/concurrency/upload/context limits ومراقبة التكلفة والذاكرة وطول الطابور.
+- audit log موحد، ونسخ احتياطية وrollback، واختبارات unit/integration/e2e/adversarial/fuzz/load قبل أي وصف «إنتاجي».
+
+## 7. نتائج التشغيل المعزول ومصفوفة التهديدات التفصيلية
+
+### 7.1 سجل التشغيل الفعلي
+
+| الاختبار | النتيجة | الدليل والمعنى |
+|---|---|---|
+| Open Design — `apps/daemon/tests/redact.test.ts` | **PASS: 21/21** | `vitest 3.2.4`: ملف واحد و21 اختباراً ناجحاً لتنقية مفاتيح OpenAI/Anthropic وGitHub وAWS وGoogle وSlack/Stripe وJWT وBearer وheaders/query والبريد وIP والهاتف والبطاقات. هذا يثبت وحدة redaction فقط، لا كل التطبيق |
+| Open Design — `asset-ssrf-loopback.test.ts` | **BLOCKED** | بعد تجهيز خفيف، توقف التجميع لغياب `@open-design/contracts` واعتماديات workspace. لم تبدأ الاختبارات؛ لا يُسجّل PASS أو FAIL أمني |
+| Open Design — SSRF acceptance probe | **PASS: 13/13** | `public-asset-fetch` الحقيقي + undici + loopback server: رفض loopback وmetadata وDNS failure وrebinding. تخطي DNS في precheck **ليس SSRF مثبتاً** لأن `validating lookup` يعمل عند الاتصال |
+| Ollama — registry auth Go tests | **PASS** | `go test ./server -run 'TestGetAuthorizationTokenRejectsCrossDomain|TestParseRegistryChallenge|TestRegistryChallengeURL'` نجح على Linux، بما فيه invalid URL وnonces وcross-domain |
+| Ollama — `go test ./app/tools` | **BLOCKED بنيوي** | `build constraints exclude all Go files` لأن الحزمة `windows || darwin` فقط؛ لا اختبار URL policy على Linux |
+| Open Design — `mock-agent.mjs --as opencode --no-delay` | **PASS محدود** | خرج `exit=0` وسجلات JSONL صالحة تنتهي بـ`step_finish`؛ يثبت سلامة الـmock فقط، لا الـdaemon أو توليد AI |
+| Open Design — daemon وكامل Vitest | **NOT RUN** | البيئة Node 20 بينما المشروع يشترط Node ~24 وتثبيت monorepo كامل؛ لا حكم بناء على عدم تشغيلها |
+| Langflow — backend unit tests | **BLOCKED / NOT RUN** | توقف collection عند `orjson` ثم `langchain_core` وتعارض/تعذر تثبيت الاعتماديات ضمن المهلة. نجح فقط فحص بيئة `SMOKE-DEPS-OK` وSHA؛ لم يبدأ اختبار أخضر |
+| Awesome LLM Apps | **NOT RUN** | لم تُثبّت النماذج أو Qdrant أو الاعتماديات؛ لا يوجد ادعاء نجاح لأي مثال محلي |
+| تشغيل AI/فيديو/صوت خارجي | **NOT RUN** | لم تُستخدم مفاتيح أو خدمات مدفوعة؛ لا توجد شهادة لجودة أو نجاح أي مزود |
+
+### 7.2 Open Design — ما تغطيه الاختبارات فعلاً
+
+| الخطر | التقييم | الدليل والفجوة |
+|---|---|---|
+| SSRF وDNS rebinding | **PROVEN: NOT-A-BUG 13/13** | الـprobe التجريبي أثبت أن `publicAssetDispatcher` و`createValidatingLookup` يمنعان الاتصال الخاص حتى مع تخطي DNS في precheck. اختبار Vitest الأصلي بقي BLOCKED. الفرق بين النسخ الحارسة و`connectionTest` انجراف سياسات P2 يستحق التوحيد، وليس ثغرة مثبتة. إعادة التحقق من كل redirect hop موثقة **STATIC** فقط؛ اختبار redirect→private ضمن `SSRF-01` مطلوب تنفيذياً ولم يكن ضمن الـ13 حالة |
+| كسر صلاحيات المشروع/الفريق | **قوي** | `chat-project-authority.test.ts` يتحقق من الرفض قبل DNS أو استهلاك مفتاح المزود أو كتابة الملف، واختبارات workspace الأخرى تفصل read/write/capabilities |
+| API tokens والتعرض الخارجي | **قوي** | `api-token-guard.test.ts` واختبارات tool/mcp tokens تمنع الربط غير المحلي بلا Bearer token؛ يبقى خيار التعطيل `OPEN_DESIGN_DISABLE_API_AUTH=1` خطراً إن فُعّل في بيئة مكشوفة |
+| Path traversal | **NOT-A-BUG حالياً بثقة ساكنة عالية** | مسار uninstall يفحص `isSafePluginId` في `routes/plugins/index.ts:576`، ثم يفحصه مجدداً في `installer.ts:877` قبل `path.join/rm -rf`. الترويسة Red spec تاريخية؛ يلزم تأكيد الجناح في CI، وليس وصفها كثغرة قائمة |
+| تسريب الأسرار | **PASS محدود** | وحدة redaction نجحت 21/21. لا يثبت ذلك عدم وجود أسرار في كل ملف أو كل log |
+| Origins/CORS | **تغطية عملية** | `origin-validation.test.ts` يشغّل HTTP فعلياً ويختبر same-origin وLAN والقيم المشوهة وOrigin:null والقراءات الآمنة |
+| Plugin supply chain | **STATIC: TOFU/توقيع مفقود** | lockfile وsha256 يمنعان اختلاف المحتوى عن الهاش، لكن manifest غير موقَّع؛ اختراق registry يغيّر الهاش والمحتوى معاً. لا يوجد minisign/sigstore في اللقطة، وفحص CI غير محسوم |
+| Sandbox/XSS | **STATIC P1: لا عزل OS** | `OD_SANDBOX_MODE` يحصر جذور الملفات فقط؛ الوكلاء يُspawnون بامتيازات الدايمون والعزل مفوض لكل CLI. iframe جيد للمعاينة لكنه لا يعزل subprocesses. كثير من `e2e/*sandbox*` فوترة لا حماية، ووثيقة hardening خطة لا تنفيذ |
+| Prompt/tool injection | **STATIC P2: قناة افتراضية + تحقق ناقص** | كل restricted plugin يحصل افتراضياً على `prompt:inject` بلا فحص محتوى، و`grantCaps` في apply يقبل قائمة بلا `validateCapabilityList` أو تأكيد server-side. توجد tool tokens واختبارات transcript، لكن لا جناح adversarial شامل |
+| RAG poisoning | **N/A للنواة الحالية** | لا منصة RAG/vector عامة في Open Design؛ أي RAG يضاف عبر مكوّن آخر يحتاج تقييماً مستقلاً |
+| DoS/الموارد | **STATIC P1** | لا rate limiting على `/api` ولا سقف مثبت للـruns/SSE. حدود body والتنزيل جيدة جزئياً، لكن multer `memoryStorage` يقبل plugin 50MB×500 وFigma 200MB، وingest يبلغ 128MB؛ يلزم diskStorage وrate/concurrency quotas واختبار حمل |
+
+**قرار Open Design:** لم يثبت استغلال P0 في هذا التدقيق: SSRF مرفوض تجريبياً وuninstall traversal مُصلَّح بطبقتين. الأولوية هي P1 لعزل العمليات وحدود المعدل/الذاكرة، ثم P2 لقنوات الحقن والتوقيع والتغطية المركزية للـredaction.
+
+### 7.3 Awesome LLM Apps — الفجوات العملية المثبتة
+
+- `local_chatgpt_with_memory`: **IDOR مباشر**؛ حقل Username في L48 ثم `get_all` في L64 و`m.add` في L88/L134 بلا مصادقة. كل الذكريات تُجمع وتُحقن في L91-109 بلا حدود: memory poisoning وDoS. ويُخزّن الرد حتى عند الاستثناء، مع عرض `str(e)` للواجهة، ولا منع لتخزين الأسرار.
+- `local_rag_agent`: يجلب PDF خارجياً في L26-28 بلا integrity check؛ يلزم مصدر محلي موثوق وSHA256 وتعقيم المستند. كما أن `agent_os.serve` في L37-42 بلا طبقة مصادقة، فيجب loopback أو proxy auth.
+- `local_hybrid_search_rag`: يحتاج استبدال Neon بقاعدة محلية. إضافة إلى ذلك، `db_url` يُدخل كنص صريح ويمكن تحويله إلى خادم مهاجم لتسريب المستندات، ولا TLS إلزامي، واسم الملف يُستخدم في `temp_{filename}` بلا حدود رفع أو tenant filter عند البحث.
+- بحث أسماء ملفات tests لم يُظهر تغطية مباشرة لـSSRF/auth/prompt injection/poisoning/traversal/sandbox/secrets/CORS/DoS. هذا لا يثبت غياب كل حماية، لكنه **لا يقدم دليل تغطية**؛ `dependency-doctor` وحده مثال مفيد لسلسلة الإمداد.
+- النتيجة: الأمثلة تفيد كأنماط كود، ولا تُنقل للإنتاج إلا بعد إضافة الهوية والعزل والحماية والاختبارات الواقعية.
+
+### 7.4 Ollama — قوة runtime وحدود الثقة
+
+| الخطر/التشغيل | التقييم | الدليل والفجوة |
+|---|---|---|
+| `go test` للـregistry auth | **PROVEN PASS** | نُفّذ على Linux باستخدام Go 1.26.10 الرسمي: رفض cross-domain وتحليل challenge وnonce وinvalid URL كلها ناجحة. هذا يثبت registry auth فقط، لا REST auth |
+| `go test ./app/tools` | **BLOCKED بنيوي** | كل الحزمة `windows || darwin` فقط؛ فشل build constraints على Linux، ولا يعني ذلك فشلاً أمنياً للمنصة |
+| Registry auth | **PROVEN** | اختبار `server/auth_test.go` نجح فعلياً لرفض cross-domain وتحليل Bearer challenge وnonce؛ وهو خاص بـregistry/cloud pull/push |
+| REST auth/multi-user | **STATIC: غائب** | `server/routes.go` بلا auth middleware على REST، و`OLLAMA_AUTH` يؤثر في العميل فقط. CORS للمتصفحات وليس مصادقة. عند التعرض استخدم proxy مع TLS/OIDC/mTLS وتقييد `/api/create|pull|push|delete|blobs` للمشغّلين |
+| URL/tool argument | **BLOCKED وقدرة غير مضمّنة على Linux** | كل `app/tools` بما فيها `url_policy_test.go` محصورة بـ`windows || darwin`؛ على Linux لا يبنى web_fetch/browser المدمج، فلا يرث أي تكامل آخر هذه السياسة. يجب تنفيذ allowlist وSSRF guard في طبقة التركيب على Linux |
+| ملفات النماذج الخبيثة | **STATIC جيد جزئياً** | `server/create_fuzz_test.go` يستخدم fuzz bounded بحد 64KB لأنماط GGUF/safetensors/splits والملفات المتعددة. لا يثبت أمان كل ملف أو كل محوّل |
+| `/api/create` وإدارة النماذج | **خطر عند التعرض** | create يقرأ ملفات server-local بمسارات من الطلب؛ عند فتح API بلا proxy auth يمكن تحويل ملفات المضيف إلى نموذج واستخراجها. يجب حظر create/blobs والإدارة عن المستخدمين |
+| سلامة النماذج والتحديثات | **STATIC: TLS + sha256 لا توقيع ناشر** | blobs content-addressed وredirects محروسة، لكن سلامة manifest تعتمد TLS والثقة بالسجل؛ لا TUF/توقيع ناشر في اللقطة. استخدم سجلات معتمدة وegress allowlist |
+| التزامن والضغط | **اختبارات قوية غير منفذة هنا** | `integration/concurrency_test.go` يفحص الطلبات المتوازية وضغط النماذج وVRAM/CPU، لكنه `integration` ويحتاج نماذج فعلية؛ لم يُشغّل |
+| Prompt/RAG/tool poisoning | **خارج النواة أو فجوة** | Ollama ليس RAG/orchestrator. تصبح هذه المخاطر واجبة المعالجة في Langflow/Open Design/Awesome عند تركيب الوكلاء |
+| Sandbox/secrets/CORS | **فجوات تشغيلية** | لا OS sandbox لأدوات خارجية في Ollama. `OLLAMA_DEBUG_LOG_REQUESTS` قد يسجل prompts/أسرار، فيبقى مطفأً إنتاجياً. CORS لا يغني عن auth، و`OLLAMA_ORIGINS` يجب تخصيصه |
+
+**الحكم:** Ollama مناسب كـruntime ذاتي، لكن «الخادم المحلي» و«التشغيل الآمن متعدد المستخدمين» مسألتان مختلفتان. يلزم نموذج محلي وعتاد وتنزيل أولي، ثم بوابة أمان وموارد ومراقبة عند الإنتاج.
+
+### 7.5 Langflow — تغطية واسعة مع فجوات موثقة
+
+| الخطر | التقييم | الدليل والفجوة |
+|---|---|---|
+| Path traversal ورفع الملفات | **قوي** | `test_path_traversal_security.py` يختبر `../` والـbackslash والمسار المطلق والشرطات والـnull bytes وUnicode، ويتأكد من عدم الكتابة خارج المسار، مع containment في storage |
+| SSRF | **قوي** | توجد اختبارات `test_openai_models_ssrf.py` و`test_ssrf_guarded_ollama_components.py` واختبارات bundles للـredirects والموصلات. لا يعني ذلك أن كل مزود مستقبلي محمي تلقائياً |
+| Voice auth/provider policy | **قوي، والخدمة خارجية** | `test_voice_mode_flow_authz.py` يتحقق من رفض provider قبل قراءة السر أو فتح socket، ومن ربط الصلاحية بـworkspace/project ومنع قراءة وصف flow الخاص قبل التخويل. هذا يثبت الحماية لا الاستقلال: Voice Mode يحتاج OpenAI Realtime + ElevenLabs في هذا SHA، وجلساته في ذاكرة العملية |
+| Refresh tokens | **فجوة مثبتة في التغطية/التنفيذ** | `test_refresh_token_type_validation` و`test_refresh_token_user_active_check` موسومان `skip`؛ التعليقات تقول إن التحقق من النوع `refresh` ومن كون المستخدم نشطاً غير منفذين. يجب إصلاحهما قبل الاعتماد على الجلسات طويلة الأمد |
+| CORS | **إعداد افتراضي واسع مع mitigation جزئي** | الإعداد الافتراضي يسمح `*` مع credentials=True في `Settings`. اختبار middleware يثبت أنه يعطّل credentials عند wildcard، لكن ذلك لا يجعل `*` سياسة إنتاج جيدة. حدد origins صراحة وفعّل Secure cookies تحت HTTPS |
+| Secrets/redaction | **تغطية جيدة** | اختبارات request/response validation وexport secret sanitization وflow secret write refusal وMCP secret persistence وFernet للأسرار. يجب ضبط `LANGFLOW_SECRET_KEY` قوية وثابتة قبل الإنتاج، ولا يثبت ذلك فحص كل log أو telemetry |
+| BOLA/tenant isolation | **قوي نسبياً** | توجد مصفوفة authz واختبارات roles/teams/shares/capabilities/audit. يجب تشغيل سيناريو مستخدم-ضد-مستخدم على كل endpoint جديد، لا الاكتفاء بأسماء roles |
+| Prompt injection/RAG poisoning/tool poisoning | **محدود/فجوة** | `agentic/helpers/input_sanitization.py` يحمي المساعد الداخلي فقط بأنماط وحد إدخال، وليس كل flow مخصص. مفاتيح مصادر KB مبنية SHA للإعداد، لكن لا يوجد تعقيم/توقيع محتوى يمنع RAG poisoning. Guardrails وHITL لا يثبتان منع exfiltration أو tool poisoning |
+| Code execution/sandbox | **جزئي** | اختبارات `test_sandbox.py` و`test_sandbox_registry.py` موجودة، لكنها لا تثبت عزل OS كامل لـPython REPL أو custom components. استخدم worker منفصلاً محدود الشبكة والملفات والموارد |
+| DoS/الحمل | **موجود لكن غير مثبت هنا** | SlowAPI مفعّل افتراضياً، لكن التخزين في ذاكرة كل عملية؛ يحتاج Redis/Valkey عند تعدد العقد. توجد Locust وperformance/stress وحدود ملفات ومساعد، ولم أشغّلها. يلزم حد عام لجسم الطلب على الوكيل وحدود السياق وvoice وطوابير workers والتكلفة |
+| Supply chain/bundles | **جزئي** | توجد اختبارات dependency pins/security resolution وlockfiles. يجب تثبيت bundles الموثوقة فقط ومراجعة opt-in وComposio وصلاحيات كل provider |
+
+**الحكم:** Langflow لديه أوسع تغطية منصة بين الأربعة، لكن فجوات refresh token وadversarial AI وحدود التنفيذ تمنع وصفه بأنه آمن إنتاجياً بلا إصلاح واختبار قبول.
+
+## 8. الإصلاحات المطلوبة مرتبة بالأولوية
+
+### P0 — إصلاحات تمنع النشر أو مشاركة البيانات
+
+1. **إغلاق IDOR وعزل الذاكرة في `local_chatgpt_memory.py`.**
+   - إزالة اعتبار `user_id` المدخل نصياً هوية موثوقة؛ استخدام جلسة موقعة من Identity Provider أو backend يصدرها.
+   - تمرير `authenticated_user_id` و`workspace_id` من الخادم فقط، وفرضهما في كل `m.get_all` و`m.add` و`delete` و`search`، لا في الواجهة فقط.
+   - منع عرض الذاكرة أو تعديلها لأي مستخدم آخر حتى لو عرف الاسم أو UUID، وتسجيل كل محاولة في audit.
+   - عدم تخزين المفاتيح والتعليمات الحساسة والردود الفاشلة كأنها نجاح، ووضع حد لعدد الذكريات وطول السياق وعدد الطلبات.
+   - **اختبار القبول:** المستخدم A لا يستطيع قراءة/إضافة/حذف ذاكرة B بأي تغيير في `user_id` أو الطلب المباشر، والنتيجة 403 دون تسريب وجود الذاكرة أصلاً.
+
+2. **إصلاح refresh tokens في Langflow قبل الجلسات طويلة الأمد.**
+   - فرض `type == "refresh"` عند التجديد، والتحقق من وجود المستخدم و`is_active`، وإبطال/تدوير الرمز السابق ومنع إعادة استخدامه.
+   - ضبط `ACCESS_SECURE=True` و`REFRESH_SECURE=True` تحت HTTPS مع HttpOnly وSameSite المناسب.
+   - **اختبار القبول:** access token مكان refresh = 401، رمز مستخدم موقوف = 401، إعادة استخدام الرمز القديم = 401، والمستخدم النشط يحصل على rotation صحيح. حوّل اختبارات `skip` الحالية إلى اختبارات تنفيذية.
+
+3. **منع التعرض المفتوح لكل الخدمات.**
+   - TLS ومصادقة على reverse proxy موحد، و`127.0.0.1` أو private network افتراضياً، وتعطيل auto-login و`OPEN_DESIGN_DISABLE_API_AUTH` وkeyless access خارج loopback.
+   - `LANGFLOW_CORS_ORIGINS` بقائمة نطاقات محددة، لا `*`، مع بقاء credentials معطلة لأي wildcard.
+   - `LANGFLOW_SECRET_KEY` قوية وثابتة ومُدارة في KMS/K8s secrets؛ وPostgres بدلاً من SQLite وRedis/Valkey لمشاركة rate limit والكاش عند تعدد العقد.
+   - في Ollama: `OLLAMA_HOST=127.0.0.1:11434`، وبوابة تمنع `/api/create` و`/api/blobs` و`/api/pull|push|copy|delete|me|signout|balance|usage` عن غير المشغّلين لمنع قراءة ملفات المضيف وإدارة النماذج.
+   - **اختبار القبول:** لا وصول بلا هوية من شبكة خارجية أو Origin عدو، ولا يتجاوز الطلب بوابة workspace/user. و`POST /api/create` بلا دور مشغّل = 403، و`DELETE /api/delete` بتوكن مستخدم عادي = 403، ولا يتغير شيء على المضيف.
+
+4. **عزل تنفيذ الكود والبلجنات على مستوى OS.**
+   - Python REPL/custom components/community plugins/coding agents في workers منفصلة: مستخدم غير root، filesystem للقراءة فقط، tmpfs محدود، بلا Docker socket، شبكة deny-by-default، وحدود CPU/RAM/PIDs/وقت/حجم مخرجات.
+   - لا اعتبار `sandbox=` في iframe أو قيد جذر runtime عزلاً كاملاً للعملية.
+   - **اختبار القبول:** محاولة قراءة `/etc/passwd` وفتح socket والوصول إلى metadata و`../../` والخروج من المهلة تفشل كلها دون أثر على المضيف أو بيانات المستخدمين.
+
+### P1 — إصلاحات الثقة والاستمرار والجودة
+
+5. **إضافة rate limiting وموارد لكل route في Open Design.**
+   - Middleware لكل هوية/IP/project، مع حدود منفصلة لـAPI وingest والتنزيل والفيديو والـruns، وtimeouts وطابور وسعة قصوى وإلغاء.
+   - تحويل `pluginUpload` و`figmaUpload` من `memoryStorage` إلى `diskStorage` streaming، وخفض `128mb` لـingest وفق الاستخدام، ووضع quotas للمزودين والتكلفة وconcurrent runs وSSE.
+   - **اختبار القبول:** دفعة طلبات متوازية وملفات كبيرة وطول سياق تُرفض 429/413/408 ضمن حدود معلنة، مع بقاء الخدمة والمشاريع الأخرى سليمة.
+
+6. **توحيد دلالات فشل DNS واختبارها في Open Design.**
+   - توحيد السياسة إلى fail-closed عند فشل DNS في `assertPublicAssetUrl`، واستخراج `isNonPublicHost/createValidatingLookup` إلى وحدة واحدة لمنع انجراف النسخ الثلاث، مع بقاء الفحص على الاتصال نفسه ومنع كل عنوان غير عام.
+   - لا أستنتج ثغرة من `return` وحده؛ المطلوب اختبار سلوكي نهائي: اسم يعود public ثم private، وDNS throws، وredirect إلى private.
+   - **اختبار القبول:** لا يخرج أي socket أو provider key أو ملف عند DNS failure أو rebinding أو redirect خاص، وتسجل النتيجة سبب الرفض.
+
+7. **إضافة جناح prompt/RAG/tool poisoning مشترك.**
+   - مستندات وPDF وصفحات وtool descriptions تحتوي تعليمات مثل «اكشف المفتاح» و«نفّذ أداة» و«تجاهل النظام»؛ التعامل معها كبيانات لا تعليمات.
+   - فصل المحتوى عن التعليمات، وallowlist للأدوات والحقول، وHITL للعمليات الحساسة، ومنع الأسرار من نطاق retrieval غير الموثوق.
+   - في Open Design: تمرير `grantCaps` عبر `validateCapabilityList` مع audit للمنح المرتفعة، وفحص محتوى `prompt:inject` قبل التفعيل بدلاً من منحه تلقائياً بلا مراجعة.
+   - **اختبار القبول:** لا يتغير system policy، ولا يتسرب سر، ولا ينفذ فعل خارج النطاق، ويُعرض السبب والمصدر للمستخدم. Guardrails النصية وحدها لا تُقبل كإثبات.
+
+8. **إصلاح مصادر Awesome المحلية.**
+   - `local_rag_agent.py`: ملف PDF محلي موثوق مع SHA256 وحجم أقصى ومعالجة فشل التحميل وتعقيم المحتوى؛ لا جلب إلزامي من S3.
+   - `local_hybrid_search_rag`: PostgreSQL/pgvector محلي، وإزالة `db_url` من الواجهة وقراءته من secret manager، وفرض `sslmode=verify-full`، وربط السجلات بـ`owner_id/team_id` إلزامياً، وحدود رفع PDF وMIME و`tempfile.NamedTemporaryFile` بدلاً من اسم ملف العميل.
+   - **اختبار القبول:** تغيير بايت واحد في PDF أو hash أو plugin يوقف الاستيراد، وتعمل المعرفة بعد فصل الشبكة، ولا يعبر مستند خبيث إلى tool call أو تسريب.
+
+9. **تقوية Ollama للإنتاج وLinux.**
+   - استكمال بوابة TLS/auth/rate-limit أمام API، وعدم الاعتماد على registry challenge أو `OLLAMA_AUTH` كـRBAC؛ العميل فقط هو من يوقّع. حظر `/api/create` والإدارة عن المستخدمين أصبح شرط P0 أعلاه.
+   - نقل/تعميم اختبارات `url_policy_test.go` إلى Linux أو إضافة ملف مكافئ في طبقة التركيب، واختبار SSRF وredirects وmetadata.
+   - تثبيت digests للنماذج والتحديثات مع سجلات معتمدة وegress allowlist، وحدود التنزيل والذاكرة والتوازي، وتعطيل `OLLAMA_DEBUG_LOG_REQUESTS` إنتاجياً.
+   - **اختبار القبول:** لا وصول خارجي بلا هوية، ويعمل اختبار URL policy على Linux، ويُرفض model/update غير المطابق للهاش.
+
+### P2 — التشغيل وسلسلة الإمداد والاسترجاع
+
+10. **تثبيت الحزم والتحديثات والبلجنات.**
+    - lockfiles وhashes وSBOM وSCA وsecret scanning واختبارات postinstall؛ منع plugins/skills غير موقعة أو مجهولة، ومراجعة opt-in bundles.
+    - توقيع marketplace manifests بـminisign/sigstore قبل التثبيت؛ TOFU عبر HTTPS لا يكفي عند اختراق registry. دمج نسختي `redactSecrets` وتطبيقها مركزياً في log pipeline لا في مواقع منتقاة.
+    - تفعيل telemetry بالموافقة فقط وredaction موحد ودورات أسرار ونسخ احتياطية وrollback.
+
+11. **إثبات التشغيل قبل كلمة «إنتاجي».**
+    - تشغيل الخدمات على commits مثبتة، ثم API smoke، ثم نموذج محلي فعلي، ثم RAG فعلي، ثم voice/فيديو اختياري، ثم اختبارات auth/adversarial/load.
+    - في Open Design لا يُقبل HTTP 202 وحده؛ يلزم `status=succeeded` و`deliverableValid` و`deliverableEntryFile` صالحاً.
+
+## 9. مصفوفة اختبارات القبول المطلوبة
+
+| المعرف | السيناريو | النتيجة المطلوبة |
+|---|---|---|
+| `OFF-01` | فصل الشبكة بعد تخزين النموذج والمستندات والحزم | Chat وRAG وembedding والذاكرة تعمل محلياً بلا API خارجي |
+| `AUTH-01` | مستخدم A يغيّر `user_id` إلى B | 403؛ لا قراءة أو إضافة أو حذف أو كشف لوجود ذاكرة B |
+| `JWT-01` | access token كـrefresh، ومستخدم غير نشط، وإعادة رمز قديم | 401 للحالات الثلاث مع rotation صحيح للنشط |
+| `CORS-01` | Origin عدو مع cookies وAuthorization | لا CORS ناجح ولا بيانات؛ wildcard لا يحمل credentials |
+| `SSRF-01` | DNS public→private، وDNS throws، وredirect إلى metadata | رفض قبل الاتصال/إرسال السر، مع سبب مسجل |
+| `AUTHZ-01` | مستخدم يستدعي run أو voice أو artifact لمشروع غير مصرح | 403 قبل DNS أو قراءة السر أو تنفيذ المزود |
+| `FILE-01` | `../` و`..%2F` وnull bytes ومسار مطلق في upload/uninstall | 400؛ لا ملف أو حذف خارج الجذر |
+| `MEM-01` | تعليمات خبيثة داخل ذاكرة/رسالة سابقة | لا تتغير سياسة الوكيل ولا يتسرب سر، مع حدود السياق |
+| `RAG-01` | PDF يتضمن تعليمات وروابط ومحتوى مضلل | يعامل كنص غير موثوق؛ لا tool call أو exfiltration، مع مصدر واضح |
+| `TOOL-01` | Tool/schema يطلب صلاحية أو exfiltration | رفض أو HITL؛ لا تنفيذ تلقائي ولا سر في logs |
+| `DOS-01` | burst وملف ضخم وطول سياق وطوابير نماذج | 429/413/408 ضمن الحدود، ولا انهيار أو احتكار VRAM/RAM |
+| `RUN-01` | Open Design يعيد 202 ثم فشل المزود | لا يعلن نجاحاً؛ يعرض failed، ولا deliverableValid زائف |
+| `SUPPLY-01` | تغيير PDF أو model أو plugin أو recording | رفض hash/signature قبل الاستيراد أو التنفيذ |
+| `SMOKE-01` | تشغيل المكدس الذاتي على commits المثبتة | health + chat + embed + RAG + ذاكرة + audit ناجحة فعلياً |
+
+## 10. قرار الجمع بعد الإصلاحات
+
+- **القاعدة الذاتية:** `Langflow + Ollama + Qdrant/PostgreSQL محلي` مع بوابة الهوية والشبكة والأسرار والتدقيق.
+- **التصميم والوسائط:** `Open Design + OpenCode + Ollama` عند الحاجة، وHyperFrames محلياً إذا توفر Chrome/FFmpeg. تبدأ دون مزودي وسائط خارجيين.
+- **Awesome:** تُنقل فقط الأنماط المصلحة إلى Langflow custom components/workers؛ لا يُنقل `local_chatgpt_with_memory` قبل إصلاح IDOR، ولا `local_rag_agent` قبل إصلاح المصدر والتعقيم.
+- **Open Design ↔ Langflow:** لا تكامل أصيل مثبت؛ يُختبر MCP أو OpenAI-compatible كواجهة مستقلة قبل الاعتماد، ولا يُفترض أنه يعمل لمجرد تشابه الاسم.
+- **الخدمات الخارجية:** اختيارية خلف policy gateway مع allowlist وأسرار وحدود وتدقيق، وليست شرطاً للقاعدة المحلية.
+
+**النتيجة النهائية:** الجمع صالح هندسياً، لكن الإنتاج يبدأ بعد اجتياز `P0` ثم `P1` ومصفوفة القبول. قبل ذلك تكون المكونات **Production-shaped أو DEMO بحسب الحالة الموثقة، لا نظاماً آمناً مكتملاً**.

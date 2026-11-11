@@ -1,0 +1,47 @@
+version: v2
+title: التشغيل والحماية والإنتاج والجمع
+size: [1080, 1680]
+customFonts:
+  - family: Noto Kufi Arabic
+    src: "https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic"
+  - family: Noto Sans Arabic
+    src: "https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic"
+theme:
+  colors:
+    ink: "#10151D"
+    panel: "#182230"
+    panel2: "#202D3D"
+    sand: "#F3EEE6"
+    muted: "#9AA9B9"
+    green: "#62D4A4"
+    amber: "#F0B65B"
+    red: "#F07D78"
+    blue: "#72A9F8"
+  textStyles:
+    title:
+      fontFamily: Noto Kufi Arabic
+      fontSize: 36
+      color: "$sand"
+      bold: true
+    repo:
+      fontFamily: Noto Kufi Arabic
+      fontSize: 22
+      color: "$sand"
+      bold: true
+    body:
+      fontFamily: Noto Sans Arabic
+      fontSize: 17
+      color: "$sand"
+      lineHeight: 1.35
+    small:
+      fontFamily: Noto Sans Arabic
+      fontSize: 14
+      color: "$muted"
+      lineHeight: 1.3
+    badge:
+      fontFamily: Noto Kufi Arabic
+      fontSize: 15
+      color: "$sand"
+      bold: true
+pages:
+  - pages/1_التقييم.page
