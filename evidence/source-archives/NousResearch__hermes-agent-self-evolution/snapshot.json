@@ -1,0 +1,22 @@
+{
+  "repository": "NousResearch/hermes-agent-self-evolution",
+  "commit": "0a929e3aa20e15cf04dc7c28492a7d41a5139125",
+  "source_url": "https://github.com/NousResearch/hermes-agent-self-evolution/tree/0a929e3aa20e15cf04dc7c28492a7d41a5139125",
+  "recovery_method": "git fetch --depth 1 COMMIT followed by git archive FETCH_HEAD over SSH",
+  "commit_verified_against_github_api": true,
+  "recovery_type": "RECONSTRUCTED_UPSTREAM_WORKTREE_NOT_ORIGINAL_LOCAL_DIRECTORY",
+  "includes_git_directory": false,
+  "archive_file_name": "NousResearch__hermes-agent-self-evolution.0a929e3aa20e.worktree.tar.gz",
+  "archive_bytes": 62797,
+  "archive_sha256": "020f8e632d8c6a1d7635fdeca1d2102277efc076d1c31e87f51adc56534c0263",
+  "archive_entries": 30,
+  "gzip_test": "PASS",
+  "files": [
+    {
+      "path": "evidence/source-archives/NousResearch__hermes-agent-self-evolution/NousResearch__hermes-agent-self-evolution.0a929e3aa20e.worktree.tar.gz",
+      "bytes": 62797,
+      "sha256": "020f8e632d8c6a1d7635fdeca1d2102277efc076d1c31e87f51adc56534c0263"
+    }
+  ],
+  "recovered_at": "2026-11-11T11:59:33.065463+00:00"
+}
