@@ -11,6 +11,8 @@
 - **شهادة سلامة اللقطات:** `evidence/source-archives/VERIFICATION.md`
 - **حدود الاستعادة:** `evidence/RECOVERY-2026-11-11.md`
 
+- **Thinking Machines — التفاعل المستمر:** [مرجع بحثي وتصميمي](evidence/research/THINKING-MACHINES-INTERACTION-MODELS-2026-11-13.md)؛ ليس نموذجاً جاهزاً للتشغيل.
+
 ## الأقسام
 
 - `evidence/deliverables/` — التقارير والملخصات والفهارس التي يمكن قراءتها دون تنزيل كل المصادر.

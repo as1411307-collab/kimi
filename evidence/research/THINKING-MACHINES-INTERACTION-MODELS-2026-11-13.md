@@ -1,6 +1,8 @@
 # Thinking Machines Lab — Interaction Models
 ## إضافة بحثية مستقلة إلى مكتبة Kimi
 
+**روابط المكتبة:** [الرئيسية](../../README.md) · [منظومة البحث والمكتبة والاستدلال](RESEARCH.md).
+
 - **تاريخ الإضافة والتحقق:** 13 نوفمبر 2026.
 - **المصدر الأساسي:** Thinking Machines Lab — [Interaction Models: A Scalable Approach to Human-AI Collaboration](https://thinkingmachines.ai/blog/interaction-models/)، نُشر في 11 مايو 2026؛ DOI: [10.64434/tml.20260511](https://doi.org/10.64434/tml.20260511).
 - **مصدر تحليلي مستقل:** [DeepLearning.AI — Built-In Conversational Interactivity](https://www.deeplearning.ai/the-batch/built-in-conversational-interactivity) (22 مايو 2026).
