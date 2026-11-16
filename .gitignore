@@ -1,0 +1,12 @@
+# Keep local runtime data and credentials out of research history.
+**/.env
+**/.env.*
+!**/.env.example
+!**/.env.sample
+**/__pycache__/
+**/*.py[cod]
+**/.DS_Store
+**/node_modules/
+**/.venv/
+# A nested clone's Git database does not belong in this evidence repository.
+**/_git/

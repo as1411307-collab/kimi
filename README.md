@@ -8,6 +8,7 @@
 - **دليل بناء تطبيق آيفون والوكيل:** `docs/APP-GUIDE.md`
 - **مصدر وحدود Core القديم:** `reference/ahmed-v01/PROVENANCE.md`
 - **قرار التنظيف وما حُذف وما بقي:** `evidence/CLEANUP.md`
+- **تنظيف مقترح في 16 نوفمبر 2026:** `evidence/CLEANUP-2026-11-16.md` (فرع مراجعة فقط؛ دون دمج).
 - **شهادة سلامة اللقطات:** `evidence/source-archives/VERIFICATION.md`
 - **حدود الاستعادة:** `evidence/RECOVERY-2026-11-11.md`
 
