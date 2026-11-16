@@ -1,6 +1,7 @@
 # sha256<TAB>bytes<TAB>path — cleaned evidence manifest (kimi @ main; MANIFEST.txt excluded)
 ab40bc4e849326a5d645feae4738147b3c61daece2e8c7067e113a37d8deedd3	2604	evidence/CLEANUP.json
 c2e13b85cea35a69bde3695a25904e2ab1ffba06b68b68a64c2c241ceb8cc92a	2668	evidence/CLEANUP.md
+33556f8fc9f101d67d1ce4fdfd8dd6b44ee757784efbb35d05f43dbf785baa2b	4614	evidence/CLEANUP-2026-11-16.md
 75a205f495c940fe2a5061469f500f59b4ef001e85629d83765137b2d8f71fdf	1907	evidence/MANIFEST-CHUNKS.txt
 68306fe44855dbe4bd72f67f0158e3bee27dea582343f9d77eed11f816b95956	1806	evidence/RECOVERY-2026-11-11.md
 618c9b7ecb04032a07d309d42e493b7d0829fad5cd414a15ae81002aade50b8c	139888	evidence/deliverables/manifest-إثراء-الجمع.json
