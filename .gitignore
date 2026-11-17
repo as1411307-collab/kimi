@@ -10,3 +10,15 @@
 **/.venv/
 # A nested clone's Git database does not belong in this evidence repository.
 **/_git/
+
+# Runtime databases are local state, not research evidence or reusable code.
+**/*.sqlite
+**/*.sqlite3
+**/*.sqlite-wal
+**/*.sqlite-shm
+**/*.sqlite3-wal
+**/*.sqlite3-shm
+**/*.db
+**/*.db-wal
+**/*.db-shm
+**/.cache/
