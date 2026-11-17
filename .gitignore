@@ -22,3 +22,6 @@
 **/*.db-wal
 **/*.db-shm
 **/.cache/
+**/*.sqlite-journal
+**/*.sqlite3-journal
+**/*.db-journal
