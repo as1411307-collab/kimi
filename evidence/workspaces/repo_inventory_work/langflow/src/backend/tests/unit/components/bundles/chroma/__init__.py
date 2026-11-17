@@ -1,1 +1,0 @@
-"""Chroma components test package."""

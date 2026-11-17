@@ -1,1 +1,0 @@
-"""ALTK components test package."""
