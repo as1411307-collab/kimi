@@ -1,1 +1,0 @@
-"""FAISS components test package."""

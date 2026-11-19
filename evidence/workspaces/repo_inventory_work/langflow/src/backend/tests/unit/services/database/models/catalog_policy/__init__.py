@@ -1,1 +1,0 @@
-"""Catalog policy model tests."""

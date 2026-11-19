@@ -1,31 +1,11 @@
-# مكتبة المصادر والبحث والاستدلال
+# Unified AI Personal — historical repository
 
-هذا المستودع أصل منقول وذاكرة خارجية للمشروع، وليس تطبيق وكيل مكتمل.
+This repository is **not** the executable iPhone application, Python server, or source for building either component.
 
-## ابدأ من هنا
+The active application is maintained in [yjtjcfc5cm-boop](https://github.com/as1411307-collab/yjtjcfc5cm-boop); project requirements are tracked separately in [chat-GBT](https://github.com/as1411307-collab/chat-GBT).
 
-- **منظومة البحث والمكتبة وطرق الاستدلال والفجوات:** `evidence/research/RESEARCH.md`
-- **دليل بناء تطبيق آيفون والوكيل:** `docs/APP-GUIDE.md`
-- **مصدر وحدود Core القديم:** `reference/ahmed-v01/PROVENANCE.md`
-- **قرار التنظيف وما حُذف وما بقي:** `evidence/CLEANUP.md`
-- **تنظيف مقترح في 16 نوفمبر 2026:** `evidence/CLEANUP-2026-11-16.md` (فرع مراجعة فقط؛ دون دمج).
-- **شهادة سلامة اللقطات:** `evidence/source-archives/VERIFICATION.md`
-- **حدود الاستعادة:** `evidence/RECOVERY-2026-11-11.md`
+This cleanup removes bundled third-party source archives, research workspaces, exploratory packages, historical core snapshots, and generated research artifacts from the **current branch tree**. None of these are required by the SwiftUI app or FastAPI server.
 
-- **Thinking Machines — التفاعل المستمر:** [مرجع بحثي وتصميمي](evidence/research/THINKING-MACHINES-INTERACTION-MODELS-2026-11-13.md)؛ ليس نموذجاً جاهزاً للتشغيل.
+Earlier Git commits and other branches still retain their historical contents. Removing those requires a separate history-rewrite operation, which this cleanup does not perform.
 
-## الأقسام
-
-- `evidence/deliverables/` — التقارير والملخصات والفهارس التي يمكن قراءتها دون تنزيل كل المصادر.
-- `evidence/packages/` — ملفات منتقاة من الإضافات مع مصادرها وتراخيصها.
-- `evidence/workspaces/` — مواد الجرد ومساحة العمل المنشورة.
-- `evidence/source-archives/` — لقطات المصادر عند commits محددة مع `snapshot.json` و`manifest.json` وشهادة التحقق.
-- `reference/ahmed-v01/` — Core قديم موثق بعقوده واختباراته، بعد تكييفه مع `node:sqlite` وإزالة التبعيات المتعثرة.
-
-## قواعد الاستخدام
-
-- اقرأ الملخص من الهاتف، ولا تستنسخ المستودع كاملاً إلا عند الحاجة.
-- استخدم `MANIFEST.txt` و`manifest.json` للوصول إلى ملف محدد.
-- اللقطات المجزأة تُجمع أولاً ثم يطابق `SHA-256` قبل فك الضغط.
-- المعلومة ليست حقيقة بمجرد وجودها في المكتبة: راجع مصدرها ونوعها وتاريخها وحالتها.
-- الألعاب وصناعة الألعاب مستبعدة من نطاق المشروع.
+Do not add vendor libraries, large archives, generated reports, or temporary study files back to the application repositories.
